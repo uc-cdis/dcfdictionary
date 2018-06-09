@@ -26,23 +26,24 @@ systemProperties:
 
 required:
   - submitter_id
-  - cases
+  - subjects
+  - type
 
 uniqueKeys:
   - [id]
   - [project_id, submitter_id]
 
 links:
-  - name: cases
+  - name: subjects
     backref: samples
     label: derived_from
-    target_type: case
+    target_type: subject
     multiplicity: many_to_one #not sure
     required: true
-  - name: diagnoses
+  - name: follow_ups
     backref: samples
-    label: related_to
-    target_type: diagnosis
+    label: collect_at
+    target_type: follow_up
     multiplicity: many_to_one
     required: false
 
@@ -673,9 +674,9 @@ properties:
       - Not Reported
       - Not Allowed To Collect
     description: "A description of the tumor from which the sample was derived." # TOREVIEW
-  cases:
+  subjects:
     $ref: "_definitions.yaml#/to_one"
-  diagnoses:
+  follow_ups:
     $ref: "_definitions.yaml#/to_one"
   project_id:
     type: string

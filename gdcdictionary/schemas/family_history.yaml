@@ -21,10 +21,10 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: cases
+  - name: subjects
     backref: family_histories
     label: describes
-    target_type: case
+    target_type: subject
     multiplicity: many_to_one
     required: true
 
@@ -84,7 +84,7 @@ properties:
       $ref: "_terms.yaml#/primary_diagnosis"
     type: string
 
-  cases:
+  subjects:
     $ref: "_definitions.yaml#/to_one"
   project_id:
     $ref: "_definitions.yaml#/project_id"

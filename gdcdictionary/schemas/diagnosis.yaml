@@ -23,32 +23,17 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: cases
+  - name: follow_ups
     backref: diagnoses
     label: describes
-    target_type: case
+    target_type: follow_up
     multiplicity: many_to_one
     required: true
 
 required:
-  - age_at_diagnosis
-  - days_to_last_follow_up
-  - vital_status
   - primary_diagnosis
-  - morphology
-  - tissue_or_organ_of_origin
   - site_of_resection_or_biopsy
-  - classification_of_tumor
-  - tumor_stage
-  - tumor_grade
-  - progression_or_recurrence
-  - days_to_recurrence
-  - days_to_last_known_disease_status
-  - last_known_disease_status
-
-preferred:
-  - days_to_birth
-  - site_of_resection_or_biopsy
+  - type
 
 uniqueKeys:
   #unclear if want submitter ID for clinical
@@ -382,8 +367,8 @@ properties:
     term:
       $ref: "_terms.yaml#/cause_of_death"
     enum:
-      - Cancer Related 
-      - Not Cancer Related 
+      - Cancer Related
+      - Not Cancer Related
       - Unknown
 
   circumferential_resection_margin:
@@ -464,6 +449,10 @@ properties:
       - number
       - "null"
 
+  disease_diagnosis:
+  description: "Name of the disease diagnosed for the subject in a specific follow up."
+  type: string
+
   figo_stage:
     term:
       $ref: "_terms.yaml#/figo_stage"
@@ -500,7 +489,7 @@ properties:
       $ref: "_terms.yaml#/hiv_positive"
     enum:
       - "Yes"
-      - "No" 
+      - "No"
       - Unknown
 
   hpv_positive_type:
@@ -519,6 +508,22 @@ properties:
       - Negative
       - Positive
       - Unknown
+
+  hcv_status:
+    description: >
+      Text term to signify whether a physician has diagnosed HCV infection in a patient.
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+
+  hbv_status:
+  description: >
+    Text term to signify whether a physician has diagnosed HBV infection in a patient.
+  enum:
+    - "Yes"
+    - "No"
+    - Unknown
 
   last_known_disease_status:
     term:
@@ -559,7 +564,7 @@ properties:
   lymph_nodes_positive:
     term:
       $ref: "_terms.yaml#/lymph_nodes_positive"
-    type: integer 
+    type: integer
 
   lymphatic_invasion_present:
     term:
@@ -832,7 +837,7 @@ properties:
       - number
       - "null"
 
-  cases:
+  follow_ups:
     $ref: "_definitions.yaml#/to_one"
   project_id:
     $ref: "_definitions.yaml#/project_id"

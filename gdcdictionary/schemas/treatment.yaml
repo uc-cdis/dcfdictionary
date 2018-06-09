@@ -22,10 +22,10 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: diagnoses
+  - name: follow_ups
     backref: treatments
     label: describes #need better term here
-    target_type: diagnosis
+    target_type: follow_up
     multiplicity: many_to_one
     required: true
 
@@ -173,7 +173,10 @@ properties:
       $ref: "_terms.yaml#/treatment_outcome"
     enum:
       - Complete Response
+      - Intermediate Resonse
       - Partial Response
+      - Poor Response
+      - Marked Response
       - Treatment Ongoing
       - Treatment Stopped Due to Toxicity
       - Unknown
@@ -191,6 +194,7 @@ properties:
       - Internal Radiation
       - Immunotherapy (Including Vaccines)
       - Other
+      - Peginterferon alpha and ribavirin
       - Pharmaceutical Therapy
       - Radiation Therapy
       - Stem Cell Treatment
@@ -200,7 +204,7 @@ properties:
       - Not Reported
       - Not Allowed To Collect
 
-  diagnoses:
+  follow_ups:
     $ref: "_definitions.yaml#/to_one"
 
   project_id:
