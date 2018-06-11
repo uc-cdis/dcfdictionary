@@ -22,7 +22,7 @@
     "tumor_code": "Osteosarcoma (OS)",
     "tumor_code_id": "00",
     "tumor_descriptor": "NOS",
-    "cases": {
+    "subjects": {
         "submitter_id": "BLGSP-71-06-00019"
     }
 }
