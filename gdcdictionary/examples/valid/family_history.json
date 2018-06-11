@@ -6,7 +6,7 @@
     "relationship_gender": "unspecified",
     "relationship_age_at_diagnosis": 12345,
     "relationship_primary_diagnosis": "cancer",
-    "subejcts": {
+    "subjects": {
         "submitter_id": "patient_z"
     }
 }
