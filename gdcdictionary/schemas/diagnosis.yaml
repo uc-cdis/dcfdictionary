@@ -518,12 +518,12 @@ properties:
       - Unknown
 
   hbv_status:
-  description: >
-    Text term to signify whether a physician has diagnosed HBV infection in a patient.
-  enum:
-    - "Yes"
-    - "No"
-    - Unknown
+    description: >
+      Text term to signify whether a physician has diagnosed HBV infection in a patient.
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
 
   last_known_disease_status:
     term:
