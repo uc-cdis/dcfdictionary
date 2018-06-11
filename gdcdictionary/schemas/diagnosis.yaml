@@ -450,8 +450,8 @@ properties:
       - "null"
 
   disease_diagnosis:
-  description: "Name of the disease diagnosed for the subject in a specific follow up."
-  type: string
+    description: "Name of the disease diagnosed for the subject in a specific follow up."
+    type: string
 
   figo_stage:
     term:
