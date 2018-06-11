@@ -2,12 +2,6 @@
     "type": "study",
     "submitter_id": "experiment_1",
     "study_description" : "experiment to test case and control",
-    "number_experimental_group": 1,
-    "number_samples_per_experimental_group": 12,
-    "experimental_description": "Case/Control, Time Course, Responder/Non-Responder",
-    "experimental_intent": "Temperature, Storage Duration, and Tube Type effects on ctDNA stability",
-    "type_of_sample": "Clinical",
-    "type_of_specimen": "Plasma",
     "projects": {
         "submitter_id": "P0001"
     }
