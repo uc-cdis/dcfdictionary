@@ -20,7 +20,7 @@
     "microsatellite_instability_abnormal": "Yes",
     "progesterone_receptor_percent_positive_ihc": "<1%",
     "progesterone_receptor_result_ihc": "Positive",
-    "cases": {
+    "subjects": {
         "submitter_id": "Extra large case"
     },
     "diagnoses": {
