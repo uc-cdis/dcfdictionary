@@ -30,7 +30,7 @@
     "tumor_stage": "stage iiia",
     "vital_status": "dead",
     "year_of_diagnosis": 2077,
-    "subjects": {
+    "follow_ups": {
         "submitter_id": "BLGSP-71-06-00019"
     }
 }
