@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "exposure"
 title: Exposure
 type: object
-namespace: http://gdc.nci.nih.gov
+namespace: https://www.gtexportal.org/
 category: clinical
 program: '*'
 project: '*'
@@ -38,20 +38,20 @@ uniqueKeys:
   - [project_id, submitter_id]
 
 properties:
-  type:
-    enum: [ "exposure" ]
+  $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  id:
-    $ref: "_definitions.yaml#/UUID"
-    systemAlias: node_id
+  alcohol_current_status:
+    description: >
+      Alcohol: current use
+    type: boolean
 
-  state:
-    $ref: "_definitions.yaml#/state"
-
-  submitter_id:
-    type:
-      - string
-      - "null"
+  alcohol_status:
+    description: >
+      Alcohol use
+    enum:
+      - "NEVER"
+      - "FORMER"
+      - "CURRENT"
 
   alcohol_history:
     term:
@@ -63,9 +63,71 @@ properties:
       $ref: "_terms.yaml#/alcohol_intensity"
     type: string
 
+  alcohol_start_age:
+    description: >
+      Alcohol: age started drinking
+    type: number
+
+  anthro_protocol_modification:
+    description: >
+      Comments, anthro protocol modification
+    type: boolean
+
   bmi:
     term:
       $ref: "_terms.yaml#/bmi"
+    type: number
+
+  bmi_category:
+    description: >
+      Body mass index, who categories
+    enum:
+      - "NORMAL"
+      - "GRADE 1 OVERWEIGHT"
+      - "GRADE 2 OVERWEIGHT"
+      - "GRADE 3 OVERWEIGHT"
+
+  bsa:
+    description: >
+      Body surface area
+    type: number
+
+  chewing_smoked_20_lifetime:
+    description: >
+      Chewed tobacco at least 20 times in lifetime
+    type: boolean
+
+  chewing_smoking_start_age:
+    description: >
+      Chewing tobacco: age started use
+    type: number
+
+  chewing_smoking_last_month:
+    description: >
+      Chewing tobacco: used in last 30 days
+    type: boolean
+
+  chewing_smoking_quit_age:
+    description: >
+      Chewing tobacco: age quit use
+    type: number
+
+  chewing_per_day:
+    description: >
+      Chewing tobacco: average # uses per day
+    type: number
+
+  chewing_status:
+    description: >
+      Chewing tobacco use
+    enum:
+      - "NEVER"
+      - "FORMER"
+      - "CURRENT"
+
+  chewing_amount:
+    description: >
+      Chewing tobacco amount (# times chewed per day * years)
     type: number
 
   cigarettes_per_day:
@@ -73,45 +135,287 @@ properties:
       $ref: "_terms.yaml#/cigarettes_per_day"
     type: number
 
+  cigarettes_smoking_status:
+    description: >
+      Cigarette smoking status
+    enum:
+      - "NEVER"
+      - "FORMER"
+      - "CURRENT"
+
+  cigarettes_smoked_100_lifetime:
+    description: >
+      Smoked at least 100 cigarettes in lifetime
+    type: boolean
+
+  cigarettes_smoking_start_age:
+    description: >
+      Cigarettes: age started smoking
+    type: number
+
+  cigarettes_smoking_last_month:
+    description: >
+      Cigarettes: smoked in last 30 days
+    type: boolean
+
+  cigarettes_smoking_quit_age:
+    description: >
+      Cigarettes: age quit smoking
+    type: number
+
+  cigars_smoked_20_lifetime:
+    description: >
+      Smoked more than 20 cigars in lifetime
+    type: boolean
+
+  cigars_smoking_start_age:
+    description: >
+      Cigars: age started smoking
+    type: number
+
+  cigars_smoking_last_month:
+    description: >
+      Cigars: smoked in last 30 days
+    type: boolean
+
+  cigars_smoking_quit_age:
+    description: >
+      Cigars: age quit smoking
+    type: number
+
+  cigars_per_day:
+    description: >
+      Cigars: average # smoked per day
+    type: number
+
+  cigar_smoking_status:
+    description: >
+      Cigar smoking status
+    enum:
+      - "NEVER"
+      - "FORMER"
+      - "CURRENT"
+
+  cigar_amount:
+    description: >
+      Cigar smoking amount (cigars per day * years)
+    type: number
+
+  consumed_alcohol:
+    description: >
+      Ever consumed alcoholic beverages
+    type: boolean
+
+  current_drinks_per_week:
+    description: >
+      # drinks per week (current drinkers)
+    type: number
+
+  current_years_drinking:
+    description: >
+      # years drinking alcohol (current drinkers)
+    type: number
+
+  drinks_past_24h:
+    description: >
+      Drinks in past 24 hours (current drinkers)
+    type: number
+
+  former_drinker_years:
+    description: >
+      # years drinking alcohol (former drinkers)
+    type: number
+
+  former_wine_drinker:
+    description: >
+      Drank wine (former drinkers)
+    type: boolean
+
+  former_beer_drinker:
+    description: >
+      Drank beer (former drinkers)
+    type: boolean
+
+  former_liquor_drinker:
+    description: >
+      Hard liquor (former drinkers)
+    type: boolean
+
+  former_other_drinker:
+    description: >
+      Other alcohol (former drinkers)
+    type: boolean
+
+  former_drinks_per_week:
+    description: >
+      # drinks per week when drinking (former drinkers)
+    type: number
+
+  years_drinking:
+    description: >
+      # years drinking alcohol (current and former drinkers)
+    type: number
+
+  drinks_per_week:
+    description: >
+      # drinks per week (current and former drinkers)
+    type: number
+
+  form_completed_at_home:
+    description: >
+      Form completed at home
+    type: boolean
+
+  form_completed_at_clinic:
+    description: >
+      Form completed at clinic
+    type: boolean
+
+  girth_protocol_modification:
+    description: >
+      Girth, protocol modification
+    type: boolean
+
   height:
     term:
       $ref: "_terms.yaml#/height"
     type: number
+
+  height_protocol_modification:
+    description: >
+      Height, protocol modification
+    type: boolean
+
+  hip_circumference:
+    description: >
+      Hip circumference (cm)
+    type: number
+
+  hours_smoke_exposed_per_week:
+    description: >
+      Exposure to second-hand smoke, hours per week
+    type: number
+
+  largest_drink_one_day:
+    description: >
+      Largest # of drinks in one day, in past month (current drinkers)
+    type: number
+
+  other_tobacco_used:
+    description: >
+      Ever used other tobacco products
+    type: boolean
 
   pack_years_smoked:
     term:
       $ref: "_terms.yaml#/pack_years_smoked"
     type: number
 
-  tobacco_smoking_onset_year:
-    term:
-      $ref: "_terms.yaml#/tobacco_smoking_onset_year"
-    type: integer
+  pipe_smoked_20_lifetime:
+    description: >
+      Smoked at least 20 pipefuls of tobacco in lifetime
+    type: boolean
 
-  tobacco_smoking_quit_year:
-    term:
-      $ref: "_terms.yaml#/tobacco_smoking_quit_year"
-    type: integer
+  pipe_smoking_start_age:
+    description: >
+      Pipe: age started smoking
+    type: number
 
-  tobacco_smoking_status:
-    term:
-      $ref: "_terms.yaml#/tobacco_smoking_status"
+  pipe_smoking_last_month:
+    description: >
+      Pipe: smoked in last 30 days
+    type: boolean
+
+  pipe_smoking_quit_age:
+    description: >
+      Pipe: age quit smoking
+    type: number
+
+  pipe_per_day:
+    description: >
+      Pipe: average # smoked per day
+    type: number
+
+  pipe_smoking_status:
+    description: >
+      Pipe smoking status
     enum:
-      - 1
-      - 2
-      - 3
-      - 4
-      - 5
-      - 6
-      - 7
-      - Unknown
-      - Not Reported
-      - Not Allowed To Collect
+      - "NEVER"
+      - "FORMER"
+      - "CURRENT"
+
+  pipe_amount:
+    description: >
+      Pipe smoking amount (pipefuls per day * years)
+    type: number
+
+  questionnaire_administrator:
+    description: >
+      Questionnaire administrator - personal history
+    enum:
+      - "SELF-ADMIN"
+      - "INTERVIEWER-ADMIN"
+
+  questionnaire_administration_mode:
+    description: >
+      Pa questionnaire: mode of administration
+    enum:
+      - "MISSING"
+      - "SELF-ADMINISTERED"
+      - "INTERVIEWER-ADMINISTERED"
+
+  snuff_status:
+    description: >
+      Snuff use
+    enum:
+      - "NEVER"
+      - "FORMER"
+      - "CURRENT"
+
+  snuff_amount:
+    description: >
+      Snuff use amount (# times use per day * years)
+    type: number
+
+  snuff_smoked_20_lifetime:
+    description: >
+      Used snuff at least 20 times in lifetime
+    type: boolean
+
+  snuff_smoking_start_age:
+    description: >
+      Snuff: age started use
+    type: number
+
+  snuff_smoking_last_month:
+    description: >
+      Snuff: used in last 30 days
+    type: boolean
+
+  snuff_smoking_quit_age:
+    description: >
+      Snuff: age quit use
+    type: number
+
+  snuff_per_day:
+    description: >
+      Snuff: average # uses per day
+    type: number
+
+  waist:
+    description: >
+      Waist circumference (cm)
+    type: number
 
   weight:
     term:
       $ref: "_terms.yaml#/weight"
     type: number
+
+  weight_protocol_modification:
+    description: >
+      Weight, protocol modification
+    type: boolean
 
   years_smoked:
     term:
@@ -120,9 +424,3 @@ properties:
 
   subjects:
     $ref: "_definitions.yaml#/to_one"
-  project_id:
-    $ref: "_definitions.yaml#/project_id"
-  created_datetime:
-    $ref: "_definitions.yaml#/datetime"
-  updated_datetime:
-    $ref: "_definitions.yaml#/datetime"
