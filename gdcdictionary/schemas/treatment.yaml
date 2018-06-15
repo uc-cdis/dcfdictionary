@@ -25,7 +25,7 @@ links:
   - name: diagnoses
     backref: treatments
     label: describes #need better term here
-    target_type: diagnose
+    target_type: diagnosis
     multiplicity: one_to_one
     required: true
 
