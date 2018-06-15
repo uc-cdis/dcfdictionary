@@ -207,6 +207,9 @@ properties:
   follow_ups:
     $ref: "_definitions.yaml#/to_one"
 
+  diagnoses:
+    $ref: "_definitions.yaml#/to_one"
+
   project_id:
     $ref: "_definitions.yaml#/project_id"
 

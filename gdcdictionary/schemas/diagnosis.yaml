@@ -846,6 +846,10 @@ properties:
 
   follow_ups:
     $ref: "_definitions.yaml#/to_one"
+
+  subjects:
+    $ref: "_definitions.yaml#/to_one"
+
   project_id:
     $ref: "_definitions.yaml#/project_id"
   created_datetime:
