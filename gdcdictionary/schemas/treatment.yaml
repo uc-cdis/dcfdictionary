@@ -22,11 +22,11 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: follow_ups
+  - name: diagnoses
     backref: treatments
     label: describes #need better term here
-    target_type: follow_up
-    multiplicity: many_to_one
+    target_type: diagnose
+    multiplicity: one_to_one
     required: true
 
 

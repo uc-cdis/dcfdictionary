@@ -23,12 +23,19 @@ systemProperties:
   - updated_datetime
 
 links:
+  - name: subjects
+    backref: diagnoses
+    label: describes
+    target_type: subject
+    multiplicity: one_to_one
+    required: true
+
   - name: follow_ups
     backref: diagnoses
     label: describes
     target_type: follow_up
-    multiplicity: many_to_one
-    required: true
+    multiplicity: one_to_one
+    required: false
 
 required:
   - primary_diagnosis
