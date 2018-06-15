@@ -1,0 +1,8 @@
+{
+    "type": "study",
+    "submitter_id": "experiment_1",
+    "study_description" : "experiment to test case and control",
+    "projects": {
+        "submitter_id": "P0001"
+    }
+}

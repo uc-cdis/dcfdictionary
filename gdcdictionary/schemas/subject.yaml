@@ -1,0 +1,88 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "subject"
+title: Subject
+type: object
+namespace: http://gdc.nci.nih.gov
+category: administrative
+program: '*'
+project: '*'
+description: >
+  The collection of all data related to a specific subject in the
+  context of a specific study.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+
+links:
+  - name: studies
+    backref: subjects
+    label: member_of
+    target_type: study
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - studies
+  - type
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+# Subject properties
+properties:
+  type:
+    type: string
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+  state:
+    $ref: "_definitions.yaml#/state"
+  submitter_id:
+    type:
+      - string
+      - "null"
+  primary_site:
+    description: "Primary site for the subject."
+    type: string
+  disease_type:
+    description: "Name of the disease for the subject."
+    type: string
+  species:
+    description: "Taxonomic species of the subject."
+    enum:
+     - Drosophila melanogaster
+     - Homo sapiens
+     - Mus musculus
+     - Mustela putorius furo
+     - Rattus rattus
+     - Sus scrofa
+  strain:
+    description: >
+      A lower-level taxonomic rank used in microbiology or virology, plants and rodents, usually at the intraspecific level (within a species)
+    type: string
+  index_date:
+    description: >
+      The reference or anchor date used during date obfuscation, where a single date is obscurred by creating one or more date ranges in relation to this date.
+    enum:
+      - Diagnosis
+      - First Patient Visit
+      - Study Enrollment
+      - Infection
+  studies:
+    $ref: "_definitions.yaml#/to_one"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"

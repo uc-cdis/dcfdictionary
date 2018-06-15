@@ -1,0 +1,20 @@
+
+{
+    "visit_number": 11,
+    "visit_id": 10103014,
+    "visit_type": "Follow-up Visit",
+    "visit_date": 1998,
+    "age_at_visit": 35,
+    "bmi": -1.0,
+    "height": 183,
+    "ever_transferred": "Never transferred",
+    "version_data": "v40",
+    "weight": 85,
+    "health_insurance": true,
+    "drug_used": "Yes",
+    "submitter_id": "MACS_visit_110",
+    "subjects": {
+        "submitter_id": "BLGSP-71-06-00019"
+    },
+    "type": "follow_up"
+}
