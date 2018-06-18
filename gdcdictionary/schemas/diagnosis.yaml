@@ -751,7 +751,7 @@ properties:
   pathological_gleason_score:
     description: >
       pathological gleason score
-    type: int
+    type: integer
 
   pathological_staged:
     description: >
