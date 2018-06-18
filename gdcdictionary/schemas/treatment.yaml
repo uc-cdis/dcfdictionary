@@ -44,7 +44,7 @@ properties:
   days_to_surgeon_present:
     description: >
       The number of days between case index date and the date surgeon is present.
-    type: int
+    type: integer
 
   days_to_treatment:
     term:
