@@ -8,8 +8,7 @@ category: clinical
 program: '*'
 project: '*'
 description: >
-  Data for the characterization of the patient by means of segementing the population (e.g.,
-  characterization by age, sex, or race).
+  Data for the characterization of the patient by means of segementing the population (e.g.,characterization by age, sex, or race).
 additionalProperties: false
 submittable: true
 validators: null
@@ -31,6 +30,7 @@ links:
 
 required:
   - submitter_id
+  - type
   - subjects
 
 preferred:
@@ -102,6 +102,11 @@ properties:
     term:
       $ref: "_terms.yaml#/year_of_death"
     type: number
+
+  age_range :
+    description: >
+      Range of ages for the subject
+    type: string
 
   subjects:
     $ref: "_definitions.yaml#/to_one"

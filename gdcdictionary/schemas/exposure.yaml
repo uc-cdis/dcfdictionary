@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "exposure"
 title: Exposure
 type: object
-namespace: https://www.gtexportal.org/
+namespace: https://acct/bionimbus.org
 category: clinical
 program: '*'
 project: '*'
@@ -31,6 +31,11 @@ links:
 preferred:
   - cigarettes_per_day
   - years_smoked
+
+required:
+  - submitter_id
+  - type
+  - subjects
 
 uniqueKeys:
   #unclear if want submitter ID for clinical
@@ -204,6 +209,11 @@ properties:
   consumed_alcohol:
     description: >
       Ever consumed alcoholic beverages
+    type: boolean
+
+  consumed_tobacco:
+    description: >
+      Ever consumed tobacco
     type: boolean
 
   current_drinks_per_week:
@@ -420,7 +430,7 @@ properties:
   years_smoked:
     term:
       $ref: "_terms.yaml#/years_smoked"
-    type: number
+    type: string
 
   subjects:
     $ref: "_definitions.yaml#/to_one"

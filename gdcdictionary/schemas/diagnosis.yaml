@@ -3,14 +3,12 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "diagnosis"
 title: Diagnosis
 type: object
-namespace: http://gdc.nci.nih.gov
+namespace: https://acct/bionimbus.org
 category: clinical
 program: '*'
 project: '*'
 description: >
-  Data from the investigation, analysis and recognition of the presence and nature of disease,
-  condition, or injury from expressed signs and symptoms; also, the scientific determination of any
-  kind; the concise results of such an investigation.
+  Data from the investigation, analysis and recognition of the presence and nature of disease,condition, or injury from expressed signs and symptoms; also, the scientific determination of any kind; the concise results of such an investigation.
 additionalProperties: false
 submittable: true
 validators: null
@@ -27,7 +25,7 @@ links:
     backref: diagnoses
     label: describes
     target_type: subject
-    multiplicity: one_to_one
+    multiplicity: many_to_one
     required: true
 
   - name: follow_ups
@@ -38,9 +36,9 @@ links:
     required: false
 
 required:
-  - primary_diagnosis
-  - site_of_resection_or_biopsy
+  - submitter_id
   - type
+  - subjects
 
 uniqueKeys:
   #unclear if want submitter ID for clinical
@@ -48,20 +46,7 @@ uniqueKeys:
   - [project_id, submitter_id]
 
 properties:
-  type:
-    type: string
-
-  id:
-    $ref: "_definitions.yaml#/UUID"
-    systemAlias: node_id
-
-  state:
-    $ref: "_definitions.yaml#/state"
-
-  submitter_id:
-    type:
-      - string
-      - "null"
+  $ref: "_definitions.yaml#/ubiquitous_properties"
 
   age_at_diagnosis:
     term:
@@ -370,6 +355,11 @@ properties:
       - Not Reported
       - Not Allowed To Collect
 
+  calcifications_flag:
+    description: >
+      Flag indicating whether subject has calcifications diagnosis by mammogram
+    type: boolean
+
   cause_of_death:
     term:
       $ref: "_terms.yaml#/cause_of_death"
@@ -459,6 +449,11 @@ properties:
   disease_diagnosis:
     description: "Name of the disease diagnosed for the subject in a specific follow up."
     type: string
+
+  esophagitis_flag:
+    description: >
+      Flag to indicate whether the subject had esophagitis
+    type: boolean
 
   figo_stage:
     term:
@@ -581,6 +576,11 @@ properties:
       - "No"
       - Unknown
 
+  mamogram_performed:
+    description: >
+      Flag to indicate whether the subject had mamogram test before
+    type: boolean
+
   method_of_diagnosis:
     term:
       $ref: "_terms.yaml#/method_of_diagnosis"
@@ -609,6 +609,11 @@ properties:
     term:
       $ref: "_terms.yaml#/morphology"
     type: string
+
+  multiple_tumor:
+    description: >
+      Flag indicating whether subject present multiple tumors observed by pathology
+    type: boolean
 
   new_event_anatomic_site:
     term:
@@ -743,6 +748,16 @@ properties:
       - Not Reported
       - Not Allowed To Collect
 
+  pathological_gleason_score:
+    description: >
+      pathological gleason score
+    type: int
+
+  pathological_staged:
+    description: >
+      Flag indicating whether subject progressed to pathological stage during or following multimodality therapy
+    type: boolean
+
   perineural_invasion_present:
     term:
       $ref: "_terms.yaml#/perineural_invasion_present"
@@ -750,6 +765,11 @@ properties:
       - "Yes"
       - "No"
       - Unknown
+
+  presenting_symptoms:
+    description: >
+      Symptoms related to diagnosis
+    type: string
 
   primary_diagnosis:
     term:
@@ -775,6 +795,11 @@ properties:
       - Unknown
       - Not Reported
       - Not Allowed To Collect
+
+  prior_treatment:
+    description: >
+      Type of treatment received by the subject before diagnosis
+    type: string
 
   progression_or_recurrence:
     term:
@@ -837,12 +862,22 @@ properties:
       - Not Allowed To Collect
       - pending # this is from TARGET RT clinical data
 
+  years_mamogram_performed:
+    description: >
+      Range of years indicating mamogram was performed to index date
+    type: string
+
   year_of_diagnosis:
     term:
       $ref: "_terms.yaml#/year_of_diagnosis"
     type:
       - number
       - "null"
+
+  years_psa_tested:
+    description: >
+      Range of years indicating psa test was performed before
+    type: string
 
   follow_ups:
     $ref: "_definitions.yaml#/to_one"
