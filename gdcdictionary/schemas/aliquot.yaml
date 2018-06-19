@@ -22,6 +22,7 @@ systemProperties:
 
 required:
   - submitter_id
+  - type
   - samples
 
 uniqueKeys:
@@ -94,6 +95,10 @@ properties:
     term:
       $ref: "_terms.yaml#/source_center"
     type: string
+  a260_a280_ratio:
+    term:
+      $ref: "_terms.yaml#/a260_a280_ratio"
+    type: number
   samples:
     $ref: "_definitions.yaml#/to_one"
   created_datetime:

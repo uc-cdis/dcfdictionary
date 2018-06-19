@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "mRNA_microarray"
 title: mRNA Microarray
 type: object
-namespace: http://gdc.nci.nih.gov
+namespace: https://acct/bionimbus.org
 category: data_file
 program: '*'
 project: '*'
@@ -46,8 +46,10 @@ uniqueKeys:
 
 properties:
   $ref: "_definitions.yaml#/data_file_properties"
-  type:
-    enum: [ "mRNA_microarray" ]
+  array_platform:
+    description: >
+      Type of the CHIP used for microarray
+    type: string
   data_category:
     term:
       $ref: "_terms.yaml#/data_category"
@@ -70,6 +72,8 @@ properties:
       $ref: "_terms.yaml#/experimental_strategy"
     enum:
       - RNA-microarray
+  type:
+    enum: [ "mRNA_microarray" ]
 
   aliquots:
     $ref: "_definitions.yaml#/to_many"

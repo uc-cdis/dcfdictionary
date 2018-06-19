@@ -8,8 +8,7 @@ category: clinical
 program: '*'
 project: '*'
 description: >
-  Record of the administration and intention of therapeutic agents provided to a patient to alter
-  the course of a pathologic process.
+  Record of the administration and intention of therapeutic agents provided to a patient to alter the course of a pathologic process.
 additionalProperties: false
 submittable: true
 validators: null
@@ -29,7 +28,10 @@ links:
     multiplicity: one_to_one
     required: true
 
-
+required:
+  - submitter_id
+  - type
+  - diagnoses
 
 uniqueKeys:
   #unclear if want submitter ID for clinical
@@ -37,20 +39,12 @@ uniqueKeys:
   - [project_id, submitter_id]
 
 properties:
-  type:
-    enum: [ "treatment" ]
+  $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  id:
-    $ref: "_definitions.yaml#/UUID"
-    systemAlias: node_id
-
-  state:
-    $ref: "_definitions.yaml#/state"
-
-  submitter_id:
-    type:
-      - string
-      - "null"
+  days_to_surgeon_present:
+    description: >
+      The number of days between case index date and the date surgeon is present.
+    type: integer
 
   days_to_treatment:
     term:
@@ -66,6 +60,28 @@ properties:
     term:
       $ref: "_terms.yaml#/days_to_treatment_start"
     type: number
+
+  oophorectomy_performed:
+    description: >
+      Flag indicating whether subject has oophorectomy surgeon
+    type: boolean
+
+  oral_contraceptives_taken:
+    description: >
+      Flag indicating whether subject take oral contraceptives
+    type: boolean
+
+  route_of_administration:
+    description: >
+      the path by which a drug, fluid, poison, or other substance is taken into the body
+    enum:
+      - "convenience"
+      - "desired target effect"
+      - "oral"
+      - "local"
+      - "inhalation"
+      - "parenteral"
+      - "intravenous"
 
   therapeutic_agents:
     term:
@@ -172,37 +188,47 @@ properties:
     term:
       $ref: "_terms.yaml#/treatment_outcome"
     enum:
-      - Complete Response
-      - Intermediate Resonse
-      - Partial Response
-      - Poor Response
-      - Marked Response
-      - Treatment Ongoing
-      - Treatment Stopped Due to Toxicity
-      - Unknown
+      - "Complete Response"
+      - "Intermediate Resonse"
+      - "Partial Response"
+      - "Poor Response"
+      - "Marked Response"
+      - "Treatment Ongoing"
+      - "Treatment Stopped Due to Toxicity"
+      - "Unknown"
 
   treatment_type:
     term:
       $ref: "_terms.yaml#/treatment_type"
     enum:
-      - Ablation
-      - Chemotherapy
-      - Concurrent Chemoradiation
-      - Cryoablation
-      - Embolization
-      - Hormone Therapy
-      - Internal Radiation
-      - Immunotherapy (Including Vaccines)
-      - Other
-      - Antiviral Therapy
-      - Pharmaceutical Therapy
-      - Radiation Therapy
-      - Stem Cell Treatment
-      - Surgery
-      - Targeted Molecular Therapy
-      - Unknown
-      - Not Reported
-      - Not Allowed To Collect
+      - "Ablation"
+      - "Chemotherapy"
+      - "Concurrent Chemoradiation"
+      - "Cryoablation"
+      - "Embolization"
+      - "Hormone Therapy"
+      - "Internal Radiation"
+      - "Immunotherapy (Including Vaccines)"
+      - "Other"
+      - "Antiviral Therapy"
+      - "Pharmaceutical Therapy"
+      - "Radiation Therapy"
+      - "Stem Cell Treatment"
+      - "Surgery"
+      - "Targeted Molecular Therapy"
+      - "Unknown"
+      - "Not Reported"
+      - "Not Allowed To Collect"
+
+  years_hormonal_therapy:
+    description: >
+      Range of years the subject has been treated with hormonal therapy
+    type: string
+
+  years_oral_contraceptives:
+    description: >
+      Range of years the subject has been taken oral contraceptives
+    type: string
 
   follow_ups:
     $ref: "_definitions.yaml#/to_one"
