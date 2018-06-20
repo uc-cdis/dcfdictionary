@@ -261,6 +261,7 @@ properties:
       - Stage IVC
       - Stage Tis
       - Stage X
+      - Unknown
 
   ajcc_pathologic_t:
     term:
@@ -443,7 +444,7 @@ properties:
     term:
       $ref: "_terms.yaml#/days_to_recurrence"
     type:
-      - number
+      - string
       - "null"
 
   disease_diagnosis:
@@ -590,6 +591,7 @@ properties:
       - Blood Draw
       - Bone Marrow Aspirate
       - Core Biopsy
+      - Colonoscopy
       - Cytology
       - Debulking
       - Diagnostic Imaging
