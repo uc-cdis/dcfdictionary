@@ -35,10 +35,9 @@ links:
     required: false
 
 required:
-  - biomarker_name
-  - biomarker_result
-  - biomarker_test_method
   - subjects
+  - type
+  - submitter_id
 
 uniqueKeys:
   - [id]
