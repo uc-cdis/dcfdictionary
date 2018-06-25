@@ -13,8 +13,8 @@ deploy:
     secure: iC0DunqFldMpbrMMsEzcbDPGSnLl7SsYEo9O8ZApbWlxpvBCFd5qVemeTDKt1gZVyCn/7PIkDPeJcFJ3l0N623ZxiTQ+RLvRErM/qIbRzU5XKk1NOfKPLQn8LGOvH8uhnJJGCay7lVROm4/rJjQu9U/G4l/J2UqtxoviyVZnS+xNhpKkJ0Et68biqnDuM+6rxFJXuqZVvC3qcwGdCCqtVIskrmtRbNel+F50bgnrm+SeY3e4/scmtRNWBqhsNw1YtnzQUi2iEoPGLiqhI3qTb08Qmf5YtAMzYmai/sjVL27URFPNyAq2QXRn4tuR1Ruz2jIAt8cElv44TEcrnzhF/O086NnecsdFN+2CD7jmfXYD70AiWiTUZSi2fCMsvWciJxHnQxii7yHrZhgYcdI/GY0b8tuIU4tazQDK4nzzwds9xEVAwehuFR7+G6V5a2yirih8C0VWXWI4OKr8OiAQtyMk20JA+3EbFpd2CHMRP8GfUY8b/7UMx20NIdhssMuZuqR//hyUH0xuA3zRgxsJIxaJPKc6ryWYtbHQgs9Uv/YjHWft8EK0GRraEUj3MrMzcraZ9ragoE26pkXCLgGVc/QgvnR/s5Zv3OX6j/to6O2h8D0pRZoBjH1MXaFanIoCKSukaeyo3IRThHOiUpT31SBYffYrcj1wbB5PyD5oBEE=
   bucket: dictionary-artifacts
   local-dir: artifacts
-  upload-dir: acctdictionary/$TRAVIS_BRANCH
+  upload-dir: ccledictionary/$TRAVIS_BRANCH
   skip_cleanup: true
   on:
-    repo: uc-cdis/ACCOuNT_dictionary
+    repo: uc-cdis/ccledictionary
     all_branches: true
