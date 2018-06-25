@@ -25,7 +25,7 @@ links:
     backref: drug_attributes
     label: records for
     target_type: summary_drug_response
-    multiplicity: many_to_many
+    multiplicity: one_to_many
     required: TRUE
 
 uniqueKeys:
