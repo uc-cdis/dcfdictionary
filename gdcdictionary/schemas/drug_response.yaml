@@ -23,7 +23,7 @@ systemProperties:
 links:
   - name: summary_drug_responses
     backref: drug_responses
-    label: records for
+    label: records_for
     target_type: summary_drug_responses
     multiplicity: many_to_one
     required: TRUE
