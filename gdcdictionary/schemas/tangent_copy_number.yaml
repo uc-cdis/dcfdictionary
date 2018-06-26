@@ -1,14 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "mRNA_microarray"
-title: mRNA Microarray
+id: "tangent_copy_number"
+title: Tangent_copy_number
 type: object
-namespace: https://acct/bionimbus.org
+namespace: https://www.dcf/bionimbus.org
 category: data_file
 program: '*'
 project: '*'
-description: >
-  Data file containing raw mRNA microarray intensity.
+description: "Data file containing tangent normalized copy number information from an aliquot."
 additionalProperties: false
 submittable: true
 validators: null
@@ -24,21 +23,27 @@ systemProperties:
 
 links:
   - name: aliquots
-    backref: mRNA_microarrays
-    label: data_for
+    backref: tangent_copy_numbers
+    label: data_from
     target_type: aliquot
     multiplicity: one_to_one
     required: true
 
+  - name: genotyping_arrays
+    backref: tangent_copy_numbers
+    label: data_from
+    target_type: genotyping_array
+    multiplicity: one_to_one
+    required: false
+
 required:
   - submitter_id
+  - type
   - file_name
-  - file_size
-  - data_format
-  - md5sum
   - data_category
   - data_type
-  - experimental_strategy
+  - data_format
+  - aliquots
 
 uniqueKeys:
   - [ id ]
@@ -46,35 +51,44 @@ uniqueKeys:
 
 properties:
   $ref: "_definitions.yaml#/data_file_properties"
-  array_platform:
-    description: >
-      Type of the CHIP used for microarray
-    type: string
+
   data_category:
     term:
       $ref: "_terms.yaml#/data_category"
     enum:
-      - Transcriptome Profiling
+      - Copy Number Variation
+
   data_type:
     term:
       $ref: "_terms.yaml#/data_type"
     enum:
-      - mRNA Expression Quantification
+      - Copy Number Estimate
+
   data_format:
     term:
       $ref: "_terms.yaml#/data_format"
     enum:
       - TXT
-      - TSV
-      - CSV
-      - CEL
+
   experimental_strategy:
     term:
       $ref: "_terms.yaml#/experimental_strategy"
     enum:
-      - RNA-microarray
-  type:
-    enum: [ "mRNA_microarray" ]
+      - Genotyping Array
+
+  platform:
+    term:
+      $ref: "_terms.yaml#/platform"
+    enum:
+      - Illumina Infinium HumanExome BeadChip
+      - Illumina OMNI 5M SNP Array
+      - Illumina OMNI 2.5M SNP Array
+      - Affymetrix Genome-Wide Human SNP Array 6.0
 
   aliquots:
-    $ref: "_definitions.yaml#/to_many"
+    $ref: "_definitions.yaml#/to_one"
+
+  genotyping_arrays:
+    $ref: "_definitions.yaml#/to_one"
+
+
