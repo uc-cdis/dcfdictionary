@@ -75,7 +75,7 @@ properties:
       NCBI release of assemblies made from contiguous sequences assembled in what is thought to be chromosomal order
     type: string
 
-    chromosome:
+  chromosome:
     description: >
       A DNA molecule with part or all of the genetic material of an organism
     type: string
