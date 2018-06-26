@@ -65,5 +65,49 @@ properties:
       The phase of the batch of sequencing for the project
     type: string
 
+  hugo_symbol:
+    description: >
+      Gene symbols defined by hugo gene nomenclature committee
+    type: string
+
+  ncbi_build_version:
+    description: >
+      NCBI release of assemblies made from contiguous sequences assembled in what is thought to be chromosomal order
+    type: string
+
+    chromosome:
+    description: >
+      A DNA molecule with part or all of the genetic material of an organism
+    type: string
+
+  start_position:
+    description: >
+      The strat position on a chromosom
+    type: number
+
+  end_position:
+    description: >
+      The end position on a chromosome
+    type: number
+
+  strand:
+    description: >
+       The two strands of DNA -- the strand that is copied into mRNA and subsequently translated has the complementary sequence to the mRNA, while the base sequence of the opposite strand directly corresponds to the codons in the mRNA
+    enum:
+      - "+"
+      - "-"
+
+  variant_classfication:
+    description: >
+      Type of consequence introduced by variant allele
+    enum:
+      - "Missense_Mutation"
+      - "In_Frame_Del"
+      - "Frame_Shift_Del"
+      - "Nonsense_Mutation"
+      - "Frame_Shift_Ins"
+      - "In_Frame_Ins"
+      - "Silent"
+
   aliquots:
     $ref: "_definitions.yaml#/to_one"
