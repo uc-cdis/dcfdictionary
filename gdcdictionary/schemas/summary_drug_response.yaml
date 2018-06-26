@@ -65,5 +65,10 @@ properties:
       the area between the drug-response curve and a fixed reference
     type: number
 
+  compound:
+    description: >
+      The composition of the drug
+    type: string
+
   samples:
     $ref: "_definitions.yaml#/to_one"
