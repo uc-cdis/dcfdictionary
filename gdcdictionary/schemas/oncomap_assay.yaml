@@ -55,11 +55,6 @@ properties:
       The second allele sequenced in tumor cell line
     type: string
 
-  samples.submitter_id:
-    description: >
-      samples.submitter_id
-    type: string
-
   cohort_center:
     description: >
       Center where the cohort of the assay performed
