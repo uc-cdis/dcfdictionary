@@ -1,0 +1,216 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "oncomap_panel"
+title: Oncomap Panel
+type: object
+namespace: https://dcf/bionimbus.org
+category: notation
+program: '*'
+project: '*'
+description: >
+  Probes information for oncomap platform
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: oncomap_assays
+    backref: oncomap_panels
+    label: records for
+    target_type: oncomap_assay
+    multiplicity: one_to_many
+    required: TRUE
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+required:
+  - submitter_id
+  - type
+  - oncomap_assays
+
+properties:
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  assay_direction:
+    description: >
+      Extention direction of the assay
+    type: string
+
+  wildtype_allele:
+    description: >
+      Wild type extension allele
+    type: string
+
+  variation_allele:
+    description: >
+      Variation extension allele
+    type: string
+
+  hugo_symbol:
+    description: >
+      Gene symbols defined by hugo gene nomenclature committee
+    type: string
+
+  entrez_symbol:
+    description: >
+      Gene ID defined in NCBI's database
+    type: string
+
+  ncbi_build_version:
+    description: >
+      NCBI release of assemblies made from contiguous sequences assembled in what is thought to be chromosomal order
+    type: string
+
+  chromosome:
+    description: >
+      A DNA molecule with part or all of the genetic material of an organism
+    type: string
+
+  start_position:
+    description: >
+      The strat position on a chromosom
+    type: number
+
+  end_position:
+    description: >
+      The end position on a chromosome
+    type: number
+
+  strand:
+    description: >
+       The two strands of DNA -- the strand that is copied into mRNA and subsequently translated has the complementary sequence to the mRNA, while the base sequence of the opposite strand directly corresponds to the codons in the mRNA
+    enum:
+      - "+"
+      - "-"
+
+  variant_classfication:
+    description: >
+      Type of consequence introduced by variant allele
+    enum:
+      - "Missense_Mutation"
+      - "In_Frame_Del"
+      - "Frame_Shift_Del"
+      - "Nonsense_Mutation"
+      - "Frame_Shift_Ins"
+      - "In_Frame_Ins"
+      - "Silent"
+
+  variant_type:
+    description: >
+      The type of allele
+    enum:
+      - "SNP"
+      - "DEL"
+      - "TNP"
+      - "INS"
+      - "DNP"
+      - "ONP"
+
+  reference_allele:
+    description: >
+      A given SNP refers to the nucleotide base on the NCBI reference assembly at the SNP's position
+    type: string
+
+  alternative_allele:
+    description: >
+      Refers to any base, other than the reference, that is found at that locus
+    type: string
+
+  dbSNP_rs:
+    description: >
+      RS number in dbSNP database
+    type: string
+
+  dbSNP_validation:
+    description: >
+      Validation resource for the dbSNP database
+    type: string
+
+  sequencing_phase:
+    description: >
+      The phase of the batch of sequencing for the project
+    type: string
+
+  genomie_change:
+    description: >
+      The reference and alternative allele in genome build
+    type: string
+
+  annotation_transcript:
+    description: >
+      Transcript UCSC ID
+    type: string
+
+  transcript_strand:
+    description: >
+      Strand where the transcript locate
+    enum:
+      - "+"
+      - "-"
+
+  cDNA_change:
+    description: >
+      Reference allele to alternative allele change in cDNA
+    type: string
+
+  codon_change:
+    description: >
+      Reference allele to alternative allele change in coden
+    type: string
+
+  protein_change:
+    description: >
+      Reference allele to alternative allele change in protein
+    type: string
+
+  other_transcripts:
+    description: >
+      Other transcrips changes introduced by the alternative allele
+    type: string
+
+  refseq_mRNA_id:
+    description: >
+      mRNA ID refered in Refseq database
+    type: string
+
+  refseq_protein_id:
+    description: >
+      Protein ID refered in Refseq database
+    type: string
+
+  swissprot_accession_id:
+    description: >
+      Accession ID in SwissProt database
+    type: string
+
+  swissprot_entry_id:
+    description: >
+      Enrty ID in SwissProt database
+    type: string
+
+  gene_description:
+    description: >
+      Description of the gene where the alternative allele locate
+    type: string
+
+  unitport_amino_acid_position:
+    description: >
+      The amino acid position in UniProt database
+    type: string
+
+  uniProt_region:
+    description: >
+      The region in Uniprot database
+    type: string
+
+  oncomap_assays:
+    $ref: "_definitions.yaml#/to_many"

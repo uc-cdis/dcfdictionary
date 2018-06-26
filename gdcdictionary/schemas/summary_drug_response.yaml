@@ -21,10 +21,10 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: subjects
+  - name: samples
     backref: summary_drug_responses
     label: describes
-    target_type: subject
+    target_type: sample
     multiplicity: many_to_one
     required: TRUE
 
@@ -65,5 +65,5 @@ properties:
       the area between the drug-response curve and a fixed reference
     type: number
 
-  subjects:
+  samples:
     $ref: "_definitions.yaml#/to_one"
