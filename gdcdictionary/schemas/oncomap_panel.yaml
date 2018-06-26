@@ -135,11 +135,6 @@ properties:
       Validation resource for the dbSNP database
     type: string
 
-  sequencing_phase:
-    description: >
-      The phase of the batch of sequencing for the project
-    type: string
-
   genomie_change:
     description: >
       The reference and alternative allele in genome build

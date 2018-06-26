@@ -60,5 +60,10 @@ properties:
       Center where the cohort of the assay performed
     type: string
 
+  sequencing_phase:
+    description: >
+      The phase of the batch of sequencing for the project
+    type: string
+
   aliquots:
     $ref: "_definitions.yaml#/to_one"
