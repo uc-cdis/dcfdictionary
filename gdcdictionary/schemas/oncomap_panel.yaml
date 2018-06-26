@@ -23,7 +23,7 @@ systemProperties:
 links:
   - name: oncomap_assays
     backref: oncomap_panels
-    label: records for
+    label: records_for
     target_type: oncomap_assay
     multiplicity: one_to_many
     required: TRUE
