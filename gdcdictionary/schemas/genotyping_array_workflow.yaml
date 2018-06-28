@@ -1,0 +1,65 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "genotyping_array_workflow"
+title: Genotyping Array Workflow
+type: object
+namespace: https://www.dcf.bionimbus.org/
+category: analysis
+program: '*'
+project: '*'
+description: >
+  Metadata for the Genotyping array workflow used to generate aggregated genotyping callset or tangent copy number variation.
+additionalProperties: false
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+
+links:
+  - exclusive: true
+    required: true
+    subgroup:
+      - name: aggregated_genotyping_arrays
+        backref: genotyping_array_workflows
+        label: performed_on
+        target_type: aggregated_genotyping_array
+        multiplicity: many_to_many
+        required: false
+      - name: genotyping_arrays
+        backref: genotyping_array_workflows
+        abel: performed_on
+        target_type: genotyping_array
+        multiplicity: many_to_many
+        required: false
+
+required:
+  - submitter_id
+  - workflow_type
+  - aggregated_genotyping_arrays
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  $ref: "_definitions.yaml#/workflow_properties"
+
+  type:
+    enum: [ "genotyping_array_workflow" ]
+
+  workflow_type:
+    term:
+      $ref: "_terms.yaml#/workflow_type"
+    enum:
+      -  GTEx Array Genotyping
+      -  Birdseed Genotyping
+
+  aggregated_genotyping_array_files:
+    $ref: "_definitions.yaml#/to_many"
+
+  genotyping_arrays:
+    $ref: "_definitions.yaml#/to_many"

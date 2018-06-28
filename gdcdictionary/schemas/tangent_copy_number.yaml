@@ -22,19 +22,21 @@ systemProperties:
   - error_type
 
 links:
-  - name: aliquots
-    backref: tangent_copy_numbers
-    label: data_from
-    target_type: aliquot
-    multiplicity: one_to_one
+  - exclusive: true
     required: true
-
-  - name: genotyping_arrays
-    backref: tangent_copy_numbers
-    label: data_from
-    target_type: genotyping_array
-    multiplicity: one_to_one
-    required: false
+    subgroup:
+      - name: genotyping_arrays
+        backref: tangent_copy_numbers
+        label: data_from
+        target_type: genotyping_array
+        multiplicity: one_to_one
+        required: false
+      - name: genotyping_array_workflows
+        backref: tangent_copy_numbers
+        label: data_from
+        target_type: enotyping_array_workflow
+        multiplicity: one_to_one
+        required: false
 
 required:
   - submitter_id
@@ -85,7 +87,10 @@ properties:
       - Illumina OMNI 2.5M SNP Array
       - Affymetrix Genome-Wide Human SNP Array 6.0
 
-  aliquots:
+  genotyping_arrays:
+    $ref: "_definitions.yaml#/to_one"
+
+  genotyping_array_workflows:
     $ref: "_definitions.yaml#/to_one"
 
   genotyping_arrays:

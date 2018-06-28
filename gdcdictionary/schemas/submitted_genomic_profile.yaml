@@ -1,16 +1,17 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "submitted_somatic_mutation"
-title: Submitted Somatic Mutation
+id: "submitted_genomic_profile"
+title: Submitted Genomic Profile
 type: object
-namespace: http://gdc.nci.nih.gov
+namespace: https://www.dcf/bionimbus.org
 category: data_file
 program: '*'
 project: '*'
 description: >
-  Data file containing somatic mutation calls from a read group.
+  Data file containing genomic profile information.
 additionalProperties: false
 submittable: true
+downloadable: false
 validators: null
 
 systemProperties:
@@ -24,11 +25,11 @@ systemProperties:
 
 links:
   - name: read_groups
-    backref: submitted_somatic_mutations
-    label: derived_from
+    backref: submitted_genomic_profiles
+    label: data_from
     target_type: read_group
     multiplicity: many_to_many
-    required: true 
+    required: true
 
 required:
   - submitter_id
@@ -48,25 +49,39 @@ uniqueKeys:
 properties:
   $ref: "_definitions.yaml#/data_file_properties"
   type:
-    enum: [ "submitted_somatic_mutation" ]
+    enum: [ "submitted_genomic_profile" ]
+
   data_category:
     term:
       $ref: "_terms.yaml#/data_category"
-    type: string
+    enum:
+      - Combined Nucleotide Variation
+      - Genomic Profiling
+
   data_type:
     term:
       $ref: "_terms.yaml#/data_type"
-    type: string 
+    enum:
+      - FoundationOne Report
+      - GENIE Report
+      - Raw CGI Variant
+
   data_format:
     term:
       $ref: "_terms.yaml#/data_format"
-    type: string
+    enum:
+      - MAF
+      - TSV
+      - VCF
+      - XML
+      - TXT
+
   experimental_strategy:
     term:
       $ref: "_terms.yaml#/experimental_strategy"
-    type: string 
-  total_variants:
-    description: "The total number of variants detected carrying a base change difference from the reference genome."
-    type: integer
+    enum:
+      - Targeted Sequencing
+      - WGS
+
   read_groups:
     $ref: "_definitions.yaml#/to_many"
