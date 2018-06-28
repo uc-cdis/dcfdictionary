@@ -22,7 +22,7 @@ systemProperties:
 links:
   - name: genotyping_arrays
     backref: genotyping_array_workflows
-    abel: performed_on
+    label: performed_on
     target_type: genotyping_array
     multiplicity: many_to_many
     required: false
