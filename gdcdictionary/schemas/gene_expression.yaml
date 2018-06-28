@@ -89,3 +89,5 @@ properties:
     $ref: "_definitions.yaml#/to_many"
   mRNA_microarrays:
     $ref: "_definitions.yaml#/to_many"
+  rna_expression_workflows
+    $ref: "_definitions.yaml#/to_many"
