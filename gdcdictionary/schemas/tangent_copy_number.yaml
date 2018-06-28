@@ -34,7 +34,7 @@ links:
       - name: genotyping_array_workflows
         backref: tangent_copy_numbers
         label: data_from
-        target_type: enotyping_array_workflow
+        target_type: genotyping_array_workflow
         multiplicity: one_to_one
         required: false
 
