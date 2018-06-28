@@ -29,7 +29,7 @@ links:
       - name: submitted_aligned_reads_files
         backref: gene_expressions
         label: derived_from
-        target_type: submitted_aligned_reads_file
+        target_type: submitted_aligned_reads
         multiplicity: many_to_many
         required: false
       - name: mRNA_microarrays
