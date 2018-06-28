@@ -83,3 +83,5 @@ properties:
     $ref: "_definitions.yaml#/to_many"
   submitted_unaligned_reads_files:
     $ref: "_definitions.yaml#/to_many"
+  mRNA_microarrays:
+    $ref: "_definitions.yaml#/to_many"
