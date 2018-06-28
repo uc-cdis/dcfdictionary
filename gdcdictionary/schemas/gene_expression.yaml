@@ -38,6 +38,12 @@ links:
         target_type: mRNA_microarray
         multiplicity: many_to_many
         required: false
+      - name: rna_expression_workflows
+        backref: gene_expressions
+        label: data_from
+        target_type: rna_expression_workflow
+        multiplicity: many_to_one
+        required: true
 
 required:
   - submitter_id
