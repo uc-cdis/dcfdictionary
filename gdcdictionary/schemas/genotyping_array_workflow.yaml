@@ -20,21 +20,12 @@ systemProperties:
   - state
 
 links:
-  - exclusive: true
-    required: true
-    subgroup:
-      - name: aggregated_genotyping_arrays
-        backref: genotyping_array_workflows
-        label: performed_on
-        target_type: aggregated_genotyping_array
-        multiplicity: many_to_many
-        required: false
-      - name: genotyping_arrays
-        backref: genotyping_array_workflows
-        abel: performed_on
-        target_type: genotyping_array
-        multiplicity: many_to_many
-        required: false
+  - name: genotyping_arrays
+    backref: genotyping_array_workflows
+    abel: performed_on
+    target_type: genotyping_array
+    multiplicity: many_to_many
+    required: false
 
 required:
   - submitter_id
@@ -55,11 +46,7 @@ properties:
     term:
       $ref: "_terms.yaml#/workflow_type"
     enum:
-      -  GTEx Array Genotyping
       -  Birdseed Genotyping
-
-  aggregated_genotyping_array_files:
-    $ref: "_definitions.yaml#/to_many"
 
   genotyping_arrays:
     $ref: "_definitions.yaml#/to_many"
