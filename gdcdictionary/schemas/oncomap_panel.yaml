@@ -55,7 +55,7 @@ properties:
       Variation extension allele
     type: string
 
-  entrez_symbol:
+  entrez_id:
     description: >
       Gene ID defined in NCBI's database
     type: string
