@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "tangent_copy_number"
-title: Tangent_copy_number
+id: "aggregated_genotyping_array"
+title: Aggregated Genotyping array
 type: object
 namespace: https://www.dcf/bionimbus.org
 category: data_file
 program: '*'
 project: '*'
-description: "Data file containing tangent normalized copy number information from an aliquot."
+description: "DNA array data files aggregating genome-wide SNP information from several subjects (cohort)."
 additionalProperties: false
 submittable: true
 validators: null
@@ -25,18 +25,18 @@ links:
   - exclusive: true
     required: true
     subgroup:
-      - name: genotyping_arrays
-        backref: tangent_copy_numbers
-        label: data_from
-        target_type: genotyping_array
-        multiplicity: one_to_one
-        required: false
-      - name: genotyping_array_workflows
-        backref: tangent_copy_numbers
-        label: data_from
-        target_type: genotyping_array_workflow
-        multiplicity: one_to_one
-        required: false
+       - name: genotyping_arrays
+         backref: aggregated_genotyping_arrays
+         label: data_from
+         target_type: genotyping_array
+         multiplicity: many_to_many
+         required: false
+       - name: aliquots
+         backref: aggregated_genotyping_arrays
+         label: data_from
+         target_type: aliquot
+         multiplicity: many_to_many
+         required: false
 
 required:
   - submitter_id
@@ -45,7 +45,7 @@ required:
   - data_category
   - data_type
   - data_format
-  - aliquots
+  - submitted_snp_array_files
 
 uniqueKeys:
   - [ id ]
@@ -54,29 +54,35 @@ uniqueKeys:
 properties:
   $ref: "_definitions.yaml#/data_file_properties"
 
+  type:
+    enum: [ "submitted_snp_array" ]
+
   data_category:
     term:
       $ref: "_terms.yaml#/data_category"
     enum:
-      - Copy Number Variation
+      - SNP Array Data
 
   data_type:
     term:
       $ref: "_terms.yaml#/data_type"
     enum:
-      - Copy Number Estimate
+      - Aggregated SNP Alleles
+      - Individual SNP Alleles
 
   data_format:
     term:
       $ref: "_terms.yaml#/data_format"
     enum:
-      - TXT
+      - PED
+      - VCF
+      - IND
 
   experimental_strategy:
     term:
       $ref: "_terms.yaml#/experimental_strategy"
     enum:
-      - Genotyping Array
+      - SNP Array Genotyping
 
   platform:
     term:
@@ -88,12 +94,7 @@ properties:
       - Affymetrix Genome-Wide Human SNP Array 6.0
 
   genotyping_arrays:
-    $ref: "_definitions.yaml#/to_one"
+    $ref: "_definitions.yaml#/to_many"
 
-  genotyping_array_workflows:
-    $ref: "_definitions.yaml#/to_one"
-
-  genotyping_arrays:
-    $ref: "_definitions.yaml#/to_one"
-
-
+  aliquots:
+    $ref: "_definitions.yaml#/to_many"

@@ -1,0 +1,93 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "gene_expression"
+title: Gene Expression
+type: object
+namespace: https://www.dcf/bionimbus.org
+category: data_file
+program: '*'
+project: '*'
+description: >
+  Data file containing gene expression information generated internally by the GTEx.
+additionalProperties: false
+submittable: false
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+  - file_state
+  - error_type
+
+links:
+  - exclusive: true
+    required: true
+    subgroup:
+      - name: submitted_aligned_reads_files
+        backref: gene_expressions
+        label: derived_from
+        target_type: submitted_aligned_reads
+        multiplicity: many_to_many
+        required: false
+      - name: mRNA_microarrays
+        backref: gene_expressions
+        label: derived_from
+        target_type: mRNA_microarray
+        multiplicity: many_to_many
+        required: false
+      - name: rna_expression_workflows
+        backref: gene_expressions
+        label: data_from
+        target_type: rna_expression_workflow
+        multiplicity: many_to_one
+        required: true
+
+required:
+  - submitter_id
+  - file_name
+  - file_size
+  - md5sum
+  - data_category
+  - data_type
+  - data_format
+  - experimental_strategy
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  $ref: "_definitions.yaml#/data_file_properties"
+  type:
+    enum: [ "gene_expression" ]
+  data_category:
+    term:
+      $ref: "_terms.yaml#/data_category"
+    enum: [ "Transcriptome Profiling" ]
+  data_type:
+    term:
+      $ref: "_terms.yaml#/data_type"
+    enum: [ "Gene Expression Quantification" ]
+  data_format:
+    term:
+      $ref: "_terms.yaml#/data_format"
+    enum:
+      - TXT
+      - TSV
+      - CSV
+      - GCT
+  experimental_strategy:
+    term:
+      $ref: "_terms.yaml#/experimental_strategy"
+    enum:
+      - RNA-Seq
+      - Total RNA-Seq
+  submitted_aligned_reads_files:
+    $ref: "_definitions.yaml#/to_many"
+  mRNA_microarrays:
+    $ref: "_definitions.yaml#/to_many"
+  rna_expression_workflows:
+    $ref: "_definitions.yaml#/to_many"
