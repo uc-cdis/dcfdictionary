@@ -33,10 +33,14 @@ required:
   - submitter_id
   - type
   - file_name
+  - file_size
   - data_category
   - data_type
   - data_format
+  - experimental_strategy
+  - md5sum
   - aliquots
+  - platform
 
 uniqueKeys:
   - [ id ]
