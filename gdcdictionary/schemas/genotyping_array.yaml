@@ -88,5 +88,12 @@ properties:
       - Illumina OMNI 2.5M SNP Array
       - Affymetrix Genome-Wide Human SNP Array 6.0
 
+  plat:
+    description: >
+      Plat number for which plate the genotyping is performed
+    type:
+      integer
+
+
   aliquots:
     $ref: "_definitions.yaml#/to_one"
