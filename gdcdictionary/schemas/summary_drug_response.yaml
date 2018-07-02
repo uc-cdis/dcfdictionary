@@ -35,7 +35,7 @@ uniqueKeys:
 required:
   - submitter_id
   - type
-  - subjects
+  - samples
 
 properties:
   $ref: "_definitions.yaml#/ubiquitous_properties"

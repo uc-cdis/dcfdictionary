@@ -37,15 +37,24 @@ links:
         target_type: genotyping_array_workflow
         multiplicity: one_to_one
         required: false
+      - name: aliquots
+        backref: tangent_copy_numbers
+        label: data_for
+        target_type: aliquot
+        multiplicity: one_to_one
+        required: false
 
 required:
   - submitter_id
   - type
   - file_name
+  - file_size
   - data_category
   - data_type
   - data_format
-  - aliquots
+  - experimental_strategy
+  - md5sum
+  - platform
 
 uniqueKeys:
   - [ id ]
@@ -93,7 +102,6 @@ properties:
   genotyping_array_workflows:
     $ref: "_definitions.yaml#/to_one"
 
-  genotyping_arrays:
+  aliquots:
     $ref: "_definitions.yaml#/to_one"
-
 

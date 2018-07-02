@@ -36,8 +36,6 @@ required:
   - submitter_id
   - type
   - subjects
-  - Histology
-  - Hist Subtype1
 
 properties:
   $ref: "_definitions.yaml#/ubiquitous_properties"
