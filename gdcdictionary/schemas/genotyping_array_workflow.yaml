@@ -20,17 +20,25 @@ systemProperties:
   - state
 
 links:
-  - name: genotyping_arrays
-    backref: genotyping_array_workflows
-    label: performed_on
-    target_type: genotyping_array
-    multiplicity: many_to_many
-    required: false
+  - exclusive: true
+    required: true
+    subgroup:
+      - name: genotyping_arrays
+        backref: genotyping_array_workflows
+        label: performed_on
+        target_type: genotyping_array
+        multiplicity: many_to_many
+        required: false
+      - name: aggregated_genotyping_arrays
+        backref: genotyping_array_workflows
+        label: performed_on
+        target_type: aggregated_genotyping_array
+        multiplicity: many_to_many
+        required: false
 
 required:
   - submitter_id
   - workflow_type
-  - aggregated_genotyping_arrays
 
 uniqueKeys:
   - [ id ]
@@ -50,3 +58,7 @@ properties:
 
   genotyping_arrays:
     $ref: "_definitions.yaml#/to_many"
+
+  aggregated_genotyping_arrays
+    $ref: "_definitions.yaml#/to_many"
+
