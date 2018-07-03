@@ -70,7 +70,9 @@ properties:
   data_type:
     term:
       $ref: "_terms.yaml#/data_type"
-    enum: [ "Gene Expression Quantification" ]
+    enum:
+      - "Gene Expression Quantification"
+      - "Gene Expression Normalization"
   data_format:
     term:
       $ref: "_terms.yaml#/data_format"
@@ -79,12 +81,16 @@ properties:
       - TSV
       - CSV
       - GCT
+      - RES
+      - TDF
+      - GCTX
   experimental_strategy:
     term:
       $ref: "_terms.yaml#/experimental_strategy"
     enum:
       - RNA-Seq
       - Total RNA-Seq
+      - Microarray
   submitted_aligned_reads_files:
     $ref: "_definitions.yaml#/to_many"
   mRNA_microarrays:
