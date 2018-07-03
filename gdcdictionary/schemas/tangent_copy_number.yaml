@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "tangent_copy_number"
-title: Tangent_copy_number
+title: Tangent Copy Number
 type: object
 namespace: https://www.dcf/bionimbus.org
 category: data_file

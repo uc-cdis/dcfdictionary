@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "drug_attribute"
-title: Drug Attributes
+title: Drug Attribute
 type: object
 namespace: https://dcf/bionimbus.org
 category: clinical

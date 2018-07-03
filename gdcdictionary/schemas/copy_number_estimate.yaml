@@ -39,6 +39,12 @@ links:
         target_type: tangent_copy_number
         multiplicity: many_to_many
         required: false
+      - name: copy_number_segments
+        backref: copy_number_estimates
+        label: derived_from
+        target_type: copy_number_segment
+        multiplicity: one_to_one
+        required: false
 
 required:
   - submitter_id
@@ -98,3 +104,5 @@ properties:
     $ref: "_definitions.yaml#/to_one"
   tangent_copy_numbers:
     $ref: "_definitions.yaml#/to_many"
+  copy_number_segments:
+    $ref: "_definitions.yaml#/to_one"
