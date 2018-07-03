@@ -104,3 +104,5 @@ properties:
     $ref: "_definitions.yaml#/to_one"
   tangent_copy_numbers:
     $ref: "_definitions.yaml#/to_many"
+  copy_number_segments:
+    $ref: "_definitions.yaml#/to_one"
