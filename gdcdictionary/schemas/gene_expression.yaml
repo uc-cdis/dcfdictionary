@@ -43,7 +43,7 @@ links:
         label: data_from
         target_type: rna_expression_workflow
         multiplicity: many_to_one
-        required: true
+        required: false
 
 required:
   - submitter_id
