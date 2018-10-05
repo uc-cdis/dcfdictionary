@@ -51,7 +51,7 @@ required:
   - experimental_strategy
 
 properties:
-  $ref: "_definitions.yaml#/ubiquitous_properties"
+  $ref: "_definitions.yaml#/data_file_properties"
 
   file_name:
     description: >
