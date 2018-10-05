@@ -36,6 +36,7 @@ required:
   - submitter_id
   - type
   - subjects
+  - sample_type
 
 properties:
   $ref: "_definitions.yaml#/ubiquitous_properties"
@@ -336,6 +337,121 @@ properties:
       cell line alias name commonly used
     type: string
 
+  gdc_project_id:
+    description: >
+      (To be included.)
+    type: string
+
+  sample_type_id:
+    description: >
+      (To be included.)
+    type: string
+
+  shortest_dimension:
+    description: >
+      (To be included.)
+    type: string
+
+  tumor_code:
+    description: >
+      (To be included.)
+    type: string
+
+  tumor_code_id:
+    description: >
+      (To be included.)
+    type: string
+
+  tumor_descriptor:
+    description: >
+      (To be included.)
+    type: string
+
+  tissue_type:
+    description: >
+      (To be included.)
+    type: string
+
+  method_of_sample_procurement:
+    description: >
+      (To be included.)
+    type: string
+
+  preservation_method:
+    description: >
+      (To be included.)
+    type: string
+
+  freezing_method:
+    description: >
+      (To be included.)
+    type: string
+
+  intermediate_dimension:
+    description: >
+      (To be included.)
+    type: string
+
+  is_ffpe:
+    description: >
+      (To be included.)
+    type: integer
+
+  longest_dimension:
+    description: >
+      (To be included.)
+    type: string
+
+  initial_weight:
+    description: >
+      (To be included.)
+    type: number
+
+  gdc_sample_id:
+    description: >
+      (To be included.)
+    type: string
+
+  diagnosis_pathologically_confirmed:
+    description: >
+      (To be included.)
+    type: string
+
+  pathology_report_uuid:
+    description: >
+      (To be included.)
+    type: string
+
+
+
+  days_to_collection:
+    description: >
+      (To be included.)
+    type: integer
+
+  days_to_sample_procurement:
+    description: >
+      (To be included.)
+    type: integer
+
+  oct_embedded:
+    description: >
+      (To be included.)
+    type: string
+
+
+
+  time_between_clamping_and_freezing:
+    description: >
+      (To be included.)
+    type: string
+
+  time_between_excsision_and_freezing:
+    description: >
+      (To be included.)
+    type: string
+
+
   composition:
     term:
       $ref: "_terms.yaml#/composition"
@@ -372,6 +488,11 @@ properties:
     description: >
       Records of relationship to other cell ine
     type: string
+
+  current_weight:
+    description: >
+      (To be included.)
+    type: number
 
   sample_type:
     description: "Characterization of the sample as either clinical or contrived."

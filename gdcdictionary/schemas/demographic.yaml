@@ -67,6 +67,26 @@ properties:
       - unspecified
       - not reported
 
+  cause_of_death:
+    description: >
+      Text term to identify the cause of death for a patient.
+    type: string
+
+  vital_status:
+    description: >
+      The survival state of the person registered on the protocol.
+    type: string
+
+  days_to_birth:
+    description: >
+      Time interval from a person’s date of birth to the date of initial pathologic diagnosis, represented as a calculated negative number of days.
+    type: integer
+
+  days_to_death:
+    description: >
+      Time interval from a person’s date of death to the date of initial pathologic diagnosis, represented as a calculated number of days.
+    type: integer
+
   race:
     term:
       $ref: "_terms.yaml#/race"

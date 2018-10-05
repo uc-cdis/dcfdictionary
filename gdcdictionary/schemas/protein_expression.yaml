@@ -1,0 +1,103 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "protein_expression"
+title: Protein Expression
+type: object
+namespace: dcf.bionimbus.org
+category: data_file
+program: '*'
+project: '*'
+description: >
+  Data file containing normalized protein expression data
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: raw_protein_mass_spectrometries
+    backref: protein_expressions
+    label:  derived_from
+    target_type: raw_protein_mass_spectrometry
+    multiplicity: one_to_many
+    required: true
+  - name: proteomic_workflows
+    backref: protein_expressions
+    label: derived_from
+    target_type: proteomic_workflow
+    multiplicity: one_to_one
+    required: false
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+required:
+  - submitter_id
+  - type
+  - raw_protein_mass_spectrometries
+  - file_name
+  - data_type
+  - md5sum
+  - file_size
+  - data_format
+  - data_category
+  - experimental_strategy
+
+properties:
+  $ref: "_definitions.yaml#/data_file_properties"
+
+  file_name:
+    description: >
+      The name (or part of a name) of a file (of any type).
+    type: string
+
+  data_type:
+    description: >
+      Specific content type of the data file.
+    type: string
+
+  md5sum:
+    description: >
+      The 128-bit hash value expressed as a 32 digit hexadecimal number used as a file's digital fingerprint.
+    type: string
+
+  file_size:
+    description: >
+      The size of the data file (object) in bytes.
+    type: integer
+
+  original_file_name:
+    description: >
+      to be included
+    type: string
+
+  data_format:
+    description: >
+      Format of the data files.
+    enum:
+      - "TXT|TSV|CSV|GCT|RAW|MZID.GZ|MZML.GZ"
+
+  data_category:
+    description: >
+      Broad categorization of the contents of the data file.
+    enum:
+      - "Proteome"
+
+  experimental_strategy:
+    description: >
+      The sequencing strategy used to generate the data file.
+    enum:
+      - "TMT10|iTRAQ4|Label Free"
+
+  proteomic_workflows:
+    $ref: "_definitions.yaml#/to_one"
+
+  raw_protein_mass_spectrometries:
+    $ref: "_definitions.yaml#/to_many"

@@ -1,0 +1,134 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "proteomic_workflow"
+title: Proteomic Workflow
+type: object
+namespace: dcf.bionimbus.org
+category: analysis
+program: '*'
+project: '*'
+description: >
+  Metadata for the protein mass spectrometry workflow used to quantify protein expression
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: raw_protein_mass_spectrometries
+    backref: proteomic_workflows
+    label: performed_on
+    target_type: raw_protein_mass_spectrometry
+    multiplicity: one_to_many
+    required: true
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+required:
+  - submitter_id
+  - type
+  - raw_protein_mass_spectrometries
+
+properties:
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  refseq_database_version:
+    description: >
+      to be included
+    type: string
+
+  uniport_database_version:
+    description: >
+      to be included
+    type: string
+
+  hgnc_version:
+    description: >
+      to be included
+    type: string
+
+  raw_data_processing:
+    description: >
+      to be included
+    type: string
+
+  raw_data_conversion:
+    description: >
+      to be included
+    type: string
+
+  sequence_database_search:
+    description: >
+      to be included
+    type: string
+
+  search_database_parameters:
+    description: >
+      to be included
+    type: string
+
+  phosphosite_localization:
+    description: >
+      to be included
+    type: string
+
+  ms1_data_analysis:
+    description: >
+      to be included
+    type: string
+
+  psm_report_generation:
+    description: >
+      to be included
+    type: string
+
+  cptac_dcc_mzidentml:
+    description: >
+      to be included
+    type: string
+
+  mzidentml_refseq:
+    description: >
+      to be included
+    type: string
+
+  mzidentml_uniprot:
+    description: >
+      to be included
+    type: string
+
+  gene_to_prot:
+    description: >
+      to be included
+    type: string
+
+  cptac_galaxy_workflows:
+    description: >
+      to be included
+    type: string
+
+  cptac_galaxy_tools:
+    description: >
+      to be included
+    type: string
+
+  cdap_reports:
+    description: >
+      to be included
+    type: string
+
+  cptac_dcc_tools:
+    description: >
+      to be included
+    type: string
+
+  raw_protein_mass_spectrometries:
+    $ref: "_definitions.yaml#/to_many"

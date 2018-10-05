@@ -56,8 +56,18 @@ properties:
       - "Years"
       - "d.p.c."
 
+  analytical_fraction:
+    description: >
+      Type of peptide or protein enrichment
+    type: string
+
   data_description:
     description: "Brief description of the data being provided for this study. Free text"
+    type: string
+
+  experiment_type:
+    description: >
+      General strategy used for differential analysis
     type: string
 
   is_clinical_trial:
@@ -83,8 +93,8 @@ properties:
 
   study_completeness:
     description: >
-      Description of data status. 
-      0=Descriptive data and results as originally received from the data provider. 
+      Description of data status.
+      0=Descriptive data and results as originally received from the data provider.
       1=Includes updates to the original data submission short of completeness.
       2=Complete set of descriptive data and results, as ascertained by curator.
     enum:

@@ -1,0 +1,219 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "protocol"
+title: Protocol
+type: object
+namespace: dcf.bioinimbus.org
+category: metadata
+program: '*'
+project: '*'
+description: >
+  The formal plan of an experiment or research activity, including the objective, rationale, design, materials and methods for the conduct of the study; intervention description, and method of data analysis. (NCIt - C70817)
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: studies
+    backref: protocols
+    label: derived_from
+    target_type: study
+    multiplicity: many_to_many
+    required: true
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+required:
+  - submitter_id
+  - type
+  - studies
+
+properties:
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  protocol_name:
+    description: >
+      (To be included.)
+    type: string
+
+  protocol_date:
+    description: >
+      (To be included.)
+    type: string
+
+  document_name:
+    description: >
+      (To be included.)
+    type: string
+
+  starting_amount:
+    description: >
+      (To be included.)
+    type: string
+
+  enrichment_strategy:
+    description: >
+      (To be included.)
+    type: string
+
+  labeling_strategy:
+    description: >
+      (To be included.)
+    type: string
+
+  label_free_quantitation:
+    description: >
+      (To be included.)
+    type: string
+
+  labeled_quantitation:
+    description: >
+      (To be included.)
+    type: string
+
+  isobaric_labeling_reagent:
+    description: >
+      (To be included.)
+    type: string
+
+  digestion_reagent:
+    description: >
+      (To be included.)
+    type: string
+
+  alkylation_reagent:
+    description: >
+      (To be included.)
+    type: string
+
+  chromatography_dimensions_count:
+    description: >
+      (To be included.)
+    type: integer
+
+  fractions_produced_count:
+    description: >
+      (To be included.)
+    type: integer
+
+  chromatographic_type:
+    description: >
+      (To be included.)
+    type: string
+
+  chromatographic_dimension:
+    description: >
+      (To be included.)
+    type: integer
+
+  column_type:
+    description: >
+      (To be included.)
+    type: string
+
+  amount_on_column:
+    description: >
+      (To be included.)
+    type: string
+
+  column_length:
+    description: >
+      (To be included.)
+    type: string
+
+  column_inner_diameter:
+    description: >
+      (To be included.)
+    type: string
+
+  particle_size:
+    description: >
+      (To be included.)
+    type: string
+
+  particle_type:
+    description: >
+      (To be included.)
+    type: string
+
+  gradient_length:
+    description: >
+      (To be included.)
+    type: string
+
+  protocol_document_name:
+    description: >
+      (To be included.)
+    type: string
+
+  protocol_type:
+    description: >
+      (To be included.)
+    type: string
+
+  acquisition_type:
+    description: >
+      (To be included.)
+    type: string
+
+  instrument_make:
+    description: >
+      (To be included.)
+    type: string
+
+  instrument_model:
+    description: >
+      (To be included.)
+    type: string
+
+  instrument_serial_number:
+    description: >
+      (To be included.)
+    type: string
+
+  dissociation_type:
+    description: >
+      (To be included.)
+    type: string
+
+  ms1_resolution:
+    description: >
+      (To be included.)
+    type: integer
+
+  ms2_resolution:
+    description: >
+      (To be included.)
+    type: integer
+
+  dda_topn:
+    description: >
+      (To be included.)
+    type: string
+
+  dia_multiplexing:
+    description: >
+      (To be included.)
+    type: boolean
+
+  dia_ims:
+    description: >
+      (To be included.)
+    type: boolean
+
+  collision_energy:
+    description: >
+      (To be included.)
+    type: string
+
+  studies:
+    $ref: "_definitions.yaml#/to_many"
