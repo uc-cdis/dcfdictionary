@@ -90,7 +90,7 @@ properties:
       (To be included.)
     type: string
 
-  alkylation-reagent:
+  alkylation_reagent:
     description: >
       (To be included.)
     type: string
