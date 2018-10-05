@@ -48,7 +48,7 @@ properties:
   protocol_date:
     description: >
       (To be included.)
-    type: date
+    type: string
 
   document_name:
     description: >
