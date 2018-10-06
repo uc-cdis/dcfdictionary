@@ -4,7 +4,7 @@ id: "study_run_metadata"
 title: Study Run Metadata
 type: object
 namespace: dcf.bionimbus.org
-category: metadata
+category: notation
 program: '*'
 project: '*'
 description: >
