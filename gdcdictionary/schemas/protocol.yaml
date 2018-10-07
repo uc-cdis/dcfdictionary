@@ -4,7 +4,7 @@ id: "protocol"
 title: Protocol
 type: object
 namespace: dcf.bioinimbus.org
-category: metadata
+category: administrative
 program: '*'
 project: '*'
 description: >

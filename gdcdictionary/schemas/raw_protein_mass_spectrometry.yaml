@@ -76,7 +76,13 @@ properties:
     description: >
       Format of the data files.
     enum:
-      - "TXT|TSV|CSV|GCT|RAW|MZID.GZ|MZML.GZ"
+      - "TXT"
+      - "TSV"
+      - "CSV"
+      - "GCT"
+      - "RAW"
+      - "MZID.GZ"
+      - "MZML.GZ"
 
   data_category:
     description: >
@@ -88,7 +94,9 @@ properties:
     description: >
       The sequencing strategy used to generate the data file.
     enum:
-      - "TMT10|iTRAQ4|Label Free"
+      - "TMT10"
+      - "iTRAQ4"
+      - "Label Free"
 
   samples:
     $ref: "_definitions.yaml#/to_many"

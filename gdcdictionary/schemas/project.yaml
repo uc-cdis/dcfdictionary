@@ -10,7 +10,7 @@ description: >
   Any specifically defined piece of work that is undertaken or attempted to meet a single
   requirement. (NCIt C47885)
 additionalProperties: false
-submittable: true 
+submittable: true
 validators: null
 
 systemProperties:
@@ -21,8 +21,8 @@ systemProperties:
   - intended_release_date
 
 required:
-  - code 
-  - name 
+  - code
+  - name
   - programs
 
 uniqueKeys:
@@ -80,7 +80,7 @@ properties:
     description: >
       Indicates that the project is logically part of the indicated project.
   state:
-    description: |
+    description: >
       The possible states a project can be in.  All but `open` are
       equivalent to some type of locked state.
     default: open
@@ -125,14 +125,14 @@ properties:
         - legacy
 
   released:
-    description: |
+    description: >
       To release a project is to tell the GDC to include all submitted
       entities in the next GDC index.
     default: false
     type: boolean
 
   releasable:
-    description: |
+    description: >
       A project can only be released by the user when `releasable` is true.
     default: false
     type: boolean
