@@ -329,128 +329,123 @@ properties:
 
   cell_primary_name:
     description: >
-      cell line primary name kept in repository resource
+      Cell line primary name kept in repository resource.
     type: string
 
   cell_line_aliases:
     description: >
-      cell line alias name commonly used
+      Cell line alias name commonly used.
     type: string
 
   gdc_project_id:
     description: >
-      (To be included.)
+      Project identifier associated with the sample at the genomic data commons.
     type: string
 
   sample_type_id:
     description: >
-      (To be included.)
+      Code associated with the sample type.
     type: string
 
   shortest_dimension:
     description: >
-      (To be included.)
+      Numeric value that represents the shortest dimension of the sample, measured in millimeters.
     type: string
 
   tumor_code:
     description: >
-      (To be included.)
+      Diagnostic tumor code of the tissue sample source.
     type: string
 
   tumor_code_id:
     description: >
-      (To be included.)
+      BCR-defined id code for the tumor sample.
     type: string
 
   tumor_descriptor:
     description: >
-      (To be included.)
+      Text that describes the kind of disease present in the tumor specimen as related to a specific timepoint.
     type: string
 
   tissue_type:
     description: >
-      (To be included.)
+      Text term that represents a description of the kind of tissue collected with respect to disease status or proximity to tumor tissue.
     type: string
 
   method_of_sample_procurement:
     description: >
-      (To be included.)
+      The method used to procure the sample used to extract analyte(s).
     type: string
 
   preservation_method:
     description: >
-      (To be included.)
+      Text term that represents the method used to preserve the sample.
     type: string
 
   freezing_method:
     description: >
-      (To be included.)
+      Text term that represents the method used for freezing the sample.
     type: string
 
   intermediate_dimension:
     description: >
-      (To be included.)
+      Intermediate dimension of the sample, in millimeters.
     type: string
 
   is_ffpe:
     description: >
-      (To be included.)
+      Indicator to signify whether or not the tissue sample was fixed in formalin and embedded in paraffin (FFPE).
     type: integer
 
   longest_dimension:
     description: >
-      (To be included.)
+      Numeric value that represents the longest dimension of the sample, measured in millimeters.
     type: string
 
   initial_weight:
     description: >
-      (To be included.)
+      Numeric value that represents the initial weight of the sample, measured in milligrams.
     type: number
 
   gdc_sample_id:
     description: >
-      (To be included.)
+      Sample identifier associated with the sample at the genomic data commons.
     type: string
 
   diagnosis_pathologically_confirmed:
     description: >
-      (To be included.)
+      The histologic description of tissue or cells confirmed by a pathology review of frozen or formalin fixed slide(s) completed after the diagnostic pathology review of the tumor sample used to extract analyte(s).
     type: string
 
   pathology_report_uuid:
     description: >
-      (To be included.)
+      UUID of the related pathology report.
     type: string
-
-
 
   days_to_collection:
     description: >
-      (To be included.)
+      Time interval from the date of biospecimen collection to the date of initial pathologic diagnosis, represented as a calculated number of days.
     type: integer
 
   days_to_sample_procurement:
     description: >
-      (To be included.)
+      The number of days from the date the patient was diagnosed to the date of the procedure that produced the sample.
     type: integer
 
   oct_embedded:
     description: >
-      (To be included.)
+      Indicator of whether or not the sample was embedded in Optimal Cutting Temperature (OCT) compound.
     type: string
-
-
 
   time_between_clamping_and_freezing:
     description: >
-      (To be included.)
+      Numeric representation of the elapsed time between the surgical clamping of blood supply and freezing of the sample, measured in minutes.
     type: string
 
-  time_between_excsision_and_freezing:
+  time_between_excision_and_freezing:
     description: >
-      (To be included.)
+      Numeric representation of the elapsed time between the excision and freezing of the sample, measured in minutes.
     type: string
-
 
   composition:
     term:
@@ -486,12 +481,12 @@ properties:
 
   notes:
     description: >
-      Records of relationship to other cell ine
+      Records of relationship to other cell line.
     type: string
 
   current_weight:
     description: >
-      (To be included.)
+      Numeric value that represents the current weight of the sample, measured in milligrams.
     type: number
 
   sample_type:
@@ -544,7 +539,7 @@ properties:
 
   source:
     description: >
-      the name of primary source that the cell line is taken from
+      The name of primary source that the cell line is taken from.
     type: string
 
   subjects:
