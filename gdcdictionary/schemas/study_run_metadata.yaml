@@ -49,42 +49,47 @@ properties:
 
   experiment_number:
     description: >
-      (To be included.)
+      Number associated with a specific run of the experiment.
     type: integer
 
   experiment_type:
     description: >
-      (To be included.)
+      General strategy use for differential analysis.
     type: string
 
   analyte:
     description: >
-      (To be included.)
+      Type of peptide or protein enrichment.
     type: string
 
   fraction:
     description: >
-      (To be included.)
+      Number of fractions in the experimental run.
     type: string
 
   date:
     description: >
-      (To be included.)
+      Date of the data acquired from the mass spectrometry.
     type: string
 
   operator:
     description: >
-      (To be included.)
+      Mass spectrometry instrument operator.
+    type: string
+
+  instrument:
+    description: >
+      Make and model of the mass spectrometry instrument.
     type: string
 
   replicate_number:
     description: >
-      (To be included.)
+      Replicate number, if applicable.
     type: string
 
   condition:
     description: >
-      (To be included.)
+      Biological condition (ex: disease state) of the cases (patients) from which the aliquots derived.
     type: string
 
   studies:

@@ -42,92 +42,92 @@ properties:
 
   refseq_database_version:
     description: >
-      to be included
+      Name and version of the NCBI Refseq database used in the data analysis pipeline.
     type: string
 
   uniport_database_version:
     description: >
-      to be included
+      Name and version of the Uniprot Refseq database used in the data analysis pipeline.
     type: string
 
   hgnc_version:
     description: >
-      to be included
+      Name and version of HGNC database of human gene names used in the data analysis pipeline.
     type: string
 
   raw_data_processing:
     description: >
-      to be included
+      Name and version of the tool used to process the proprietary raw data.
     type: string
 
   raw_data_conversion:
     description: >
-      to be included
+      Name and version of the tool used to convert the proprietary data into open format.
     type: string
 
   sequence_database_search:
     description: >
-      to be included
+      Name and version of the tool used in peptide identification by scoring MS/MS spectra against peptides derived from a protein sequence database.
     type: string
 
   search_database_parameters:
     description: >
-      to be included
+      Parameters used in the peptide identification database search.
     type: string
 
   phosphosite_localization:
     description: >
-      to be included
+      Name and version of the tool used for phosphosite localization.
     type: string
 
   ms1_data_analysis:
     description: >
-      to be included
+      Name and version of the tool used for MS1 data analysis.
     type: string
 
   psm_report_generation:
     description: >
-      to be included
+      Name and version of the tool used to peptide spectral match report generation.
     type: string
 
   cptac_dcc_mzidentml:
     description: >
-      to be included
+      Name and version of the tool used to generate mzIdentML from the peptide spectral match report.
     type: string
 
   mzidentml_refseq:
     description: >
-      to be included
+      Name and version of the NCBI Refseq database used in mzIdentML.
     type: string
 
   mzidentml_uniprot:
     description: >
-      to be included
+      Name and version of the Uniprot Refseq database used in mzIdentiML.
     type: string
 
   gene_to_prot:
     description: >
-      to be included
+      Name and version of the tool used to map gene to protein in the data analysis pipeline.
     type: string
 
   cptac_galaxy_workflows:
     description: >
-      to be included
+      Name and version of the workflow of data analysis pipeline.
     type: string
 
   cptac_galaxy_tools:
     description: >
-      to be included
+      Name and version of the custom scripts used in the data analysis pipeline.
     type: string
 
   cdap_reports:
     description: >
-      to be included
+      Name and version of the tool used to generate protein summary reports.
     type: string
 
   cptac_dcc_tools:
     description: >
-      to be included
+      Name and version of the custom scripts used in the data analysis pipeline.
     type: string
 
   raw_protein_mass_spectrometries:

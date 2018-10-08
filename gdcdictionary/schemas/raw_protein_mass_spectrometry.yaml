@@ -68,8 +68,6 @@ properties:
     type: integer
 
   original_file_name:
-    description: >
-      to be included
     type: string
 
   data_format:
