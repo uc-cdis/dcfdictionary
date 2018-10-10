@@ -25,13 +25,13 @@ links:
     backref: protein_expressions
     label:  derived_from
     target_type: raw_protein_mass_spectrometry
-    multiplicity: one_to_many
+    multiplicity: many_to_many
     required: true
   - name: proteomic_workflows
     backref: protein_expressions
     label: derived_from
     target_type: proteomic_workflow
-    multiplicity: one_to_one
+    multiplicity: many_to_one
     required: false
 
 uniqueKeys:
