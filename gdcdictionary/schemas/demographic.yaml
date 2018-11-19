@@ -81,6 +81,8 @@ properties:
     description: >
       Time interval from a person’s date of birth to the date of initial pathologic diagnosis, represented as a calculated negative number of days.
     type: integer
+    maximum: 0
+    minimum: -32872
 
   days_to_death:
     description: >
@@ -125,7 +127,7 @@ properties:
 
   age_range :
     description: >
-      Range of ages for the subject
+      Range of ages for the subject. The age range should not include ages over 89 years.
     type: string
 
   subjects:
