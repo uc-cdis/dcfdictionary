@@ -45,7 +45,6 @@ required:
   - data_category
   - data_type
   - data_format
-  - submitted_snp_array_files
 
 uniqueKeys:
   - [ id ]
@@ -95,6 +94,5 @@ properties:
 
   genotyping_arrays:
     $ref: "_definitions.yaml#/to_many"
-
   aliquots:
     $ref: "_definitions.yaml#/to_many"
