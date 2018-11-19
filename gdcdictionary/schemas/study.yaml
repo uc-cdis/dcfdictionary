@@ -42,20 +42,6 @@ uniqueKeys:
 properties:
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  age_unit:
-    description: >
-      Age unit used in this study
-    enum:
-      - "Days"
-      - "Hours"
-      - "Minutes"
-      - "Months"
-      - "Not Specified"
-      - "Seconds"
-      - "Weeks"
-      - "Years"
-      - "d.p.c."
-
   analytical_fraction:
     description: >
       Type of peptide or protein enrichment

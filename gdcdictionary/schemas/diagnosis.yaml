@@ -101,8 +101,17 @@ properties:
 
   age_at_diagnosis:
     description: >
-      Age at the time of diagnosis expressed in number of days since birth.
-    type: string
+      Age at the time of diagnosis expressed in number of days since birth. If the age is greater than 32872 days (89 years), see 'age_at_diagnosis_gt89'.
+    type: integer
+    maximum: 32872
+    minimum: 0
+
+  age_at_diagnosis_gt89:
+    description: >
+      Indicate whether the 'Age at the time of diagnosis expressed in number of days since birth' is greater than 32872 days (89 years).
+    enum:
+      - "Yes"
+      - "No"
 
   hpv_positive_type:
     description: >
@@ -232,7 +241,9 @@ properties:
   days_to_birth:
     description: >
       Time interval from a person’s date of birth to the date of initial pathologic diagnosis, represented as a calculated negative number of days.
-    type: string
+    type: integer
+    maximum: 0
+    minimum: -32872
 
   progression_or_recurrence:
     description: >
