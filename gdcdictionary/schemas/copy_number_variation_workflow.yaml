@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "copy_number_variation_workflow"
 title: Copy Number Variation Workflow
 type: object
-namespace: https://www.dcf/bionimbus.org
+namespace: https://nci-crdc-demo.datacommons.io/
 category: analysis
 program: '*'
 project: '*'

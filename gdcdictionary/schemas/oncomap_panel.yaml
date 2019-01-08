@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "oncomap_panel"
 title: Oncomap Panel
 type: object
-namespace: https://dcf/bionimbus.org
+namespace: https://nci-crdc-demo.datacommons.io/
 category: notation
 program: '*'
 project: '*'

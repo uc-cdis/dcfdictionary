@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "raw_protein_mass_spectrometry"
 title: Raw Protein Mass Spectrometry
 type: object
-namespace: dcf.bionimbus.org
+namespace: https://nci-crdc-demo.datacommons.io/
 category: data_file
 program: '*'
 project: '*'
@@ -21,12 +21,21 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: samples
-    backref: raw_protein_mass_spectrometries
-    label: data_for
-    target_type: sample
-    multiplicity: many_to_many
+  - exclusive: false
     required: true
+    subgroup:
+      - name: core_metadata_collections
+        backref: raw_protein_mass_spectrometries
+        label: data_from
+        target_type: core_metadata_collection
+        multiplicity: many_to_one
+        required: false
+      - name: samples
+        backref: raw_protein_mass_spectrometries
+        label: data_for
+        target_type: sample
+        multiplicity: many_to_many
+        required: false
 
 uniqueKeys:
   - [id]
@@ -34,8 +43,6 @@ uniqueKeys:
 
 required:
   - submitter_id
-  - type
-  - samples
   - file_name
   - data_type
   - md5sum
@@ -47,30 +54,11 @@ required:
 properties:
   $ref: "_definitions.yaml#/data_file_properties"
 
-  file_name:
+  data_category:
     description: >
-      The name (or part of a name) of a file (of any type).
-    type: string
-
-  data_type:
-    description: >
-      Specific content type of the data file.
-    type: string
-
-  md5sum:
-    description: >
-      The 128-bit hash value expressed as a 32 digit hexadecimal number used as a file's digital fingerprint.
-    type: string
-
-  file_size:
-    description: >
-      The size of the data file (object) in bytes.
-    type: integer
-
-  original_file_name:
-    description: >
-      Original file name in https://cptc-xfer.uis.georgetown.edu/publicData/Phase_II_Data/CPTAC_Breast_Cancer_S039
-    type: string
+      Broad categorization of the contents of the data file.
+    enum:
+      - "Proteome"
 
   data_format:
     description: >
@@ -84,11 +72,10 @@ properties:
       - "MZID.GZ"
       - "MZML.GZ"
 
-  data_category:
+  data_type:
     description: >
-      Broad categorization of the contents of the data file.
-    enum:
-      - "Proteome"
+      Specific content type of the data file.
+    type: string
 
   experimental_strategy:
     description: >
@@ -98,5 +85,27 @@ properties:
       - "iTRAQ4"
       - "Label Free"
 
+  file_name:
+    description: >
+      The name (or part of a name) of a file (of any type).
+    type: string
+
+  file_size:
+    description: >
+      The size of the data file (object) in bytes.
+    type: integer
+
+  md5sum:
+    description: >
+      The 128-bit hash value expressed as a 32 digit hexadecimal number used as a file's digital fingerprint.
+    type: string
+
+  original_file_name:
+    description: >
+      Original file name in https://cptc-xfer.uis.georgetown.edu/publicData/Phase_II_Data/CPTAC_Breast_Cancer_S039
+    type: string
+
   samples:
+    $ref: "_definitions.yaml#/to_many"
+  core_metadata_collections:
     $ref: "_definitions.yaml#/to_many"

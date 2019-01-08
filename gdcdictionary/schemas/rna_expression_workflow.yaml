@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "rna_expression_workflow"
 title: RNA Expression Workflow
 type: object
-namespace: https://www.gtexportal.org/
+namespace: https://nci-crdc-demo.datacommons.io/
 category: analysis
 program: '*'
 project: '*'

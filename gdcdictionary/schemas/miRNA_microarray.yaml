@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "miRNA_microarray"
 title: miRNA Microarray
 type: object
-namespace: http://gdc.nci.nih.gov
+namespace: https://nci-crdc-demo.datacommons.io/
 category: data_file
 program: '*'
 project: '*'
@@ -23,12 +23,21 @@ systemProperties:
   - error_type
 
 links:
-  - name: aliquots
-    backref: miRNA_microarrays
-    label: data_for
-    target_type: aliquot
-    multiplicity: one_to_one
+  - exclusive: false
     required: true
+    subgroup:
+      - name: core_metadata_collections
+        backref: miRNA_microarrays
+        label: data_from
+        target_type: core_metadata_collection
+        multiplicity: many_to_one
+        required: false
+      - name: aliquots
+        backref: miRNA_microarrays
+        label: data_for
+        target_type: aliquot
+        multiplicity: one_to_one
+        required: false
 
 required:
   - submitter_id
@@ -46,18 +55,19 @@ uniqueKeys:
 
 properties:
   $ref: "_definitions.yaml#/data_file_properties"
-  type:
-    enum: [ "miRNA_microarray" ]
+
   data_category:
     term:
       $ref: "_terms.yaml#/data_category"
     enum:
       - Transcriptome Profiling
+
   data_type:
     term:
       $ref: "_terms.yaml#/data_type"
     enum:
       - miRNA Expression Quantification
+
   data_format:
     term:
       $ref: "_terms.yaml#/data_format"
@@ -65,6 +75,7 @@ properties:
       - TXT
       - TSV
       - CSV
+
   experimental_strategy:
     term:
       $ref: "_terms.yaml#/experimental_strategy"
@@ -72,4 +83,6 @@ properties:
       - RNA-microarray
 
   aliquots:
+    $ref: "_definitions.yaml#/to_many"
+  core_metadata_collections:
     $ref: "_definitions.yaml#/to_many"

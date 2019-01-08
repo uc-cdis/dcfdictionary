@@ -1,9 +1,9 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "acknowledgement"
-title: Acknowledgement 
+title: Acknowledgement
 type: object
-namespace: http://gdc.nci.nih.gov
+namespace: https://nci-crdc-demo.datacommons.io/
 category: administrative
 program: '*'
 project: '*'
@@ -21,7 +21,7 @@ systemProperties:
 
 links:
   - name: projects
-    backref: acknowledgements 
+    backref: acknowledgements
     label: contribute_to
     target_type: project
     multiplicity: many_to_many
