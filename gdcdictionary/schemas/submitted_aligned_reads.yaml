@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "submitted_aligned_reads"
 title: Submitted Aligned Reads
 type: object
-namespace: http://dcf.nci.nih.gov
+namespace: https://nci-crdc-demo.datacommons.io/
 category: data_file
 program: '*'
 project: '*'
@@ -23,12 +23,21 @@ systemProperties:
   - error_type
 
 links:
-  - name: read_groups
-    backref: submitted_aligned_reads_files # pretty ugly
-    label: data_from
-    target_type: read_group
-    multiplicity: one_to_many
+  - exclusive: false
     required: true
+    subgroup:
+      - name: core_metadata_collections
+        backref: submitted_aligned_reads_files
+        label: data_from
+        target_type: core_metadata_collection
+        multiplicity: many_to_one
+        required: false
+      - name: read_groups
+        backref: submitted_aligned_reads_files
+        label: data_from
+        target_type: read_group
+        multiplicity: one_to_many
+        required: false
 
 required:
   - submitter_id
@@ -39,7 +48,6 @@ required:
   - data_category
   - data_type
   - experimental_strategy
-  - read_groups
 
 uniqueKeys:
   - [ id ]
@@ -47,8 +55,7 @@ uniqueKeys:
 
 properties:
   $ref: "_definitions.yaml#/data_file_properties"
-  type:
-    enum: [ "submitted_aligned_reads" ]
+
   data_category:
     term:
       $ref: "_terms.yaml#/data_category"
@@ -56,18 +63,21 @@ properties:
       - Sequencing Data
       - Sequencing Reads
       - Raw Sequencing Data
-  data_type:
-    term:
-      $ref: "_terms.yaml#/data_type"
-    enum:
-      - Aligned Reads
-      - Alignment Coordinates
+
   data_format:
     term:
       $ref: "_terms.yaml#/data_format"
     enum:
       - BAM
       - BED
+
+  data_type:
+    term:
+      $ref: "_terms.yaml#/data_type"
+    enum:
+      - Aligned Reads
+      - Alignment Coordinates
+
   experimental_strategy:
     term:
       $ref: "_terms.yaml#/experimental_strategy"
@@ -80,5 +90,8 @@ properties:
       - miRNA-Seq
       - Total RNA-Seq
       - DNA Panel
+
   read_groups:
+    $ref: "_definitions.yaml#/to_many"
+  core_metadata_collections:
     $ref: "_definitions.yaml#/to_many"

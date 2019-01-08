@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "genotyping_array"
 title: Genotyping Array
 type: object
-namespace: https://www.dcf/bionimbus.org
+namespace: https://nci-crdc-demo.datacommons.io/
 category: data_file
 program: '*'
 project: '*'
@@ -22,16 +22,24 @@ systemProperties:
   - error_type
 
 links:
-  - name: aliquots
-    backref: genotyping_arrays
-    label: data_from
-    target_type: aliquot
-    multiplicity: one_to_one
+  - exclusive: false
     required: true
+    subgroup:
+      - name: core_metadata_collections
+        backref: genotyping_arrays
+        label: data_from
+        target_type: core_metadata_collection
+        multiplicity: many_to_one
+        required: false
+      - name: aliquots
+        backref: genotyping_arrays
+        label: data_from
+        target_type: aliquot
+        multiplicity: one_to_one
+        required: false
 
 required:
   - submitter_id
-  - type
   - file_name
   - file_size
   - data_category
@@ -39,7 +47,6 @@ required:
   - data_format
   - experimental_strategy
   - md5sum
-  - aliquots
   - platform
 
 uniqueKeys:
@@ -48,9 +55,6 @@ uniqueKeys:
 
 properties:
   $ref: "_definitions.yaml#/data_file_properties"
-
-  type:
-    enum: [ "genotyping_array" ]
 
   data_category:
     term:
@@ -94,6 +98,7 @@ properties:
     type:
       integer
 
-
   aliquots:
     $ref: "_definitions.yaml#/to_one"
+  core_metadata_collections:
+    $ref: "_definitions.yaml#/to_many"

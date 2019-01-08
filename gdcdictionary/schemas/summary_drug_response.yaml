@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "summary_drug_response"
 title: Drug Response Summary
 type: object
-namespace: https://dcf/bionimbus.org
+namespace: https://nci-crdc-demo.datacommons.io/
 category: clinical
 program: '*'
 project: '*'

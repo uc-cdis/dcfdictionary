@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "study_run_metadata"
 title: Study Run Metadata
 type: object
-namespace: dcf.bionimbus.org
+namespace: https://nci-crdc-demo.datacommons.io/
 category: notation
 program: '*'
 project: '*'

@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "proteomic_workflow"
 title: Proteomic Workflow
 type: object
-namespace: dcf.bionimbus.org
+namespace: https://nci-crdc-demo.datacommons.io/
 category: analysis
 program: '*'
 project: '*'

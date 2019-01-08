@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "aggregated_genotyping_array"
 title: Aggregated Genotyping array
 type: object
-namespace: https://www.dcf/bionimbus.org
+namespace: https://nci-crdc-demo.datacommons.io/
 category: data_file
 program: '*'
 project: '*'
@@ -22,25 +22,30 @@ systemProperties:
   - error_type
 
 links:
-  - exclusive: true
+  - exclusive: false
     required: true
     subgroup:
-       - name: genotyping_arrays
-         backref: aggregated_genotyping_arrays
-         label: data_from
-         target_type: genotyping_array
-         multiplicity: many_to_many
-         required: false
-       - name: aliquots
-         backref: aggregated_genotyping_arrays
-         label: data_from
-         target_type: aliquot
-         multiplicity: many_to_many
-         required: false
+      - name: core_metadata_collections
+        backref: aggregated_genotyping_arrays
+        label: data_from
+        target_type: core_metadata_collection
+        multiplicity: many_to_one
+        required: false
+      - name: genotyping_arrays
+        backref: aggregated_genotyping_arrays
+        label: data_from
+        target_type: genotyping_array
+        multiplicity: many_to_many
+        required: false
+      - name: aliquots
+        backref: aggregated_genotyping_arrays
+        label: data_from
+        target_type: aliquot
+        multiplicity: many_to_many
+        required: false
 
 required:
   - submitter_id
-  - type
   - file_name
   - data_category
   - data_type
@@ -52,9 +57,6 @@ uniqueKeys:
 
 properties:
   $ref: "_definitions.yaml#/data_file_properties"
-
-  type:
-    enum: [ "submitted_snp_array" ]
 
   data_category:
     term:
@@ -95,4 +97,6 @@ properties:
   genotyping_arrays:
     $ref: "_definitions.yaml#/to_many"
   aliquots:
+    $ref: "_definitions.yaml#/to_many"
+  core_metadata_collections:
     $ref: "_definitions.yaml#/to_many"
