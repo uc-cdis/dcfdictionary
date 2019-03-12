@@ -1,0 +1,165 @@
+schema: "http://json-schema.org/draft-04/schema#"
+
+id: "follow_up"
+title: Follow Up
+type: object
+namespace: http://gdc.nci.nih.gov
+category: clinical
+program: '*'
+project: '*'
+description: >
+  A visit by a patient or study participant to a medical professional. A clinical encounter that
+  encompasses planned and unplanned trial interventions, procedures and assessments that may be
+  performed on a subject. A visit has a start and an end, each described with a rule. The process
+  by which information about the health status of an individual is obtained before and after a study
+  has officially closed; an activity that continues something that has already begun or that repeats
+  something that has already been done.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: subjects
+    backref: follow_ups
+    label: describes
+    target_type: subject
+    multiplicity: many_to_one
+    required: true
+  - name: studies
+    backref: follow_ups
+    label: data_from
+    target_type: study
+    multiplicity: many_to_one
+    required: false
+
+required:
+  - submitter_id
+  - type
+  - subjects
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  age_at_visit:
+    description: >
+      Age at visit in years - round to nearest integer. If the age in years at the visit is greater than 89, see 'age_at_visit_gt89'.
+    type:
+      - integer
+      - "null"
+    maximum: 89
+    minimum: 0
+
+  age_at_visit_gt89:
+    description: >
+      Indicate if the age at visit years is greater than 89.
+    enum:
+      - "Yes"
+      - "No"
+
+  bmi:
+    description: "The body mass divided by the square of the body height expressed in units of kg/m^2."
+    type: number
+
+  drug_used:
+    description: >
+      Ever used any medical or recreational drugs since last visit
+    enum:
+      - "No"
+      - "Yes"
+      - "Refusal"
+      - "Unknown"
+
+  ever_transferred:
+    description: >
+      Participant ever transferred sites (changed ids)
+    enum:
+      - "Never transferred"
+      - "Transferred"
+
+  health_insurance:
+    description: >
+      Currently have any health insurance
+    type: boolean
+
+  height:
+    description: "The height of the patient in centimeters."
+    type:
+      - number
+      - "null"
+    maximum: 500
+    minimum: 0
+
+  pregnancy_status:
+    description: >
+      Is the participant pregnant (women) or has been pregnant since the last visit
+    type: boolean
+
+  version_data:
+    description: >
+      Version number of data
+    type: string
+
+  visit_number:
+    description: >
+      Visit number
+    type: integer
+
+  visit_id:
+    description: >
+      ID at time of interview (prior to transfer)
+    type: integer
+
+  visit_name:
+    description: >
+      Visit ID (string)
+    type: string
+
+  visit_type:
+    description: >
+      Define if the visit is a follow-up or the baseline visit.
+    enum:
+      - Baseline Visit
+      - Follow-up Visit
+      - Abbreviated Visit (Record in ABRV file)
+
+  weight:
+    description: >
+      The weight of the subject measured in grams.
+    type: number
+
+  weight_percentage:
+    description: >
+      The percentage of the weight considering the weight measured at the index date as the reference.
+    type: number
+
+  visit_date:
+    description: >
+      Year of the visit.
+    type: integer
+
+  tint:
+    description: >
+      6-month time interval for visit
+    type: integer
+
+  days_to_follow_up:
+    description: >
+      Number of days between the date used for index and the date the patient was seen or contacted at follow-up.
+    type: integer
+
+  subjects:
+    $ref: "_definitions.yaml#/to_one"
+
+  studies:
+    $ref: "_definitions.yaml#/to_one"

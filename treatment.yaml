@@ -1,0 +1,126 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "treatment"
+title: Treatment
+type: object
+namespace: https://niaid.bionimbus.org
+category: clinical
+program: '*'
+project: '*'
+description: >
+  Record of the administration and intention of therapeutic agents provided to a patient to alter
+  the course of a pathologic process.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: diagnoses
+    backref: treatments
+    label: relates_to
+    target_type: diagnosis
+    multiplicity: many_to_one
+    required: true
+  - name: follow_ups
+    backref: treatments
+    label: performs_on
+    target_type: follow_up
+    multiplicity: one_to_one
+    required: false
+
+required:
+  - submitter_id
+  - type
+  - diagnoses
+
+uniqueKeys:
+  #unclear if want submitter ID for clinical
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  first_macs_visit_haart:
+    description: >
+      First visit reported HAART
+    type: number
+
+  last_macs_visit_haart_free:
+    description: >
+      Last visit reported HAART-free
+    type: integer
+
+  regimen_or_line_of_therapy:
+    description: >
+      General name for a the group of treatments of which this treatment was a part. This reference
+      name can be used to identify treatments involved in a certain outcome later one.
+    type: string
+
+  year_of_last_haart_free:
+    description: >
+      Last reported HAART-free year
+    type: number
+
+  year_of_treatment:
+    description: >
+      First reported treatment year
+    type: number
+
+  therapeutic_agents:
+    term:
+      $ref: "_terms.yaml#/therapeutic_agents"
+    type: string
+
+  treatment_intent_type:
+    term:
+      $ref: "_terms.yaml#/treatment_intent_type"
+    type: string
+
+  treatment_outcome:
+    term:
+      $ref: "_terms.yaml#/treatment_outcome"
+    enum:
+      - Complete Response
+      - Partial Response
+      - Treatment Ongoing
+      - Treatment Stopped Due to Toxicity
+      - Completed
+      - Cured
+      - Default
+      - Failed
+      - Died
+      - Unknown
+
+  treatment_type:
+    term:
+      $ref: "_terms.yaml#/treatment_type"
+    type: string
+
+  treatment_span:
+    description: >
+      Span of treatment
+    type: integer
+
+  regimen_count:
+    description: >
+      Count of regimens
+    type: integer
+
+  treatment_status:
+    description: >
+      Status of treatment.
+    type: string
+
+  diagnoses:
+    $ref: "_definitions.yaml#/to_one"
+
+  follow_ups:
+    $ref: "_definitions.yaml#/to_one"
