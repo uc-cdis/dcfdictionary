@@ -1,16 +1,15 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "alignment_workflow"
-title: Alignment Workflow
+id: "genotyping_array_workflow"
+title: Genotyping Array Workflow
 type: object
 namespace: https://nci-crdc-demo.datacommons.io/
 category: analysis
 program: '*'
 project: '*'
 description: >
-  Metadata for the alignment pipeline used to align reads in the GDC harmonization pipelines.
+  Metadata for the Genotyping array workflow used to generate aggregated genotyping callset or tangent copy number variation.
 additionalProperties: false
-submittable: false
 validators: null
 
 systemProperties:
@@ -19,27 +18,27 @@ systemProperties:
   - created_datetime
   - updated_datetime
   - state
+  - type
 
 links:
   - exclusive: true
     required: true
     subgroup:
-      - name: submitted_aligned_reads_files
-        backref: alignment_workflows
+      - name: genotyping_arrays
+        backref: genotyping_array_workflows
         label: performed_on
-        target_type: submitted_aligned_reads
-        multiplicity: one_to_many
+        target_type: genotyping_array
+        multiplicity: many_to_many
         required: false
-      - name: submitted_unaligned_reads_files
-        backref: alignment_workflows
+      - name: aggregated_genotyping_arrays
+        backref: genotyping_array_workflows
         label: performed_on
-        target_type: submitted_unaligned_reads
-        multiplicity: one_to_many
+        target_type: aggregated_genotyping_array
+        multiplicity: many_to_many
         required: false
 
 required:
   - submitter_id
-  - type
   - workflow_type
 
 uniqueKeys:
@@ -48,15 +47,19 @@ uniqueKeys:
 
 properties:
   $ref: "_definitions.yaml#/workflow_properties"
+
   type:
-    enum: [ "alignment_workflow" ]
+    enum: [ "genotyping_array_workflow" ]
+
   workflow_type:
+    term:
+      $ref: "_terms.yaml#/workflow_type"
     enum:
-      - "STAR"
-      - "BWA-aln"
-      - "BWA-mem"
-      - "spinnaker"
-  submitted_aligned_reads_files:
+      -  Birdseed Genotyping
+
+  genotyping_arrays:
     $ref: "_definitions.yaml#/to_many"
-  submitted_unaligned_reads_files:
+
+  aggregated_genotyping_arrays:
     $ref: "_definitions.yaml#/to_many"
+
