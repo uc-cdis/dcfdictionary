@@ -1,16 +1,15 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "gene_expression"
-title: Gene Expression
+id: "genotyping_array"
+title: Genotyping Array
 type: object
 namespace: https://nci-crdc-demo.datacommons.io/
 category: data_file
 program: '*'
 project: '*'
-description: >
-  Data file containing gene expression information generated internally by the GTEx.
+description: "DNA array data files contain information on genome-wide SNP and genetic variant for genetic studies."
 additionalProperties: false
-submittable: false
+submittable: true
 validators: null
 
 systemProperties:
@@ -27,40 +26,28 @@ links:
     required: true
     subgroup:
       - name: core_metadata_collections
-        backref: gene_expressions
+        backref: genotyping_arrays
         label: data_from
         target_type: core_metadata_collection
         multiplicity: many_to_one
         required: false
-      - name: submitted_aligned_reads_files
-        backref: gene_expressions
-        label: derived_from
-        target_type: submitted_aligned_reads
-        multiplicity: many_to_many
-        required: false
-      - name: mRNA_microarrays
-        backref: gene_expressions
-        label: derived_from
-        target_type: mRNA_microarray
-        multiplicity: many_to_many
-        required: false
-      - name: rna_expression_workflows
-        backref: gene_expressions
+      - name: aliquots
+        backref: genotyping_arrays
         label: data_from
-        target_type: rna_expression_workflow
-        multiplicity: many_to_one
+        target_type: aliquot
+        multiplicity: one_to_one
         required: false
 
 required:
   - submitter_id
-  - type
   - file_name
   - file_size
-  - md5sum
   - data_category
   - data_type
   - data_format
   - experimental_strategy
+  - md5sum
+  - platform
 
 uniqueKeys:
   - [ id ]
@@ -72,40 +59,47 @@ properties:
   data_category:
     term:
       $ref: "_terms.yaml#/data_category"
-    enum: [ "Transcriptome Profiling" ]
+    enum:
+      - Genotyping Array Data
 
   data_type:
     term:
       $ref: "_terms.yaml#/data_type"
     enum:
-      - "Gene Expression Quantification"
-      - "Gene Expression Normalization"
+      - Genotyping Raw Intensity
 
   data_format:
     term:
       $ref: "_terms.yaml#/data_format"
     enum:
-      - TXT
-      - TSV
-      - CSV
+      - IDAT
+      - GTC
       - GCT
-      - RES
-      - TDF
-      - GCTX
+      - CEL
 
   experimental_strategy:
     term:
       $ref: "_terms.yaml#/experimental_strategy"
     enum:
-      - RNA-Seq
-      - Total RNA-Seq
-      - Microarray
+      - Genotyping Array
 
-  submitted_aligned_reads_files:
-    $ref: "_definitions.yaml#/to_many"
-  mRNA_microarrays:
-    $ref: "_definitions.yaml#/to_many"
-  rna_expression_workflows:
-    $ref: "_definitions.yaml#/to_many"
+  platform:
+    term:
+      $ref: "_terms.yaml#/platform"
+    enum:
+      - Illumina Infinium HumanExome BeadChip
+      - Illumina OMNI 5M SNP Array
+      - Illumina OMNI 2.5M SNP Array
+      - Affymetrix Genome-Wide Human SNP Array 6.0
+      - Illumina Infinium 20K Canine SNP Beadchip
+
+  plat:
+    description: >
+      Plat number for which plate the genotyping is performed
+    type:
+      integer
+
+  aliquots:
+    $ref: "_definitions.yaml#/to_one"
   core_metadata_collections:
     $ref: "_definitions.yaml#/to_many"
