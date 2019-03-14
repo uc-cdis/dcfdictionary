@@ -49,6 +49,7 @@ uniqueKeys:
 
 required:
   - submitter_id
+  - type
   - file_name
   - data_type
   - md5sum
