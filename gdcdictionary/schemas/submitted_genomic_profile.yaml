@@ -50,7 +50,6 @@ required:
   - data_category
   - data_type
   - experimental_strategy
-  - type
 
 uniqueKeys:
   - [ id ]
