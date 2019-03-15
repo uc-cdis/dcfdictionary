@@ -40,7 +40,6 @@ links:
 
 required:
   - submitter_id
-  - type
   - file_name
   - file_size
   - data_category
@@ -92,6 +91,7 @@ properties:
       - Illumina OMNI 5M SNP Array
       - Illumina OMNI 2.5M SNP Array
       - Affymetrix Genome-Wide Human SNP Array 6.0
+      - Illumina Infinium 20K Canine SNP Beadchip
 
   plat:
     description: >

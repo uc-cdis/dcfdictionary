@@ -18,6 +18,7 @@ systemProperties:
   - created_datetime
   - updated_datetime
   - state
+  - type
 
 links:
   - exclusive: true
@@ -38,7 +39,6 @@ links:
 
 required:
   - submitter_id
-  - type
   - workflow_type
 
 uniqueKeys:
@@ -62,3 +62,4 @@ properties:
 
   aggregated_genotyping_arrays:
     $ref: "_definitions.yaml#/to_many"
+

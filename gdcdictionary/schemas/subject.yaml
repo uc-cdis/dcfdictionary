@@ -66,6 +66,7 @@ properties:
      - Mustela putorius furo
      - Rattus rattus
      - Sus scrofa
+     - Canis Domesticus
   strain:
     description: >
       A lower-level taxonomic rank used in microbiology or virology, plants and rodents, usually at the intraspecific level (within a species)
