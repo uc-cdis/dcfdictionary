@@ -68,27 +68,27 @@ properties:
       - not reported
 
   breed:
-    term:
-      $ref: "_terms.yaml#/breed"
-    enum:
-      - American cocker spaniel
-      - English cocker spaniel
-      - English springer spaniel
-      - Cavalier King Charles spaniel
-      - Irish water spaniel
-      - Brittany spaniel
-      - German short-haired pointer
-      - Bassett hound
-      - Scottish terrier
-      - Shetland sheepdog
-      - Beagle
-      - West Highland white terrier
-      - German shepherd dog
-      - Jack Russell terrier
-      - Miniature pinscher
-      - Mixed Breed
-      - Bernese Mountain dog
-      - not reported
+   term:
+     $ref: "_terms.yaml#/breed"
+   enum:
+     - American cocker spaniel
+     - English cocker spaniel
+     - English springer spaniel
+     - Cavalier King Charles spaniel
+     - Irish water spaniel
+     - Brittany spaniel
+     - German short-haired pointer
+     - Bassett hound
+     - Scottish terrier
+     - Shetland sheepdog
+     - Beagle
+     - West Highland white terrier
+     - German shepherd dog
+     - Jack Russell terrier
+     - Miniature pinscher
+     - Mixed Breed
+     - Bernese Mountain dog
+     - not reported
 
   cause_of_death:
     description: >
