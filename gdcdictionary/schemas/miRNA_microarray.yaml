@@ -1,6 +1,6 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "miRNA_microarray"
+id: "mirna_microarray"
 title: miRNA Microarray
 type: object
 namespace: https://nci-crdc-demo.datacommons.io/
@@ -27,13 +27,13 @@ links:
     required: true
     subgroup:
       - name: core_metadata_collections
-        backref: miRNA_microarrays
+        backref: mirna_microarrays
         label: data_from
         target_type: core_metadata_collection
         multiplicity: many_to_one
         required: false
       - name: aliquots
-        backref: miRNA_microarrays
+        backref: mirna_microarrays
         label: data_for
         target_type: aliquot
         multiplicity: one_to_one
