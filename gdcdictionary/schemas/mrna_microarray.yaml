@@ -1,14 +1,14 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "miRNA_microarray"
-title: miRNA Microarray
+id: "mrna_microarray"
+title: mRNA Microarray
 type: object
 namespace: https://nci-crdc-demo.datacommons.io/
 category: data_file
 program: '*'
 project: '*'
 description: >
-  Data file containing raw miRNA microarray intensity.
+  Data file containing raw mRNA microarray intensity.
 additionalProperties: false
 submittable: true
 validators: null
@@ -27,13 +27,13 @@ links:
     required: true
     subgroup:
       - name: core_metadata_collections
-        backref: miRNA_microarrays
+        backref: mRNA_microarrays
         label: data_from
         target_type: core_metadata_collection
         multiplicity: many_to_one
         required: false
       - name: aliquots
-        backref: miRNA_microarrays
+        backref: mRNA_microarrays
         label: data_for
         target_type: aliquot
         multiplicity: one_to_one
@@ -57,6 +57,11 @@ uniqueKeys:
 properties:
   $ref: "_definitions.yaml#/data_file_properties"
 
+  array_platform:
+    description: >
+      Type of the CHIP used for microarray
+    type: string
+
   data_category:
     term:
       $ref: "_terms.yaml#/data_category"
@@ -67,7 +72,7 @@ properties:
     term:
       $ref: "_terms.yaml#/data_type"
     enum:
-      - miRNA Expression Quantification
+      - mRNA Expression Quantification
 
   data_format:
     term:
@@ -76,6 +81,7 @@ properties:
       - TXT
       - TSV
       - CSV
+      - CEL
 
   experimental_strategy:
     term:
