@@ -38,7 +38,7 @@ links:
         target_type: submitted_aligned_reads
         multiplicity: many_to_many
         required: false
-      - name: mRNA_microarrays
+      - name: mrna_microarrays
         backref: gene_expressions
         label: derived_from
         target_type: mRNA_microarray
