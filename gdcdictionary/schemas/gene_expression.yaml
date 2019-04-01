@@ -38,10 +38,10 @@ links:
         target_type: submitted_aligned_reads
         multiplicity: many_to_many
         required: false
-      - name: mRNA_microarrays
+      - name: mrna_microarrays
         backref: gene_expressions
         label: derived_from
-        target_type: mRNA_microarray
+        target_type: mrna_microarray
         multiplicity: many_to_many
         required: false
       - name: rna_expression_workflows
@@ -103,7 +103,7 @@ properties:
 
   submitted_aligned_reads_files:
     $ref: "_definitions.yaml#/to_many"
-  mRNA_microarrays:
+  mrna_microarrays:
     $ref: "_definitions.yaml#/to_many"
   rna_expression_workflows:
     $ref: "_definitions.yaml#/to_many"

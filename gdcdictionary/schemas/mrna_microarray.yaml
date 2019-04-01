@@ -1,6 +1,6 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "mRNA_microarray"
+id: "mrna_microarray"
 title: mRNA Microarray
 type: object
 namespace: https://nci-crdc-demo.datacommons.io/
