@@ -58,7 +58,7 @@ properties:
     description: "Name of the disease for the subject."
     type: string
   species:
-    description: "Taxonomic breed of the subject."
+    description: "Taxonomic species of the subject."
     enum:
      - Drosophila melanogaster
      - Homo sapiens
