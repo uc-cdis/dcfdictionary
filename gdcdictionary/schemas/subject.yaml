@@ -57,8 +57,8 @@ properties:
   disease_type:
     description: "Name of the disease for the subject."
     type: string
-  species:
-    description: "Taxonomic species of the subject."
+  breed:
+    description: "Taxonomic breed of the subject."
     enum:
      - Drosophila melanogaster
      - Homo sapiens
@@ -66,11 +66,11 @@ properties:
      - Mustela putorius furo
      - Rattus rattus
      - Sus scrofa
-     - Canis Domesticus
-     
+     - Canis lupus familiaris
+
   strain:
     description: >
-      A lower-level taxonomic rank used in microbiology or virology, plants and rodents, usually at the intraspecific level (within a species)
+      A lower-level taxonomic rank used in microbiology or virology, plants and rodents, usually at the intraspecific level (within a breed)
     type: string
   index_date:
     description: >
