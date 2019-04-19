@@ -35,7 +35,7 @@ links:
         backref: genotyping_arrays
         label: data_from
         target_type: aliquot
-        multiplicity: one_to_one
+        multiplicity: many_to_one
         required: false
 
 required:
@@ -93,6 +93,10 @@ properties:
       - Illumina OMNI 2.5M SNP Array
       - Affymetrix Genome-Wide Human SNP Array 6.0
       - Illumina Infinium 20K Canine SNP Beadchip
+      - Illumina CanineHD BeadChip
+      - Affymetrix GeneChip Canine Genome Array 
+      - Axiom Canine Genotyping Array
+      - Illumina CanineSNP20 BeadChip
   plat:
     description: >
       Plat number for which plate the genotyping is performed
