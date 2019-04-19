@@ -57,7 +57,7 @@ properties:
   disease_type:
     description: "Name of the disease for the subject."
     type: string
-  breed:
+  species:
     description: "Taxonomic breed of the subject."
     enum:
      - Drosophila melanogaster
@@ -68,9 +68,9 @@ properties:
      - Sus scrofa
      - Canis lupus familiaris
 
-  strain:
+  breed:
     description: >
-      A lower-level taxonomic rank used in microbiology or virology, plants and rodents, usually at the intraspecific level (within a breed)
+      American Kennel Club dog breeds information
     type: string
   index_date:
     description: >
