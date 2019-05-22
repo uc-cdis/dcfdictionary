@@ -74,6 +74,7 @@ properties:
       - VCF
       - XML
       - TXT
+      - PLINK
 
   data_type:
     term:
