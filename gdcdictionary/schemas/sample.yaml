@@ -462,7 +462,7 @@ properties:
       - EBV Immortalized
       - Fibroblasts from Bone Marrow Normal
       - Granulocytes
-      - Human Original Cells
+      - Canine Original Cells
       - Lymphocytes
       - Mononuclear Cells from Bone Marrow Normal
       - Peripheral Blood Components NOS
@@ -514,7 +514,7 @@ properties:
       - Fibroblasts from Bone Marrow Normal
       - GenomePlex (Rubicon) Amplified DNA
       - Granulocytes
-      - Human Tumor Original Cells
+      - Canine Tumor Original Cells
       - Metastatic
       - Mononuclear Cells from Bone Marrow Normal
       - Primary Blood Derived Cancer - Peripheral Blood
