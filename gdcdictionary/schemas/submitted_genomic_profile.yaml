@@ -83,6 +83,8 @@ properties:
       - FoundationOne Report
       - GENIE Report
       - Raw CGI Variant
+      - Aggregated mutation information
+      - GWAS dosage SNP data
 
   experimental_strategy:
     term:
@@ -90,6 +92,13 @@ properties:
     enum:
       - Targeted Sequencing
       - WGS
+      - WXS
+      - Low Pass WGS
+      - Validation
+      - RNA-Seq
+      - miRNA-Seq
+      - Total RNA-Seq
+      - DNA Panel 
 
   read_groups:
     $ref: "_definitions.yaml#/to_many"
