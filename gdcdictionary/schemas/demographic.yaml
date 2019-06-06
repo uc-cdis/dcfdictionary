@@ -8,7 +8,7 @@ category: clinical
 program: '*'
 project: '*'
 description: >
-  Data for the characterization of the patient by means of segementing the population (e.g.,characterization by age, sex, or race).
+  Data for the characterization of the patient by means of segementing the population (e.g.,characterization by age, sex, or breed).
 additionalProperties: false
 submittable: true
 validators: null
@@ -310,30 +310,6 @@ properties:
     description: >
       Time interval from a person’s date of death to the date of initial pathologic diagnosis, represented as a calculated number of days.
     type: integer
-
-  race:
-    term:
-      $ref: "_terms.yaml#/race"
-    enum:
-      - white
-      - american indian or alaska native
-      - black or african american
-      - asian
-      - native hawaiian or other pacific islander
-      - other
-      - Unknown
-      - not reported
-      - not allowed to collect
-
-  ethnicity:
-    term:
-      $ref: "_terms.yaml#/ethnicity"
-    enum:
-      - hispanic or latino
-      - not hispanic or latino
-      - Unknown
-      - not reported
-      - not allowed to collect
 
   year_of_birth:
     term:
