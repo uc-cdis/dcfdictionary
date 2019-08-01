@@ -38,7 +38,6 @@ links:
 
 required:
   - submitter_id
-  - type
   - workflow_type
 
 uniqueKeys:
@@ -62,3 +61,4 @@ properties:
 
   aggregated_genotyping_arrays:
     $ref: "_definitions.yaml#/to_many"
+

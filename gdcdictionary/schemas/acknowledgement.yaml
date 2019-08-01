@@ -29,7 +29,6 @@ links:
 
 required:
   - submitter_id
-  - type
   - projects
 
 uniqueKeys:
@@ -52,7 +51,7 @@ properties:
     description: "The indvidiual or group being acknowledged by the project."
     type: string
   projects:
-    $ref: "_definitions.yaml#/to_many_project"
+    $ref: "_definitions.yaml#/to_many"
   project_id:
     type: string
   created_datetime:

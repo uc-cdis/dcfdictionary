@@ -1,0 +1,5 @@
+Dockerfile
+.git
+.travis.yml
+.gitignore
+.DS_Store

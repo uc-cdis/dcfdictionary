@@ -32,11 +32,6 @@ uniqueKeys:
   - [id]
   - [project_id, submitter_id]
 
-required:
-  - submitter_id
-  - type
-  - projects
-
 properties:
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
@@ -109,4 +104,4 @@ properties:
     type: string
 
   projects:
-    $ref: "_definitions.yaml#/to_one_project"
+    $ref: "_definitions.yaml#/to_one"

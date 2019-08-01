@@ -52,7 +52,6 @@ links:
 
 required:
   - submitter_id
-  - type
   - file_name
   - file_size
   - data_category
@@ -97,13 +96,10 @@ properties:
     term:
       $ref: "_terms.yaml#/platform"
     enum:
+      - Illumina Infinium HumanExome BeadChip
       - Illumina OMNI 5M SNP Array
       - Illumina OMNI 2.5M SNP Array
-      - Illumina Infinium 20K Canine SNP Beadchip
-      - Illumina CanineHD BeadChip
-      - Affymetrix GeneChip Canine Genome Array
-      - Axiom Canine Genotyping Array
-      - Illumina CanineSNP20 BeadChip
+      - Affymetrix Genome-Wide Human SNP Array 6.0
 
   genotyping_arrays:
     $ref: "_definitions.yaml#/to_one"

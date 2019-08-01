@@ -85,9 +85,7 @@ properties:
       - Illumina HiSeq 2500
       - Illumina HiSeq 4000
       - Illumina MiSeq
-      - Illumina NextSeq 500
-      - Illumina NextSeq 550
-      - Illumina NovaSeq 6000
+      - Illumina NextSeq
       - Ion Torrent PGM
       - Ion Torrent Proton
       - PacBio RS

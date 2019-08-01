@@ -331,10 +331,6 @@ bmi:
     cde_version: 1.0
     term_url: "https://cdebrowser.nci.nih.gov/CDEBrowser/search?elementDetails=9&FirstTimer=0&PageId=ElementDetailsGroup&publicId=4973892&version=1.0"
 
-breed: # TOREVIEW
-  description: >
-    A stock of animals or plants within a species having a distinctive appearance and typically having been developed by deliberate selection.
-
 burkitt_lymphoma_clinical_variant:
   description: >
     Burkitt's lymphoma categorization based on clinical features that differ from other forms of the

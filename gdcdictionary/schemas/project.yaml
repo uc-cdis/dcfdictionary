@@ -24,7 +24,6 @@ required:
   - code
   - name
   - programs
-  - dbgap_accession_number
 
 uniqueKeys:
   - [ id ]
@@ -124,10 +123,6 @@ properties:
         # DEPRECATED(2016-03-01): synonymous with closed. included for
         #                         backwards compatibility
         - legacy
-
-  dbgap_accession_number:
-    description: "The dbgap accession number for the project." # TOREVIEW
-    type: string
 
   released:
     description: >

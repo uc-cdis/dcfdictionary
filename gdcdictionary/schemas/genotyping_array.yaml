@@ -35,12 +35,11 @@ links:
         backref: genotyping_arrays
         label: data_from
         target_type: aliquot
-        multiplicity: many_to_one
+        multiplicity: one_to_one
         required: false
 
 required:
   - submitter_id
-  - type
   - file_name
   - file_size
   - data_category
@@ -88,13 +87,11 @@ properties:
     term:
       $ref: "_terms.yaml#/platform"
     enum:
+      - Illumina Infinium HumanExome BeadChip
       - Illumina OMNI 5M SNP Array
       - Illumina OMNI 2.5M SNP Array
-      - Illumina Infinium 20K Canine SNP Beadchip
-      - Illumina CanineHD BeadChip
-      - Affymetrix GeneChip Canine Genome Array
-      - Axiom Canine Genotyping Array
-      - Illumina CanineSNP20 BeadChip
+      - Affymetrix Genome-Wide Human SNP Array 6.0
+
   plat:
     description: >
       Plat number for which plate the genotyping is performed

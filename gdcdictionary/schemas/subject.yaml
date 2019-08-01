@@ -66,11 +66,9 @@ properties:
      - Mustela putorius furo
      - Rattus rattus
      - Sus scrofa
-     - Canis lupus familiaris
-
-  breed:
+  strain:
     description: >
-      American Kennel Club dog breeds information
+      A lower-level taxonomic rank used in microbiology or virology, plants and rodents, usually at the intraspecific level (within a species)
     type: string
   index_date:
     description: >
