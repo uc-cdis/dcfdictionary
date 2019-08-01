@@ -1,6 +1,6 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "mRNA_microarray"
+id: "mrna_microarray"
 title: mRNA Microarray
 type: object
 namespace: https://nci-crdc-demo.datacommons.io/
@@ -27,13 +27,13 @@ links:
     required: true
     subgroup:
       - name: core_metadata_collections
-        backref: mRNA_microarrays
+        backref: mrna_microarrays
         label: data_from
         target_type: core_metadata_collection
         multiplicity: many_to_one
         required: false
       - name: aliquots
-        backref: mRNA_microarrays
+        backref: mrna_microarrays
         label: data_for
         target_type: aliquot
         multiplicity: one_to_one
@@ -41,6 +41,7 @@ links:
 
 required:
   - submitter_id
+  - type
   - file_name
   - file_size
   - data_format

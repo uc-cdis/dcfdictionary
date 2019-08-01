@@ -28,6 +28,10 @@ links:
     multiplicity: many_to_one
     required: true
 
+required:
+  - submitter_id
+  - type
+
 uniqueKeys:
   - [id]
   - [project_id, submitter_id]
@@ -104,4 +108,4 @@ properties:
     type: string
 
   projects:
-    $ref: "_definitions.yaml#/to_one"
+    $ref: "_definitions.yaml#/to_one_project"
