@@ -35,7 +35,7 @@ links:
         backref: genotyping_arrays
         label: data_from
         target_type: aliquot
-        multiplicity: one_to_one
+        multiplicity: many_to_one
         required: false
 
 required:
