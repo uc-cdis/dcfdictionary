@@ -71,9 +71,8 @@ properties:
     description: >
       The specific model of instrument used to perform the assay.
     enum:
-      - Illumina Infinium Methylation 450
-      - Illumina Infinium Methylation 450K
-      - Illumina Infinium Methylation 850K
+      - Illumina Infinium HumanMethylation450
+      - Illumina Infinium HumanMethylation450K
 
   data_category:
     term:

@@ -125,10 +125,6 @@ properties:
         #                         backwards compatibility
         - legacy
 
-  dbgap_accession_number:
-    description: "The dbgap accession number for the project." # TOREVIEW
-    type: string
-
   released:
     description: >
       To release a project is to tell the GDC to include all submitted
