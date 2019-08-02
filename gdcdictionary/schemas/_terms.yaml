@@ -1,5 +1,15 @@
 id: _terms
 
+28s_16s_ribosomal_rna_ratio:
+  description: >
+    The 28S/18S ribosomal RNA band ratio used to assess the quality of total RNA.
+  termDef:
+    term: "28s/18s Ribosomal RNA Ratio"
+    source: null
+    cde_id: null
+    cde_version: null
+    term_url: null
+
 a260_a280_ratio:
   description: >
     Numeric value that represents the sample ratio of nucleic acid absorbance at 260 nm and 280 nm,
@@ -270,6 +280,10 @@ aliquot_volume:
     cde_id: null
     cde_version: null
     term_url: null
+
+amount: # TOREVIEW
+  description: >
+    Weight in grams or volume in mL.
 
 analyte_quantity:
   description: >
