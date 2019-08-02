@@ -284,6 +284,12 @@ aliquot_volume:
 amount: # TOREVIEW
   description: >
     Weight in grams or volume in mL.
+  termDef:
+    term: Biospecimen Aliquot Amount
+    source: null
+    cde_id: null
+    cde_version: null
+    term_url: null
 
 analyte_quantity:
   description: >
