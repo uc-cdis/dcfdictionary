@@ -3,11 +3,12 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "submitted_unaligned_reads"
 title: Submitted Unaligned Reads
 type: object
+nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: data_file
 program: '*'
 project: '*'
-description: "Data file containing unaligned reads that have not been GDC Harmonized."
+description: Data file containing unaligned reads that have not been GDC Harmonized.
 additionalProperties: false
 submittable: true
 validators: null
@@ -15,6 +16,7 @@ validators: null
 systemProperties:
   - id
   - project_id
+  - state
   - created_datetime
   - updated_datetime
   - state
@@ -48,58 +50,63 @@ required:
   - data_type
   - data_format
   - experimental_strategy
-
 uniqueKeys:
-  - [ id ]
-  - [ project_id, submitter_id ]
-
+  - [id]
+  - [project_id, submitter_id]
 properties:
+
   $ref: "_definitions.yaml#/data_file_properties"
 
-  data_category:
-    term:
-      $ref: "_terms.yaml#/data_category"
-    enum:
-      - "Sequencing Data"
-      - "Sequencing Reads"
-      - "Raw Sequencing Data"
+  core_metadata_collections:
+    $ref: "_definitions.yaml#/to_one"
 
-  data_type:
-    term:
-      $ref: "_terms.yaml#/data_type"
-    enum: [ "Unaligned Reads" ]
+  data_category:
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/data_category"
+    enumTerms:
+      Raw Sequencing Data: null
+      Sequencing Data: null
+      Sequencing Reads: null
 
   data_format:
-    term:
-      $ref: "_terms.yaml#/data_format"
-    enum:
-      - "BAM"
-      - "FASTQ"
-      - "FASTA"
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/data_format"
+    enumTerms:
+      BAM: null
+      FASTA: null
+      FASTQ: null
+
+  data_type:
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/data_type"
+    enumTerms:
+      Unaligned Reads: null
 
   experimental_strategy:
-    term:
-      $ref: "_terms.yaml#/experimental_strategy"
-    enum:
-      - "ATAC-Seq"
-      - "Bisulfite-Seq"
-      - "ChIP-Seq"
-      - "Low Pass WGS"
-      - "miRNA-Seq"
-      - "RNA-Seq"
-      - "Targeted Sequencing"
-      - "WGS"
-      - "WXS"
-
-  read_pair_number:
-    term:
-      $ref: "_terms.yaml#/read_pair_number"
-    enum:
-      - "R1"
-      - "R2"
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/experimental_strategy"
+    enumTerms:
+      ATAC-Seq: null
+      Bisulfite-Seq: null
+      ChIP-Seq: null
+      Low Pass WGS: null
+      RNA-Seq: null
+      Targeted Sequencing: null
+      WGS: null
+      WXS: null
+      miRNA-Seq: null
 
   read_groups:
     $ref: "_definitions.yaml#/to_one"
 
-  core_metadata_collections:
-    $ref: "_definitions.yaml#/to_one"
+  read_pair_number:
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/read_pair_number"
+    enumTerms:
+      R1: null
+      R2: null

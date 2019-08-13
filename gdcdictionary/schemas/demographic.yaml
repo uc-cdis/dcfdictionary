@@ -3,12 +3,13 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "demographic"
 title: Demographic
 type: object
+nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: clinical
 program: '*'
 project: '*'
-description: >
-  Data for the characterization of the patient by means of segementing the population (e.g.,characterization by age, sex, or race).
+description: Data for the characterization of the patient by means of segementing
+  the population (e.g.,characterization by age, sex, or race).
 additionalProperties: false
 submittable: true
 validators: null
@@ -32,109 +33,126 @@ required:
   - submitter_id
   - type
   - subjects
-
-preferred:
-  - year_of_death
-
 uniqueKeys:
-  #unclear if want submitter ID for clinical
   - [id]
   - [project_id, submitter_id]
-
 properties:
-  type:
+
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  age_range:
+    description: Range of ages for the subject. The age range should not include ages
+      over 89 years.
+    terms: null
     type: string
-
-  id:
-    $ref: "_definitions.yaml#/UUID"
-    systemAlias: node_id
-
-  state:
-    $ref: "_definitions.yaml#/state"
-
-  submitter_id:
-    type:
-      - string
-      - "null"
-
-  gender:
-    term:
-      $ref: "_terms.yaml#/gender"
-    enum:
-      - female
-      - male
-      - unknown
-      - unspecified
-      - not reported
 
   cause_of_death:
-    description: >
-      Text term to identify the cause of death for a patient.
+    description: Text term to identify the cause of death for a patient.
+    terms: null
     type: string
 
-  vital_status:
-    description: >
-      The survival state of the person registered on the protocol.
-    type: string
+  created_datetime:
+    description: null
+    terms: null
+    type: null
 
   days_to_birth:
-    description: >
-      Time interval from a person’s date of birth to the date of initial pathologic diagnosis, represented as a calculated negative number of days.
+    description: Time interval from a person’s date of birth to the date of initial
+      pathologic diagnosis, represented as a calculated negative number of days.
+    terms: null
     type: integer
     maximum: 0
     minimum: -32872
 
   days_to_death:
-    description: >
-      Time interval from a person’s date of death to the date of initial pathologic diagnosis, represented as a calculated number of days.
+    description: Time interval from a person’s date of death to the date of initial
+      pathologic diagnosis, represented as a calculated number of days.
+    terms: null
     type: integer
 
-  race:
-    term:
-      $ref: "_terms.yaml#/race"
-    enum:
-      - white
-      - american indian or alaska native
-      - black or african american
-      - asian
-      - native hawaiian or other pacific islander
-      - other
-      - Unknown
-      - not reported
-      - not allowed to collect
-
   ethnicity:
-    term:
-      $ref: "_terms.yaml#/ethnicity"
-    enum:
-      - hispanic or latino
-      - not hispanic or latino
-      - Unknown
-      - not reported
-      - not allowed to collect
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/ethnicity"
+    enumTerms:
+      Unknown: null
+      hispanic or latino: null
+      not allowed to collect: null
+      not hispanic or latino: null
+      not reported: null
 
-  year_of_birth:
-    term:
-      $ref: "_terms.yaml#/year_of_birth"
-    type:
-      - number
-      - "null"
+  gender:
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/gender"
+    enumTerms:
+      female: null
+      male: null
+      not reported: null
+      unknown: null
+      unspecified: null
 
-  year_of_death:
-    term:
-      $ref: "_terms.yaml#/year_of_death"
-    type: number
+  id:
+    description: null
+    terms: null
+    type: null
 
-  age_range :
-    description: >
-      Range of ages for the subject. The age range should not include ages over 89 years.
-    type: string
+  project_id:
+    description: null
+    terms: null
+    type: null
+
+  race:
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/race"
+    enumTerms:
+      Unknown: null
+      american indian or alaska native: null
+      asian: null
+      black or african american: null
+      native hawaiian or other pacific islander: null
+      not allowed to collect: null
+      not reported: null
+      other: null
+      white: null
+
+  state:
+    description: null
+    terms: null
+    type: null
 
   subjects:
     $ref: "_definitions.yaml#/to_one"
-  project_id:
-    $ref: "_definitions.yaml#/project_id"
-  created_datetime:
-    $ref: "_definitions.yaml#/datetime"
+
+  submitter_id:
+    description: null
+    terms: null
+    type: "['string', 'null']"
+
+  type:
+    description: null
+    terms: null
+    type: string
+
   updated_datetime:
-    $ref: "_definitions.yaml#/datetime"
+    description: null
+    terms: null
+    type: null
+
+  vital_status:
+    description: The survival state of the person registered on the protocol.
+    terms: null
+    type: string
+
+  year_of_birth:
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/year_of_birth"
+    type: "['number', 'null']"
+
+  year_of_death:
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/year_of_death"
+    type: number

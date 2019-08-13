@@ -3,12 +3,12 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "mirna_microarray"
 title: miRNA Microarray
 type: object
+nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: data_file
 program: '*'
 project: '*'
-description: >
-  Data file containing raw miRNA microarray intensity.
+description: Data file containing raw miRNA microarray intensity.
 additionalProperties: false
 submittable: true
 validators: null
@@ -16,6 +16,7 @@ validators: null
 systemProperties:
   - id
   - project_id
+  - state
   - created_datetime
   - updated_datetime
   - state
@@ -49,41 +50,45 @@ required:
   - data_category
   - data_type
   - experimental_strategy
-
 uniqueKeys:
-  - [ id ]
-  - [ project_id, submitter_id ]
-
+  - [id]
+  - [project_id, submitter_id]
 properties:
+
   $ref: "_definitions.yaml#/data_file_properties"
 
-  data_category:
-    term:
-      $ref: "_terms.yaml#/data_category"
-    enum:
-      - Transcriptome Profiling
+  aliquots:
+    $ref: "_definitions.yaml#/to_one"
 
-  data_type:
-    term:
-      $ref: "_terms.yaml#/data_type"
-    enum:
-      - miRNA Expression Quantification
+  core_metadata_collections:
+    $ref: "_definitions.yaml#/to_one"
+
+  data_category:
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/data_category"
+    enumTerms:
+      Transcriptome Profiling: null
 
   data_format:
-    term:
-      $ref: "_terms.yaml#/data_format"
-    enum:
-      - TXT
-      - TSV
-      - CSV
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/data_format"
+    enumTerms:
+      CSV: null
+      TSV: null
+      TXT: null
+
+  data_type:
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/data_type"
+    enumTerms:
+      miRNA Expression Quantification: null
 
   experimental_strategy:
-    term:
-      $ref: "_terms.yaml#/experimental_strategy"
-    enum:
-      - RNA-microarray
-
-  aliquots:
-    $ref: "_definitions.yaml#/to_many"
-  core_metadata_collections:
-    $ref: "_definitions.yaml#/to_many"
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/experimental_strategy"
+    enumTerms:
+      RNA-microarray: null

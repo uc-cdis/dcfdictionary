@@ -3,12 +3,13 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "gene_expression"
 title: Gene Expression
 type: object
+nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: data_file
 program: '*'
 project: '*'
-description: >
-  Data file containing gene expression information generated internally by the GTEx.
+description: Data file containing gene expression information generated internally
+  by the GTEx.
 additionalProperties: false
 submittable: false
 validators: null
@@ -16,6 +17,7 @@ validators: null
 systemProperties:
   - id
   - project_id
+  - state
   - created_datetime
   - updated_datetime
   - state
@@ -61,51 +63,58 @@ required:
   - data_type
   - data_format
   - experimental_strategy
-
 uniqueKeys:
-  - [ id ]
-  - [ project_id, submitter_id ]
-
+  - [id]
+  - [project_id, submitter_id]
 properties:
+
   $ref: "_definitions.yaml#/data_file_properties"
 
-  data_category:
-    term:
-      $ref: "_terms.yaml#/data_category"
-    enum: [ "Transcriptome Profiling" ]
+  core_metadata_collections:
+    $ref: "_definitions.yaml#/to_one"
 
-  data_type:
-    term:
-      $ref: "_terms.yaml#/data_type"
-    enum:
-      - "Gene Expression Quantification"
-      - "Gene Expression Normalization"
+  data_category:
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/data_category"
+    enumTerms:
+      Transcriptome Profiling: null
 
   data_format:
-    term:
-      $ref: "_terms.yaml#/data_format"
-    enum:
-      - TXT
-      - TSV
-      - CSV
-      - GCT
-      - RES
-      - TDF
-      - GCTX
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/data_format"
+    enumTerms:
+      CSV: null
+      GCT: null
+      GCTX: null
+      RES: null
+      TDF: null
+      TSV: null
+      TXT: null
+
+  data_type:
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/data_type"
+    enumTerms:
+      Gene Expression Normalization: null
+      Gene Expression Quantification: null
 
   experimental_strategy:
-    term:
-      $ref: "_terms.yaml#/experimental_strategy"
-    enum:
-      - RNA-Seq
-      - Total RNA-Seq
-      - Microarray
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/experimental_strategy"
+    enumTerms:
+      Microarray: null
+      RNA-Seq: null
+      Total RNA-Seq: null
 
-  submitted_aligned_reads_files:
-    $ref: "_definitions.yaml#/to_many"
   mrna_microarrays:
     $ref: "_definitions.yaml#/to_many"
+
   rna_expression_workflows:
-    $ref: "_definitions.yaml#/to_many"
-  core_metadata_collections:
+    $ref: "_definitions.yaml#/to_one"
+
+  submitted_aligned_reads_files:
     $ref: "_definitions.yaml#/to_many"

@@ -3,24 +3,23 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "copy_number_variation_workflow"
 title: Copy Number Variation Workflow
 type: object
+nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: analysis
 program: '*'
 project: '*'
-description: >
-  Metadata for the Copy Number Variation pipeline used to estimate copy number changes from
-  different molecular data sources.
+description: Metadata for the Copy Number Variation pipeline used to estimate copy
+  number changes from different molecular data sources.
 additionalProperties: false
 submittable: false
-downloadable: false
 validators: null
 
 systemProperties:
   - id
   - project_id
+  - state
   - created_datetime
   - updated_datetime
-  - state
 
 links:
   - name: copy_number_segments
@@ -35,22 +34,22 @@ required:
   - type
   - workflow_link
   - workflow_type
-
 uniqueKeys:
-  - [ id ]
-  - [ project_id, submitter_id ]
-
+  - [id]
+  - [project_id, submitter_id]
 properties:
-  $ref: "_definitions.yaml#/workflow_properties"
 
-  workflow_type:
-    term:
-      $ref: "_terms.yaml#/workflow_type"
-    enum:
-      - GISTIC - Copy Number Score
-      - GISTIC - Arm Level Copy Number
-      - GISTIC - Focal Deletion
-      - GISTIC - Focal Amplification
+  $ref: "_definitions.yaml#/workflow_properties"
 
   copy_number_segments:
     $ref: "_definitions.yaml#/to_many"
+
+  workflow_type:
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/workflow_type"
+    enumTerms:
+      GISTIC - Arm Level Copy Number: null
+      GISTIC - Copy Number Score: null
+      GISTIC - Focal Amplification: null
+      GISTIC - Focal Deletion: null

@@ -3,12 +3,12 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "submitted_aligned_reads"
 title: Submitted Aligned Reads
 type: object
+nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: data_file
 program: '*'
 project: '*'
-description: >
-  Data file containing aligned reads that are used as input to GDC workflows.
+description: Data file containing aligned reads that are used as input to GDC workflows.
 additionalProperties: false
 submittable: true
 validators: null
@@ -16,6 +16,7 @@ validators: null
 systemProperties:
   - id
   - project_id
+  - state
   - created_datetime
   - updated_datetime
   - state
@@ -49,50 +50,54 @@ required:
   - data_category
   - data_type
   - experimental_strategy
-
 uniqueKeys:
-  - [ id ]
-  - [ project_id, submitter_id ]
-
+  - [id]
+  - [project_id, submitter_id]
 properties:
+
   $ref: "_definitions.yaml#/data_file_properties"
 
+  core_metadata_collections:
+    $ref: "_definitions.yaml#/to_one"
+
   data_category:
-    term:
-      $ref: "_terms.yaml#/data_category"
-    enum:
-      - Sequencing Data
-      - Sequencing Reads
-      - Raw Sequencing Data
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/data_category"
+    enumTerms:
+      Raw Sequencing Data: null
+      Sequencing Data: null
+      Sequencing Reads: null
 
   data_format:
-    term:
-      $ref: "_terms.yaml#/data_format"
-    enum:
-      - BAM
-      - BED
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/data_format"
+    enumTerms:
+      BAM: null
+      BED: null
 
   data_type:
-    term:
-      $ref: "_terms.yaml#/data_type"
-    enum:
-      - Aligned Reads
-      - Alignment Coordinates
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/data_type"
+    enumTerms:
+      Aligned Reads: null
+      Alignment Coordinates: null
 
   experimental_strategy:
-    term:
-      $ref: "_terms.yaml#/experimental_strategy"
-    enum:
-      - WGS
-      - WXS
-      - Low Pass WGS
-      - Validation
-      - RNA-Seq
-      - miRNA-Seq
-      - Total RNA-Seq
-      - DNA Panel
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/experimental_strategy"
+    enumTerms:
+      DNA Panel: null
+      Low Pass WGS: null
+      RNA-Seq: null
+      Total RNA-Seq: null
+      Validation: null
+      WGS: null
+      WXS: null
+      miRNA-Seq: null
 
   read_groups:
-    $ref: "_definitions.yaml#/to_many"
-  core_metadata_collections:
     $ref: "_definitions.yaml#/to_many"

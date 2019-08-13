@@ -3,11 +3,13 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "tangent_copy_number"
 title: Tangent Copy Number
 type: object
+nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: data_file
 program: '*'
 project: '*'
-description: "Data file containing tangent normalized copy number information from an aliquot."
+description: Data file containing tangent normalized copy number information from
+  an aliquot.
 additionalProperties: false
 submittable: true
 validators: null
@@ -15,6 +17,7 @@ validators: null
 systemProperties:
   - id
   - project_id
+  - state
   - created_datetime
   - updated_datetime
   - state
@@ -61,52 +64,59 @@ required:
   - experimental_strategy
   - md5sum
   - platform
-
 uniqueKeys:
-  - [ id ]
-  - [ project_id, submitter_id ]
-
+  - [id]
+  - [project_id, submitter_id]
 properties:
+
   $ref: "_definitions.yaml#/data_file_properties"
 
+  aliquots:
+    $ref: "_definitions.yaml#/to_one"
+
+  core_metadata_collections:
+    $ref: "_definitions.yaml#/to_one"
+
   data_category:
-    term:
-      $ref: "_terms.yaml#/data_category"
-    enum:
-      - Copy Number Variation
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/data_category"
+    enumTerms:
+      Copy Number Variation: null
 
   data_format:
-    term:
-      $ref: "_terms.yaml#/data_format"
-    enum:
-      - TXT
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/data_format"
+    enumTerms:
+      TXT: null
 
   data_type:
-    term:
-      $ref: "_terms.yaml#/data_type"
-    enum:
-      - Copy Number Estimate
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/data_type"
+    enumTerms:
+      Copy Number Estimate: null
 
   experimental_strategy:
-    term:
-      $ref: "_terms.yaml#/experimental_strategy"
-    enum:
-      - Genotyping Array
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/experimental_strategy"
+    enumTerms:
+      Genotyping Array: null
 
-  platform:
-    term:
-      $ref: "_terms.yaml#/platform"
-    enum:
-      - Illumina Infinium HumanExome BeadChip
-      - Illumina OMNI 5M SNP Array
-      - Illumina OMNI 2.5M SNP Array
-      - Affymetrix Genome-Wide Human SNP Array 6.0
+  genotyping_array_workflows:
+    $ref: "_definitions.yaml#/to_one"
 
   genotyping_arrays:
     $ref: "_definitions.yaml#/to_one"
-  genotyping_array_workflows:
-    $ref: "_definitions.yaml#/to_one"
-  aliquots:
-    $ref: "_definitions.yaml#/to_one"
-  core_metadata_collections:
-    $ref: "_definitions.yaml#/to_many"
+
+  platform:
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/platform"
+    enumTerms:
+      Affymetrix Genome-Wide Human SNP Array 6.0: null
+      Illumina Infinium HumanExome BeadChip: null
+      Illumina OMNI 2.5M SNP Array: null
+      Illumina OMNI 5M SNP Array: null

@@ -3,20 +3,20 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "submitted_genomic_profile"
 title: Submitted Genomic Profile
 type: object
+nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: data_file
 program: '*'
 project: '*'
-description: >
-  Data file containing genomic profile information.
+description: Data file containing genomic profile information.
 additionalProperties: false
 submittable: true
-downloadable: false
 validators: null
 
 systemProperties:
   - id
   - project_id
+  - state
   - created_datetime
   - updated_datetime
   - state
@@ -50,57 +50,61 @@ required:
   - data_category
   - data_type
   - experimental_strategy
-
 uniqueKeys:
-  - [ id ]
-  - [ project_id, submitter_id ]
-
+  - [id]
+  - [project_id, submitter_id]
 properties:
+
   $ref: "_definitions.yaml#/data_file_properties"
 
+  core_metadata_collections:
+    $ref: "_definitions.yaml#/to_one"
+
   data_category:
-    term:
-      $ref: "_terms.yaml#/data_category"
-    enum:
-      - Combined Nucleotide Variation
-      - Genomic Profiling
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/data_category"
+    enumTerms:
+      Combined Nucleotide Variation: null
+      Genomic Profiling: null
 
   data_format:
-    term:
-      $ref: "_terms.yaml#/data_format"
-    enum:
-      - MAF
-      - TSV
-      - VCF
-      - XML
-      - TXT
-      - PLINK
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/data_format"
+    enumTerms:
+      MAF: null
+      PLINK: null
+      TSV: null
+      TXT: null
+      VCF: null
+      XML: null
 
   data_type:
-    term:
-      $ref: "_terms.yaml#/data_type"
-    enum:
-      - FoundationOne Report
-      - GENIE Report
-      - Raw CGI Variant
-      - Aggregated mutation information
-      - GWAS dosage SNP data
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/data_type"
+    enumTerms:
+      Aggregated mutation information: null
+      FoundationOne Report: null
+      GENIE Report: null
+      GWAS dosage SNP data: null
+      Raw CGI Variant: null
 
   experimental_strategy:
-    term:
-      $ref: "_terms.yaml#/experimental_strategy"
-    enum:
-      - Targeted Sequencing
-      - WGS
-      - WXS
-      - Low Pass WGS
-      - Validation
-      - RNA-Seq
-      - miRNA-Seq
-      - Total RNA-Seq
-      - DNA Panel
+    description: null
+    terms:
+      - $ref: "_terms.yaml#/experimental_strategy"
+    enumTerms:
+      DNA Panel: null
+      Low Pass WGS: null
+      RNA-Seq: null
+      Targeted Sequencing: null
+      Total RNA-Seq: null
+      Validation: null
+      WGS: null
+      WXS: null
+      miRNA-Seq: null
 
   read_groups:
-    $ref: "_definitions.yaml#/to_many"
-  core_metadata_collections:
     $ref: "_definitions.yaml#/to_many"
