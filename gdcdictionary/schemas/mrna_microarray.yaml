@@ -7,8 +7,7 @@ namespace: https://nci-crdc-demo.datacommons.io/
 category: data_file
 program: '*'
 project: '*'
-description: >
-  Data file containing raw mRNA microarray intensity.
+description: Data file containing raw mRNA microarray intensity.
 additionalProperties: false
 submittable: true
 validators: null
@@ -16,6 +15,7 @@ validators: null
 systemProperties:
   - id
   - project_id
+  - state
   - created_datetime
   - updated_datetime
   - state
@@ -49,47 +49,42 @@ required:
   - data_category
   - data_type
   - experimental_strategy
-
 uniqueKeys:
-  - [ id ]
-  - [ project_id, submitter_id ]
-
+  - [id]
+  - [project_id, submitter_id]
 properties:
+
   $ref: "_definitions.yaml#/data_file_properties"
 
+  aliquots:
+    $ref: "_definitions.yaml#/to_one"
+
   array_platform:
-    description: >
-      Type of the CHIP used for microarray
+    description: Type of the CHIP used for microarray
     type: string
 
+  core_metadata_collections:
+    $ref: "_definitions.yaml#/to_one"
+
   data_category:
-    term:
-      $ref: "_terms.yaml#/data_category"
-    enum:
+    description: null
+    enums:
       - Transcriptome Profiling
 
+  data_format:
+    description: null
+    enums:
+      - CEL
+      - CSV
+      - TSV
+      - TXT
+
   data_type:
-    term:
-      $ref: "_terms.yaml#/data_type"
-    enum:
+    description: null
+    enums:
       - mRNA Expression Quantification
 
-  data_format:
-    term:
-      $ref: "_terms.yaml#/data_format"
-    enum:
-      - TXT
-      - TSV
-      - CSV
-      - CEL
-
   experimental_strategy:
-    term:
-      $ref: "_terms.yaml#/experimental_strategy"
-    enum:
+    description: null
+    enums:
       - RNA-microarray
-
-  aliquots:
-    $ref: "_definitions.yaml#/to_many"
-  core_metadata_collections:
-    $ref: "_definitions.yaml#/to_many"

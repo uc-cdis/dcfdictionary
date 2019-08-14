@@ -7,7 +7,10 @@ namespace: https://nci-crdc-demo.datacommons.io/
 category: data_file
 program: '*'
 project: '*'
-description: "DNA methylation data files contain information on raw and normalized signal intensities, detection confidence and calculated beta values for methylated and unmethylated probes. DNA methylation is an epigenetic mark which can be associated with transcriptional inactivity when located in promoter regions."
+description: DNA methylation data files contain information on raw and normalized
+  signal intensities, detection confidence and calculated beta values for methylated
+  and unmethylated probes. DNA methylation is an epigenetic mark which can be associated
+  with transcriptional inactivity when located in promoter regions.
 additionalProperties: false
 submittable: true
 validators: null
@@ -15,6 +18,7 @@ validators: null
 systemProperties:
   - id
   - project_id
+  - state
   - created_datetime
   - updated_datetime
   - state
@@ -47,51 +51,46 @@ required:
   - data_category
   - data_type
   - data_format
-
 uniqueKeys:
-  - [ id ]
-  - [ project_id, submitter_id ]
-
+  - [id]
+  - [project_id, submitter_id]
 properties:
+
   $ref: "_definitions.yaml#/data_file_properties"
-
-  assay_method:
-    description: >
-      General methodology used to perform the assay.
-    enum:
-      - Methylation Array
-
-  assay_instrument:
-    description: >
-      The specific instrument type used to perform the assay.
-    enum:
-      - Illumina
-
-  assay_instrument_model:
-    description: >
-      The specific model of instrument used to perform the assay.
-    enum:
-      - Illumina Infinium HumanMethylation450
-      - Illumina Infinium HumanMethylation450K
-
-  data_category:
-    term:
-      $ref: "_terms.yaml#/data_category"
-    enum:
-      - Methylation Data
-
-  data_format:
-    term:
-      $ref: "_terms.yaml#/data_format"
-    enum:
-      - IDAT
-
-  data_type:
-    term:
-      $ref: "_terms.yaml#/data_type"
-    enum: [ "Methylation Intensity Values" ]
 
   aliquots:
     $ref: "_definitions.yaml#/to_one"
+
+  assay_instrument:
+    description: The specific instrument type used to perform the assay.
+    enums:
+      - Illumina
+
+  assay_instrument_model:
+    description: The specific model of instrument used to perform the assay.
+    enums:
+      - Illumina Infinium HumanMethylation450
+      - Illumina Infinium HumanMethylation450K
+
+  assay_method:
+    description: General methodology used to perform the assay.
+    enums:
+      - Methylation Array
+
   core_metadata_collections:
-    $ref: "_definitions.yaml#/to_many"
+    $ref: "_definitions.yaml#/to_one"
+
+  data_category:
+    description: null
+    enums:
+      - Methylation Data
+
+  data_format:
+    description: null
+    enums:
+      - IDAT
+
+  data_type:
+    description: null
+    enums:
+      - Methylation Intensity Values

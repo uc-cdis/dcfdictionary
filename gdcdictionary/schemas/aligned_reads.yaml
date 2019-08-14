@@ -1,4 +1,4 @@
-chema: "http://json-schema.org/draft-04/schema#"
+$schema: "http://json-schema.org/draft-04/schema#"
 
 id: "aligned_reads"
 title: Aligned Reads
@@ -7,8 +7,7 @@ namespace: https://nci-crdc-demo.datacommons.io/
 category: data_file
 program: '*'
 project: '*'
-description: >
-  Data file containing aligned reads that are generated internally.
+description: Data file containing aligned reads that are generated internally.
 additionalProperties: false
 submittable: false
 validators: null
@@ -16,6 +15,7 @@ validators: null
 systemProperties:
   - id
   - project_id
+  - state
   - created_datetime
   - updated_datetime
   - state
@@ -68,56 +68,57 @@ required:
   - data_format
   - experimental_strategy
   - platform
-
 uniqueKeys:
-  - [ id ]
-  - [ project_id, submitter_id ]
-
+  - [id]
+  - [project_id, submitter_id]
 properties:
+
   $ref: "_definitions.yaml#/data_file_properties"
-
-  data_category:
-    term:
-      $ref: "_terms.yaml#/data_category"
-    enum:
-      - Sequencing Data
-      - Sequencing Reads
-      - Raw Sequencing Data
-
-  data_type:
-    term:
-      $ref: "_terms.yaml#/data_type"
-    enum: [ "Aligned Reads" ]
-
-  data_format:
-    term:
-      $ref: "_terms.yaml#/data_format"
-    enum:
-      - BAM
-      - CRAM
-
-  experimental_strategy:
-    term:
-      $ref: "_terms.yaml#/experimental_strategy"
-    enum:
-      - WGS
-      - WXS
-      - Low Pass WGS
-      - Validation
-      - RNA-Seq
-      - miRNA-Seq
-      - Total RNA-Seq
-
-  platform:
-    $ref: "read_group.yaml#/properties/platform"
 
   alignment_cocleaning_workflows:
     $ref: "_definitions.yaml#/to_one"
+
   alignment_workflows:
     $ref: "_definitions.yaml#/to_one"
-  submitted_unaligned_reads_files:
-    $ref: "_definitions.yaml#/to_many"
+
+  core_metadata_collections:
+    $ref: "_definitions.yaml#/to_one"
+
+  data_category:
+    description: null
+    enums:
+      - Raw Sequencing Data
+      - Sequencing Data
+      - Sequencing Reads
+
+  data_format:
+    description: null
+    enums:
+      - BAM
+      - CRAM
+
+  data_type:
+    description: null
+    enums:
+      - Aligned Reads
+
+  experimental_strategy:
+    description: null
+    enums:
+      - Low Pass WGS
+      - RNA-Seq
+      - Total RNA-Seq
+      - Validation
+      - WGS
+      - WXS
+      - miRNA-Seq
+
+  platform:
+    description: null
+    type: null
+
   submitted_aligned_reads_files:
     $ref: "_definitions.yaml#/to_one"
-  core_metadata_collections:
+
+  submitted_unaligned_reads_files:
     $ref: "_definitions.yaml#/to_many"
