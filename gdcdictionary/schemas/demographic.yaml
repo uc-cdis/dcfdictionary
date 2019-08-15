@@ -3,12 +3,13 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "demographic"
 title: Demographic
 type: object
+nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: clinical
 program: '*'
 project: '*'
-description: >
-  Data for the characterization of the patient by means of segementing the population (e.g.,characterization by age, sex, or race).
+description: Data for the characterization of the patient by means of segementing
+  the population (e.g.,characterization by age, sex, or race).
 additionalProperties: false
 submittable: true
 validators: null
@@ -32,30 +33,51 @@ required:
   - submitter_id
   - type
   - subjects
-
-preferred:
-  - year_of_death
-
 uniqueKeys:
-  #unclear if want submitter ID for clinical
   - [id]
   - [project_id, submitter_id]
-
 properties:
-  type:
+
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  age_range:
+    description: Range of ages for the subject. The age range should not include ages
+      over 89 years.
+    term: null
     type: string
 
-  id:
-    $ref: "_definitions.yaml#/UUID"
-    systemAlias: node_id
+  cause_of_death:
+    description: Text term to identify the cause of death for a patient.
+    term: null
+    type: string
 
-  state:
-    $ref: "_definitions.yaml#/state"
+  created_datetime:
+    term: null
+    type: null
 
-  submitter_id:
-    type:
-      - string
-      - "null"
+  days_to_birth:
+    description: Time interval from a person’s date of birth to the date of initial
+      pathologic diagnosis, represented as a calculated negative number of days.
+    term: null
+    type: integer
+    maximum: 0
+    minimum: -32872
+
+  days_to_death:
+    description: Time interval from a person’s date of death to the date of initial
+      pathologic diagnosis, represented as a calculated number of days.
+    term: null
+    type: integer
+
+  ethnicity:
+    term:
+      $ref: "_terms.yaml#/ethnicity"
+    enum:
+      - Unknown
+      - hispanic or latino
+      - not allowed to collect
+      - not hispanic or latino
+      - not reported
 
   gender:
     term:
@@ -63,78 +85,62 @@ properties:
     enum:
       - female
       - male
+      - not reported
       - unknown
       - unspecified
-      - not reported
 
-  cause_of_death:
-    description: >
-      Text term to identify the cause of death for a patient.
-    type: string
+  id:
+    term: null
+    type: null
 
-  vital_status:
-    description: >
-      The survival state of the person registered on the protocol.
-    type: string
-
-  days_to_birth:
-    description: >
-      Time interval from a person’s date of birth to the date of initial pathologic diagnosis, represented as a calculated negative number of days.
-    type: integer
-    maximum: 0
-    minimum: -32872
-
-  days_to_death:
-    description: >
-      Time interval from a person’s date of death to the date of initial pathologic diagnosis, represented as a calculated number of days.
-    type: integer
+  project_id:
+    term: null
+    type: null
 
   race:
     term:
       $ref: "_terms.yaml#/race"
     enum:
-      - white
+      - Unknown
       - american indian or alaska native
-      - black or african american
       - asian
+      - black or african american
       - native hawaiian or other pacific islander
+      - not allowed to collect
+      - not reported
       - other
-      - Unknown
-      - not reported
-      - not allowed to collect
+      - white
 
-  ethnicity:
-    term:
-      $ref: "_terms.yaml#/ethnicity"
-    enum:
-      - hispanic or latino
-      - not hispanic or latino
-      - Unknown
-      - not reported
-      - not allowed to collect
+  state:
+    term: null
+    type: null
+
+  subjects:
+    $ref: "_definitions.yaml#/to_one"
+
+  submitter_id:
+    term: null
+    type: "['string', 'null']"
+
+  type:
+    term: null
+    type: string
+
+  updated_datetime:
+    term: null
+    type: null
+
+  vital_status:
+    description: The survival state of the person registered on the protocol.
+    term: null
+    type: string
 
   year_of_birth:
     term:
       $ref: "_terms.yaml#/year_of_birth"
-    type:
-      - number
-      - "null"
+    type: "['number', 'null']"
 
   year_of_death:
     term:
       $ref: "_terms.yaml#/year_of_death"
     type: number
-
-  age_range :
-    description: >
-      Range of ages for the subject. The age range should not include ages over 89 years.
-    type: string
-
-  subjects:
-    $ref: "_definitions.yaml#/to_one"
-  project_id:
-    $ref: "_definitions.yaml#/project_id"
-  created_datetime:
-    $ref: "_definitions.yaml#/datetime"
-  updated_datetime:
-    $ref: "_definitions.yaml#/datetime"

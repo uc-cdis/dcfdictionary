@@ -3,13 +3,13 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "subject"
 title: Subject
 type: object
+nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: administrative
 program: '*'
 project: '*'
-description: >
-  The collection of all data related to a specific subject in the
-  context of a specific study.
+description: The collection of all data related to a specific subject in the context
+  of a specific study.
 additionalProperties: false
 submittable: true
 validators: null
@@ -17,9 +17,9 @@ validators: null
 systemProperties:
   - id
   - project_id
+  - state
   - created_datetime
   - updated_datetime
-  - state
 
 links:
   - name: studies
@@ -33,68 +33,96 @@ required:
   - submitter_id
   - type
   - studies
-
 uniqueKeys:
   - [id]
   - [project_id, submitter_id]
-
-# Subject properties
 properties:
-  type:
-    type: string
-  id:
-    $ref: "_definitions.yaml#/UUID"
-    systemAlias: node_id
-  state:
-    $ref: "_definitions.yaml#/state"
-  submitter_id:
-    type:
-      - string
-      - "null"
-  primary_site:
-    description: "Primary site for the subject."
-    type: string
+
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  created_datetime:
+    term: null
+    type: null
+
+  days_to_lost_to_followup:
+    description: The number of days between the date used for index and to the data
+      the patient was lost to follow-up.
+    term: null
+    type: integer
+
   disease_type:
-    description: "Name of the disease for the subject."
+    description: Name of the disease for the subject.
+    term: null
     type: string
-  species:
-    description: "Taxonomic species of the subject."
-    enum:
-     - Drosophila melanogaster
-     - Homo sapiens
-     - Mus musculus
-     - Mustela putorius furo
-     - Rattus rattus
-     - Sus scrofa
-  strain:
-    description: >
-      A lower-level taxonomic rank used in microbiology or virology, plants and rodents, usually at the intraspecific level (within a species)
-    type: string
+
+  id:
+    term: null
+    type: null
+
   index_date:
-    description: >
-      The reference or anchor date used during date obfuscation, where a single date is obscurred by creating one or more date ranges in relation to this date.
+    description: The reference or anchor date used during date obfuscation, where
+      a single date is obscurred by creating one or more date ranges in relation to
+      this date.
+    term: null
     enum:
       - Diagnosis
       - First Patient Visit
-      - Study Enrollment
       - Infection
-  tissue_source_site_code:
-    description: >
-      A clinical site that collects and provides patient samples and clinical metadata for research use.
-    type: string
-  days_to_lost_to_followup:
-    description: >
-      The number of days between the date used for index and to the data the patient was lost to follow-up.
-    type: integer
+      - Study Enrollment
+
   lost_to_followup:
-    description: >
-      A yes/no indicator related to whether a patient was unable to be contacted for follow-up.
+    description: A yes/no indicator related to whether a patient was unable to be
+      contacted for follow-up.
+    term: null
     type: string
+
+  primary_site:
+    description: Primary site for the subject.
+    term: null
+    type: string
+
+  project_id:
+    term: null
+    type: null
+
+  species:
+    description: Taxonomic species of the subject.
+    term: null
+    enum:
+      - Drosophila melanogaster
+      - Homo sapiens
+      - Mus musculus
+      - Mustela putorius furo
+      - Rattus rattus
+      - Sus scrofa
+
+  state:
+    term: null
+    type: null
+
+  strain:
+    description: A lower-level taxonomic rank used in microbiology or virology, plants
+      and rodents, usually at the intraspecific level (within a species)
+    term: null
+    type: string
+
   studies:
     $ref: "_definitions.yaml#/to_one"
-  project_id:
-    $ref: "_definitions.yaml#/project_id"
-  created_datetime:
-    $ref: "_definitions.yaml#/datetime"
+
+  submitter_id:
+    term: null
+    type: "['string', 'null']"
+
+  tissue_source_site_code:
+    description: A clinical site that collects and provides patient samples and clinical
+      metadata for research use.
+    term: null
+    type: string
+
+  type:
+    term: null
+    type: string
+
   updated_datetime:
-    $ref: "_definitions.yaml#/datetime"
+    term: null
+    type: null

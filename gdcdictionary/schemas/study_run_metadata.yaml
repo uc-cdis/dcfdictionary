@@ -3,12 +3,12 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "study_run_metadata"
 title: Study Run Metadata
 type: object
+nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: notation
 program: '*'
 project: '*'
-description: >
-  General experimental metadata describing study design.
+description: General experimental metadata describing study design.
 additionalProperties: false
 submittable: true
 validators: null
@@ -23,8 +23,14 @@ systemProperties:
 links:
   - name: protocols
     backref: study_run_metadata_records
-    label:  data_from
-    target_type:  protocol
+    label: data_from
+    target_type: protocol
+    multiplicity: many_to_one
+    required: true
+  - name: studies
+    backref: study_run_metadata_records
+    label: data_from
+    target_type: study
     multiplicity: many_to_one
     required: true
   - name: studies
@@ -34,66 +40,66 @@ links:
     multiplicity: many_to_one
     required: true
 
-uniqueKeys:
-  - [id]
-  - [project_id, submitter_id]
-
 required:
   - submitter_id
   - type
   - studies
   - protocols
-
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
 properties:
+
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  experiment_number:
-    description: >
-      Number associated with a specific run of the experiment.
-    type: integer
-
-  experiment_type:
-    description: >
-      General strategy use for differential analysis.
-    type: string
-
   analyte:
-    description: >
-      Type of peptide or protein enrichment.
-    type: string
-
-  fraction:
-    description: >
-      Number of fractions in the experimental run.
-    type: string
-
-  date:
-    description: >
-      Date of the data acquired from the mass spectrometry.
-    type: string
-
-  operator:
-    description: >
-      Mass spectrometry instrument operator.
-    type: string
-
-  instrument:
-    description: >
-      Make and model of the mass spectrometry instrument.
-    type: string
-
-  replicate_number:
-    description: >
-      Replicate number, if applicable.
+    description: Type of peptide or protein enrichment.
+    term: null
     type: string
 
   condition:
-    description: >
-      Biological condition (ex: disease state) of the cases (patients) from which the aliquots derived.
+    description: Biological condition (ex- disease state) of the cases (patients)
+      from which the aliquots derived.
+    term: null
+    type: string
+
+  date:
+    description: Date of the data acquired from the mass spectrometry.
+    term: null
+    type: string
+
+  experiment_number:
+    description: Number associated with a specific run of the experiment.
+    term: null
+    type: integer
+
+  experiment_type:
+    description: General strategy use for differential analysis.
+    term: null
+    type: string
+
+  fraction:
+    description: Number of fractions in the experimental run.
+    term: null
+    type: string
+
+  instrument:
+    description: Make and model of the mass spectrometry instrument.
+    term: null
+    type: string
+
+  operator:
+    description: Mass spectrometry instrument operator.
+    term: null
+    type: string
+
+  protocols:
+    $ref: "_definitions.yaml#/to_one"
+
+  replicate_number:
+    description: Replicate number, if applicable.
+    term: null
     type: string
 
   studies:
-    $ref: "_definitions.yaml#/to_one"
-
-  protocols:
     $ref: "_definitions.yaml#/to_one"

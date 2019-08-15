@@ -3,11 +3,12 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "publication"
 title: Publication
 type: object
+nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: administrative
 program: '*'
 project: '*'
-description: "Publication for a project."
+description: Publication for a project.
 additionalProperties: false
 submittable: true
 validators: null
@@ -31,32 +32,49 @@ required:
   - submitter_id
   - type
   - projects
-
 uniqueKeys:
-  - [ id ]
-  - [ project_id, submitter_id ]
-
+  - [id]
+  - [project_id, submitter_id]
 properties:
-  type:
-    enum: [ "publication" ]
-  id:
-    $ref: "_definitions.yaml#/UUID"
-    systemAlias: node_id
-  state:
-    $ref: "_definitions.yaml#/state"
-  submitter_id:
-    type:
-      - string
-      - "null"
-  pmid:
-    type: string
+
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  created_datetime:
+    term: null
+    type: null
+
   doi:
+    term: null
     type: string
+
+  id:
+    term: null
+    type: null
+
+  pmid:
+    term: null
+    type: string
+
+  project_id:
+    term: null
+    type: string
+
   projects:
     $ref: "_definitions.yaml#/to_many_project"
-  project_id:
-    type: string
-  created_datetime:
-    $ref: "_definitions.yaml#/datetime"
+
+  state:
+    term: null
+    type: null
+
+  submitter_id:
+    term: null
+    type: "['string', 'null']"
+
+  type:
+    term: null
+    enum:
+      - publication
+
   updated_datetime:
-    $ref: "_definitions.yaml#/datetime"
+    term: null
+    type: null

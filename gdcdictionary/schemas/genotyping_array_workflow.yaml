@@ -3,21 +3,23 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "genotyping_array_workflow"
 title: Genotyping Array Workflow
 type: object
+nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: analysis
 program: '*'
 project: '*'
-description: >
-  Metadata for the Genotyping array workflow used to generate aggregated genotyping callset or tangent copy number variation.
+description: Metadata for the Genotyping array workflow used to generate aggregated
+  genotyping callset or tangent copy number variation.
 additionalProperties: false
+submittable: .nan
 validators: null
 
 systemProperties:
   - id
   - project_id
+  - state
   - created_datetime
   - updated_datetime
-  - state
 
 links:
   - exclusive: true
@@ -40,25 +42,26 @@ required:
   - submitter_id
   - type
   - workflow_type
-
 uniqueKeys:
-  - [ id ]
-  - [ project_id, submitter_id ]
-
+  - [id]
+  - [project_id, submitter_id]
 properties:
+
   $ref: "_definitions.yaml#/workflow_properties"
 
+  aggregated_genotyping_arrays:
+    $ref: "_definitions.yaml#/to_many"
+
+  genotyping_arrays:
+    $ref: "_definitions.yaml#/to_many"
+
   type:
-    enum: [ "genotyping_array_workflow" ]
+    term: null
+    enum:
+      - genotyping_array_workflow
 
   workflow_type:
     term:
       $ref: "_terms.yaml#/workflow_type"
     enum:
-      -  Birdseed Genotyping
-
-  genotyping_arrays:
-    $ref: "_definitions.yaml#/to_many"
-
-  aggregated_genotyping_arrays:
-    $ref: "_definitions.yaml#/to_many"
+      - Birdseed Genotyping

@@ -3,11 +3,12 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "acknowledgement"
 title: Acknowledgement
 type: object
+nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: administrative
 program: '*'
 project: '*'
-description: "Acknowledgement of an individual involved in a project."
+description: Acknowledgement of an individual involved in a project.
 additionalProperties: false
 submittable: true
 validators: null
@@ -31,31 +32,46 @@ required:
   - submitter_id
   - type
   - projects
-
 uniqueKeys:
-  - [ id ]
-  - [ project_id, submitter_id ]
-
+  - [id]
+  - [project_id, submitter_id]
 properties:
-  type:
-    enum: [ "acknowledgement" ]
-  id:
-    $ref: "_definitions.yaml#/UUID"
-    systemAlias: node_id
-  state:
-    $ref: "_definitions.yaml#/state"
-  submitter_id:
-    type:
-      - string
-      - "null"
+
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
   acknowledgee:
-    description: "The indvidiual or group being acknowledged by the project."
+    description: The indvidiual or group being acknowledged by the project.
+    term: null
     type: string
+
+  created_datetime:
+    term: null
+    type: null
+
+  id:
+    term: null
+    type: null
+
+  project_id:
+    term: null
+    type: string
+
   projects:
     $ref: "_definitions.yaml#/to_many_project"
-  project_id:
-    type: string
-  created_datetime:
-    $ref: "_definitions.yaml#/datetime"
+
+  state:
+    term: null
+    type: null
+
+  submitter_id:
+    term: null
+    type: "['string', 'null']"
+
+  type:
+    term: null
+    enum:
+      - acknowledgement
+
   updated_datetime:
-    $ref: "_definitions.yaml#/datetime"
+    term: null
+    type: null
