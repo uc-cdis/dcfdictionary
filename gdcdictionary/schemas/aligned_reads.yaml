@@ -120,6 +120,14 @@ properties:
   platform:
     term:
       $ref: "_terms.yaml#/platform"
+    enum:
+      - Complete Genomics
+      - Illumina
+      - Ion Torrent
+      - LS454
+      - Other
+      - PacBio
+      - SOLiD
 #      $ref: "read_group.yaml#/properties/platform" #formerly this
 
   submitted_aligned_reads_files:
