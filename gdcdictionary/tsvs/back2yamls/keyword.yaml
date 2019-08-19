@@ -1,13 +1,14 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "publication"
-title: Publication
+id: "keyword"
+title: Keyword
 type: object
+nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: administrative
 program: '*'
 project: '*'
-description: "Publication for a project."
+description: A keyword for a project.
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,8 +22,8 @@ systemProperties:
 
 links:
   - name: projects
-    backref: publications
-    label: refers_to
+    backref: keywords
+    label: describe
     target_type: project
     multiplicity: many_to_many
     required: true
@@ -31,19 +32,38 @@ required:
   - submitter_id
   - type
   - projects
-
 uniqueKeys:
-  - [ id ]
-  - [ project_id, submitter_id ]
-
+  - [id]
+  - [project_id, submitter_id]
 properties:
+
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  pmid:
+  created_datetime:
+    type: null
+
+  id:
+    type: null
+
+  keyword_name:
+    description: The name of the keyword.
     type: string
 
-  doi:
+  project_id:
     type: string
 
   projects:
     $ref: "_definitions.yaml#/to_many_project"
+
+  state:
+    type: null
+
+  submitter_id:
+    type: "['string', 'null']"
+
+  type:
+    enum:
+      - keyword
+
+  updated_datetime:
+    type: null

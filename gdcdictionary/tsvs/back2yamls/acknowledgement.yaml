@@ -1,13 +1,14 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "publication"
-title: Publication
+id: "acknowledgement"
+title: Acknowledgement
 type: object
+nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: administrative
 program: '*'
 project: '*'
-description: "Publication for a project."
+description: Acknowledgement of an individual involved in a project.
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,8 +22,8 @@ systemProperties:
 
 links:
   - name: projects
-    backref: publications
-    label: refers_to
+    backref: acknowledgements
+    label: contribute_to
     target_type: project
     multiplicity: many_to_many
     required: true
@@ -31,19 +32,38 @@ required:
   - submitter_id
   - type
   - projects
-
 uniqueKeys:
-  - [ id ]
-  - [ project_id, submitter_id ]
-
+  - [id]
+  - [project_id, submitter_id]
 properties:
+
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  pmid:
+  acknowledgee:
+    description: The indvidiual or group being acknowledged by the project.
     type: string
 
-  doi:
+  created_datetime:
+    type: null
+
+  id:
+    type: null
+
+  project_id:
     type: string
 
   projects:
     $ref: "_definitions.yaml#/to_many_project"
+
+  state:
+    type: null
+
+  submitter_id:
+    type: "['string', 'null']"
+
+  type:
+    enum:
+      - acknowledgement
+
+  updated_datetime:
+    type: null

@@ -1,0 +1,81 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "aliquot"
+title: Aliquot
+type: object
+nodeTerms: null
+namespace: .nan
+category: biospecimen
+program: '*'
+project: '*'
+description: Pertaining to a portion of the whole; any one of two or more samples
+  of something, of the same volume or weight.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: samples
+    backref: aliquots
+    label: derived_from
+    target_type: sample
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - samples
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+properties:
+
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  a260_a280_ratio:
+    type: number
+
+  aliquot_quantity:
+    type: number
+
+  aliquot_volume:
+    type: number
+
+  amount:
+    type: number
+
+  analyte_type:
+    type: string
+
+  analyte_type_id:
+    enum:
+      - D
+      - E
+      - G
+      - H
+      - R
+      - S
+      - T
+      - W
+      - X
+      - Y
+
+  concentration:
+    type: number
+
+  project_id:
+    type: null
+
+  samples:
+    $ref: "_definitions.yaml#/to_one"
+
+  source_center:
+    type: string
