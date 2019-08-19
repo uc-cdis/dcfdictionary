@@ -67,16 +67,55 @@ uniqueKeys:
   - [id]
   - [project_id, submitter_id]
 properties:
-
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  adapter_content:
-    term: null
-    type: null
-
   basic_statistics:
-    term: null
-    type: null
+    term:
+      $ref: "_definitions.yaml#/qc_metrics_state"
+
+  per_base_sequence_quality:
+    term:
+      $ref: "_definitions.yaml#/qc_metrics_state"
+
+  per_tile_sequence_quality:
+    term:
+      $ref: "_definitions.yaml#/qc_metrics_state"
+
+  per_sequence_quality_score:
+    term:
+      $ref: "_definitions.yaml#/qc_metrics_state"
+
+  per_base_sequence_content:
+    term:
+      $ref: "_definitions.yaml#/qc_metrics_state"
+
+  per_sequence_gc_content:
+    term:
+      $ref: "_definitions.yaml#/qc_metrics_state"
+
+  per_base_n_content:
+    term:
+      $ref: "_definitions.yaml#/qc_metrics_state"
+
+  sequence_length_distribution:
+    term:
+      $ref: "_definitions.yaml#/qc_metrics_state"
+
+  sequence_duplication_levels:
+    term:
+      $ref: "_definitions.yaml#/qc_metrics_state"
+
+  overrepresented_sequences:
+    term:
+      $ref: "_definitions.yaml#/qc_metrics_state"
+
+  adapter_content:
+    term:
+      $ref: "_definitions.yaml#/qc_metrics_state"
+
+  kmer_content:
+    term:
+      $ref: "_definitions.yaml#/qc_metrics_state"
 
   encoding:
     term:
@@ -87,38 +126,6 @@ properties:
     term:
       $ref: "_terms.yaml#/file_name"
     type: string
-
-  kmer_content:
-    term: null
-    type: null
-
-  overrepresented_sequences:
-    term: null
-    type: null
-
-  per_base_n_content:
-    term: null
-    type: null
-
-  per_base_sequence_content:
-    term: null
-    type: null
-
-  per_base_sequence_quality:
-    term: null
-    type: null
-
-  per_sequence_gc_content:
-    term: null
-    type: null
-
-  per_sequence_quality_score:
-    term: null
-    type: null
-
-  per_tile_sequence_quality:
-    term: null
-    type: null
 
   percent_aligned:
     description: The percent of reads with at least one reported alignment.
@@ -136,14 +143,6 @@ properties:
 
   read_groups:
     $ref: "_definitions.yaml#/to_one"
-
-  sequence_duplication_levels:
-    term: null
-    type: null
-
-  sequence_length_distribution:
-    term: null
-    type: null
 
   submitted_aligned_reads_files:
     $ref: "_definitions.yaml#/to_one"
