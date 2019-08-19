@@ -231,8 +231,8 @@ properties:
     type: string
 
   sequencing_date:
-    term: null
-    type: null
+    term:
+      $ref: "_definitions.yaml#/datetime"
 
   size_selection_range:
     term:
