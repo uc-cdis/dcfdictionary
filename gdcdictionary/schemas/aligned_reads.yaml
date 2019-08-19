@@ -119,7 +119,8 @@ properties:
 
   platform:
     term:
-      $ref: "read_group.yaml#/properties/platform"
+      $ref: "_terms.yaml#/platform"
+#      $ref: "read_group.yaml#/properties/platform" #formerly this
 
   submitted_aligned_reads_files:
     $ref: "_definitions.yaml#/to_one"
