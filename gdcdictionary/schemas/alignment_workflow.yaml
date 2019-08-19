@@ -48,15 +48,16 @@ uniqueKeys:
 
 properties:
   $ref: "_definitions.yaml#/workflow_properties"
-  type:
-    enum: [ "alignment_workflow" ]
+
   workflow_type:
     enum:
       - "STAR"
       - "BWA-aln"
       - "BWA-mem"
       - "spinnaker"
+
   submitted_aligned_reads_files:
     $ref: "_definitions.yaml#/to_many"
+
   submitted_unaligned_reads_files:
     $ref: "_definitions.yaml#/to_many"

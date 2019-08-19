@@ -48,9 +48,6 @@ uniqueKeys:
 properties:
   $ref: "_definitions.yaml#/workflow_properties"
 
-  type:
-    enum: [ "genotyping_array_workflow" ]
-
   workflow_type:
     term:
       $ref: "_terms.yaml#/workflow_type"

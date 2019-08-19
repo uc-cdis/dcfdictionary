@@ -37,26 +37,13 @@ uniqueKeys:
   - [ project_id, submitter_id ]
 
 properties:
-  type:
-    enum: [ "publication" ]
-  id:
-    $ref: "_definitions.yaml#/UUID"
-    systemAlias: node_id
-  state:
-    $ref: "_definitions.yaml#/state"
-  submitter_id:
-    type:
-      - string
-      - "null"
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
   pmid:
     type: string
+
   doi:
     type: string
+
   projects:
     $ref: "_definitions.yaml#/to_many_project"
-  project_id:
-    type: string
-  created_datetime:
-    $ref: "_definitions.yaml#/datetime"
-  updated_datetime:
-    $ref: "_definitions.yaml#/datetime"
