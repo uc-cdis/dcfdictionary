@@ -3,11 +3,13 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "tangent_copy_number"
 title: Tangent Copy Number
 type: object
+nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: data_file
 program: '*'
 project: '*'
-description: "Data file containing tangent normalized copy number information from an aliquot."
+description: Data file containing tangent normalized copy number information from
+  an aliquot.
 additionalProperties: false
 submittable: true
 validators: null
@@ -15,9 +17,9 @@ validators: null
 systemProperties:
   - id
   - project_id
+  - state
   - created_datetime
   - updated_datetime
-  - state
   - file_state
   - error_type
 
@@ -61,13 +63,18 @@ required:
   - experimental_strategy
   - md5sum
   - platform
-
 uniqueKeys:
-  - [ id ]
-  - [ project_id, submitter_id ]
-
+  - [id]
+  - [project_id, submitter_id]
 properties:
+
   $ref: "_definitions.yaml#/data_file_properties"
+
+  aliquots:
+    $ref: "_definitions.yaml#/to_one"
+
+  core_metadata_collections:
+    $ref: "_definitions.yaml#/to_one"
 
   data_category:
     term:
@@ -93,20 +100,17 @@ properties:
     enum:
       - Genotyping Array
 
+  genotyping_array_workflows:
+    $ref: "_definitions.yaml#/to_one"
+
+  genotyping_arrays:
+    $ref: "_definitions.yaml#/to_one"
+
   platform:
     term:
       $ref: "_terms.yaml#/platform"
     enum:
-      - Illumina Infinium HumanExome BeadChip
-      - Illumina OMNI 5M SNP Array
-      - Illumina OMNI 2.5M SNP Array
       - Affymetrix Genome-Wide Human SNP Array 6.0
-
-  genotyping_arrays:
-    $ref: "_definitions.yaml#/to_one"
-  genotyping_array_workflows:
-    $ref: "_definitions.yaml#/to_one"
-  aliquots:
-    $ref: "_definitions.yaml#/to_one"
-  core_metadata_collections:
-    $ref: "_definitions.yaml#/to_many"
+      - Illumina Infinium HumanExome BeadChip
+      - Illumina OMNI 2.5M SNP Array
+      - Illumina OMNI 5M SNP Array
