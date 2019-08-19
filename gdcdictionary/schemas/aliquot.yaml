@@ -86,8 +86,8 @@ properties:
     type: number
 
   project_id:
-    term: null
-    type: null
+    term:
+      $ref: "_definitions.yaml#/project_id"
 
   samples:
     $ref: "_definitions.yaml#/to_one"
