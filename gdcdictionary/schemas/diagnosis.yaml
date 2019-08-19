@@ -63,8 +63,8 @@ properties:
       of days since birth' is greater than 32872 days (89 years).
     term: null
     enum:
-      - No
-      - Yes
+      - "No"
+      - "Yes"
 
   ajcc_clinical_m:
     description: Extent of the distant metastasis for the cancer based on evidence
