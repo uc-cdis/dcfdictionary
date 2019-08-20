@@ -3,11 +3,12 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "publication"
 title: Publication
 type: object
+nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: administrative
 program: '*'
 project: '*'
-description: "Publication for a project."
+description: Publication for a project.
 additionalProperties: false
 submittable: true
 validators: null
@@ -31,18 +32,19 @@ required:
   - submitter_id
   - type
   - projects
-
 uniqueKeys:
-  - [ id ]
-  - [ project_id, submitter_id ]
-
+  - [id]
+  - [project_id, submitter_id]
 properties:
+
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  pmid:
+  doi:
+    term: null
     type: string
 
-  doi:
+  pmid:
+    term: null
     type: string
 
   projects:

@@ -3,12 +3,13 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "proteomic_workflow"
 title: Proteomic Workflow
 type: object
+nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: analysis
 program: '*'
 project: '*'
-description: >
-  Metadata for the protein mass spectrometry workflow used to quantify protein expression
+description: Metadata for the protein mass spectrometry workflow used to quantify
+  protein expression
 additionalProperties: false
 submittable: true
 validators: null
@@ -28,107 +29,117 @@ links:
     multiplicity: one_to_many
     required: true
 
-uniqueKeys:
-  - [id]
-  - [project_id, submitter_id]
-
 required:
   - submitter_id
   - type
   - raw_protein_mass_spectrometries
-
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
 properties:
-  $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  refseq_database_version:
-    description: >
-      Name and version of the NCBI Refseq database used in the data analysis pipeline.
-    type: string
+  $ref: "_definitions.yaml#/workflow_properties"
 
-  uniport_database_version:
-    description: >
-      Name and version of the Uniprot Refseq database used in the data analysis pipeline.
-    type: string
-
-  hgnc_version:
-    description: >
-      Name and version of HGNC database of human gene names used in the data analysis pipeline.
-    type: string
-
-  raw_data_processing:
-    description: >
-      Name and version of the tool used to process the proprietary raw data.
-    type: string
-
-  raw_data_conversion:
-    description: >
-      Name and version of the tool used to convert the proprietary data into open format.
-    type: string
-
-  sequence_database_search:
-    description: >
-      Name and version of the tool used in peptide identification by scoring MS/MS spectra against peptides derived from a protein sequence database.
-    type: string
-
-  search_database_parameters:
-    description: >
-      Parameters used in the peptide identification database search.
-    type: string
-
-  phosphosite_localization:
-    description: >
-      Name and version of the tool used for phosphosite localization.
-    type: string
-
-  ms1_data_analysis:
-    description: >
-      Name and version of the tool used for MS1 data analysis.
-    type: string
-
-  psm_report_generation:
-    description: >
-      Name and version of the tool used to peptide spectral match report generation.
+  cdap_reports:
+    description: Name and version of the tool used to generate protein summary reports.
+    term: null
     type: string
 
   cptac_dcc_mzidentml:
-    description: >
-      Name and version of the tool used to generate mzIdentML from the peptide spectral match report.
-    type: string
-
-  mzidentml_refseq:
-    description: >
-      Name and version of the NCBI Refseq database used in mzIdentML.
-    type: string
-
-  mzidentml_uniprot:
-    description: >
-      Name and version of the Uniprot Refseq database used in mzIdentiML.
-    type: string
-
-  gene_to_prot:
-    description: >
-      Name and version of the tool used to map gene to protein in the data analysis pipeline.
-    type: string
-
-  cptac_galaxy_workflows:
-    description: >
-      Name and version of the workflow of data analysis pipeline.
-    type: string
-
-  cptac_galaxy_tools:
-    description: >
-      Name and version of the custom scripts used in the data analysis pipeline.
-    type: string
-
-  cdap_reports:
-    description: >
-      Name and version of the tool used to generate protein summary reports.
+    description: Name and version of the tool used to generate mzIdentML from the
+      peptide spectral match report.
+    term: null
     type: string
 
   cptac_dcc_tools:
-    description: >
-      Name and version of the custom scripts used in the data analysis pipeline.
+    description: Name and version of the custom scripts used in the data analysis
+      pipeline.
+    term: null
+    type: string
+
+  cptac_galaxy_tools:
+    description: Name and version of the custom scripts used in the data analysis
+      pipeline.
+    term: null
+    type: string
+
+  cptac_galaxy_workflows:
+    description: Name and version of the workflow of data analysis pipeline.
+    term: null
+    type: string
+
+  gene_to_prot:
+    description: Name and version of the tool used to map gene to protein in the data
+      analysis pipeline.
+    term: null
+    type: string
+
+  hgnc_version:
+    description: Name and version of HGNC database of human gene names used in the
+      data analysis pipeline.
+    term: null
+    type: string
+
+  ms1_data_analysis:
+    description: Name and version of the tool used for MS1 data analysis.
+    term: null
+    type: string
+
+  mzidentml_refseq:
+    description: Name and version of the NCBI Refseq database used in mzIdentML.
+    term: null
+    type: string
+
+  mzidentml_uniprot:
+    description: Name and version of the Uniprot Refseq database used in mzIdentiML.
+    term: null
+    type: string
+
+  phosphosite_localization:
+    description: Name and version of the tool used for phosphosite localization.
+    term: null
+    type: string
+
+  psm_report_generation:
+    description: Name and version of the tool used to peptide spectral match report
+      generation.
+    term: null
+    type: string
+
+  raw_data_conversion:
+    description: Name and version of the tool used to convert the proprietary data
+      into open format.
+    term: null
+    type: string
+
+  raw_data_processing:
+    description: Name and version of the tool used to process the proprietary raw
+      data.
+    term: null
     type: string
 
   raw_protein_mass_spectrometries:
     $ref: "_definitions.yaml#/to_many"
+
+  refseq_database_version:
+    description: Name and version of the NCBI Refseq database used in the data analysis
+      pipeline.
+    term: null
+    type: string
+
+  search_database_parameters:
+    description: Parameters used in the peptide identification database search.
+    term: null
+    type: string
+
+  sequence_database_search:
+    description: Name and version of the tool used in peptide identification by scoring
+      MS/MS spectra against peptides derived from a protein sequence database.
+    term: null
+    type: string
+
+  uniport_database_version:
+    description: Name and version of the Uniprot Refseq database used in the data
+      analysis pipeline.
+    term: null
+    type: string

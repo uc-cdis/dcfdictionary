@@ -3,12 +3,13 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "gene_expression"
 title: Gene Expression
 type: object
+nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: data_file
 program: '*'
 project: '*'
-description: >
-  Data file containing gene expression information generated internally by the GTEx.
+description: Data file containing gene expression information generated internally
+  by the GTEx.
 additionalProperties: false
 submittable: false
 validators: null
@@ -16,9 +17,9 @@ validators: null
 systemProperties:
   - id
   - project_id
+  - state
   - created_datetime
   - updated_datetime
-  - state
   - file_state
   - error_type
 
@@ -61,51 +62,54 @@ required:
   - data_type
   - data_format
   - experimental_strategy
-
 uniqueKeys:
-  - [ id ]
-  - [ project_id, submitter_id ]
-
+  - [id]
+  - [project_id, submitter_id]
 properties:
+
   $ref: "_definitions.yaml#/data_file_properties"
+
+  core_metadata_collections:
+    $ref: "_definitions.yaml#/to_one"
 
   data_category:
     term:
       $ref: "_terms.yaml#/data_category"
-    enum: [ "Transcriptome Profiling" ]
-
-  data_type:
-    term:
-      $ref: "_terms.yaml#/data_type"
     enum:
-      - "Gene Expression Quantification"
-      - "Gene Expression Normalization"
+      - Transcriptome Profiling
 
   data_format:
     term:
       $ref: "_terms.yaml#/data_format"
     enum:
-      - TXT
-      - TSV
       - CSV
       - GCT
+      - GCTX
       - RES
       - TDF
-      - GCTX
+      - TSV
+      - TXT
+
+  data_type:
+    term:
+      $ref: "_terms.yaml#/data_type"
+    enum:
+      - Gene Expression Normalization
+      - Gene Expression Quantification
 
   experimental_strategy:
     term:
       $ref: "_terms.yaml#/experimental_strategy"
     enum:
+      - Microarray
       - RNA-Seq
       - Total RNA-Seq
-      - Microarray
 
-  submitted_aligned_reads_files:
-    $ref: "_definitions.yaml#/to_many"
   mrna_microarrays:
     $ref: "_definitions.yaml#/to_many"
+
   rna_expression_workflows:
-    $ref: "_definitions.yaml#/to_many"
-  core_metadata_collections:
+    $ref: "_definitions.yaml#/to_one"
+
+  submitted_aligned_reads_files:
     $ref: "_definitions.yaml#/to_many"
