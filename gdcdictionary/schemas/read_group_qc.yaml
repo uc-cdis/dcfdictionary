@@ -4,7 +4,7 @@ id: "read_group_qc"
 title: Read Group QC
 type: object
 namespace: https://nci-crdc-demo.datacommons.io/
-category: notation
+category: analysis
 project: '*'
 program: '*'
 description: "GDC QC run metadata."
