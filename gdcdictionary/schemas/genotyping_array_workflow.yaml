@@ -11,7 +11,7 @@ project: '*'
 description: Metadata for the Genotyping array workflow used to generate aggregated
   genotyping callset or tangent copy number variation.
 additionalProperties: false
-submittable: .nan
+submittable: true
 validators: null
 
 systemProperties:
