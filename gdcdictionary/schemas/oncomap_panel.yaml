@@ -3,12 +3,12 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "oncomap_panel"
 title: Oncomap Panel
 type: object
+nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: notation
 program: '*'
 project: '*'
-description: >
-  Probes information for oncomap platform
+description: Probes information for oncomap platform
 additionalProperties: false
 submittable: true
 validators: null
@@ -26,142 +26,143 @@ links:
     label: records_for
     target_type: oncomap_assay
     multiplicity: one_to_many
-    required: TRUE
-
-uniqueKeys:
-  - [id]
-  - [project_id, submitter_id]
+    required: true
 
 required:
   - submitter_id
   - type
   - oncomap_assays
-
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
 properties:
+
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  assay_direction:
-    description: >
-      Extention direction of the assay
-    type: string
-
-  wildtype_allele:
-    description: >
-      Wild type extension allele
-    type: string
-
-  variation_allele:
-    description: >
-      Variation extension allele
-    type: string
-
-  entrez_id:
-    description: >
-      Gene ID defined in NCBI's database
-    type: string
-
-  variant_type:
-    description: >
-      The type of allele
-    enum:
-      - "SNP"
-      - "DEL"
-      - "TNP"
-      - "INS"
-      - "DNP"
-      - "ONP"
-
-  reference_allele:
-    description: >
-      A given SNP refers to the nucleotide base on the NCBI reference assembly at the SNP's position
-    type: string
-
   alternative_allele:
-    description: >
-      Refers to any base, other than the reference, that is found at that locus
-    type: string
-
-  dbSNP_rs:
-    description: >
-      RS number in dbSNP database
-    type: string
-
-  dbSNP_validation:
-    description: >
-      Validation resource for the dbSNP database
-    type: string
-
-  genomie_change:
-    description: >
-      The reference and alternative allele in genome build
+    description: Refers to any base, other than the reference, that is found at that
+      locus
+    term: null
     type: string
 
   annotation_transcript:
-    description: >
-      Transcript UCSC ID
+    description: Transcript UCSC ID
+    term: null
     type: string
 
-  transcript_strand:
-    description: >
-      Strand where the transcript locate
-    enum:
-      - "+"
-      - "-"
+  assay_direction:
+    description: Extention direction of the assay
+    term: null
+    type: string
 
   cDNA_change:
-    description: >
-      Reference allele to alternative allele change in cDNA
+    description: Reference allele to alternative allele change in cDNA
+    term: null
     type: string
 
   codon_change:
-    description: >
-      Reference allele to alternative allele change in coden
+    description: Reference allele to alternative allele change in coden
+    term: null
     type: string
 
-  protein_change:
-    description: >
-      Reference allele to alternative allele change in protein
+  dbSNP_rs:
+    description: RS number in dbSNP database
+    term: null
     type: string
 
-  other_transcripts:
-    description: >
-      Other transcrips changes introduced by the alternative allele
+  dbSNP_validation:
+    description: Validation resource for the dbSNP database
+    term: null
     type: string
 
-  refseq_mRNA_id:
-    description: >
-      mRNA ID refered in Refseq database
-    type: string
-
-  refseq_protein_id:
-    description: >
-      Protein ID refered in Refseq database
-    type: string
-
-  swissprot_accession_id:
-    description: >
-      Accession ID in SwissProt database
-    type: string
-
-  swissprot_entry_id:
-    description: >
-      Enrty ID in SwissProt database
+  entrez_id:
+    description: Gene ID defined in NCBI's database
+    term: null
     type: string
 
   gene_description:
-    description: >
-      Description of the gene where the alternative allele locate
+    description: Description of the gene where the alternative allele locate
+    term: null
     type: string
 
-  unitport_amino_acid_position:
-    description: >
-      The amino acid position in UniProt database
-    type: string
-
-  uniProt_region:
-    description: >
-      The region in Uniprot database
+  genomie_change:
+    description: The reference and alternative allele in genome build
+    term: null
     type: string
 
   oncomap_assays:
     $ref: "_definitions.yaml#/to_many"
+
+  other_transcripts:
+    description: Other transcrips changes introduced by the alternative allele
+    term: null
+    type: string
+
+  protein_change:
+    description: Reference allele to alternative allele change in protein
+    term: null
+    type: string
+
+  reference_allele:
+    description: A given SNP refers to the nucleotide base on the NCBI reference assembly
+      at the SNP's position
+    term: null
+    type: string
+
+  refseq_mRNA_id:
+    description: mRNA ID refered in Refseq database
+    term: null
+    type: string
+
+  refseq_protein_id:
+    description: Protein ID refered in Refseq database
+    term: null
+    type: string
+
+  swissprot_accession_id:
+    description: Accession ID in SwissProt database
+    term: null
+    type: string
+
+  swissprot_entry_id:
+    description: Enrty ID in SwissProt database
+    term: null
+    type: string
+
+  transcript_strand:
+    description: Strand where the transcript locate
+    term: null
+    enum:
+      - +
+      - '-'
+
+  uniProt_region:
+    description: The region in Uniprot database
+    term: null
+    type: string
+
+  unitport_amino_acid_position:
+    description: The amino acid position in UniProt database
+    term: null
+    type: string
+
+  variant_type:
+    description: The type of allele
+    term: null
+    enum:
+      - DEL
+      - DNP
+      - INS
+      - ONP
+      - SNP
+      - TNP
+
+  variation_allele:
+    description: Variation extension allele
+    term: null
+    type: string
+
+  wildtype_allele:
+    description: Wild type extension allele
+    term: null
+    type: string
