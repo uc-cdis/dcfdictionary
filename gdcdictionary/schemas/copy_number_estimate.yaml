@@ -3,23 +3,22 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "copy_number_estimate"
 title: Copy Number Estimate
 type: object
+nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: data_file
 program: '*'
 project: '*'
-description: >
-  Data file containing copy number variation information.
+description: Data file containing copy number variation information.
 additionalProperties: false
 submittable: false
-downloadable: true
 validators: null
 
 systemProperties:
   - id
   - project_id
+  - state
   - created_datetime
   - updated_datetime
-  - state
   - file_state
   - error_type
 
@@ -63,13 +62,21 @@ required:
   - data_type
   - experimental_strategy
   - platform
-
 uniqueKeys:
-  - [ id ]
-  - [ project_id, submitter_id ]
-
+  - [id]
+  - [project_id, submitter_id]
 properties:
+
   $ref: "_definitions.yaml#/data_file_properties"
+
+  copy_number_segments:
+    $ref: "_definitions.yaml#/to_one"
+
+  copy_number_variation_workflows:
+    $ref: "_definitions.yaml#/to_one"
+
+  core_metadata_collections:
+    $ref: "_definitions.yaml#/to_one"
 
   data_category:
     term:
@@ -77,19 +84,19 @@ properties:
     enum:
       - Copy Number Variation
 
-  data_type:
-    term:
-      $ref: "_terms.yaml#/data_type"
-    enum:
-      - Gene Level Copy Number
-      - Gene Level Copy Number Scores
-      - Cohort Level Copy Number Scores
-
   data_format:
     term:
       $ref: "_terms.yaml#/data_format"
     enum:
       - TXT
+
+  data_type:
+    term:
+      $ref: "_terms.yaml#/data_type"
+    enum:
+      - Cohort Level Copy Number Scores
+      - Gene Level Copy Number
+      - Gene Level Copy Number Scores
 
   experimental_strategy:
     term:
@@ -107,11 +114,5 @@ properties:
       - Illumina
       - Ion Torrent
 
-  copy_number_variation_workflows:
-    $ref: "_definitions.yaml#/to_one"
   tangent_copy_numbers:
-    $ref: "_definitions.yaml#/to_many"
-  copy_number_segments:
-    $ref: "_definitions.yaml#/to_one"
-  core_metadata_collections:
     $ref: "_definitions.yaml#/to_many"

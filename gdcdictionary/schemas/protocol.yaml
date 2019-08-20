@@ -3,12 +3,14 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "protocol"
 title: Protocol
 type: object
+nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: administrative
 program: '*'
 project: '*'
-description: >
-  The formal plan of an experiment or research activity, including the objective, rationale, design, materials and methods for the conduct of the study; intervention description, and method of data analysis. (NCIt - C70817)
+description: The formal plan of an experiment or research activity, including the
+  objective, rationale, design, materials and methods for the conduct of the study;
+  intervention description, and method of data analysis. (NCIt - C70817)
 additionalProperties: false
 submittable: true
 validators: null
@@ -28,191 +30,199 @@ links:
     multiplicity: many_to_many
     required: true
 
-uniqueKeys:
-  - [id]
-  - [project_id, submitter_id]
-
 required:
   - submitter_id
   - type
   - studies
-
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
 properties:
+
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  protocol_name:
-    description: >
-      Sample Preparation: External Analytical sample protocol name.
-    type: string
-
-  protocol_date:
-    description: >
-      Sample Preparation: External analytical sample protocol create or update date.
-    type: string
-
-  document_name:
-    description: >
-      Sample Preparation: External Analytical sample protocol document name.
-    type: string
-
-  starting_amount:
-    description: >
-      Sample Preparation: Mass with units.
-    type: string
-
-  enrichment_strategy:
-    description: >
-      Sample Preparation: Type of peptide or protein enrichment.
-    type: string
-
-  labeling_strategy:
-    description: >
-      Sample Preparation: general strategy used for differential analysis.
-    type: string
-
-  label_free_quantitation:
-    description: >
-      Sample Preparation: type of label free data analysis strategy proposed for this data.
-    type: string
-
-  labeled_quantitation:
-    description: >
-      Sample Preparation: type of labeling used.
-    type: string
-
-  isobaric_labeling_reagent:
-    description: >
-      Sample Preparation: Reagent used for isobaric labeling.
-    type: string
-
-  digestion_reagent:
-    description: >
-      Sample Preparation: Enzyme or reagent used for digestion. If multiple used list 2 separated by (;).
+  acquisition_type:
+    description: Mass Spectrometry- Mass spectrometry acquisition method.
+    term: null
     type: string
 
   alkylation_reagent:
-    description: >
-      Sample Preparation: Reagent used for alkylation.
-    type: string
-
-  chromatography_dimensions_count:
-    description: >
-      Sample Preparation: Number of discrete chromatographic dimensions used.
-    type: integer
-
-  fractions_produced_count:
-    description: >
-      Sample Preparation: Final number of fractions produced following any pooling, for example.
-    type: string
-
-  chromatography_type:
-    description: >
-      Liquid Chromatography: General type of chromatography.
-    type: string
-
-  chromatographic_dimension:
-    description: >
-      Liquid Chromatography: dimension ordinal.
-    type: integer
-
-  column_type:
-    description: >
-      Liquid Chromatography: Type of column used.
+    description: Sample Preparation- Reagent used for alkylation.
+    term: null
     type: string
 
   amount_on_column:
-    description: >
-      Liquid Chromatography: approximate mass with units.
+    description: Liquid Chromatography- approximate mass with units.
+    term: null
     type: string
 
-  column_length:
-    description: >
-      Liquid Chromatography: with units.
+  chromatographic_dimension:
+    description: Liquid Chromatography- dimension ordinal.
+    term: null
+    type: integer
+
+  chromatography_dimensions_count:
+    description: Sample Preparation- Number of discrete chromatographic dimensions
+      used.
+    term: null
+    type: integer
+
+  chromatography_type:
+    description: Liquid Chromatography- General type of chromatography.
+    term: null
+    type: string
+
+  collision_energy:
+    description: Mass Spectrometry- normalized collisions energy (%).
+    term: null
     type: string
 
   column_inner_diameter:
-    description: >
-      Liquid Chromatography: with units.
+    description: Liquid Chromatography- with units.
+    term: null
     type: string
 
-  particle_size:
-    description: >
-      Liquid Chromatography: with units.
+  column_length:
+    description: Liquid Chromatography- with units.
+    term: null
     type: string
 
-  particle_type:
-    description: >
-      Liquid Chromatography: manufacturer or brand name of particle if applicable.
+  column_type:
+    description: Liquid Chromatography- Type of column used.
+    term: null
     type: string
 
-  gradient_length:
-    description: >
-      Liquid Chromatography: time with units.
+  dda_topn:
+    description: Mass Spectrometry- number of precursors sampled per cycle.
+    term: null
     type: string
 
-  protocol_document_name:
-    description: >
-      Liquid Chromatography: External chromatography protocol document name.
-    type: string
+  dia_ims:
+    description: Mass Spectrometry- Uses ion mobility separation.
+    term: null
+    type: boolean
 
-  protocol_type:
-    description: >
-      Mass Spectrometry: Controlled Vocabulary can suggest new terms if needed.
-    type: string
+  dia_multiplexing:
+    description: Mass Spectrometry- Uses MSX.
+    term: null
+    type: boolean
 
-  acquisition_type:
-    description: >
-      Mass Spectrometry: Mass spectrometry acquisition method.
-    type: string
-
-  instrument_make:
-    description: >
-      Mass Spectrometry: Manufacturer of instrument.
-    type: string
-
-  instrument_model:
-    description: >
-      Mass Spectrometry: Model of instrument.
-    type: string
-
-  instrument_serial_number:
-    description: >
-      Mass Spectrometry: serial number from instrument used in study.
+  digestion_reagent:
+    description: Sample Preparation- Enzyme or reagent used for digestion. If multiple
+      used list 2 separated by (;).
+    term: null
     type: string
 
   dissociation_type:
-    description: >
-      Mass Spectrometry: gas phase dissociation type.
+    description: Mass Spectrometry- gas phase dissociation type.
+    term: null
+    type: string
+
+  document_name:
+    description: Sample Preparation- External Analytical sample protocol document
+      name.
+    term: null
+    type: string
+
+  enrichment_strategy:
+    description: Sample Preparation- Type of peptide or protein enrichment.
+    term: null
+    type: string
+
+  fractions_produced_count:
+    description: Sample Preparation- Final number of fractions produced following
+      any pooling, for example.
+    term: null
+    type: string
+
+  gradient_length:
+    description: Liquid Chromatography- time with units.
+    term: null
+    type: string
+
+  instrument_make:
+    description: Mass Spectrometry- Manufacturer of instrument.
+    term: null
+    type: string
+
+  instrument_model:
+    description: Mass Spectrometry- Model of instrument.
+    term: null
+    type: string
+
+  instrument_serial_number:
+    description: Mass Spectrometry- serial number from instrument used in study.
+    term: null
+    type: string
+
+  isobaric_labeling_reagent:
+    description: Sample Preparation- Reagent used for isobaric labeling.
+    term: null
+    type: string
+
+  label_free_quantitation:
+    description: Sample Preparation- type of label free data analysis strategy proposed
+      for this data.
+    term: null
+    type: string
+
+  labeled_quantitation:
+    description: Sample Preparation- type of labeling used.
+    term: null
+    type: string
+
+  labeling_strategy:
+    description: Sample Preparation- general strategy used for differential analysis.
+    term: null
     type: string
 
   ms1_resolution:
-    description: >
-      Mass Spectrometry: MS1 resolution, typically at 400 m/z.
+    description: Mass Spectrometry- MS1 resolution, typically at 400 m/z.
+    term: null
     type: integer
 
   ms2_resolution:
-    description: >
-      Mass Spectrometry: MS2 resolution, typically at 400 m/z.
+    description: Mass Spectrometry- MS2 resolution, typically at 400 m/z.
+    term: null
     type: integer
 
-  dda_topn:
-    description: >
-      Mass Spectrometry: number of precursors sampled per cycle.
+  particle_size:
+    description: Liquid Chromatography- with units.
+    term: null
     type: string
 
-  dia_multiplexing:
-    description: >
-      Mass Spectrometry: Uses MSX.
-    type: boolean
+  particle_type:
+    description: Liquid Chromatography- manufacturer or brand name of particle if
+      applicable.
+    term: null
+    type: string
 
-  dia_ims:
-    description: >
-      Mass Spectrometry: Uses ion mobility separation.
-    type: boolean
+  protocol_date:
+    description: Sample Preparation- External analytical sample protocol create or
+      update date.
+    term: null
+    type: string
 
-  collision_energy:
-    description: >
-      Mass Spectrometry: normalized collisions energy (%).
+  protocol_document_name:
+    description: Liquid Chromatography- External chromatography protocol document
+      name.
+    term: null
+    type: string
+
+  protocol_name:
+    description: Sample Preparation- External Analytical sample protocol name.
+    term: null
+    type: string
+
+  protocol_type:
+    description: Mass Spectrometry- Controlled Vocabulary can suggest new terms if
+      needed.
+    term: null
+    type: string
+
+  starting_amount:
+    description: Sample Preparation- Mass with units.
+    term: null
     type: string
 
   studies:
