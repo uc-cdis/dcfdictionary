@@ -95,7 +95,7 @@ properties:
     type: boolean
 
   instrument_model:
-    terms:
+    term:
       $ref: "_terms.yaml#/instrument_model"
     enum:
       - "454 GS FLX Titanium"
