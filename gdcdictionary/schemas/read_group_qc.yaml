@@ -46,7 +46,6 @@ links:
 required:
   - submitter_id
   - type
-  - workflow_link
   - percent_gc_content
   - encoding
   - total_sequences

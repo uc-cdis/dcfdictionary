@@ -118,9 +118,7 @@ properties:
       - miRNA-Seq
 
   platform:
-    term:
-      $ref: "read_group.yaml#/properties/platform"
-    type: null
+    $ref: "read_group.yaml#/properties/platform"
 
   submitted_aligned_reads_files:
     $ref: "_definitions.yaml#/to_one"
