@@ -11,6 +11,7 @@ description: >
   Metadata for the Genotyping array workflow used to generate aggregated genotyping callset or tangent copy number variation.
 additionalProperties: false
 validators: null
+submittable: true
 
 systemProperties:
   - id
