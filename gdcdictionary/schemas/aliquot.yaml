@@ -3,6 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "aliquot"
 title: Aliquot
 type: object
+namespace: https://nci-crdc-demo.datacommons.io/
 category: biospecimen
 program: '*'
 project: '*'
