@@ -10,7 +10,7 @@ project: '*'
 description: >
   Data file containing the copy number data. Contains all copy numbers detected.
 additionalProperties: false
-submittable: false
+submittable: true
 downloadable: true
 validators: null
 

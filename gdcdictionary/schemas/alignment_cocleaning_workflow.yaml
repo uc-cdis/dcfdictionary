@@ -11,7 +11,7 @@ description: >
   Metadata for the alignment and cocleaning pipeline used to align reads in the GDC harmonization
   pipelines.
 additionalProperties: false
-submittable: false
+submittable: true
 validators: null
 
 systemProperties:

@@ -9,7 +9,7 @@ project: '*'
 program: '*'
 description: "GDC QC run metadata."
 additionalProperties: false
-submittable: false
+submittable: true
 validators: null
 
 systemProperties:

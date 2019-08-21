@@ -11,7 +11,7 @@ description: >
   Metadata for the RNA expression pipeline used to quantify RNA gene and exon expression from
   unharmonized or GDC harmonized data.
 additionalProperties: false
-submittable: false
+submittable: true
 validators: null
 
 systemProperties:

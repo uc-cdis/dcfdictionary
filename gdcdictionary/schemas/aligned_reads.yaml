@@ -10,7 +10,7 @@ project: '*'
 description: >
   Data file containing aligned reads that are generated internally.
 additionalProperties: false
-submittable: false
+submittable: true
 validators: null
 
 systemProperties:
