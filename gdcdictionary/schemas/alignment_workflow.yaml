@@ -3,12 +3,13 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "alignment_workflow"
 title: Alignment Workflow
 type: object
+nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: analysis
 program: '*'
 project: '*'
-description: >
-  Metadata for the alignment pipeline used to align reads in the GDC harmonization pipelines.
+description: Metadata for the alignment pipeline used to align reads in the GDC harmonization
+  pipelines.
 additionalProperties: false
 submittable: true
 validators: null
@@ -16,9 +17,9 @@ validators: null
 systemProperties:
   - id
   - project_id
+  - state
   - created_datetime
   - updated_datetime
-  - state
 
 links:
   - exclusive: true
@@ -43,18 +44,19 @@ required:
   - workflow_type
 
 uniqueKeys:
-  - [ id ]
-  - [ project_id, submitter_id ]
+  - [id]
+  - [project_id, submitter_id]
 
 properties:
+
   $ref: "_definitions.yaml#/workflow_properties"
 
   workflow_type:
     enum:
-      - "STAR"
-      - "BWA-aln"
-      - "BWA-mem"
-      - "spinnaker"
+      - BWA-aln
+      - BWA-mem
+      - STAR
+      - spinnaker
 
   submitted_aligned_reads_files:
     $ref: "_definitions.yaml#/to_many"
