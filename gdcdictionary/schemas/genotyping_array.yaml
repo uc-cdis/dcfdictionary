@@ -91,6 +91,10 @@ properties:
     description: Plat number for which plate the genotyping is performed
     type: integer
 
+  plate:
+    description: Plate number for the genotyping array.
+    type: integer
+
   platform:
     term:
       $ref: "_terms.yaml#/platform"
