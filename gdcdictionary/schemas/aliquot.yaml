@@ -3,16 +3,16 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "aliquot"
 title: Aliquot
 type: object
+nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: biospecimen
 program: '*'
 project: '*'
-description: >
-  Pertaining to a portion of the whole; any one of two or more samples of something, of the same
-  volume or weight.
+description: Pertaining to a portion of the whole; any one of two or more samples
+  of something, of the same volume or weight.
 additionalProperties: false
 submittable: true
-validators: []
+validators: null
 
 systemProperties:
   - id
@@ -20,6 +20,14 @@ systemProperties:
   - state
   - created_datetime
   - updated_datetime
+
+links:
+  - name: samples
+    backref: aliquots
+    label: derived_from
+    target_type: sample
+    multiplicity: many_to_one
+    required: true
 
 required:
   - submitter_id
@@ -30,19 +38,14 @@ uniqueKeys:
   - [id]
   - [project_id, submitter_id]
 
-links:
-  - name: samples
-    backref: aliquots
-    label: derived_from
-    multiplicity: many_to_one
-    target_type: sample
-    required: true
-
-constraints: null
-
-# Aliquot properties
 properties:
+
   $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  a260_a280_ratio:
+    term:
+      $ref: "_terms.yaml#/a260_a280_ratio"
+    type: number
 
   aliquot_quantity:
     term:
@@ -91,11 +94,6 @@ properties:
     term:
       $ref: "_terms.yaml#/source_center"
     type: string
-
-  a260_a280_ratio:
-    term:
-      $ref: "_terms.yaml#/a260_a280_ratio"
-    type: number
 
   samples:
     $ref: "_definitions.yaml#/to_one"

@@ -1,0 +1,675 @@
+<node>	<field>	<description>	<type>	<terms>	<pattern>	<maximum>	<minimum>	<options1>	<options2>	<options3>	<options4>	<options5>	<options6>	<options7>	<options8>
+acknowledgement	acknowledgee	The indvidiual or group being acknowledged by the project.	string												
+aggregated_genotyping_array	data_category		enum	_terms.yaml#/data_category				SNP Array Data 							
+aggregated_genotyping_array	data_type		enum	_terms.yaml#/data_type				Aggregated SNP Alleles | Individual SNP Alleles 							
+aggregated_genotyping_array	data_format		enum	_terms.yaml#/data_format				PED | VCF | IND 							
+aggregated_genotyping_array	experimental_strategy		enum	_terms.yaml#/experimental_strategy				SNP Array Genotyping 							
+aggregated_genotyping_array	platform		enum	_terms.yaml#/platform				Illumina Infinium HumanExome BeadChip | Illumina OMNI 5M SNP Array | Illumina OMNI 2.5M SNP Array | Affymetrix Genome-Wide Human SNP Array 6.0 							
+aligned_reads	data_category		enum	_terms.yaml#/data_category				Sequencing Data | Sequencing Reads | Raw Sequencing Data 							
+aligned_reads	data_type		enum	_terms.yaml#/data_type				Aligned Reads 							
+aligned_reads	data_format		enum	_terms.yaml#/data_format				BAM | CRAM 							
+aligned_reads	experimental_strategy		enum	_terms.yaml#/experimental_strategy				WGS | WXS | Low Pass WGS | Validation | RNA-Seq | miRNA-Seq | Total RNA-Seq 							
+aligned_reads	platform		enum	_terms.yaml#/platform				Illumina | SOLiD | LS454 | Ion Torrent | Complete Genomics | PacBio | Other 							
+aligned_reads_index	data_category		enum	_terms.yaml#/data_category				Sequencing Data | Sequencing Reads | Raw Sequencing Data 							
+aligned_reads_index	data_type		enum	_terms.yaml#/data_type				Aligned Reads Index 							
+aligned_reads_index	data_format		enum	_terms.yaml#/data_format				BAI 							
+alignment_cocleaning_workflow	workflow_type		enum	_terms.yaml#/workflow_type				BWA with Mark Duplicates and Cocleaning 							
+alignment_workflow	workflow_type		enum					STAR | BWA-aln | BWA-mem | spinnaker 							
+aliquot	aliquot_quantity		number	_terms.yaml#/aliquot_quantity											
+aliquot	aliquot_volume		number	_terms.yaml#/aliquot_volume											
+aliquot	amount		number	_terms.yaml#/amount											
+aliquot	analyte_type		string	_terms.yaml#/analyte_type											
+aliquot	analyte_type_id		enum	_terms.yaml#/analyte_type_id				D | E | G | H | R | S | T | W | X | Y 							
+aliquot	concentration		number	_terms.yaml#/concentration											
+aliquot	project_id			_definitions.yaml#/project_id											
+aliquot	source_center		string	_terms.yaml#/source_center											
+aliquot	a260_a280_ratio		number	_terms.yaml#/a260_a280_ratio											
+copy_number_estimate	data_category		enum	_terms.yaml#/data_category				Copy Number Variation 							
+copy_number_estimate	data_type		enum	_terms.yaml#/data_type				Gene Level Copy Number | Gene Level Copy Number Scores | Cohort Level Copy Number Scores 							
+copy_number_estimate	data_format		enum	_terms.yaml#/data_format				TXT 							
+copy_number_estimate	experimental_strategy		enum	_terms.yaml#/experimental_strategy				Genotyping Array | Targeted Sequencing | WGS 							
+copy_number_estimate	platform		enum	_terms.yaml#/platform				Affymetrix SNP 6.0 | Illumina | Ion Torrent 							
+copy_number_segment	data_category		enum	_terms.yaml#/data_category				Copy Number Variation 							
+copy_number_segment	data_type		enum	_terms.yaml#/data_type				Copy Number Segment | Masked Copy Number Segment 							
+copy_number_segment	data_format		enum	_terms.yaml#/data_format				TXT 							
+copy_number_segment	experimental_strategy		enum	_terms.yaml#/experimental_strategy				Genotyping Array | Targeted Sequencing 							
+copy_number_segment	platform		enum	_terms.yaml#/platform				Affymetrix SNP 6.0 | Illumina 							
+copy_number_variation_workflow	workflow_type		enum	_terms.yaml#/workflow_type				GISTIC - Copy Number Score | GISTIC - Arm Level Copy Number | GISTIC - Focal Deletion | GISTIC - Focal Amplification 							
+core_metadata_collection	contributor	"An entity responsible for making contributions to the resource. Examples of a Contributor include a person, an organization, or a service. Typically, the name of a Contributor should be used to indicate the entity.
+"	string												
+core_metadata_collection	coverage	"The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant. Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended best practice is to use a controlled vocabulary such as the Thesaurus of Geographic Names [TGN] (http://www.getty.edu/research/tools/vocabulary/tgn/index.html). Where appropriate, named places or time periods can be used in preference to numeric identifiers such as sets of coordinates or date ranges.
+"	string												
+core_metadata_collection	creator	"An entity primarily responsible for making the resource. Examples of a Creator include a person, an organization, or a service. Typically, the name of a Creator should be used to indicate the entity.
+"	string												
+core_metadata_collection	date			_definitions.yaml#/datetime											
+core_metadata_collection	description	"An account of the resource. Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.
+"	string												
+core_metadata_collection	format	"The file format, physical medium, or dimensions of the resource. Examples of dimensions include size and duration. Recommended best practice is to use a controlled vocabulary such as the list of Internet Media Types [MIME] (http://www.iana.org/assignments/media-types/).
+"	string												
+core_metadata_collection	language	"A language of the resource. Recommended best practice is to use a controlled vocabulary such as RFC 4646 (http://www.ietf.org/rfc/rfc4646.txt).
+"	string												
+core_metadata_collection	publisher	"An entity responsible for making the resource available. Examples of a Publisher include a person, an organization, or a service. Typically, the name of a Publisher should be used to indicate the entity.
+"	string												
+core_metadata_collection	relation	"A related resource. Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system. 
+"	string												
+core_metadata_collection	rights	"Information about rights held in and over the resource. Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.
+"	string												
+core_metadata_collection	source	"A related resource from which the described resource is derived. The described resource may be derived from the related resource in whole or in part. Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system.
+"	string												
+core_metadata_collection	subject	"The topic of the resource. Typically, the subject will be represented using keywords, key phrases, or classification codes. Recommended best practice is to use a controlled vocabulary.
+"	string												
+core_metadata_collection	title	"A name given to the resource. Typically, a Title will be a name by which the resource is formally known.
+"	string												
+core_metadata_collection	data_type	"The nature or genre of the resource. Recommended best practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [DCMITYPE]. To describe the file format, physical medium, or dimensions of the resource, use the Format element.
+"	string												
+demographic	gender		enum	_terms.yaml#/gender				female | male | unknown | unspecified | not reported 							
+demographic	cause_of_death	"Text term to identify the cause of death for a patient.
+"	string												
+demographic	vital_status	"The survival state of the person registered on the protocol.
+"	string												
+demographic	days_to_birth	"Time interval from a person’s date of birth to the date of initial pathologic diagnosis, represented as a calculated negative number of days.
+"	integer			0	-32872								
+demographic	days_to_death	"Time interval from a person’s date of death to the date of initial pathologic diagnosis, represented as a calculated number of days.
+"	integer												
+demographic	race		enum	_terms.yaml#/race				white | american indian or alaska native | black or african american | asian | native hawaiian or other pacific islander | other | Unknown | not reported | not allowed to collect 							
+demographic	ethnicity		enum	_terms.yaml#/ethnicity				hispanic or latino | not hispanic or latino | Unknown | not reported | not allowed to collect 							
+demographic	year_of_birth		number	_terms.yaml#/year_of_birth											
+demographic	year_of_death		number	_terms.yaml#/year_of_death											
+demographic	age_range	"Range of ages for the subject. The age range should not include ages over 89 years.
+"	string												
+diagnosis	ann_arbor_b_symptoms	"Text term to signify whether lymphoma B-symptoms are present as noted in the patient’s medical record.
+"	string												
+diagnosis	year_of_diagnosis	"Numeric value to represent the year of an individual’s initial pathologic diagnosis of cancer.
+"	string												
+diagnosis	classification_of_tumor	"Text that describes the kind of disease present in the tumor specimen as related to a specific timepoint.
+"	string												
+diagnosis	last_known_disease_status	"Text term that describes the last known state or condition of an individual’s neoplasm.
+"	string												
+diagnosis	progression_free_survival	"Number of days between the date used for index and the first date the patient is known to be free of disease progression.
+"	string												
+diagnosis	method_of_diagnosis	"The method used to initially determine the patient’s diagnosis.
+"	string												
+diagnosis	laterality	"For tumors in paired organs, designates the side on which the cancer originates.
+"	string												
+diagnosis	ann_arbor_pathologic_stage	"The classification of the pathologically confirmed anatomic disease extent of lymphoma (Hodgkin’s and Non-Hodgkin’s) based on the Ann Arbor Staging System.
+"	string												
+diagnosis	primary_diagnosis	"Text term for the structural pattern of cancer cells used to define a microscopic diagnosis.
+"	string												
+diagnosis	tumor_stage	"The extent of a cancer in the body. Staging is usually based on the size of the tumor, whether lymph nodes contain cancer, and whether the cancer has spread from the original site to other parts of the body. The accepted values for tumor_stage depend of the tumor site, type, and accepted staging system. These items should accompany the tumor_stage value as associated metadata.
+"	string												
+diagnosis	age_at_diagnosis	"Age at the time of diagnosis expressed in number of days since birth. If the age is greater than 32872 days (89 years), see 'age_at_diagnosis_gt89'.
+"	integer			32872	0								
+diagnosis	age_at_diagnosis_gt89	"Indicate whether the 'Age at the time of diagnosis expressed in number of days since birth' is greater than 32872 days (89 years).
+"	enum					Yes | No 							
+diagnosis	hpv_positive_type	"Text classification to represent the strain or type of human papillomavirus identified in an individual.
+"	string												
+diagnosis	vital_status	"The survival state of the person registered on the protocol.
+"	string												
+diagnosis	days_to_death	"Time interval from a person’s date of death to the date of initial pathologic diagnosis, represented as a calculated number of days.
+"	string												
+diagnosis	new_event_anatomic_site	"Text term to specify the anatomic location of the return of tumor after treatment.
+"	string												
+diagnosis	perineural_invasion_present	"A yes/no indicator to ask if perineural invasion or inflitration of tumor or cancer is present.
+"	string												
+diagnosis	days_to_hiv_diagnosis	"Time interval from the date of the initial pathologic diagnosis to the date of human immunodeficiency diagnosis, represented as a calculated number of days.
+"	string												
+diagnosis	ajcc_clinical_n	"Extent of the regional lymph node involvement for the cancer based on evidence obtained from clinical assessment parameters determined prior to treatment.
+"	string												
+diagnosis	days_to_last_follow_up	"Time interval from the date of late follow up to the date of initial pathologic diagnosis, represented as a calculated number of days.
+"	string												
+diagnosis	prior_treatment	"A yes/no/unknown/not applicable indicator related to the administration of therapeutic agents received before the body specimen was collected.
+"	string												
+diagnosis	ajcc_clinical_t	"Extent of the primary cancer based on evidence obtained from clinical assessment parameters determined prior to treatment.
+"	string												
+diagnosis	colon_polyps_history	"Yes/No indicator to describe if the subject had a previous history of colon polyps as noted in the history/physical or previous endoscopic report(s).
+"	string												
+diagnosis	ajcc_clinical_m	"Extent of the distant metastasis for the cancer based on evidence obtained from the clinical assessment parameters determined prior to treatment.
+"	string												
+diagnosis	ajcc_pathologic_m	"Code to represent the defined absence or presence of distant spread or metastases (M) to locations via vascular channels or lymphatics beyond the regional lymph nodes, using criteria established by the American Joint Committee on Cancer (AJCC).
+"	string												
+diagnosis	ajcc_pathologic_n	"The codes that represent the stage of cancer based on the nodes present (N stage) according to criteria based on multiple editions of the AJCC’s Cancer Staging Manual.
+"	string												
+diagnosis	ldh_level_at_diagnosis	"The 2 decimal place numeric laboratory value measured, assigned or computed related to the assessment of lactate dehydrogenase in a specimen.
+"	string												
+diagnosis	progression_free_survival_event	"The event used to define the patient’s disease progression.
+"	string												
+diagnosis	best_overall_response	"The best improvement achieved throughout the entire course of protocol treatment.
+"	string												
+diagnosis	residual_disease	"Text terms to describe the status of a tissue margin following surgical resection.
+"	string												
+diagnosis	days_to_recurrence	"Number of days between the date used for index and the date the patient was diagnosed with a recurrent malignancy.
+"	string												
+diagnosis	tumor_grade	"Numeric value to express the degree of abnormality of cancer cells, a measure of differentiation and aggressiveness.
+"	string												
+diagnosis	figo_stage	"The extent of a cervical or endometrial cancer within the body, especially whether the disease has spread from the original site to other parts of the body, as described by the International Federation of Gynecology and Obstetrics (FIGO) stages.
+"	string												
+diagnosis	ajcc_pathologic_stage	"The extent of a cancer, especially whether the disease has spread from the original site to other parts of the body based on AJCC staging criteria.
+"	string												
+diagnosis	days_to_best_overall_response	"Number of days between the date used for index and the date of the patient’s best overall response.
+"	string												
+diagnosis	days_to_diagnosis	"Number of days between the date used for index and the date of diagnosis.
+"	string												
+diagnosis	tissue_or_organ_of_origin	"Text term that describes the anatomic site of the tumor or disease.
+"	string												
+diagnosis	days_to_birth	"Time interval from a person’s date of birth to the date of initial pathologic diagnosis, represented as a calculated negative number of days.
+"	integer			0	-32872								
+diagnosis	progression_or_recurrence	"Yes/No/Unknown indicator to identify whether a patient has had a new tumor event after initial treatment.
+"	string												
+diagnosis	days_to_last_known_disease_status	"Time interval from the date of last follow up to the date of initial pathologic diagnosis, represented as a calculated number of days.
+"	string												
+diagnosis	hpv_status	"The findings of the oncogenic HPV.
+"	string												
+diagnosis	prior_malignancy	"Text term to describe the patient’s history of prior cancer diagnosis and the spatial location of any previous cancer occurrence.
+"	string												
+diagnosis	lymphatic_invasion_present	"A yes/no indicator to ask if small or thin-walled vessel invasion is present, indicating lymphatic involvement.
+"	string												
+diagnosis	circumferential_resection_margin	"A value in millimeters indicating the measured length between a malignant lesion of the colon or rectum and the nearest radial (or circumferential) border of tissue removed during cancer surgery.
+"	string												
+diagnosis	new_event_type	"Text term to identify a new tumor event.
+"	string												
+diagnosis	cause_of_death	"Text term to identify the cause of death for a patient.
+"	string												
+diagnosis	days_to_new_event	"Time interval from the date of new tumor event including progression, recurrence and new primary malignancies to the date of initial pathologic diagnosis, represented as a calculated number number of days.
+"	string												
+diagnosis	iss_stage	"The multiple myeloma disease stage at diagnosis.
+"	string												
+diagnosis	ldh_normal_range_upper	"The top value of the range of statistical characteristics that are supposed to represent accepted standard, non-pathological pattern for lactate dehydrogenase (units not specified).
+"	string												
+diagnosis	ann_arbor_extranodal_involvement	"Indicator that identifies whether a patient with malignant lymphoma has lymphomatous involvement of an extranodal site.
+"	string												
+diagnosis	lymph_nodes_positive	"The number of lymph nodes involved with disease as determined by pathologic examination.
+"	string												
+diagnosis	ann_arbor_clinical_stage	"The classification of the clinically confirmed anatomic disease extent of lymphoma (Hodgkin’s and Non-Hodgkin’s) based on the Ann Arbor Staging System.
+"	string												
+diagnosis	hiv_positive	"Text term to signify whether a physician has diagnosed HIV infection in a patient.
+"	string												
+diagnosis	site_of_resection_or_biopsy	"The third edition of the International Classification of Diseases for Oncology, published in 2000, used principally in tumor and cancer registries for coding the site (topography) and the histology (morphology) of neoplasms. The description of an anatomical region or of a body part. Named locations of, or within, the body. A system of numbered categories for representation of data.
+"	string												
+diagnosis	ajcc_pathologic_t	"Code of pathological T (primary tumor) to define the size or contiguous extension of the primary tumor (T), using staging criteria from the American Joint Committee on Cancer.
+"	string												
+diagnosis	overall_survival	"Number of days between the date used for index and the patient’s date of death or the date the patient was last known to be alive.
+"	string												
+diagnosis	ajcc_clinical_stage	"Stage group determined from clinical information on the tumor (T), regional node (N) and metastases (M) and by grouping cases with similar prognosis for cancer.
+"	string												
+diagnosis	burkitt_lymphoma_clinical_variant	"Burkitt’s lymphoma categorization based on clinical features that differ from other forms of the same disease.
+"	string												
+diagnosis	vascular_invasion_present	"The yes/no indicator to ask if large vessel or venous invasion was detected by surgery or presence in a tumor specimen.
+"	string												
+diagnosis	morphology	"The third edition of the International Classification of Diseases for Oncology, published in 2000 used principally in tumor and cancer registries for coding the site (topography) and the histology (morphology) or neoplasms. The study of the structure of the cells and their arrangement to constitute tissues and, finally, the association among these to form organs. In pathology, the microscopic process or identifying normal and abnormal morphologic characteristics in tissues, by employing various cytochemical and immunocytochemical stains. A system of numbered categories for representation of data.
+"	string												
+diagnosis	histology	"Result of the microscopic structure of tissues
+"	string												
+diagnosis	hist_subtype1	"Subtype of the microscopic structure of tissues
+"	string												
+drug_attribute	brand_name	"brand name under which the drug is sold
+"	string												
+drug_attribute	target_molecule	"the native protein in the body whose activity is modified by a drug resulting in a specific effect, which may be a desirable therapeutic effect or an unwanted adverse effect.
+"	string												
+drug_attribute	drug_mechanism	"The mechanism of how the drug take effect
+"	string												
+drug_attribute	drug_class	"Drug classification
+"	string												
+drug_attribute	highest_phase	"The highest phase of clinical research for the drug
+"	string												
+drug_attribute	organization	"The organization produces the drug
+"	string												
+drug_response	compound	"Ingredients of a medication
+"	string												
+drug_response	dose	"Drug dosage administrated in uM
+"	number												
+drug_response	median_activity	"Median value of drug activity
+"	number												
+drug_response	activity_sd	"Standard diviation of drug activity
+"	number												
+gene_expression	data_category		enum	_terms.yaml#/data_category				Transcriptome Profiling 							
+gene_expression	data_type		enum	_terms.yaml#/data_type				Gene Expression Quantification | Gene Expression Normalization 							
+gene_expression	data_format		enum	_terms.yaml#/data_format				TXT | TSV | CSV | GCT | RES | TDF | GCTX 							
+gene_expression	experimental_strategy		enum	_terms.yaml#/experimental_strategy				RNA-Seq | Total RNA-Seq | Microarray 							
+genotyping_array	data_category		enum	_terms.yaml#/data_category				Genotyping Array Data 							
+genotyping_array	data_type		enum	_terms.yaml#/data_type				Genotyping Raw Intensity 							
+genotyping_array	data_format		enum	_terms.yaml#/data_format				IDAT | GTC | GCT | CEL 							
+genotyping_array	experimental_strategy		enum	_terms.yaml#/experimental_strategy				Genotyping Array 							
+genotyping_array	platform		enum	_terms.yaml#/platform				Illumina Infinium HumanExome BeadChip | Illumina OMNI 5M SNP Array | Illumina OMNI 2.5M SNP Array | Affymetrix Genome-Wide Human SNP Array 6.0 							
+genotyping_array	plat	"Plat number for which plate the genotyping is performed
+"	integer												
+genotyping_array_workflow	workflow_type		enum	_terms.yaml#/workflow_type				Birdseed Genotyping 							
+keyword	keyword_name	The name of the keyword.	string												
+mirna_microarray	data_category		enum	_terms.yaml#/data_category				Transcriptome Profiling 							
+mirna_microarray	data_type		enum	_terms.yaml#/data_type				miRNA Expression Quantification 							
+mirna_microarray	data_format		enum	_terms.yaml#/data_format				TXT | TSV | CSV 							
+mirna_microarray	experimental_strategy		enum	_terms.yaml#/experimental_strategy				RNA-microarray 							
+mrna_microarray	array_platform	"Type of the CHIP used for microarray
+"	string												
+mrna_microarray	data_category		enum	_terms.yaml#/data_category				Transcriptome Profiling 							
+mrna_microarray	data_type		enum	_terms.yaml#/data_type				mRNA Expression Quantification 							
+mrna_microarray	data_format		enum	_terms.yaml#/data_format				TXT | TSV | CSV | CEL 							
+mrna_microarray	experimental_strategy		enum	_terms.yaml#/experimental_strategy				RNA-microarray 							
+mzml_protein_mass_spectrometry	data_category	"Broad categorization of the contents of the data file.
+"	enum					Proteome 							
+mzml_protein_mass_spectrometry	data_format	"Format of the data files.
+"	enum					TXT | TSV | CSV | GCT | RAW | MZID.GZ | MZML.GZ 							
+mzml_protein_mass_spectrometry	data_type	"Specific content type of the data file.
+"	string												
+mzml_protein_mass_spectrometry	experimental_strategy	"The sequencing strategy used to generate the data file.
+"	enum					TMT10 | iTRAQ4 | Label Free 							
+mzml_protein_mass_spectrometry	file_name	"The name (or part of a name) of a file (of any type).
+"	string												
+mzml_protein_mass_spectrometry	file_size	"The size of the data file (object) in bytes.
+"	integer												
+mzml_protein_mass_spectrometry	md5sum	"The 128-bit hash value expressed as a 32 digit hexadecimal number used as a file's digital fingerprint.
+"	string												
+mzml_protein_mass_spectrometry	original_file_name	"Original file name in https://cptc-xfer.uis.georgetown.edu/publicData/Phase_II_Data/CPTAC_Breast_Cancer_S039
+"	string												
+oncomap_assay	reference_allele	"A given SNP refers to the nucleotide base on the NCBI reference assembly at the SNP's position
+"	string												
+oncomap_assay	tumor_seq_allele1	"The first allele sequenced in tumor cell line
+"	string												
+oncomap_assay	tumor_seq_allele2	"The second allele sequenced in tumor cell line
+"	string												
+oncomap_assay	cohort_center	"Center where the cohort of the assay performed
+"	string												
+oncomap_assay	sequencing_phase	"The phase of the batch of sequencing for the project
+"	string												
+oncomap_assay	hugo_symbol	"Gene symbols defined by hugo gene nomenclature committee
+"	string												
+oncomap_assay	ncbi_build_version	"NCBI release of assemblies made from contiguous sequences assembled in what is thought to be chromosomal order
+"	string												
+oncomap_assay	chromosome	"A DNA molecule with part or all of the genetic material of an organism
+"	string												
+oncomap_assay	start_position	"The strat position on a chromosom
+"	number												
+oncomap_assay	end_position	"The end position on a chromosome
+"	number												
+oncomap_assay	strand	" The two strands of DNA -- the strand that is copied into mRNA and subsequently translated has the complementary sequence to the mRNA, while the base sequence of the opposite strand directly corresponds to the codons in the mRNA
+"	enum					+ | - 							
+oncomap_assay	variant_classfication	"Type of consequence introduced by variant allele
+"	enum					Missense_Mutation | In_Frame_Del | Frame_Shift_Del | Nonsense_Mutation | Frame_Shift_Ins | In_Frame_Ins | Silent 							
+oncomap_panel	assay_direction	"Extention direction of the assay
+"	string												
+oncomap_panel	wildtype_allele	"Wild type extension allele
+"	string												
+oncomap_panel	variation_allele	"Variation extension allele
+"	string												
+oncomap_panel	entrez_id	"Gene ID defined in NCBI's database
+"	string												
+oncomap_panel	variant_type	"The type of allele
+"	enum					SNP | DEL | TNP | INS | DNP | ONP 							
+oncomap_panel	reference_allele	"A given SNP refers to the nucleotide base on the NCBI reference assembly at the SNP's position
+"	string												
+oncomap_panel	alternative_allele	"Refers to any base, other than the reference, that is found at that locus
+"	string												
+oncomap_panel	dbSNP_rs	"RS number in dbSNP database
+"	string												
+oncomap_panel	dbSNP_validation	"Validation resource for the dbSNP database
+"	string												
+oncomap_panel	genomie_change	"The reference and alternative allele in genome build
+"	string												
+oncomap_panel	annotation_transcript	"Transcript UCSC ID
+"	string												
+oncomap_panel	transcript_strand	"Strand where the transcript locate
+"	enum					+ | - 							
+oncomap_panel	cDNA_change	"Reference allele to alternative allele change in cDNA
+"	string												
+oncomap_panel	codon_change	"Reference allele to alternative allele change in coden
+"	string												
+oncomap_panel	protein_change	"Reference allele to alternative allele change in protein
+"	string												
+oncomap_panel	other_transcripts	"Other transcrips changes introduced by the alternative allele
+"	string												
+oncomap_panel	refseq_mRNA_id	"mRNA ID refered in Refseq database
+"	string												
+oncomap_panel	refseq_protein_id	"Protein ID refered in Refseq database
+"	string												
+oncomap_panel	swissprot_accession_id	"Accession ID in SwissProt database
+"	string												
+oncomap_panel	swissprot_entry_id	"Enrty ID in SwissProt database
+"	string												
+oncomap_panel	gene_description	"Description of the gene where the alternative allele locate
+"	string												
+oncomap_panel	unitport_amino_acid_position	"The amino acid position in UniProt database
+"	string												
+oncomap_panel	uniProt_region	"The region in Uniprot database
+"	string												
+protein_expression	data_category	"Broad categorization of the contents of the data file.
+"	enum					Proteome 							
+protein_expression	data_format	"Format of the data files.
+"	enum					TXT | TSV | CSV | GCT | RAW | MZID.GZ | MZML.GZ 							
+protein_expression	data_type	"Specific content type of the data file.
+"	string												
+protein_expression	experimental_strategy	"The sequencing strategy used to generate the data file.
+"	enum					TMT10 | iTRAQ4 | Label Free 							
+protein_expression	original_file_name	"Original file name in https://cptc-xfer.uis.georgetown.edu/publicData/Phase_II_Data/CPTAC_Breast_Cancer_S039
+"	string												
+proteomic_workflow	refseq_database_version	"Name and version of the NCBI Refseq database used in the data analysis pipeline.
+"	string												
+proteomic_workflow	uniport_database_version	"Name and version of the Uniprot Refseq database used in the data analysis pipeline.
+"	string												
+proteomic_workflow	hgnc_version	"Name and version of HGNC database of human gene names used in the data analysis pipeline.
+"	string												
+proteomic_workflow	raw_data_processing	"Name and version of the tool used to process the proprietary raw data.
+"	string												
+proteomic_workflow	raw_data_conversion	"Name and version of the tool used to convert the proprietary data into open format.
+"	string												
+proteomic_workflow	sequence_database_search	"Name and version of the tool used in peptide identification by scoring MS/MS spectra against peptides derived from a protein sequence database.
+"	string												
+proteomic_workflow	search_database_parameters	"Parameters used in the peptide identification database search.
+"	string												
+proteomic_workflow	phosphosite_localization	"Name and version of the tool used for phosphosite localization.
+"	string												
+proteomic_workflow	ms1_data_analysis	"Name and version of the tool used for MS1 data analysis.
+"	string												
+proteomic_workflow	psm_report_generation	"Name and version of the tool used to peptide spectral match report generation.
+"	string												
+proteomic_workflow	cptac_dcc_mzidentml	"Name and version of the tool used to generate mzIdentML from the peptide spectral match report.
+"	string												
+proteomic_workflow	mzidentml_refseq	"Name and version of the NCBI Refseq database used in mzIdentML.
+"	string												
+proteomic_workflow	mzidentml_uniprot	"Name and version of the Uniprot Refseq database used in mzIdentiML.
+"	string												
+proteomic_workflow	gene_to_prot	"Name and version of the tool used to map gene to protein in the data analysis pipeline.
+"	string												
+proteomic_workflow	cptac_galaxy_workflows	"Name and version of the workflow of data analysis pipeline.
+"	string												
+proteomic_workflow	cptac_galaxy_tools	"Name and version of the custom scripts used in the data analysis pipeline.
+"	string												
+proteomic_workflow	cdap_reports	"Name and version of the tool used to generate protein summary reports.
+"	string												
+proteomic_workflow	cptac_dcc_tools	"Name and version of the custom scripts used in the data analysis pipeline.
+"	string												
+protocol	protocol_name	"Sample Preparation: External Analytical sample protocol name.
+"	string												
+protocol	protocol_date	"Sample Preparation: External analytical sample protocol create or update date.
+"	string												
+protocol	document_name	"Sample Preparation: External Analytical sample protocol document name.
+"	string												
+protocol	starting_amount	"Sample Preparation: Mass with units.
+"	string												
+protocol	enrichment_strategy	"Sample Preparation: Type of peptide or protein enrichment.
+"	string												
+protocol	labeling_strategy	"Sample Preparation: general strategy used for differential analysis.
+"	string												
+protocol	label_free_quantitation	"Sample Preparation: type of label free data analysis strategy proposed for this data.
+"	string												
+protocol	labeled_quantitation	"Sample Preparation: type of labeling used.
+"	string												
+protocol	isobaric_labeling_reagent	"Sample Preparation: Reagent used for isobaric labeling.
+"	string												
+protocol	digestion_reagent	"Sample Preparation: Enzyme or reagent used for digestion. If multiple used list 2 separated by (;).
+"	string												
+protocol	alkylation_reagent	"Sample Preparation: Reagent used for alkylation.
+"	string												
+protocol	chromatography_dimensions_count	"Sample Preparation: Number of discrete chromatographic dimensions used.
+"	integer												
+protocol	fractions_produced_count	"Sample Preparation: Final number of fractions produced following any pooling, for example.
+"	string												
+protocol	chromatography_type	"Liquid Chromatography: General type of chromatography.
+"	string												
+protocol	chromatographic_dimension	"Liquid Chromatography: dimension ordinal.
+"	integer												
+protocol	column_type	"Liquid Chromatography: Type of column used.
+"	string												
+protocol	amount_on_column	"Liquid Chromatography: approximate mass with units.
+"	string												
+protocol	column_length	"Liquid Chromatography: with units.
+"	string												
+protocol	column_inner_diameter	"Liquid Chromatography: with units.
+"	string												
+protocol	particle_size	"Liquid Chromatography: with units.
+"	string												
+protocol	particle_type	"Liquid Chromatography: manufacturer or brand name of particle if applicable.
+"	string												
+protocol	gradient_length	"Liquid Chromatography: time with units.
+"	string												
+protocol	protocol_document_name	"Liquid Chromatography: External chromatography protocol document name.
+"	string												
+protocol	protocol_type	"Mass Spectrometry: Controlled Vocabulary can suggest new terms if needed.
+"	string												
+protocol	acquisition_type	"Mass Spectrometry: Mass spectrometry acquisition method.
+"	string												
+protocol	instrument_make	"Mass Spectrometry: Manufacturer of instrument.
+"	string												
+protocol	instrument_model	"Mass Spectrometry: Model of instrument.
+"	string												
+protocol	instrument_serial_number	"Mass Spectrometry: serial number from instrument used in study.
+"	string												
+protocol	dissociation_type	"Mass Spectrometry: gas phase dissociation type.
+"	string												
+protocol	ms1_resolution	"Mass Spectrometry: MS1 resolution, typically at 400 m/z.
+"	integer												
+protocol	ms2_resolution	"Mass Spectrometry: MS2 resolution, typically at 400 m/z.
+"	integer												
+protocol	dda_topn	"Mass Spectrometry: number of precursors sampled per cycle.
+"	string												
+protocol	dia_multiplexing	"Mass Spectrometry: Uses MSX.
+"	boolean												
+protocol	dia_ims	"Mass Spectrometry: Uses ion mobility separation.
+"	boolean												
+protocol	collision_energy	"Mass Spectrometry: normalized collisions energy (%).
+"	string												
+psm_protein_mass_spectrometry	data_category	"Broad categorization of the contents of the data file.
+"	enum					Proteome 							
+psm_protein_mass_spectrometry	data_format	"Format of the data files.
+"	enum					TXT | TSV | CSV | GCT | RAW | MZID.GZ | MZML.GZ 							
+psm_protein_mass_spectrometry	data_type	"Specific content type of the data file.
+"	string												
+psm_protein_mass_spectrometry	experimental_strategy	"The sequencing strategy used to generate the data file.
+"	enum					TMT10 | iTRAQ4 | Label Free 							
+psm_protein_mass_spectrometry	original_file_name	"Original file name in https://cptc-xfer.uis.georgetown.edu/publicData/Phase_II_Data/CPTAC_Breast_Cancer_S039
+"	string												
+publication	pmid		string												
+publication	doi		string												
+raw_protein_mass_spectrometry	data_category	"Broad categorization of the contents of the data file.
+"	enum					Proteome 							
+raw_protein_mass_spectrometry	data_format	"Format of the data files.
+"	enum					TXT | TSV | CSV | GCT | RAW | MZID.GZ | MZML.GZ 							
+raw_protein_mass_spectrometry	data_type	"Specific content type of the data file.
+"	string												
+raw_protein_mass_spectrometry	experimental_strategy	"The sequencing strategy used to generate the data file.
+"	enum					TMT10 | iTRAQ4 | Label Free 							
+raw_protein_mass_spectrometry	original_file_name	"Original file name in https://cptc-xfer.uis.georgetown.edu/publicData/Phase_II_Data/CPTAC_Breast_Cancer_S039
+"	string												
+read_group	adapter_name		string	_terms.yaml#/adapter_name											
+read_group	adapter_sequence		string	_terms.yaml#/adapter_sequence											
+read_group	base_caller_name		string	_terms.yaml#/base_caller_name											
+read_group	base_caller_version		string	_terms.yaml#/base_caller_version											
+read_group	experiment_name		string	_terms.yaml#/experiment_name											
+read_group	flow_cell_barcode		string	_terms.yaml#/flow_cell_barcode											
+read_group	fragment_maximum_length		integer	_terms.yaml#/fragment_maximum_length											
+read_group	fragment_mean_length		number	_terms.yaml#/fragment_mean_length											
+read_group	fragment_minimum_length		integer	_terms.yaml#/fragment_minimum_length											
+read_group	fragment_standard_deviation_length		number	_terms.yaml#/fragment_standard_deviation_length											
+read_group	includes_spike_ins		boolean	_terms.yaml#/includes_spike_ins											
+read_group	instrument_model		enum	_terms.yaml#/instrument_model				454 GS FLX Titanium | AB SOLiD 4 | AB SOLiD 2 | AB SOLiD 3 | Complete Genomics | Illumina HiSeq X Ten | Illumina HiSeq X Five | Illumina Genome Analyzer II | Illumina Genome Analyzer IIx | Illumina HiSeq 2000 | Illumina HiSeq 2500 | Illumina HiSeq 4000 | Illumina MiSeq | Illumina NextSeq 500 | Illumina NextSeq 550 | Illumina NovaSeq 6000 | Ion Torrent PGM | Ion Torrent Proton | PacBio RS | Other 							
+read_group	is_paired_end		boolean	_terms.yaml#/is_paired_end											
+read_group	lane_number		integer	_terms.yaml#/lane_number											
+read_group	library_name		string	_terms.yaml#/library_name											
+read_group	library_preparation_kit_name		string	_terms.yaml#/library_preparation_kit_name											
+read_group	library_preparation_kit_vendor		string	_terms.yaml#/library_preparation_kit_vendor											
+read_group	library_preparation_kit_catalog_number		string	_terms.yaml#/library_preparation_kit_catalog_number											
+read_group	library_preparation_kit_version		string	_terms.yaml#/library_preparation_kit_version											
+read_group	library_selection		enum	_terms.yaml#/library_selection				Hybrid Selection | PCR | Affinity Enrichment | Poly-T Enrichment | Random | rRNA Depletion | miRNA Size Fractionation | Other 							
+read_group	library_strand		enum	_terms.yaml#/library_strand				Unstranded | First Stranded | Second Stranded | Not Applicable 							
+read_group	library_strategy		enum	_terms.yaml#/library_strategy				WGS | WXS | RNA-Seq | ChIP-Seq | miRNA-Seq | Bisulfite-Seq | Targeted Sequencing | Validation | Amplicon | Other 							
+read_group	multiplex_barcode		string	_terms.yaml#/multiplex_barcode											
+read_group	platform		enum	_terms.yaml#/platform				Illumina | SOLiD | LS454 | Ion Torrent | Complete Genomics | PacBio | Other 							
+read_group	read_group_name	Read Group Name	string												
+read_group	read_length	Length of the reads	integer												
+read_group	RIN		number	_terms.yaml#/RIN											
+read_group	sequencing_center		string	_terms.yaml#/sequencing_center											
+read_group	sequencing_date			_definitions.yaml#/datetime											
+read_group	size_selection_range		string	_terms.yaml#/size_selection_range											
+read_group	spike_ins_concentration		string	_terms.yaml#/spike_ins_concentration											
+read_group	spike_ins_fasta		string	_terms.yaml#/spike_ins_fasta											
+read_group	target_capture_kit		enum	_terms.yaml#/target_capture_kit				Custom AmpliSeq Cancer Hotspot GENIE-MDA Augmented Panel v1 - 46 Genes | Custom GENIE-DFCI OncoPanel - 275 Genes | Custom GENIE-DFCI Oncopanel - 300 Genes | Custom GENIE-DFCI Oncopanel - 447 Genes | Custom HaloPlex DLBCL Panel - 370 Genes | Custom Ion AmpliSeq Hotspot GENIE-MOSC3 Augmented Panel - 74 Genes | Custom Large Construct Capture TARGET-OS Panel - 8 Genes | Custom MSK IMPACT Panel - 341 Genes | Custom MSK IMPACT Panel - 410 Genes | Custom MSK IMPACT Panel - 468 Genes | Custom Myeloid GENIE-VICC Panel - 37 Genes | Custom PGDX SureSelect CancerSelect VAREPOP-APOLLO Panel - 203 Genes | Custom PGDX SureSelect CancerSelect VAREPOP-APOLLO Panel - 88 Genes | Custom SeqCap EZ HGSC VCRome v2.1 ER Augmented v1 | Custom SeqCap EZ HGSC VCRome v2.1 ER Augmented v2 | Custom SeqCap EZ TARGET-OS Panel - 7.0 Mb | Custom Solid Tumor GENIE-VICC Panel - 34 Genes | Custom SureSelect CGCI-BLGSP Panel - 4.6 Mb | Custom SureSelect GENIE-UHN Panel - 555 Genes | Custom SureSelect TARGET-AML_NBL_WT Panel - 2.8 Mb | Foundation Medicine T5a Panel - 322 Genes | Foundation Medicine T7 Panel - 429 Genes | Ion AmpliSeq Cancer Hotspot Panel v2 | Ion AmpliSeq Comprehensive Cancer Panel | Nextera Rapid Capture Exome v1.2 | SeqCap EZ HGSC VCRome v2.1 | SureSelect Human All Exon v3 | SureSelect Human All Exon v5 | TruSeq Amplicon Cancer Panel | TruSeq Exome Enrichment - 62 Mb | TruSight Myeloid Sequencing Panel | Not Applicable | Unknown 							
+read_group	to_trim_adapter_sequence		boolean	_terms.yaml#/to_trim_adapter_sequence											
+read_group_qc	workflow_type		enum	_terms.yaml#/workflow_type				Read Group Quality Control 							
+read_group_qc	fastq_name		string	_terms.yaml#/file_name											
+read_group_qc	percent_aligned	The percent of reads with at least one reported alignment.	integer			100	0								
+read_group_qc	percent_gc_content		integer	_terms.yaml#/percent_gc_content		100	0								
+read_group_qc	encoding		string	_terms.yaml#/encoding											
+read_group_qc	total_aligned_reads	The total number of reads with at least one reported alignment.	integer												
+read_group_qc	total_sequences		integer	_terms.yaml#/total_sequences											
+read_group_qc	basic_statistics			_definitions.yaml#/qc_metrics_state											
+read_group_qc	per_base_sequence_quality			_definitions.yaml#/qc_metrics_state											
+read_group_qc	per_tile_sequence_quality			_definitions.yaml#/qc_metrics_state											
+read_group_qc	per_sequence_quality_score			_definitions.yaml#/qc_metrics_state											
+read_group_qc	per_base_sequence_content			_definitions.yaml#/qc_metrics_state											
+read_group_qc	per_sequence_gc_content			_definitions.yaml#/qc_metrics_state											
+read_group_qc	per_base_n_content			_definitions.yaml#/qc_metrics_state											
+read_group_qc	sequence_length_distribution			_definitions.yaml#/qc_metrics_state											
+read_group_qc	sequence_duplication_levels			_definitions.yaml#/qc_metrics_state											
+read_group_qc	overrepresented_sequences			_definitions.yaml#/qc_metrics_state											
+read_group_qc	adapter_content			_definitions.yaml#/qc_metrics_state											
+read_group_qc	kmer_content			_definitions.yaml#/qc_metrics_state											
+rna_expression_workflow	workflow_type		enum	_terms.yaml#/workflow_type				DEXSeq | HTSeq - FPKM | HTSeq - FPKM-UQ | HTSeq - Counts | Cufflinks | Kallisto | RNASeQC | RSEM | Flux | ASE 							
+sample	biospecimen_anatomic_site		enum	_terms.yaml#/biospecimen_anatomic_site				Abdomen | Abdominal Wall | Acetabulum | Adenoid | Adipose | Adrenal | Alveolar Ridge | Amniotic Fluid | Ampulla Of Vater | Anal Sphincter | Ankle | Anorectum | Antecubital Fossa | Antrum | Anus | Aorta | Aortic Body | Appendix | Aqueous Fluid | Arm | Artery | Ascending Colon | Ascending Colon Hepatic Flexure | Auditory Canal | Autonomic Nervous System | Axilla | Back | Bile Duct | Bladder | Blood | Blood Vessel | Bone | Bone Marrow | Bowel | Brain | Brain Stem | Breast | Broad Ligament | Bronchiole | Bronchus | Brow | Buccal Cavity | Buccal Mucosa | Buttock | Calf | Capillary | Cardia | Carina | Carotid Artery | Carotid Body | Cartilage | Cecum | Cell-Line | Central Nervous System | Cerebellum | Cerebral Cortex | Cerebrospinal Fluid | Cerebrum | Cervical Spine | Cervix | Chest | Chest Wall | Chin | Clavicle | Clitoris | Colon | Colon - Mucosa Only | Common Duct | Conjunctiva | Connective Tissue | Dermal | Descending Colon | Diaphragm | Duodenum | Ear | Ear Canal | Ear, Pinna (External) | Effusion | Elbow | Endocrine Gland | Epididymis | Epidural Space | Esophagogastric Junction | Esophagus | Esophagus - Mucosa Only | Eye | Fallopian Tube | Femoral Artery | Femoral Vein | Femur | Fibroblasts | Fibula | Finger | Floor Of Mouth | Fluid | Foot | Forearm | Forehead | Foreskin | Frontal Cortex | Frontal Lobe | Fundus Of Stomach | Gallbladder | Ganglia | Gastroesophageal Junction | Gastrointestinal Tract | Groin | Gum | Hand | Hard Palate | Head & Neck | Head - Face Or Neck, Nos | Heart | Hepatic | Hepatic Duct | Hepatic Vein | Hip | Hippocampus | Humerus | Hypopharynx | Ileum | Ilium | Index Finger | Ischium | Islet Cells | Jaw | Jejunum | Joint | Kidney | Knee | Lacrimal Gland | Large Bowel | Laryngopharynx | Larynx | Leg | Leptomeninges | Ligament | Lip | Liver | Lumbar Spine | Lung | Lymph Node | Lymph Node(s) Axilla | Lymph Node(s) Cervical | Lymph Node(s) Distant | Lymph Node(s) Epitrochlear | Lymph Node(s) Femoral | Lymph Node(s) Hilar | Lymph Node(s) Iliac-Common | Lymph Node(s) Iliac-External | Lymph Node(s) Inguinal | Lymph Node(s) Internal Mammary | Lymph Node(s) Mammary | Lymph Node(s) Mesenteric | Lymph Node(s) Occipital | Lymph Node(s) Paraaortic | Lymph Node(s) Parotid | Lymph Node(s) Pelvic | Lymph Node(s) Popliteal | Lymph Node(s) Regional | Lymph Node(s) Retroperitoneal | Lymph Node(s) Scalene | Lymph Node(s) Splenic | Lymph Node(s) Subclavicular | Lymph Node(s) Submandibular | Lymph Node(s) Supraclavicular | Lymph Nodes(s) Mediastinal | Mandible | Maxilla | Mediastinal Soft Tissue | Mediastinum | Mesentery | Mesothelium | Middle Finger | Mitochondria | Muscle | Nails | Nasal Cavity | Nasal Soft Tissue | Nasopharynx | Neck | Nerve | Nerve(s) Cranial | Occipital Cortex | Ocular Orbits | Omentum | Oral Cavity | Oral Cavity - Mucosa Only | Oropharynx | Other | Ovary | Palate | Pancreas | Paraspinal Ganglion | Parathyroid | Parotid Gland | Patella | Pelvis | Penis | Pericardium | Periorbital Soft Tissue | Peritoneal Cavity | Peritoneum | Pharynx | Pineal | Pineal Gland | Pituitary Gland | Placenta | Pleura | Popliteal Fossa | Prostate | Pylorus | Rectosigmoid Junction | Rectum | Retina | Retro-Orbital Region | Retroperitoneum | Rib | Ring Finger | Round Ligament | Sacrum | Salivary Gland | Scalp | Scapula | Sciatic Nerve | Scrotum | Seminal Vesicle | Shoulder | Sigmoid Colon | Sinus | Sinus(es), Maxillary | Skeletal Muscle | Skin | Skull | Small Bowel | Small Bowel - Mucosa Only | Small Finger | Soft Tissue | Spinal Column | Spinal Cord | Spleen | Splenic Flexure | Sternum | Stomach | Stomach - Mucosa Only | Subcutaneous Tissue | Synovium | Temporal Cortex | Tendon | Testis | Thigh | Thoracic Spine | Thorax | Throat | Thumb | Thymus | Thyroid | Tibia | Tongue | Tonsil | Tonsil (Pharyngeal) | Trachea / Major Bronchi | Transverse Colon | Trunk | Umbilical Cord | Ureter | Urethra | Urinary Tract | Uterus | Uvula | Vagina | Vas Deferens | Vein | Venous | Vertebra | Vulva | White Blood Cells | Wrist | Unknown | Not Reported | Not Allowed To Collect 							
+sample	cell_primary_name	"Cell line primary name kept in repository resource.
+"	string												
+sample	cell_line_aliases	"Cell line alias name commonly used.
+"	string												
+sample	gdc_project_id	"Project identifier associated with the sample at the genomic data commons.
+"	string												
+sample	sample_type_id	"Code associated with the sample type.
+"	string												
+sample	shortest_dimension	"Numeric value that represents the shortest dimension of the sample, measured in millimeters.
+"	string												
+sample	tumor_code	"Diagnostic tumor code of the tissue sample source.
+"	string												
+sample	tumor_code_id	"BCR-defined id code for the tumor sample.
+"	string												
+sample	tumor_descriptor	"Text that describes the kind of disease present in the tumor specimen as related to a specific timepoint.
+"	string												
+sample	tissue_type	"Text term that represents a description of the kind of tissue collected with respect to disease status or proximity to tumor tissue.
+"	string												
+sample	method_of_sample_procurement	"The method used to procure the sample used to extract analyte(s).
+"	string												
+sample	preservation_method	"Text term that represents the method used to preserve the sample.
+"	string												
+sample	freezing_method	"Text term that represents the method used for freezing the sample.
+"	string												
+sample	intermediate_dimension	"Intermediate dimension of the sample, in millimeters.
+"	string												
+sample	is_ffpe	"Indicator to signify whether or not the tissue sample was fixed in formalin and embedded in paraffin (FFPE).
+"	integer												
+sample	longest_dimension	"Numeric value that represents the longest dimension of the sample, measured in millimeters.
+"	string												
+sample	initial_weight	"Numeric value that represents the initial weight of the sample, measured in milligrams.
+"	number												
+sample	gdc_sample_id	"Sample identifier associated with the sample at the genomic data commons.
+"	string												
+sample	diagnosis_pathologically_confirmed	"The histologic description of tissue or cells confirmed by a pathology review of frozen or formalin fixed slide(s) completed after the diagnostic pathology review of the tumor sample used to extract analyte(s).
+"	string												
+sample	pathology_report_uuid	"UUID of the related pathology report.
+"	string												
+sample	days_to_collection	"Time interval from the date of biospecimen collection to the date of initial pathologic diagnosis, represented as a calculated number of days.
+"	integer												
+sample	days_to_sample_procurement	"The number of days from the date the patient was diagnosed to the date of the procedure that produced the sample.
+"	integer												
+sample	oct_embedded	"Indicator of whether or not the sample was embedded in Optimal Cutting Temperature (OCT) compound.
+"	string												
+sample	time_between_clamping_and_freezing	"Numeric representation of the elapsed time between the surgical clamping of blood supply and freezing of the sample, measured in minutes.
+"	string												
+sample	time_between_excision_and_freezing	"Numeric representation of the elapsed time between the excision and freezing of the sample, measured in minutes.
+"	string												
+sample	composition		enum	_terms.yaml#/composition				Buccal Cells | Buffy Coat | Bone Marrow Components | Bone Marrow Components NOS | Control Analyte | Cell | Circulating Tumor Cell (CTC) | Derived Cell Line | EBV Immortalized | Fibroblasts from Bone Marrow Normal | Granulocytes | Human Original Cells | Lymphocytes | Mononuclear Cells from Bone Marrow Normal | Peripheral Blood Components NOS | Peripheral Blood Nucleated Cells | Pleural Effusion | Plasma | Peripheral Whole Blood | Serum | Saliva | Sputum | Solid Tissue | Whole Bone Marrow | Unknown | Not Reported | Not Allowed To Collect 							
+sample	notes	"Records of relationship to other cell line.
+"	string												
+sample	current_weight	"Numeric value that represents the current weight of the sample, measured in milligrams.
+"	number												
+sample	sample_type	Characterization of the sample as either clinical or contrived.	enum					Additional Metastatic | Additional - New Primary | Blood Derived Cancer - Bone Marrow, Post-treatment | Blood Derived Cancer - Peripheral Blood, Post-treatment | Blood Derived Normal | Bone Marrow Normal | Buccal Cell Normal | Cell Line Derived Xenograft Tissue | Cell Lines | cfDNA | Circulating Tumor Cell (CTC) | Control Analyte | Clinical | Contrived | ctDNA | DNA | EBV Immortalized Normal | FFPE Recurrent | FFPE Scrolls | Fibroblasts from Bone Marrow Normal | GenomePlex (Rubicon) Amplified DNA | Granulocytes | Human Tumor Original Cells | Metastatic | Mononuclear Cells from Bone Marrow Normal | Primary Blood Derived Cancer - Peripheral Blood | Recurrent Blood Derived Cancer - Peripheral Blood | Pleural Effusion | Primary Blood Derived Cancer - Bone Marrow | Primary Tumor | Primary Xenograft Tissue | Post neo-adjuvant therapy | Recurrent Blood Derived Cancer - Bone Marrow | Recurrent Tumor | Repli-G (Qiagen) DNA | Repli-G X (Qiagen) DNA | RNA | Slides | Solid Tissue Normal | Total RNA | Xenograft Tissue | Unknown | Not Reported | Not Allowed To Collect 							
+sample	source	"The name of primary source that the cell line is taken from.
+"	string												
+study	analytical_fraction	"Type of peptide or protein enrichment
+"	string												
+study	data_description	Brief description of the data being provided for this study. Free text	string												
+study	experiment_type	"General strategy used for differential analysis
+"	string												
+study	is_clinical_trial	"Flag that indicates whether this is a clinical trial study
+"	boolean												
+study	study_description	A brief description of the study being performed. Free text	string												
+study	study_design	"Summary of the goals the study is designed to discover. General description of the study's place in relation to a clinical application.
+"	string												
+study	study_objective	"The general objective of the study. What the study hopes to discover or determine through testing.
+"	string												
+study	study_completeness	"Description of data status. 0=Descriptive data and results as originally received from the data provider. 1=Includes updates to the original data submission short of completeness. 2=Complete set of descriptive data and results, as ascertained by curator.
+"	enum					0 | 1 | 2 							
+study	study_doi	"Digital object identifier (DOI) is a type of persistent identifier used to uniquely identify objects
+"	string												
+study	study_release_date	"Latest date when the study was shared
+"	string												
+study	study_release_version	"Latest version of study shared
+"	string												
+study	study_organization	"Name of the primary organization that oversees implementation of the study
+"	string												
+study	study_setup	"Category
+"	string												
+study_run_metadata	experiment_number	"Number associated with a specific run of the experiment.
+"	integer												
+study_run_metadata	experiment_type	"General strategy use for differential analysis.
+"	string												
+study_run_metadata	analyte	"Type of peptide or protein enrichment.
+"	string												
+study_run_metadata	fraction	"Number of fractions in the experimental run.
+"	string												
+study_run_metadata	date	"Date of the data acquired from the mass spectrometry.
+"	string												
+study_run_metadata	operator	"Mass spectrometry instrument operator.
+"	string												
+study_run_metadata	instrument	"Make and model of the mass spectrometry instrument.
+"	string												
+study_run_metadata	replicate_number	"Replicate number, if applicable.
+"	string												
+study_run_metadata	condition	"Biological condition (ex: disease state) of the cases (patients) from which the aliquots derived.
+"	string												
+subject	primary_site	Primary site for the subject.	string												
+subject	disease_type	Name of the disease for the subject.	string												
+subject	species	Taxonomic species of the subject.	enum					Drosophila melanogaster | Homo sapiens | Mus musculus | Mustela putorius furo | Rattus rattus | Sus scrofa 							
+subject	strain	"A lower-level taxonomic rank used in microbiology or virology, plants and rodents, usually at the intraspecific level (within a species)
+"	string												
+subject	index_date	"The reference or anchor date used during date obfuscation, where a single date is obscurred by creating one or more date ranges in relation to this date.
+"	enum					Diagnosis | First Patient Visit | Study Enrollment | Infection 							
+subject	tissue_source_site_code	"A clinical site that collects and provides patient samples and clinical metadata for research use.
+"	string												
+subject	days_to_lost_to_followup	"The number of days between the date used for index and to the data the patient was lost to follow-up.
+"	integer												
+subject	lost_to_followup	"A yes/no indicator related to whether a patient was unable to be contacted for follow-up.
+"	string												
+submitted_aligned_reads	data_category		enum	_terms.yaml#/data_category				Sequencing Data | Sequencing Reads | Raw Sequencing Data 							
+submitted_aligned_reads	data_format		enum	_terms.yaml#/data_format				BAM | BED 							
+submitted_aligned_reads	data_type		enum	_terms.yaml#/data_type				Aligned Reads | Alignment Coordinates 							
+submitted_aligned_reads	experimental_strategy		enum	_terms.yaml#/experimental_strategy				WGS | WXS | Low Pass WGS | Validation | RNA-Seq | miRNA-Seq | Total RNA-Seq | DNA Panel 							
+submitted_genomic_profile	data_category		enum	_terms.yaml#/data_category				Combined Nucleotide Variation | Genomic Profiling 							
+submitted_genomic_profile	data_format		enum	_terms.yaml#/data_format				MAF | TSV | VCF | XML | TXT | PLINK 							
+submitted_genomic_profile	data_type		enum	_terms.yaml#/data_type				FoundationOne Report | GENIE Report | Raw CGI Variant | Aggregated mutation information | GWAS dosage SNP data 							
+submitted_genomic_profile	experimental_strategy		enum	_terms.yaml#/experimental_strategy				Targeted Sequencing | WGS | WXS | Low Pass WGS | Validation | RNA-Seq | miRNA-Seq | Total RNA-Seq | DNA Panel 							
+submitted_methylation	assay_method	"General methodology used to perform the assay.
+"	enum					Methylation Array 							
+submitted_methylation	assay_instrument	"The specific instrument type used to perform the assay.
+"	enum					Illumina 							
+submitted_methylation	assay_instrument_model	"The specific model of instrument used to perform the assay.
+"	enum					Illumina Infinium HumanMethylation450 | Illumina Infinium HumanMethylation450K 							
+submitted_methylation	data_category		enum	_terms.yaml#/data_category				Methylation Data 							
+submitted_methylation	data_format		enum	_terms.yaml#/data_format				IDAT 							
+submitted_methylation	data_type		enum	_terms.yaml#/data_type				Methylation Intensity Values 							
+submitted_unaligned_reads	data_category		enum	_terms.yaml#/data_category				Sequencing Data | Sequencing Reads | Raw Sequencing Data 							
+submitted_unaligned_reads	data_type		enum	_terms.yaml#/data_type				Unaligned Reads 							
+submitted_unaligned_reads	data_format		enum	_terms.yaml#/data_format				BAM | FASTQ | FASTA 							
+submitted_unaligned_reads	experimental_strategy		enum	_terms.yaml#/experimental_strategy				ATAC-Seq | Bisulfite-Seq | ChIP-Seq | Low Pass WGS | miRNA-Seq | RNA-Seq | Targeted Sequencing | WGS | WXS 							
+submitted_unaligned_reads	read_pair_number		enum	_terms.yaml#/read_pair_number				R1 | R2 							
+summary_drug_response	fit_type	"Type of fitting dose response curves
+"	string												
+summary_drug_response	EC50	"Half maximal effective concentration (EC50) refers to the concentration of a drug, antibody or toxicant which induces a response halfway between the baseline and maximum after a specifiedd exposure time meausred in uM.
+"	number												
+summary_drug_response	IC50	"The half maximal inhibitory concentration (IC50) is a measure of the potency of a substance in inhibiting a specific biological or biochemical function in uM.
+"	number												
+summary_drug_response	maximum_activity	"the maximal activity value as a drug response measurement
+"	number												
+summary_drug_response	actarea	"the area between the drug-response curve and a fixed reference
+"	number												
+summary_drug_response	compound	"The composition of the drug
+"	string												
+tangent_copy_number	data_category		enum	_terms.yaml#/data_category				Copy Number Variation 							
+tangent_copy_number	data_format		enum	_terms.yaml#/data_format				TXT 							
+tangent_copy_number	data_type		enum	_terms.yaml#/data_type				Copy Number Estimate 							
+tangent_copy_number	experimental_strategy		enum	_terms.yaml#/experimental_strategy				Genotyping Array 							
+tangent_copy_number	platform		enum	_terms.yaml#/platform				Illumina Infinium HumanExome BeadChip | Illumina OMNI 5M SNP Array | Illumina OMNI 2.5M SNP Array | Affymetrix Genome-Wide Human SNP Array 6.0 							
