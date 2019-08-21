@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "mzml_protein_mass_spectrometry"
-title: MZML Protein Mas Spectrometry
+title: MZML Protein Mass Spectrometry
 type: object
 nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
@@ -27,19 +27,19 @@ links:
     required: true
     subgroup:
       - name: core_metadata_collections
-        backref: mzml_protein_mass_spectrometryies
+        backref: mzml_protein_mass_spectrometries
         label: data_from
         target_type: core_metadata_collection
         multiplicity: many_to_one
         required: false
       - name: raw_protein_mass_spectrometries
-        backref: mzml_protein_mass_spectrometryies
+        backref: mzml_protein_mass_spectrometries
         label: derived_from
         target_type: raw_protein_mass_spectrometry
         multiplicity: many_to_one
         required: false
       - name: proteomic_workflows
-        backref: mzml_protein_mass_spectrometryies
+        backref: mzml_protein_mass_spectrometries
         label: derived_from
         target_type: proteomic_workflow
         multiplicity: many_to_one
