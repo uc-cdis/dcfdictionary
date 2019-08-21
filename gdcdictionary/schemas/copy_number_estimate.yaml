@@ -10,7 +10,7 @@ project: '*'
 description: >
   Data file containing copy number variation information.
 additionalProperties: false
-submittable: false
+submittable: true
 downloadable: true
 validators: null
 
