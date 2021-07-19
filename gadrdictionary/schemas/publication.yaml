@@ -1,0 +1,51 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "publication"
+title: Publication
+type: object
+nodeTerms: null
+namespace: https://nci-crdc-demo.datacommons.io/
+category: administrative
+program: '*'
+project: '*'
+description: Publication for a project.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: projects
+    backref: publications
+    label: refers_to
+    target_type: project
+    multiplicity: many_to_many
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - projects
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  doi:
+    type: string
+
+  pmid:
+    type: string
+
+  projects:
+    $ref: "_definitions.yaml#/to_many_project"

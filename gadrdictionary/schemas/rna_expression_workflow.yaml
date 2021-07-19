@@ -1,0 +1,92 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "rna_expression_workflow"
+title: RNA Expression Workflow
+type: object
+nodeTerms: null
+namespace: https://nci-crdc-demo.datacommons.io/
+category: analysis
+program: '*'
+project: '*'
+description: Metadata for the RNA expression pipeline used to quantify RNA gene and
+  exon expression from unharmonized or GDC harmonized data.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - exclusive: true
+    required: true
+    subgroup:
+      - name: aligned_reads_files
+        backref: rna_expression_workflows
+        label: performed_on
+        target_type: aligned_reads
+        multiplicity: many_to_many
+        required: false
+      - name: submitted_aligned_reads_files
+        backref: rna_expression_workflows
+        label: performed_on
+        target_type: submitted_aligned_reads
+        multiplicity: many_to_many
+        required: false
+      - name: submitted_unaligned_reads_files
+        backref: rna_expression_workflows
+        label: performed_on
+        target_type: submitted_unaligned_reads
+        multiplicity: many_to_many
+        required: false
+      - name: mrna_microarrays
+        backref: rna_expression_workflows
+        label: performed_on
+        target_type: mrna_microarray
+        multiplicity: many_to_many
+        required: false
+
+required:
+  - submitter_id
+  - type
+  - workflow_type
+  - workflow_link
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/workflow_properties"
+
+  workflow_type:
+    term:
+      $ref: "_terms.yaml#/workflow_type"
+    enum:
+      - ASE
+      - Cufflinks
+      - DEXSeq
+      - Flux
+      - HTSeq - Counts
+      - HTSeq - FPKM
+      - HTSeq - FPKM-UQ
+      - Kallisto
+      - RNASeQC
+      - RSEM
+
+  aligned_reads_files:
+    $ref: "_definitions.yaml#/to_many"
+
+  submitted_aligned_reads_files:
+    $ref: "_definitions.yaml#/to_many"
+
+  submitted_unaligned_reads_files:
+    $ref: "_definitions.yaml#/to_many"
+
+  mrna_microarrays:
+    $ref: "_definitions.yaml#/to_many"

@@ -1,0 +1,56 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "copy_number_variation_workflow"
+title: Copy Number Variation Workflow
+type: object
+nodeTerms: null
+namespace: https://nci-crdc-demo.datacommons.io/
+category: analysis
+program: '*'
+project: '*'
+description: Metadata for the Copy Number Variation pipeline used to estimate copy
+  number changes from different molecular data sources.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: copy_number_segments
+    backref: copy_number_variation_workflows
+    label: performed_on
+    target_type: copy_number_segment
+    multiplicity: many_to_many
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - workflow_link
+  - workflow_type
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/workflow_properties"
+
+  workflow_type:
+    term:
+      $ref: "_terms.yaml#/workflow_type"
+    enum:
+      - GISTIC - Arm Level Copy Number
+      - GISTIC - Copy Number Score
+      - GISTIC - Focal Amplification
+      - GISTIC - Focal Deletion
+
+  copy_number_segments:
+    $ref: "_definitions.yaml#/to_many"

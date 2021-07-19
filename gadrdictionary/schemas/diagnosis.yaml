@@ -1,0 +1,386 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "diagnosis"
+title: Diagnosis
+type: object
+nodeTerms: null
+namespace: https://nci-crdc-demo.datacommons.io/
+category: clinical
+program: '*'
+project: '*'
+description: Data from the investigation, analysis and recognition of the presence
+  and nature of disease, condition, or injury from expressed signs and symptoms; also,
+  the scientific determination of any kind; the concise results of such an investigation.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: subjects
+    backref: diagnoses
+    label: describes
+    target_type: subject
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - subjects
+  - last_known_disease_status
+  - morphology
+  - primary_diagnosis
+  - progression_or_recurrence
+  - site_of_resection_or_biopsy
+  - tissue_or_organ_of_origin
+  - tumor_grade
+  - tumor_stage
+  - vital_status
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  age_at_diagnosis:
+    description: Age at the time of diagnosis expressed in number of days since birth.
+      If the age is greater than 32872 days (89 years), see 'age_at_diagnosis_gt89'.
+    type: integer
+    maximum: 32872
+    minimum: 0
+
+  age_at_diagnosis_gt89:
+    description: Indicate whether the 'Age at the time of diagnosis expressed in number
+      of days since birth' is greater than 32872 days (89 years).
+    enum:
+      - "No"
+      - "Yes"
+
+  ajcc_clinical_m:
+    description: Extent of the distant metastasis for the cancer based on evidence
+      obtained from the clinical assessment parameters determined prior to treatment.
+    type: string
+
+  ajcc_clinical_n:
+    description: Extent of the regional lymph node involvement for the cancer based
+      on evidence obtained from clinical assessment parameters determined prior to
+      treatment.
+    type: string
+
+  ajcc_clinical_stage:
+    description: Stage group determined from clinical information on the tumor (T),
+      regional node (N) and metastases (M) and by grouping cases with similar prognosis
+      for cancer.
+    type: string
+
+  ajcc_clinical_t:
+    description: Extent of the primary cancer based on evidence obtained from clinical
+      assessment parameters determined prior to treatment.
+    type: string
+
+  ajcc_pathologic_m:
+    description: Code to represent the defined absence or presence of distant spread
+      or metastases (M) to locations via vascular channels or lymphatics beyond the
+      regional lymph nodes, using criteria established by the American Joint Committee
+      on Cancer (AJCC).
+    type: string
+
+  ajcc_pathologic_n:
+    description: The codes that represent the stage of cancer based on the nodes present
+      (N stage) according to criteria based on multiple editions of the AJCC’s Cancer
+      Staging Manual.
+    type: string
+
+  ajcc_pathologic_stage:
+    description: The extent of a cancer, especially whether the disease has spread
+      from the original site to other parts of the body based on AJCC staging criteria.
+    type: string
+
+  ajcc_pathologic_t:
+    description: Code of pathological T (primary tumor) to define the size or contiguous
+      extension of the primary tumor (T), using staging criteria from the American
+      Joint Committee on Cancer.
+    type: string
+
+  ann_arbor_b_symptoms:
+    description: Text term to signify whether lymphoma B-symptoms are present as noted
+      in the patient’s medical record.
+    type: string
+
+  ann_arbor_clinical_stage:
+    description: The classification of the clinically confirmed anatomic disease extent
+      of lymphoma (Hodgkin’s and Non-Hodgkin’s) based on the Ann Arbor Staging System.
+    type: string
+
+  ann_arbor_extranodal_involvement:
+    description: Indicator that identifies whether a patient with malignant lymphoma
+      has lymphomatous involvement of an extranodal site.
+    type: string
+
+  ann_arbor_pathologic_stage:
+    description: The classification of the pathologically confirmed anatomic disease
+      extent of lymphoma (Hodgkin’s and Non-Hodgkin’s) based on the Ann Arbor Staging
+      System.
+    type: string
+
+  best_overall_response:
+    description: The best improvement achieved throughout the entire course of protocol
+      treatment.
+    type: string
+
+  burkitt_lymphoma_clinical_variant:
+    description: Burkitt’s lymphoma categorization based on clinical features that
+      differ from other forms of the same disease.
+    type: string
+
+  cause_of_death:
+    description: Text term to identify the cause of death for a patient.
+    type: string
+
+  circumferential_resection_margin:
+    description: A value in millimeters indicating the measured length between a malignant
+      lesion of the colon or rectum and the nearest radial (or circumferential) border
+      of tissue removed during cancer surgery.
+    type: string
+
+  classification_of_tumor:
+    description: Text that describes the kind of disease present in the tumor specimen
+      as related to a specific timepoint.
+    type: string
+
+  colon_polyps_history:
+    description: Yes/No indicator to describe if the subject had a previous history
+      of colon polyps as noted in the history/physical or previous endoscopic report(s).
+    type: string
+
+  days_to_best_overall_response:
+    description: Number of days between the date used for index and the date of the
+      patient’s best overall response.
+    type: string
+
+  days_to_birth:
+    description: Time interval from a person’s date of birth to the date of initial
+      pathologic diagnosis, represented as a calculated negative number of days.
+    type: integer
+    maximum: 0
+    minimum: -32872
+
+  days_to_death:
+    description: Time interval from a person’s date of death to the date of initial
+      pathologic diagnosis, represented as a calculated number of days.
+    type: string
+
+  days_to_diagnosis:
+    description: Number of days between the date used for index and the date of diagnosis.
+    type: string
+
+  days_to_hiv_diagnosis:
+    description: Time interval from the date of the initial pathologic diagnosis to
+      the date of human immunodeficiency diagnosis, represented as a calculated number
+      of days.
+    type: string
+
+  days_to_last_follow_up:
+    description: Time interval from the date of late follow up to the date of initial
+      pathologic diagnosis, represented as a calculated number of days.
+    type: string
+
+  days_to_last_known_disease_status:
+    description: Time interval from the date of last follow up to the date of initial
+      pathologic diagnosis, represented as a calculated number of days.
+    type: string
+
+  days_to_new_event:
+    description: Time interval from the date of new tumor event including progression,
+      recurrence and new primary malignancies to the date of initial pathologic diagnosis,
+      represented as a calculated number number of days.
+    type: string
+
+  days_to_recurrence:
+    description: Number of days between the date used for index and the date the patient
+      was diagnosed with a recurrent malignancy.
+    type: string
+
+  figo_stage:
+    description: The extent of a cervical or endometrial cancer within the body, especially
+      whether the disease has spread from the original site to other parts of the
+      body, as described by the International Federation of Gynecology and Obstetrics
+      (FIGO) stages.
+    type: string
+
+  hist_subtype1:
+    description: Subtype of the microscopic structure of tissues
+    type: string
+
+  histology:
+    description: Result of the microscopic structure of tissues
+    type: string
+
+  hiv_positive:
+    description: Text term to signify whether a physician has diagnosed HIV infection
+      in a patient.
+    type: string
+
+  hpv_positive_type:
+    description: Text classification to represent the strain or type of human papillomavirus
+      identified in an individual.
+    type: string
+
+  hpv_status:
+    description: The findings of the oncogenic HPV.
+    type: string
+
+  iss_stage:
+    description: The multiple myeloma disease stage at diagnosis.
+    type: string
+
+  last_known_disease_status:
+    description: Text term that describes the last known state or condition of an
+      individual’s neoplasm.
+    type: string
+
+  laterality:
+    description: For tumors in paired organs, designates the side on which the cancer
+      originates.
+    type: string
+
+  ldh_level_at_diagnosis:
+    description: The 2 decimal place numeric laboratory value measured, assigned or
+      computed related to the assessment of lactate dehydrogenase in a specimen.
+    type: string
+
+  ldh_normal_range_upper:
+    description: The top value of the range of statistical characteristics that are
+      supposed to represent accepted standard, non-pathological pattern for lactate
+      dehydrogenase (units not specified).
+    type: string
+
+  lymph_nodes_positive:
+    description: The number of lymph nodes involved with disease as determined by
+      pathologic examination.
+    type: string
+
+  lymphatic_invasion_present:
+    description: A yes/no indicator to ask if small or thin-walled vessel invasion
+      is present, indicating lymphatic involvement.
+    type: string
+
+  method_of_diagnosis:
+    description: The method used to initially determine the patient’s diagnosis.
+    type: string
+
+  morphology:
+    description: The third edition of the International Classification of Diseases
+      for Oncology, published in 2000 used principally in tumor and cancer registries
+      for coding the site (topography) and the histology (morphology) or neoplasms.
+      The study of the structure of the cells and their arrangement to constitute
+      tissues and, finally, the association among these to form organs. In pathology,
+      the microscopic process or identifying normal and abnormal morphologic characteristics
+      in tissues, by employing various cytochemical and immunocytochemical stains.
+      A system of numbered categories for representation of data.
+    type: string
+
+  new_event_anatomic_site:
+    description: Text term to specify the anatomic location of the return of tumor
+      after treatment.
+    type: string
+
+  new_event_type:
+    description: Text term to identify a new tumor event.
+    type: string
+
+  overall_survival:
+    description: Number of days between the date used for index and the patient’s
+      date of death or the date the patient was last known to be alive.
+    type: string
+
+  perineural_invasion_present:
+    description: A yes/no indicator to ask if perineural invasion or inflitration
+      of tumor or cancer is present.
+    type: string
+
+  primary_diagnosis:
+    description: Text term for the structural pattern of cancer cells used to define
+      a microscopic diagnosis.
+    type: string
+
+  prior_malignancy:
+    description: Text term to describe the patient’s history of prior cancer diagnosis
+      and the spatial location of any previous cancer occurrence.
+    type: string
+
+  prior_treatment:
+    description: A yes/no/unknown/not applicable indicator related to the administration
+      of therapeutic agents received before the body specimen was collected.
+    type: string
+
+  progression_free_survival:
+    description: Number of days between the date used for index and the first date
+      the patient is known to be free of disease progression.
+    type: string
+
+  progression_free_survival_event:
+    description: The event used to define the patient’s disease progression.
+    type: string
+
+  progression_or_recurrence:
+    description: Yes/No/Unknown indicator to identify whether a patient has had a
+      new tumor event after initial treatment.
+    type: string
+
+  residual_disease:
+    description: Text terms to describe the status of a tissue margin following surgical
+      resection.
+    type: string
+
+  site_of_resection_or_biopsy:
+    description: The third edition of the International Classification of Diseases
+      for Oncology, published in 2000, used principally in tumor and cancer registries
+      for coding the site (topography) and the histology (morphology) of neoplasms.
+      The description of an anatomical region or of a body part. Named locations of,
+      or within, the body. A system of numbered categories for representation of data.
+    type: string
+
+  tissue_or_organ_of_origin:
+    description: Text term that describes the anatomic site of the tumor or disease.
+    type: string
+
+  tumor_grade:
+    description: Numeric value to express the degree of abnormality of cancer cells,
+      a measure of differentiation and aggressiveness.
+    type: string
+
+  tumor_stage:
+    description: The extent of a cancer in the body. Staging is usually based on the
+      size of the tumor, whether lymph nodes contain cancer, and whether the cancer
+      has spread from the original site to other parts of the body. The accepted values
+      for tumor_stage depend of the tumor site, type, and accepted staging system.
+      These items should accompany the tumor_stage value as associated metadata.
+    type: string
+
+  vascular_invasion_present:
+    description: The yes/no indicator to ask if large vessel or venous invasion was
+      detected by surgery or presence in a tumor specimen.
+    type: string
+
+  vital_status:
+    description: The survival state of the person registered on the protocol.
+    type: string
+
+  year_of_diagnosis:
+    description: Numeric value to represent the year of an individual’s initial pathologic
+      diagnosis of cancer.
+    type: string
+
+  subjects:
+    $ref: "_definitions.yaml#/to_one"

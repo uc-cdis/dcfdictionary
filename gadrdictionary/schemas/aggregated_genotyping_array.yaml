@@ -1,0 +1,110 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "aggregated_genotyping_array"
+title: Aggregated Genotyping array
+type: object
+nodeTerms: null
+namespace: https://nci-crdc-demo.datacommons.io/
+category: data_file
+program: '*'
+project: '*'
+description: DNA array data files aggregating genome-wide SNP information from several
+  subjects (cohort).
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+  - file_state
+  - error_type
+
+links:
+  - exclusive: false
+    required: true
+    subgroup:
+      - name: core_metadata_collections
+        backref: aggregated_genotyping_arrays
+        label: data_from
+        target_type: core_metadata_collection
+        multiplicity: many_to_one
+        required: false
+      - name: genotyping_arrays
+        backref: aggregated_genotyping_arrays
+        label: data_from
+        target_type: genotyping_array
+        multiplicity: many_to_many
+        required: false
+      - name: aliquots
+        backref: aggregated_genotyping_arrays
+        label: data_from
+        target_type: aliquot
+        multiplicity: many_to_many
+        required: false
+
+required:
+  - submitter_id
+  - type
+  - file_name
+  - data_category
+  - data_type
+  - data_format
+  - file_size
+  - md5sum
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/data_file_properties"
+
+  data_category:
+    term:
+      $ref: "_terms.yaml#/data_category"
+    enum:
+      - SNP Array Data
+
+  data_format:
+    term:
+      $ref: "_terms.yaml#/data_format"
+    enum:
+      - IND
+      - PED
+      - VCF
+
+  data_type:
+    term:
+      $ref: "_terms.yaml#/data_type"
+    enum:
+      - Aggregated SNP Alleles
+      - Individual SNP Alleles
+
+  experimental_strategy:
+    term:
+      $ref: "_terms.yaml#/experimental_strategy"
+    enum:
+      - SNP Array Genotyping
+
+  platform:
+    term:
+      $ref: "_terms.yaml#/platform"
+    enum:
+      - Affymetrix Genome-Wide Human SNP Array 6.0
+      - Illumina Infinium HumanExome BeadChip
+      - Illumina OMNI 2.5M SNP Array
+      - Illumina OMNI 5M SNP Array
+
+  core_metadata_collections:
+    $ref: "_definitions.yaml#/to_one"
+
+  genotyping_arrays:
+    $ref: "_definitions.yaml#/to_many"
+
+  aliquots:
+    $ref: "_definitions.yaml#/to_many"

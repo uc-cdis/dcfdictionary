@@ -1,0 +1,138 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "aligned_reads"
+title: Aligned Reads
+type: object
+nodeTerms: null
+namespace: https://nci-crdc-demo.datacommons.io/
+category: data_file
+program: '*'
+project: '*'
+description: Data file containing aligned reads that are generated internally.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+  - file_state
+  - error_type
+
+links:
+  - exclusive: false
+    required: true
+    subgroup:
+      - name: core_metadata_collections
+        backref: aligned_reads_files
+        label: data_from
+        target_type: core_metadata_collection
+        multiplicity: many_to_one
+        required: false
+      - name: alignment_cocleaning_workflows
+        backref: aligned_reads_files
+        label: data_from
+        target_type: alignment_cocleaning_workflow
+        multiplicity: many_to_one
+        required: false
+      - name: alignment_workflows
+        backref: aligned_reads_files
+        label: data_from
+        target_type: alignment_workflow
+        multiplicity: many_to_one
+        required: false
+      - name: submitted_unaligned_reads_files
+        backref: aligned_reads_files
+        label: matched_to
+        target_type: submitted_unaligned_reads
+        multiplicity: one_to_many
+        required: false
+      - name: submitted_aligned_reads_files
+        backref: aligned_reads_files
+        label: matched_to
+        target_type: submitted_aligned_reads
+        multiplicity: one_to_one
+        required: false
+
+required:
+  - submitter_id
+  - type
+  - file_name
+  - file_size
+  - md5sum
+  - data_category
+  - data_type
+  - data_format
+  - experimental_strategy
+  - platform
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/data_file_properties"
+
+  data_category:
+    term:
+      $ref: "_terms.yaml#/data_category"
+    enum:
+      - Raw Sequencing Data
+      - Sequencing Data
+      - Sequencing Reads
+
+  data_format:
+    term:
+      $ref: "_terms.yaml#/data_format"
+    enum:
+      - BAM
+      - CRAM
+
+  data_type:
+    term:
+      $ref: "_terms.yaml#/data_type"
+    enum:
+      - Aligned Reads
+
+  experimental_strategy:
+    term:
+      $ref: "_terms.yaml#/experimental_strategy"
+    enum:
+      - Low Pass WGS
+      - RNA-Seq
+      - Total RNA-Seq
+      - Validation
+      - WGS
+      - WXS
+      - miRNA-Seq
+
+  platform:
+    term:
+      $ref: "_terms.yaml#/platform"
+    enum:
+      - Complete Genomics
+      - Illumina
+      - Ion Torrent
+      - LS454
+      - Other
+      - PacBio
+      - SOLiD
+
+  core_metadata_collections:
+    $ref: "_definitions.yaml#/to_one"
+
+  alignment_cocleaning_workflows:
+    $ref: "_definitions.yaml#/to_one"
+
+  alignment_workflows:
+    $ref: "_definitions.yaml#/to_one"
+
+  submitted_unaligned_reads_files:
+    $ref: "_definitions.yaml#/to_many"
+
+  submitted_aligned_reads_files:
+    $ref: "_definitions.yaml#/to_one"

@@ -1,0 +1,110 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "study"
+title: Study
+type: object
+nodeTerms: null
+namespace: https://nci-crdc-demo.datacommons.io/
+category: administrative
+program: '*'
+project: '*'
+description: A coordinated set of actions and observations designed to generate data,
+  with the ultimate goal of discovery or hypothesis testing.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: projects
+    backref: studies
+    label: performed_for
+    target_type: project
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - study_description
+  - projects
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  analytical_fraction:
+    description: Type of peptide or protein enrichment
+    type: string
+
+  data_description:
+    description: Brief description of the data being provided for this study. Free
+      text
+    type: string
+
+  experiment_type:
+    description: General strategy used for differential analysis
+    type: string
+
+  is_clinical_trial:
+    description: Flag that indicates whether this is a clinical trial study
+    type: boolean
+
+  study_completeness:
+    description: Description of data status. 0=Descriptive data and results as originally
+      received from the data provider. 1=Includes updates to the original data submission
+      short of completeness. 2=Complete set of descriptive data and results, as ascertained
+      by curator.
+    enum:
+      - '0'
+      - '1'
+      - '2'
+
+  study_description:
+    description: A brief description of the study being performed. Free text
+    type: string
+
+  study_design:
+    description: Summary of the goals the study is designed to discover. General description
+      of the study's place in relation to a clinical application.
+    type: string
+
+  study_doi:
+    description: Digital object identifier (DOI) is a type of persistent identifier
+      used to uniquely identify objects
+    type: string
+
+  study_objective:
+    description: The general objective of the study. What the study hopes to discover
+      or determine through testing.
+    type: string
+
+  study_organization:
+    description: Name of the primary organization that oversees implementation of
+      the study
+    type: string
+
+  study_release_date:
+    description: Latest date when the study was shared
+    type: string
+
+  study_release_version:
+    description: Latest version of study shared
+    type: string
+
+  study_setup:
+    description: Category
+    type: string
+
+  projects:
+    $ref: "_definitions.yaml#/to_one_project"

@@ -1,0 +1,107 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "oncomap_assay"
+title: Oncomap Assay
+type: object
+nodeTerms: null
+namespace: https://nci-crdc-demo.datacommons.io/
+category: notation
+program: '*'
+project: '*'
+description: Genotyping results applying the high throughput genotyping platform OncoMap
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: aliquots
+    backref: oncomap_assays
+    label: describes
+    target_type: aliquot
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - aliquots
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  chromosome:
+    description: A DNA molecule with part or all of the genetic material of an organism
+    type: string
+
+  cohort_center:
+    description: Center where the cohort of the assay performed
+    type: string
+
+  end_position:
+    description: The end position on a chromosome
+    type: number
+
+  hugo_symbol:
+    description: Gene symbols defined by hugo gene nomenclature committee
+    type: string
+
+  ncbi_build_version:
+    description: NCBI release of assemblies made from contiguous sequences assembled
+      in what is thought to be chromosomal order
+    type: string
+
+  reference_allele:
+    description: A given SNP refers to the nucleotide base on the NCBI reference assembly
+      at the SNP's position
+    type: string
+
+  sequencing_phase:
+    description: The phase of the batch of sequencing for the project
+    type: string
+
+  start_position:
+    description: The strat position on a chromosom
+    type: number
+
+  strand:
+    description: The two strands of DNA -- the strand that is copied into mRNA and
+      subsequently translated has the complementary sequence to the mRNA, while the
+      base sequence of the opposite strand directly corresponds to the codons in the
+      mRNA
+    enum:
+      - +
+      - '-'
+
+  tumor_seq_allele1:
+    description: The first allele sequenced in tumor cell line
+    type: string
+
+  tumor_seq_allele2:
+    description: The second allele sequenced in tumor cell line
+    type: string
+
+  variant_classfication:
+    description: Type of consequence introduced by variant allele
+    enum:
+      - Frame_Shift_Del
+      - Frame_Shift_Ins
+      - In_Frame_Del
+      - In_Frame_Ins
+      - Missense_Mutation
+      - Nonsense_Mutation
+      - Silent
+
+  aliquots:
+    $ref: "_definitions.yaml#/to_one"

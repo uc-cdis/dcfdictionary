@@ -1,0 +1,105 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "psm_protein_mass_spectrometry"
+title: PSM Protein Mass Spectrometry
+type: object
+nodeTerms: null
+namespace: https://nci-crdc-demo.datacommons.io/
+category: data_file
+program: '*'
+project: '*'
+description: Data file containing psm protein mass spectrometry data
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+  - file_state
+  - error_type
+
+links:
+  - exclusive: false
+    required: true
+    subgroup:
+      - name: core_metadata_collections
+        backref: psm_protein_mass_spectrometries
+        label: data_from
+        target_type: core_metadata_collection
+        multiplicity: many_to_one
+        required: false
+      - name: raw_protein_mass_spectrometries
+        backref: psm_protein_mass_spectrometries
+        label: derived_from
+        target_type: raw_protein_mass_spectrometry
+        multiplicity: many_to_one
+        required: false
+      - name: proteomic_workflows
+        backref: psm_protein_mass_spectrometries
+        label: derived_from
+        target_type: proteomic_workflow
+        multiplicity: many_to_one
+        required: false
+
+required:
+  - submitter_id
+  - type
+  - file_name
+  - data_type
+  - md5sum
+  - file_size
+  - data_format
+  - data_category
+  - experimental_strategy
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/data_file_properties"
+
+  data_category:
+    description: Broad categorization of the contents of the data file.
+    enum:
+      - Proteome
+
+  data_format:
+    description: Format of the data files.
+    enum:
+      - CSV
+      - GCT
+      - MZID.GZ
+      - MZML.GZ
+      - RAW
+      - TSV
+      - TXT
+
+  data_type:
+    description: Specific content type of the data file.
+    type: string
+
+  experimental_strategy:
+    description: The sequencing strategy used to generate the data file.
+    enum:
+      - Label Free
+      - TMT10
+      - iTRAQ4
+
+  original_file_name:
+    description: Original file name in https-//cptc-xfer.uis.georgetown.edu/publicData/Phase_II_Data/CPTAC_Breast_Cancer_S039
+    type: string
+
+  core_metadata_collections:
+    $ref: "_definitions.yaml#/to_one"
+
+  raw_protein_mass_spectrometries:
+    $ref: "_definitions.yaml#/to_one"
+
+  proteomic_workflows:
+    $ref: "_definitions.yaml#/to_one"
