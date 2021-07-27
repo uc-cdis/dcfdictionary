@@ -1,14 +1,14 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "keyword"
-title: Keyword
+id: "indigenous_knowledge_label"
+title: Indigenous Knowledge Label
 type: object
 nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: administrative
 program: '*'
 project: '*'
-description: A keyword for a project.
+description: Indigenous Knowledge Label
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,10 +21,10 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: projects
-    backref: keywords
+  - name: indigenous_governances
+    backref: indigenous_knowledge_labels
     label: describe
-    target_type: project
+    target_type: indigenous_governance
     multiplicity: many_to_one
     required: true
 
@@ -41,9 +41,9 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  keyword_name:
-    description: The name of the keyword.
+  label_name:
+    description: The name of the label.
     type: string
 
   projects:
-    $ref: "_definitions.yaml#/to_many_project"
+    $ref: "_definitions.yaml#/to_one_project"

@@ -5,7 +5,7 @@ title: Read Group
 type: object
 nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
-category: biospecimen
+category: biosample
 program: '*'
 project: '*'
 description: Sequencing reads from one lane of an NGS experiment.

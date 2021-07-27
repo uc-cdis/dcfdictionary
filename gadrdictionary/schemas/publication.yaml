@@ -21,12 +21,33 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: projects
-    backref: publications
-    label: refers_to
-    target_type: project
-    multiplicity: many_to_many
+  - exclusive: false
     required: true
+    subgroup:
+      - name: projects
+        backref: publications
+        label: refers_to
+        target_type: project
+        multiplicity: many_to_one
+        required: false
+      - name: keywords
+        backref: publications
+        label: refers_to
+        target_type: keyword
+        multiplicity: many_to_one
+        required: false
+      - name: experiments
+        backref: publications
+        label: refers_to
+        target_type: experiment
+        multiplicity: many_to_one
+        required: false
+      - name: acknowledgements
+        backref: publications
+        label: refers_to
+        target_type: acknowledgement
+        multiplicity: many_to_one
+        required: false
 
 required:
   - submitter_id
@@ -48,4 +69,10 @@ properties:
     type: string
 
   projects:
-    $ref: "_definitions.yaml#/to_many_project"
+    $ref: "_definitions.yaml#/to_one_project"
+
+  keywords:
+    $ref: "_definitions.yaml#/to_many"
+
+  acknowledgements:
+    $ref: "_definitions.yaml#/to_many"

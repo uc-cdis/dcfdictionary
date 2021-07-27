@@ -1,14 +1,14 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "submitted_genomic_profile"
-title: Submitted Genomic Profile
+id: "experimental_metadata"
+title: Experimental Metadata
 type: object
 nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
-category: data_file
+category: metadata_file
 program: '*'
 project: '*'
-description: Data file containing genomic profile information.
+description: Data file containing the metadata for the experiment performed.
 additionalProperties: false
 submittable: true
 validators: null
@@ -27,15 +27,15 @@ links:
     required: true
     subgroup:
       - name: core_metadata_collections
-        backref: submitted_genomic_profiles
+        backref: experiment_metadata_files
         label: data_from
         target_type: core_metadata_collection
-        multiplicity: many_to_one
+        multiplicity: many_to_many
         required: false
-      - name: read_groups
-        backref: submitted_genomic_profiles
-        label: data_from
-        target_type: read_group
+      - name: experiments
+        backref: experiment_metadata_files
+        label: derived_from
+        target_type: experiment
         multiplicity: many_to_many
         required: false
 
@@ -44,11 +44,10 @@ required:
   - type
   - file_name
   - file_size
-  - data_format
   - md5sum
   - data_category
   - data_type
-  - experimental_strategy
+  - data_format
 
 uniqueKeys:
   - [id]
@@ -61,47 +60,29 @@ properties:
   data_category:
     term:
       $ref: "_terms.yaml#/data_category"
-    enum:
-      - Combined Nucleotide Variation
-      - Genomic Profiling
+    type:
+      - string
+
+  version_number:
+    type: number 
+  
+  base_file:
+    type: number
 
   data_format:
     term:
       $ref: "_terms.yaml#/data_format"
-    enum:
-      - MAF
-      - PLINK
-      - TSV
-      - TXT
-      - VCF
-      - XML
+    type: 
+      - string
 
   data_type:
     term:
       $ref: "_terms.yaml#/data_type"
     enum:
-      - Aggregated mutation information
-      - FoundationOne Report
-      - GENIE Report
-      - GWAS dosage SNP data
-      - Raw CGI Variant
+      - Aligned Reads Index
 
-  experimental_strategy:
-    term:
-      $ref: "_terms.yaml#/experimental_strategy"
-    enum:
-      - DNA Panel
-      - Low Pass WGS
-      - RNA-Seq
-      - Targeted Sequencing
-      - Total RNA-Seq
-      - Validation
-      - WGS
-      - WXS
-      - miRNA-Seq
-
-  core_metadata_collections:
+  experiments:
     $ref: "_definitions.yaml#/to_one"
 
-  read_groups:
+  core_metadata_collections:
     $ref: "_definitions.yaml#/to_many"

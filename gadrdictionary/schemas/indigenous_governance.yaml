@@ -1,0 +1,67 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "indigenous_governance"
+title: Indigenous Governance
+type: object
+nodeTerms: null
+namespace: https://nci-crdc-demo.datacommons.io/
+category: administrative
+program: '*'
+project: '*'
+description: Information required for data sovereignty and āhui Māori considerations
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: projects
+    backref: indigenous_governances
+    label: refers_to
+    target_type: project
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - projects
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  label_name:
+    description: The name of the label.
+    type: string
+
+  projects:
+    $ref: "_definitions.yaml#/to_one_project"
+
+  maori_written_consent_received:
+    type: boolean
+
+  maori_kaitiaki_group_name:
+    type: string
+
+  maori_kaitiaki_representative_email: 
+    $ref: "_definitions.yaml#/email"
+
+  maori_kaitiaki_representative_phone_number:
+    type: string
+
+  research_institution_officer_name:
+    type: string
+
+  research_institution_officer_email:
+    $ref: "_definitions.yaml#/email"

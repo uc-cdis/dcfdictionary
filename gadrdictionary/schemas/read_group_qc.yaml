@@ -5,7 +5,7 @@ title: Read Group QC
 type: object
 nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
-category: analysis
+category: notation
 program: '*'
 project: '*'
 description: GDC QC run metadata.
@@ -30,17 +30,17 @@ links:
   - exclusive: true
     required: true
     subgroup:
-      - name: submitted_aligned_reads_files
+      - name: processed_files
         backref: read_group_qcs
         label: data_from
-        target_type: submitted_aligned_reads
-        multiplicity: one_to_one
+        target_type: processed_file
+        multiplicity: many_to_many
         required: false
-      - name: submitted_unaligned_reads_files
+      - name: raw_files
         backref: read_group_qcs
         label: data_from
-        target_type: submitted_unaligned_reads
-        multiplicity: one_to_many
+        target_type: raw
+        multiplicity: many_to_many
         required: false
 
 required:
@@ -146,10 +146,10 @@ properties:
     enum:
       - Read Group Quality Control
 
-  submitted_aligned_reads_files:
-    $ref: "_definitions.yaml#/to_one"
+  raw_files:
+    $ref: "_definitions.yaml#/to_many"
 
-  submitted_unaligned_reads_files:
+  processed_files:
     $ref: "_definitions.yaml#/to_many"
 
   read_groups:

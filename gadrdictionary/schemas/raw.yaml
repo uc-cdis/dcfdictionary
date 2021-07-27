@@ -1,14 +1,14 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "copy_number_estimate"
-title: Copy Number Estimate
+id: "raw"
+title: Raw read file
 type: object
 nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: data_file
 program: '*'
 project: '*'
-description: Data file containing copy number variation information.
+description: Data file containing unaligned reads that have not been GDC Harmonized.
 additionalProperties: false
 submittable: true
 validators: null
@@ -27,28 +27,16 @@ links:
     required: true
     subgroup:
       - name: core_metadata_collections
-        backref: copy_number_estimates
+        backref: raw_files
         label: data_from
         target_type: core_metadata_collection
-        multiplicity: many_to_one
-        required: false
-      - name: copy_number_variation_workflows
-        backref: copy_number_estimates
-        label: derived_from
-        target_type: copy_number_variation_workflow
-        multiplicity: one_to_one
-        required: false
-      - name: tangent_copy_numbers
-        backref: copy_number_estimates
-        label: derived_from
-        target_type: tangent_copy_number
         multiplicity: many_to_many
         required: false
-      - name: copy_number_segments
-        backref: copy_number_estimates
-        label: derived_from
-        target_type: copy_number_segment
-        multiplicity: one_to_one
+      - name: read_groups
+        backref: raw_fiels
+        label: data_from
+        target_type: read_group
+        multiplicity: many_to_many
         required: false
 
 required:
@@ -56,12 +44,11 @@ required:
   - type
   - file_name
   - file_size
-  - data_format
   - md5sum
   - data_category
   - data_type
+  - data_format
   - experimental_strategy
-  - platform
 
 uniqueKeys:
   - [id]
@@ -75,46 +62,56 @@ properties:
     term:
       $ref: "_terms.yaml#/data_category"
     enum:
-      - Copy Number Variation
+      - Raw Sequencing Data
+      - Sequencing Data
+      - Sequencing Reads
 
   data_format:
     term:
       $ref: "_terms.yaml#/data_format"
     enum:
-      - TXT
+      - BAM
+      - FASTA
+      - FASTQ
 
   data_type:
     term:
       $ref: "_terms.yaml#/data_type"
     enum:
-      - Cohort Level Copy Number Scores
-      - Gene Level Copy Number
-      - Gene Level Copy Number Scores
+      - Unaligned Reads
 
   experimental_strategy:
     term:
       $ref: "_terms.yaml#/experimental_strategy"
     enum:
-      - Genotyping Array
+      - ATAC-Seq
+      - Bisulfite-Seq
+      - ChIP-Seq
+      - Low Pass WGS
+      - RNA-Seq
       - Targeted Sequencing
       - WGS
+      - WXS
+      - miRNA-Seq
+      - Validation
+      - Total RNA-Seq
+      - DNA Panel
 
-  platform:
+  read_pair_number:
     term:
-      $ref: "_terms.yaml#/platform"
+      $ref: "_terms.yaml#/read_pair_number"
     enum:
-      - Affymetrix SNP 6.0
-      - Illumina
-      - Ion Torrent
+      - R1
+      - R2
 
   core_metadata_collections:
     $ref: "_definitions.yaml#/to_one"
 
-  copy_number_variation_workflows:
+  read_groups:
     $ref: "_definitions.yaml#/to_one"
 
-  tangent_copy_numbers:
-    $ref: "_definitions.yaml#/to_many"
+  base_fille:
+    type: number 
 
-  copy_number_segments:
-    $ref: "_definitions.yaml#/to_one"
+  version_number:
+    type: number

@@ -6,6 +6,12 @@ UUID:
     type: string
     pattern: "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
 
+email:
+    term:
+        description: an email address
+    type: string
+    pattern: "[a-zA-Z0-9._]+@[a-zA-Z0-9]+[.][a-zA-Z0-9]+"
+
 parent_uuids:
     type: array
     minItems: 1
@@ -193,6 +199,22 @@ project_id:
     term:
         $ref: "_terms.yaml#/project_id"
 
+sample_organism:
+  type:
+    - string
+  term: "_terms.yaml#/sample_organism_scientific_name"
+
+sample_organism_common_name:
+  type:
+    - string
+  term: "_terms.yaml#/sample_organism_common_name"
+
+sample_organism_maori_name:
+  type: string
+  term: "_terms.yaml#/sample_organism_maori_name"
+
+
+
 data_file_properties:
   $ref: "#/ubiquitous_properties"
   file_name:
@@ -243,3 +265,12 @@ ubiquitous_properties:
     $ref: "#/datetime"
   updated_datetime:
     $ref: "#/datetime"
+
+organism_properties:
+  $ref: "#/ubiquitous_properties"
+  sample_organism:
+    $ref: "#/sample_organism"
+  sample_organism_common_name:
+    $ref: "#/sample_organism_common_name"
+  sample_organism_maori_name:
+    $ref: "#/sample_organism_maori_name"

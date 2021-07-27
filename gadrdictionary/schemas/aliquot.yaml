@@ -5,7 +5,7 @@ title: Aliquot
 type: object
 nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
-category: biospecimen
+category: biosample
 program: '*'
 project: '*'
 description: Pertaining to a portion of the whole; any one of two or more samples
@@ -26,7 +26,7 @@ links:
     backref: aliquots
     label: derived_from
     target_type: sample
-    multiplicity: many_to_one
+    multiplicity: many_to_many
     required: true
 
 required:

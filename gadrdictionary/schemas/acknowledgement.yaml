@@ -42,7 +42,7 @@ properties:
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
   acknowledgee:
-    description: The indvidiual or group being acknowledged by the project.
+    description: The individual or group being acknowledged by the project.
     type: string
 
   projects:

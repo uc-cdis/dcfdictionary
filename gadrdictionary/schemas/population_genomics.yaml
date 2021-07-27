@@ -1,14 +1,14 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "keyword"
-title: Keyword
+id: "population_genomics"
+title: Population Genomics
 type: object
 nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
-category: administrative
+category: biospecimen
 program: '*'
 project: '*'
-description: A keyword for a project.
+description: Population Genomics.
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,10 +21,10 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: projects
-    backref: keywords
-    label: describe
-    target_type: project
+  - name: experiments
+    backref: populations
+    label: derived_from
+    target_type: experiment
     multiplicity: many_to_one
     required: true
 
@@ -39,11 +39,14 @@ uniqueKeys:
 
 properties:
 
-  $ref: "_definitions.yaml#/ubiquitous_properties"
+  $ref: "_definitions.yaml#/organism_properties"
 
-  keyword_name:
-    description: The name of the keyword.
+  sample_title:
+    description: The title of the sample
     type: string
 
   projects:
     $ref: "_definitions.yaml#/to_many_project"
+
+  experiments:
+    $ref: "_definitions.yaml#/to_one"

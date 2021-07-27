@@ -1,14 +1,14 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "aligned_reads_index"
-title: Aligned Reads Index
+id: "analysis_method"
+title: Analysis Method
 type: object
 nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
-category: index_file
+category: metadata_file
 program: '*'
 project: '*'
-description: Data file containing the index for a set of aligned reads.
+description: Data file containing the information, pipeline, or pathway related to the analyses performed.
 additionalProperties: false
 submittable: true
 validators: null
@@ -23,21 +23,12 @@ systemProperties:
   - error_type
 
 links:
-  - exclusive: false
-    required: true
-    subgroup:
-      - name: processed_files
-        backref: aligned_reads_indexes
-        label: derived_from
-        target_type: processed_file
-        multiplicity: one_to_one
-        required: false
-      - name: core_metadata_collections
-        backref: aligned_reads_indexes
-        label: data_from
-        target_type: core_metadata_collection
-        multiplicity: many_to_many
-        required: false
+  - name: core_metadata_collections
+    backref: analysis_methods
+    label: data_from
+    target_type: core_metadata_collection
+    multiplicity: many_to_many
+    required: false
 
 required:
   - submitter_id
@@ -60,26 +51,29 @@ properties:
   data_category:
     term:
       $ref: "_terms.yaml#/data_category"
-    enum:
-      - Raw Sequencing Data
-      - Sequencing Data
-      - Sequencing Reads
+    type:
+      - string
+
+  version_number:
+    type: number 
+  
+  base_file:
+    type: number
 
   data_format:
     term:
       $ref: "_terms.yaml#/data_format"
-    enum:
-      - BAI
-      - FAI
+    type: 
+      - string
 
   data_type:
     term:
       $ref: "_terms.yaml#/data_type"
     enum:
-      - Aligned Reads Index
+      - analysis_metadata
 
-  processed_files:
+  experiments:
     $ref: "_definitions.yaml#/to_one"
 
   core_metadata_collections:
-    $ref: "_definitions.yaml#/to_one"
+    $ref: "_definitions.yaml#/to_many"
