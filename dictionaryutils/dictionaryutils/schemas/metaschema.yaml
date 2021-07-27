@@ -95,6 +95,7 @@ properties:
     enum:
       - administrative
       - analysis
+      - biosample
       - biospecimen
       - clinical
       - data
