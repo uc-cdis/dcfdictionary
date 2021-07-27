@@ -1,0 +1,136 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "study"
+title: Study
+type: object
+nodeTerms: null
+namespace: https://nci-crdc-demo.datacommons.io/
+category: administrative
+program: '*'
+project: '*'
+description: A coordinated set of actions and observations designed to generate data,
+  with the ultimate goal of discovery or hypothesis testing.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: projects
+    backref: studies
+    label: performed_for
+    target_type: project
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - study_description
+  - projects
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  analytical_fraction:
+    $ref: _definitions.yaml#/ubiquitous_properties
+    description: Type of peptide or protein enrichment
+    terms: null
+    type: string
+
+  data_description:
+    $ref: _definitions.yaml#/ubiquitous_properties
+    description: Brief description of the data being provided for this study. Free
+      text
+    terms: null
+    type: string
+
+  experiment_type:
+    $ref: _definitions.yaml#/ubiquitous_properties
+    description: General strategy used for differential analysis
+    terms: null
+    type: string
+
+  is_clinical_trial:
+    $ref: _definitions.yaml#/ubiquitous_properties
+    description: Flag that indicates whether this is a clinical trial study
+    terms: null
+    type: boolean
+
+  study_completeness:
+    $ref: _definitions.yaml#/ubiquitous_properties
+    description: Description of data status. 0=Descriptive data and results as originally
+      received from the data provider. 1=Includes updates to the original data submission
+      short of completeness. 2=Complete set of descriptive data and results, as ascertained
+      by curator.
+    terms: null
+    enumTerms:
+      '0': null
+      '1': null
+      '2': null
+
+  study_description:
+    $ref: _definitions.yaml#/ubiquitous_properties
+    description: A brief description of the study being performed. Free text
+    terms: null
+    type: string
+
+  study_design:
+    $ref: _definitions.yaml#/ubiquitous_properties
+    description: Summary of the goals the study is designed to discover. General description
+      of the study's place in relation to a clinical application.
+    terms: null
+    type: string
+
+  study_doi:
+    $ref: _definitions.yaml#/ubiquitous_properties
+    description: Digital object identifier (DOI) is a type of persistent identifier
+      used to uniquely identify objects
+    terms: null
+    type: string
+
+  study_objective:
+    $ref: _definitions.yaml#/ubiquitous_properties
+    description: The general objective of the study. What the study hopes to discover
+      or determine through testing.
+    terms: null
+    type: string
+
+  study_organization:
+    $ref: _definitions.yaml#/ubiquitous_properties
+    description: Name of the primary organization that oversees implementation of
+      the study
+    terms: null
+    type: string
+
+  study_release_date:
+    $ref: _definitions.yaml#/ubiquitous_properties
+    description: Latest date when the study was shared
+    terms: null
+    type: string
+
+  study_release_version:
+    $ref: _definitions.yaml#/ubiquitous_properties
+    description: Latest version of study shared
+    terms: null
+    type: string
+
+  study_setup:
+    $ref: _definitions.yaml#/ubiquitous_properties
+    description: Category
+    terms: null
+    type: string
+
+  projects:
+    $ref: "_definitions.yaml#/to_one_project"

@@ -1,0 +1,49 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "indigenous_knowledge_label"
+title: Indigenous Knowledge Label
+type: object
+nodeTerms: null
+namespace: https://nci-crdc-demo.datacommons.io/
+category: administrative
+program: '*'
+project: '*'
+description: Indigenous Knowledge Label
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: indigenous_governances
+    backref: indigenous_knowledge_labels
+    label: describe
+    target_type: indigenous_governance
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - projects
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  label_name:
+    description: The name of the label.
+    type: string
+
+  projects:
+    $ref: "_definitions.yaml#/to_one_project"

@@ -1,0 +1,74 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "organism"
+title: Organism
+type: object
+nodeTerms: null
+namespace: https://nci-crdc-demo.datacommons.io/
+category: biospecimen
+program: '*'
+project: '*'
+description: The most descriptive organism name for this sample (to the species, if possible). It is OK to submit an organism name that is not in our database. In the case of a new species, provide the desired organism name, and our taxonomists may assign a provisional taxID. In the case of unidentified species, choose the appropriate Genus and include 'sp.', e.g., "Escherichia sp.". When sequencing a genome from a non-metagenomic source, include a strain or isolate name too, e.g., "Pseudomonas sp. UK4"
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: experiments
+    backref: organisms 
+    label: data_from
+    target_type: experiment
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/organism_properties"
+
+  experiments:
+    $ref: "_definitions.yaml#/to_one"
+
+  strain: 
+    type:
+      - string
+      - null 
+    description: microbial or eukaryotic strain name
+
+  isolate:
+    type:
+      - string
+      - null 
+    description: identification or description of the specific individual from which this sample was obtained
+
+    breed: 
+      type:
+        - string
+        - null 
+      description: breed name -- chiefly used in domesticated animals or plants
+
+    cultivar:
+      type:
+        - string
+        - null 
+      description: cultivar name -- cultivated variety of plant
+
+    ecotype: 
+      type:
+        - string
+        - null 
+      description: a population within a given species displaying genetically based, phenotypic traits that reflect adaptation to a local habitat, e.g., New Zealand

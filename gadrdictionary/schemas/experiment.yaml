@@ -1,0 +1,73 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "experiment"
+title: Experiment
+type: object
+nodeTerms: null
+namespace: https://nci-crdc-demo.datacommons.io/
+category: administrative
+program: '*'
+project: '*'
+description: A coordinated set of actions and observations designed to generate data, with the ultimate goal of discovery or hypothesis testing.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: projects
+    backref: experiments
+    label: derived_from
+    target_type: project
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - projects
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  data_description:
+    description: Brief description of the data being provided for this experiment
+    type: string
+
+  experiment_type:
+    description: General strategy used for differential analysis
+    type: string
+
+  experimental_description:
+    description: A brief description of the experiment being performed. Free text
+    type: string
+
+  number_experimental_group:
+    description: The number denoting this experiment's place within the group within the whole 
+    type: integer
+
+  number_samples_per_experimental_group:
+    description: The number of samples contained within this experimental group 
+    type: integer
+
+  experimental_intent:
+    description: Summary of the goals the experiment is designed to discover
+    type: string
+
+  type_of_specimen:
+    description: Broad description of the specimens used in the experiment 
+    type: string
+
+  projects:
+    $ref: "_definitions.yaml#/to_one_project"

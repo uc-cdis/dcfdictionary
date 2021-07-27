@@ -1,0 +1,113 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "submitted_unaligned_reads"
+title: Submitted Unaligned Reads
+type: object
+nodeTerms: null
+namespace: https://nci-crdc-demo.datacommons.io/
+category: data_file
+program: '*'
+project: '*'
+description: Data file containing unaligned reads that have not been GDC Harmonized.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+  - file_state
+  - error_type
+
+links:
+  - exclusive: false
+    required: true
+    subgroup:
+      - name: core_metadata_collections
+        backref: submitted_unaligned_reads_files
+        label: data_from
+        target_type: core_metadata_collection
+        multiplicity: many_to_one
+        required: false
+      - name: read_groups
+        backref: submitted_unaligned_reads_files
+        label: data_from
+        target_type: read_group
+        multiplicity: many_to_one
+        required: false
+
+required:
+  - submitter_id
+  - type
+  - file_name
+  - file_size
+  - md5sum
+  - data_category
+  - data_type
+  - data_format
+  - experimental_strategy
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/data_file_properties"
+
+  data_category:
+    $ref: _definitions.yaml#/data_file_properties
+    terms:
+      - $ref: "_terms.yaml#/data_category"
+    enumTerms:
+      Raw Sequencing Data: null
+      Sequencing Data: null
+      Sequencing Reads: null
+
+  data_format:
+    $ref: _definitions.yaml#/data_file_properties
+    terms:
+      - $ref: "_terms.yaml#/data_format"
+    enumTerms:
+      BAM: null
+      FASTA: null
+      FASTQ: null
+
+  data_type:
+    $ref: _definitions.yaml#/data_file_properties
+    terms:
+      - $ref: "_terms.yaml#/data_type"
+    enumTerms:
+      Unaligned Reads: null
+
+  experimental_strategy:
+    $ref: _definitions.yaml#/data_file_properties
+    terms:
+      - $ref: "_terms.yaml#/experimental_strategy"
+    enumTerms:
+      ATAC-Seq: null
+      Bisulfite-Seq: null
+      ChIP-Seq: null
+      Low Pass WGS: null
+      RNA-Seq: null
+      Targeted Sequencing: null
+      WGS: null
+      WXS: null
+      miRNA-Seq: null
+
+  read_pair_number:
+    $ref: _definitions.yaml#/data_file_properties
+    terms:
+      - $ref: "_terms.yaml#/read_pair_number"
+    enumTerms:
+      R1: null
+      R2: null
+
+  core_metadata_collections:
+    $ref: "_definitions.yaml#/to_one"
+
+  read_groups:
+    $ref: "_definitions.yaml#/to_one"
