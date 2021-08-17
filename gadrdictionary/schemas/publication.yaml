@@ -76,3 +76,6 @@ properties:
 
   acknowledgements:
     $ref: "_definitions.yaml#/to_many"
+
+  citation_placeholder:
+    type: string 

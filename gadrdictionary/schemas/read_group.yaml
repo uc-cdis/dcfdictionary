@@ -66,6 +66,11 @@ properties:
       $ref: "_terms.yaml#/base_caller_version"
     type: string
 
+  barcoding_applied: 
+    description: >
+      True/False: was barcoding applied?
+    type: boolean
+
   experiment_name:
     term:
       $ref: "_terms.yaml#/experiment_name"

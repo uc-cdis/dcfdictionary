@@ -50,7 +50,7 @@ properties:
     type: string
 
   experimental_description:
-    description: A brief description of the experiment being performed. Free text
+    description: A brief description of the experiment being performed.
     type: string
 
   number_experimental_group:
@@ -71,3 +71,10 @@ properties:
 
   projects:
     $ref: "_definitions.yaml#/to_one_project"
+
+  type:
+    enum:
+      - organism 
+      - metagenome
+      - population
+      - multiple types

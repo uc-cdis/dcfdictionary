@@ -53,6 +53,13 @@ links:
         target_type: organism
         multiplicity: many_to_one
         required: false
+      - name: metagenomes
+        backref: samples
+        label: derived_from
+        target_type: metagenome
+        multiplicity: many_to_one
+        required: false
+
 
 required:
   - submitter_id
@@ -75,8 +82,8 @@ properties:
   populations:
     $ref: "_definitions.yaml#/to_one"
 
-  experiments:
+  metagenomes:
     $ref: "_definitions.yaml#/to_one"
 
-  decimal_latitude:
-    type: string
+  experiments:
+    $ref: "_definitions.yaml#/to_one"

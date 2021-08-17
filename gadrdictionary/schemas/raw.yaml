@@ -110,8 +110,13 @@ properties:
   read_groups:
     $ref: "_definitions.yaml#/to_one"
 
-  base_fille:
+  base_file:
     type: number 
 
   version_number:
     type: number
+
+  derived_genetic_data_dynamic_properties:
+    type: string 
+    description: >
+      from GEOME: JSON formatted key/value pairs of additional metadata related to the dataset derived from the sequences. Use brief descriptors for any quality control, filtering, and assembly steps taken, including the names of workflows, bioinformatic pipelines, scripts, or softwares including versions and parameters where possible.

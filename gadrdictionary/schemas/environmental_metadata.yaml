@@ -65,6 +65,3 @@ properties:
     enum:
       - aerobic 
       - anaerobic
-
-  experiments:
-    $ref: "_definitions.yaml#/to_one"

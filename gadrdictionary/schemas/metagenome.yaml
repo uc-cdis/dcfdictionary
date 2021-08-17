@@ -1,0 +1,70 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "metagenome"
+title: Metagenome
+type: object
+nodeTerms: null
+namespace: https://nci-crdc-demo.datacommons.io/
+category: biospecimen
+program: '*'
+project: '*'
+description: Metagenome
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: experiments
+    backref: metagenomes 
+    label: data_from
+    target_type: experiment
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/organism_properties"
+
+  host:
+    type: string 
+    description: The natural (as opposed to laboratory) host to the organism from which the sample was obtained. Use the full taxonomic name, eg, "Homo sapiens".
+
+  environmental_medium:
+    type: string 
+    description: >
+      from MIxS: Add terms that identify the material displaced by the entity at time of sampling. Recommend subclasses of environmental material [ENVO:00010483]. Multiple terms can be separated by pipes e.g.: a duck might displace estuarine water|air. e.g. Air, fecal matter, anthropogenic environmental material, clay, saline water, fresh water, sea water, gravel, ice, mud, organic material, permafrost, sand, sediment, silt, snow, soil
+
+  rel_to_oxygen: 
+    description: Aerobic or anaerobic
+    default: aerobic
+    enum:
+      - aerobic 
+      - anaerobic
+
+  breeding_history:
+    type: string
+    
+  breeding_method:
+    type: string
+
+  cell_line:
+    type: string
+    description: Name of the cell line.
+
+  cell_subtype:
+    type: string

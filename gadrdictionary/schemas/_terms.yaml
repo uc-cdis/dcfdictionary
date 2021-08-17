@@ -2302,7 +2302,7 @@ organism_maori_name:
   description: "The Māori name for this organism or sample"
 
 organism_scientific_name:
-  description: "The most descriptive name for this sample (to the species, if possible). It is OK to submit an organism name that is not in our database. In the case of a new species, provide the desired organism name, and our taxonomists may assign a provisional taxID. In the case of unidentified species, choose the appropriate Genus and include 'sp.', e.g., \"Escherichia sp.\". When sequencing a genome from a non-metagenomic source, include a strain or isolate name too, e.g., \"Pseudomonas sp. UK4\". \n"
+  description: The most descriptive name for this sample (to the species, if possible). It is OK to submit an organism name that is not in our database. In the case of a new species, provide the desired organism name, and our taxonomists may assign a provisional taxID. In the case of unidentified species, choose the appropriate Genus and include 'sp.', e.g., "Escherichia sp.". When sequencing a genome from a non-metagenomic source, include a strain or isolate name too, e.g., "Pseudomonas sp. UK4".
 
 oct_embedded:
   description: >

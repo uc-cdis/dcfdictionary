@@ -131,3 +131,6 @@ properties:
 
   projects:
     $ref: "_definitions.yaml#/to_one_project"
+
+  globus_url:
+    type: string

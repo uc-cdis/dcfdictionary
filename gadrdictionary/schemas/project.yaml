@@ -49,18 +49,18 @@ properties:
     description: "UUID for the project." # TOREVIEW
   name:
     type: string
-    description: "Display name/brief description for the project." # TOREVIEW
+    description: "Name fo the project."
   code:
     type: string
     description: "Unique identifier for the project."
   investigator_name:
-    description: "Name of the principal investigator for the project."
+    description: "Name of the principal investigator for the project, e.g. Prof Peter Dearden"
     type: string
   investigator_affiliation:
-    description: "The investigator's affiliation with respect to a research institution."
+    description: "The investigator's affiliation with respect to a research institution, e.g. School of Biomedical Sciences, University of Otago"
     type: string
   date_collected:
-    description: "The date or date range in which the project data was collected."
+    description: "The date or date range in which the project data was collected, e.g. 1997-2000"
     type: string
   availability_type:
     description: "Is the project open or restricted?"
@@ -71,7 +71,7 @@ properties:
     description: "Mechanism by which the project will be made avilable."
     type: string
   support_source:
-    description: "The name of source providing support/grant resources."
+    description: "The name of source providing support/grant resources, e.g. Royal Society of New Zealand Rutherford Discovery Fellowship, RDF-ABC1234"
     type: string
   support_id:
     description: "The ID of the source providing support/grant resources."
@@ -145,3 +145,17 @@ properties:
   dbgap_accession_number:
     type: string
     description: "The dbgap accession number provided for the project."
+
+  contact:
+    description: Contact info (preferable e-mail address) e.g. name@institution.ac.nz
+    type: string
+
+  details:
+    type: string 
+    description: More detailed description of the project.
+
+  application_form:
+    type: 
+      - string
+      - null
+    description: URL to request data access
