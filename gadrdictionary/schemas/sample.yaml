@@ -35,12 +35,6 @@ links:
   - exclusive: false
     required: true
     subgroup:
-      - name: environmentals
-        backref: samples
-        label: derived_from
-        target_type: environmental_metadata
-        multiplicity: many_to_one
-        required: false
       - name: populations
         backref: samples
         label: derived_from
@@ -74,9 +68,6 @@ properties:
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
   organisms:
-    $ref: "_definitions.yaml#/to_one"
-
-  environmentals:
     $ref: "_definitions.yaml#/to_one"
 
   populations:

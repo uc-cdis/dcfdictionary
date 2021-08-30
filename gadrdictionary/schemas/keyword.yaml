@@ -27,6 +27,12 @@ links:
     target_type: project
     multiplicity: many_to_one
     required: true
+  - name: publications
+    backref: keywords
+    label: refers_to
+    target_type: publication
+    multiplicity: many_to_one
+    required: false
 
 required:
   - submitter_id
@@ -46,4 +52,7 @@ properties:
     type: string
 
   projects:
-    $ref: "_definitions.yaml#/to_many_project"
+    $ref: "_definitions.yaml#/to_one_project"
+
+  publications:
+    $ref: "_definitions.yaml#/to_one"
