@@ -33,7 +33,7 @@ links:
         multiplicity: many_to_many
         required: false
       - name: read_groups
-        backref: raw_fiels
+        backref: raw_files
         label: data_from
         target_type: read_group
         multiplicity: many_to_many
