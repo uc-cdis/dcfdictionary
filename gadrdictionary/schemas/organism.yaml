@@ -29,8 +29,16 @@ links:
     required: true
 
 required:
+  - basis_of_record
+  - collection_date
+  - environmental_medium
+  - geo_loc_name
+  - sample_organism
+  - submitted_to_insdc
   - submitter_id
+  - tissue
   - type
+  #- age | dev_stage # do not implement for now
 
 uniqueKeys:
   - [id]
@@ -40,53 +48,14 @@ properties:
 
   $ref: "_definitions.yaml#/organism_properties"
 
-  strain: 
-    type:
-      - string
-      - null 
-    description: microbial or eukaryotic strain name
-
-  isolate:
-    type:
-      - string
-      - null 
-    description: identification or description of the specific individual from which this sample was obtained
-
-  breed: 
-    type:
-      - string
-      - null 
-    description: breed name -- chiefly used in domesticated animals or plants
-
-  cultivar:
-    type:
-      - string
-      - null 
-    description: cultivar name -- cultivated variety of plant
-
-  ecotype: 
-    type:
-      - string
-      - null 
-    description: a population within a given species displaying genetically based, phenotypic traits that reflect adaptation to a local habitat, e.g., New Zealand
-
-  individual_identifier:
-    type:
-      - string
-    description: individual band number for example, could be pedigree ID number too (secondary ID)
-  secondary_identifier:
-    type:
-      - string
-    description: identifier to help identify institutions
-
   age:
     type: number 
     description: age at the time of sampling; relevant scale depends on species and study, e.g. could be seconds for amoebae or centuries for trees
 
-  dev_stage:
+  biomaterial_provider:
     type: string
-    description: Developmental stage at the time of sampling.
-
+    description: >
+      name and address of the lab or PI, or a culture collection identifier
   birth_date:
     $ref: "_definitions.yaml#/datetime"
 
@@ -95,16 +64,11 @@ properties:
     description: >
       Geographical origin of the sample; use the appropriate name from this list http://www.insdc.org/documents/country-qualifier-vocabulary. Use a colon to separate the country or ocean from more detailed information about the location, eg "Canada: Vancouver" or "Germany: halfway down Zugspitze, Alps"
 
-  sex:
-    enum:
-      - male 
-      - female 
-      - unknown 
-    description: physical sex of sampled organism
-
-  tissue:
-    type: string 
-    description: Type of tissue the sample was taken from.
+  breed: 
+    type:
+      - string
+      - 'null'
+    description: breed name -- chiefly used in domesticated animals or plants
 
   breeding_history:
     type: string
@@ -123,16 +87,38 @@ properties:
     type: string
     description: Type of cell of the sample or from which the sample was obtained.
 
+  cultivar:
+    type:
+      - string
+      - 'null'
+    description: cultivar name -- cultivated variety of plant
+
   death_date:
     $ref: "_terms.yaml#/datetime"
 
+  dev_stage:
+    type:
+      - string
+      - 'null'
+    description: Developmental stage at the time of sampling.
+
   disease:
-    type: string
+    type:
+      - string
+      - 'null'
     description: list of diseases diagnosed; can include multiple diagnoses. the value of the field depends on host; for humans the terms should be chosen from DO (Disease Ontology), free text for non-human. For DO terms, please see http://gemina.svn.sourceforge.net/viewvc/gemina/trunk/Gemina/ontologies/gemina_symptom.obo?view=log
 
   disease_stage:
-    type: string
+    type:
+      - string
+      - 'null'
     description: stage of disease at the time of sampling.
+
+  ecotype: 
+    type:
+      - string
+      - null 
+    description: a population within a given species displaying genetically based, phenotypic traits that reflect adaptation to a local habitat, e.g., New Zealand
 
   genotype:
     type: string 
@@ -145,6 +131,18 @@ properties:
     type: string
     description: Health or disease status of sample at time of collection
 
+  individual_identifier:
+    type:
+      - string
+      - 'null'
+    description: individual band number for example, could be pedigree ID number too (secondary ID)
+
+  isolate:
+    type:
+      - string
+      - 'null'
+    description: identification or description of the specific individual from which this sample was obtained
+
   phenotype:
     type: string
     description: Phenotype of sampled organism. For Phenotypic quality Ontology (PATO) (v1.269) terms, please see http://bioportal.bioontology.org/visualize/44601
@@ -153,8 +151,32 @@ properties:
     type: string
     description: Sample type, such as cell culture, mixed culture, tissue sample, whole organism, single cell, metagenomic assembly
 
+  secondary_identifier:
+    type:
+      - string
+    description: identifier to help identify institutions
+
+  sex:
+    enum:
+      - male 
+      - female 
+      - unknown 
+    description: physical sex of sampled organism
+
+  strain: 
+    type:
+      - string
+      - 'null'
+    description: microbial or eukaryotic strain name
+
   stud_book_number:
     type: string
+
+  tissue:
+    type: 
+      - string 
+      - 'null' 
+    description: Type of tissue the sample was taken from.
 
   treatment:
     type: string 

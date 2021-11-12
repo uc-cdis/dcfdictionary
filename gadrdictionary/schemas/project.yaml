@@ -22,6 +22,11 @@ systemProperties:
 
 required:
   - code
+  #- contact
+  #- date_collected
+  #- details
+  #- investigator_affiliation
+  #- investigator_name
   - name
   - programs
   - dbgap_accession_number
@@ -55,13 +60,19 @@ properties:
     description: "Unique identifier for the project."
   investigator_name:
     description: "Name of the principal investigator for the project, e.g. Prof Peter Dearden"
-    type: string
+    type: 
+      - string
+      - 'null'
   investigator_affiliation:
     description: "The investigator's affiliation with respect to a research institution, e.g. School of Biomedical Sciences, University of Otago"
-    type: string
+    type: 
+      - string
+      - 'null'
   date_collected:
     description: "The date or date range in which the project data was collected, e.g. 1997-2000"
-    type: string
+    type:
+      - string 
+      - 'null'
   availability_type:
     description: "Is the project open or restricted?"
     enum:
@@ -148,10 +159,14 @@ properties:
 
   contact:
     description: Contact info (preferable e-mail address) e.g. name@institution.ac.nz
-    type: string
+    type: 
+      - string
+      - 'null'
 
   details:
-    type: string 
+    type: 
+      - string 
+      - 'null' 
     description: More detailed description of the project.
 
   application_form:

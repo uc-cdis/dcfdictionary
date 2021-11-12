@@ -29,6 +29,15 @@ links:
     required: true
 
 required:
+  - basis_of_record
+  - collection_date
+  - environmental_medium
+  - geo_loc_name
+  - habitat
+  - latitude_decimal_degrees
+  - longitude_decimal_degrees
+  - sample_organism
+  - submitted_to_insdc
   - submitter_id
   - type
   - projects
@@ -48,32 +57,53 @@ properties:
   projects:
     $ref: "_definitions.yaml#/to_many_project"
 
-coordinatedUncertaintyInMeters:
-  type: number 
-  description: >
-    from Darwin Core: The horizontal distance (in meters) from the given decimalLatitude and decimalLongitude describing the smallest circle containing the whole of the locality where the sample could possibly have come from. Leave the value empty if the uncertainty is unknown, cannot be estimated, or is not applicable (because there are no coordinates). Zero is not a valid value for this term.
 
-maximumDepthInMeters:
-  type: number 
-  description: >
-    from Darwin Core: The greater depth of a range of depth below the local surface, in meters.
+  age:
+    type: number 
+    description: age at the time of sampling; relevant scale depends on species and study, e.g. could be seconds for amoebae or centuries for trees
+      
+  coordinatedUncertaintyInMeters:
+    type: number 
+    description: >
+      from Darwin Core: The horizontal distance (in meters) from the given decimalLatitude and decimalLongitude describing the smallest circle containing the whole of the locality where the sample could possibly have come from. Leave the value empty if the uncertainty is unknown, cannot be estimated, or is not applicable (because there are no coordinates). Zero is not a valid value for this term.
 
-maximumElevationInMeters:
-  type: number 
-  description: >
-    from Darwin Core: The greater distance in a range of distance from a reference surface in the vertical direction, in meters. Use positive values for locations above the surface, negative values for locations below. If depth measures are given, the reference surface is the location given by the depth, otherwise the reference surface is the location given by the elevation.
+  dev_stage:
+    type: string
+    description: Developmental stage at the time of sampling.
+  
+  maximumDepthInMeters:
+    type: number 
+    description: >
+      from Darwin Core: The greater depth of a range of depth below the local surface, in meters.
+  
+  maximumElevationInMeters:
+    type: number 
+    description: >
+      from Darwin Core: The greater distance in a range of distance from a reference surface in the vertical direction, in meters. Use positive values for locations above the surface, negative values for locations below. If depth measures are given, the reference surface is the location given by the depth, otherwise the reference surface is the location given by the elevation.
+  
+  minimumDepthInMeters:
+    type: number 
+    description: >
+      from Darwin Core: The lesser depth of a range of depth below the local surface, in meters.
+  
+  minimumElevationInMeters:
+    type: number 
+    description: >
+      from Darwin Core: The lesser distance in a range of distance from a reference surface in the vertical direction, in meters. Use positive values for locations above the surface, negative values for locations below. If depth measures are given, the reference surface is the location given by the depth, otherwise the reference surface is the location given by the elevation.
+  
+  random_reckons:
+    type: number 
+    descripton: >
+      sample specific, pointer to where extra metadata resides
 
-minimumDepthInMeters:
-  type: number 
-  description: >
-    from Darwin Core: The lesser depth of a range of depth below the local surface, in meters.
+  samp_collect_device:
+    type: string
+    description: >
+      Method or device employed for collecting sample
 
-minimumElevationInMeters:
-  type: number 
-  description: >
-    from Darwin Core: The lesser distance in a range of distance from a reference surface in the vertical direction, in meters. Use positive values for locations above the surface, negative values for locations below. If depth measures are given, the reference surface is the location given by the depth, otherwise the reference surface is the location given by the elevation.
-
-random_reckons:
-  type: number 
-  descripton: >
-    sample specific, pointer to where extra metadata resides
+  sex:
+    enum:
+      - male 
+      - female 
+      - unknown 
+    description: physical sex of sampled organism

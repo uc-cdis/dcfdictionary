@@ -138,6 +138,11 @@ data_file_error_type:
         - file_size
         - file_format
         - md5sum
+  
+derived_genetic_data_dynamic_properties:
+  type: string
+  description: >
+    from GEOME: JSON formatted key/value pairs of additional metadata related to the dataset derived from the sequences. Use brief descriptors for any quality control, filtering, and assembly steps taken, including the names of workflows, bioinformatic pipelines, scripts, or softwares including versions and parameters where possible.
 
 state:
     term:
@@ -202,16 +207,17 @@ project_id:
 sample_organism:
   type:
     - string
-  term: "_terms.yaml#/sample_organism_scientific_name"
+    - 'null'
+  description: "The GUID of the object in the index service."
 
 sample_organism_common_name:
   type:
     - string
-  term: "_terms.yaml#/sample_organism_common_name"
+  description: "A common name for this organism or sample"
 
 sample_organism_maori_name:
   type: string
-  term: "_terms.yaml#/sample_organism_maori_name"
+  description: "The Māori name for this organism or sample"
 
 
 
@@ -231,6 +237,8 @@ data_file_properties:
     $ref: "#/state"
   error_type:
     $ref: "#/data_file_error_type"
+  derived_genetic_data_dynamic_properties:
+    $ref: "#/derived_genetic_data_dynamic_properties"
 
 workflow_properties:
   $ref: "#/ubiquitous_properties"
@@ -254,10 +262,12 @@ ubiquitous_properties:
   submitter_id:
     type:
       - string
-    description: >
+    description: |
       A project-specific identifier for a node. This property is the calling card/nickname/alias for
       a unit of submission. It can be used in place of the UUID for identifying or recalling a node.
       This is NOT an ID of the submitting person.
+
+      It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. Every submitter_id from a single Submitter must be unique.
   state:
     $ref: "#/state"
   project_id:
@@ -283,8 +293,14 @@ organism_properties:
     $ref: "_definitions.yaml#/to_many"
     description: List of experiments that this biosample is associated with
   submitted_to_insdc:
-    type: boolean 
+    enum:
+      - true 
+      - false
+      - unknown
     description: Depending on the study (large-scale e.g. done with next generation sequencing technology, or small-scale) sequences have to be submitted to SRA (Sequence Read Archive), DRA (DDBJ Read Archive) or via the classical Webin/Sequin systems to Genbank, ENA and DDBJ.
+  biomaterial_provider:
+    type: string
+    description: name and address of the lab or PI, or a culture collection identifier
   bioproject_accession:
     type: string
     description: The accession number of the BioProject(s) to which the BioSample belongs. If the BioSample belongs to more than one BioProject, enter multiple bioproject_accession columns. A valid BioProject accession has prefix PRJN, PRJE or PRJD, e.g., PRJNA12345.
@@ -298,23 +314,12 @@ organism_properties:
       - LivingSpecimen
       - MaterialSample
       - Event
+      - HumanObservation
+      - MachineObservation
       - Taxon
       - Occurrence
+      - MaterialCitation
       - Unknown
-    description: The specific nature of the data record (https://dwc.tdwg.org/list/#dwc_basisOfRecord).
-  #environmental_medium:
-    # need to be able to add multiple items 
-    # implement this like keywords perhaps
-  geo_loc_name:
-    type: string 
-    description: >
-      Geographical origin of the sample; use the appropriate name from this list http://www.insdc.org/documents/country-qualifier-vocabulary. Use a colon to separate the country or ocean from more detailed information about the location, eg "Canada: Vancouver" or "Germany: halfway down Zugspitze, Alps"
-  latitude_decimal_degrees:
-    type: number 
-    description: The geographical latitude coordinate of the location where the sample was collected, ranging from -90 (south of the equator) to 90 (north of the equator). Specify as degrees latitude in format -d[d.dddd] or d[d.ddd].
-  longitude_decimal_degrees:
-    type: number 
-    description: The geographical longitude coordinate of the location where the sample was collected, ranging from -180 (west of the prime meridian) to 180 (east of the prime meridian). Specify as degrees longitude in format -d[dd.dddd] or d[dd.ddd].
   collected_by:
     type: string
     description: >
@@ -327,13 +332,45 @@ organism_properties:
     type: string
     description: >
       Name of source institute and unique culture identifier. See the description for the proper format and list of allowed institutes, http://www.insdc.org/controlled-vocabulary-culturecollection-qualifier
+ 
+  environmental_medium:
+    type: 
+      - string
+      - 'null'
+    description: > 
+      from MIxS: Add terms that identify the material displaced by the entity at time of sampling. Recommend subclasses of environmental material [ENVO:00010483]. Multiple terms can be separated by pipes e.g.: a duck might displace estuarine water|air. e.g. Air, animal fecal matter, anthropogenic environmental material, clay, saline water, fresh water, sea water, gravel, ice, mud, organic material, permafrost, sand, sediment, silt, snow, soil
+  geo_loc_name:
+    type: 
+      - string
+      - 'null'
+    description: >
+      Geographical origin of the sample; use the appropriate name from this list http://www.insdc.org/documents/country-qualifier-vocabulary. Use a colon to separate the country or ocean from more detailed information about the location, eg "Canada: Vancouver" or "Germany: halfway down Zugspitze, Alps"
+  habitat:
+    type: 
+      - string
+      - 'null'
+    description: >
+      From MIxS: Broad-scale environmental context) In this field, report which major environmental system your sample or specimen came from. The systems identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. were you in the desert or a rainforest?). We recommend using subclasses of ENVO’s biome class: http://purl.obolibrary.org/obo/ENVO_00000428.
+  latitude_decimal_degrees:
+    type: 
+      - number 
+      #- 'null' 
+      # number | null breaks sliders
+    description: The geographical latitude coordinate of the location where the sample was collected, ranging from -90 (south of the equator) to 90 (north of the equator). Specify as degrees latitude in format -d[d.dddd] or d[d.ddd].
+  longitude_decimal_degrees:
+    type: 
+      - number 
+      #- 'null' 
+      # number | null breaks sliders
+    description: The geographical longitude coordinate of the location where the sample was collected, ranging from -180 (west of the prime meridian) to 180 (east of the prime meridian). Specify as degrees longitude in format -d[dd.dddd] or d[dd.ddd].
   habitat:
     type: string
     description: >
       From MIxS: Broad-scale environmental context) In this field, report which major environmental system your sample or specimen came from. The systems identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. were you in the desert or a rainforest?). We recommend using subclasses of ENVO’s biome class: http://purl.obolibrary.org/obo/ENVO_00000428.
-  biomaterial_provider:
+  other_catalogue_numbers:
     type: string
-    description: name and address of the lab or PI, or a culture collection identifier
+    description: >
+      from Darwin Core: A list (concatenated and separated with |) of previous or alternate fully qualified catalog numbers or other human-used identifiers for the same sample, whether in the current or any other data set or collection.
   samp_mat_process:
     type: string
     description: Processing applied to the sample during or after isolation
@@ -346,10 +383,6 @@ organism_properties:
   store_cond:
     type: string
     description: explain how and for how long the sample was stored before DNA extraction. e.g. Preservative (100% EtOH; DMSO; Frozen -20C)
-  other_catalogue_numbers:
-    type: string
-    description: >
-      from Darwin Core: A list (concatenated and separated with |) of previous or alternate fully qualified catalog numbers or other human-used identifiers for the same sample, whether in the current or any other data set or collection.
   samp_collect_device:
     type: string
     description: Method or device employed for collecting sample 
@@ -357,3 +390,6 @@ organism_properties:
     type: string 
     description: >
       Identifier for the physical specimen. Use format: "[<institution-code>:[<collection-code>:]]<specimen_id>", eg, "UAM:Mamm:52179". Intended as a reference to the physical specimen that remains after it was analyzed. If the specimen was destroyed in the process of analysis, electronic images (e-vouchers) are an adequate substitute for a physical voucher specimen. Ideally the specimens will be deposited in a curated museum, herbarium, or frozen tissue collection, but often they will remain in a personal or laboratory collection for some time before they are deposited in a curated collection. There are three forms of specimen_voucher qualifiers. If the text of the qualifier includes one or more colons it is a 'structured voucher'. Structured vouchers include institution-codes (and optional collection-codes) taken from a controlled vocabulary maintained by the INSDC that denotes the museum or herbarium collection where the specimen resides, please visit: http://www.insdc.org/controlled-vocabulary-specimenvoucher-qualifier.
+  tissue:
+    type: string 
+    description: Type of tissue the sample was taken from.

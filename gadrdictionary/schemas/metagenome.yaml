@@ -8,7 +8,7 @@ namespace: https://nci-crdc-demo.datacommons.io/
 category: biospecimen
 program: '*'
 project: '*'
-description: Metagenome
+description: Any material sample taken from a biological entity for testing, diagnostic, propagation, treatment or research purposes, including a sample obtained from a living organism or taken from the biological object after halting of all its life functions. Biospecimen can contain one or more components including but not limited to cellular molecules, cells, tissues, organs, body fluids, embryos, and body excretory products.
 additionalProperties: false
 submittable: true
 validators: null
@@ -29,6 +29,14 @@ links:
     required: true
 
 required:
+  - basis_of_record
+  - collection_date
+  - environmental_medium
+  - geo_loc_name
+  - habitat
+  - latitude_decimal_degrees
+  - longitude_decimal_degrees
+  - submitted_to_insdc
   - submitter_id
   - type
 
@@ -43,11 +51,6 @@ properties:
   host:
     type: string 
     description: The natural (as opposed to laboratory) host to the organism from which the sample was obtained. Use the full taxonomic name, eg, "Homo sapiens".
-
-  environmental_medium:
-    type: string 
-    description: >
-      from MIxS: Add terms that identify the material displaced by the entity at time of sampling. Recommend subclasses of environmental material [ENVO:00010483]. Multiple terms can be separated by pipes e.g.: a duck might displace estuarine water|air. e.g. Air, fecal matter, anthropogenic environmental material, clay, saline water, fresh water, sea water, gravel, ice, mud, organic material, permafrost, sand, sediment, silt, snow, soil
 
   rel_to_oxygen: 
     description: Aerobic or anaerobic

@@ -45,12 +45,16 @@ properties:
     description: Brief description of the data being provided for this experiment
     type: string
 
-  experiment_type:
-    description: General strategy used for differential analysis
-    type: string
-
   experimental_description:
     description: A brief description of the experiment being performed.
+    type: string
+
+  experimental_intent:
+    description: Summary of the goals the experiment is designed to discover
+    type: string
+
+  experiment_type:
+    description: General strategy used for differential analysis
     type: string
 
   number_experimental_group:
@@ -61,14 +65,6 @@ properties:
     description: The number of samples contained within this experimental group 
     type: integer
 
-  experimental_intent:
-    description: Summary of the goals the experiment is designed to discover
-    type: string
-
-  type_of_specimen:
-    description: Broad description of the specimens used in the experiment 
-    type: string
-
   projects:
     $ref: "_definitions.yaml#/to_one_project"
 
@@ -78,3 +74,7 @@ properties:
       - metagenome
       - population
       - multiple types
+
+  type_of_specimen:
+    description: Broad description of the specimens used in the experiment 
+    type: string

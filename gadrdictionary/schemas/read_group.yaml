@@ -289,6 +289,31 @@ properties:
       - TruSight Myeloid Sequencing Panel
       - Unknown
 
+  target_capture_kit_catalog_number:
+    term:
+      $ref: "_terms.yaml#/target_capture_kit_catalog_number"
+    type: string
+
+  target_capture_kit_name:
+    term:
+      $ref: "_terms.yaml#/target_capture_kit_name"
+    type: string
+
+  target_capture_kit_target_region:
+    term:
+      $ref: "_terms.yaml#/target_capture_kit_target_region"
+    type: string
+
+  target_capture_kit_vendor:
+    term:
+      $ref: "_terms.yaml#/target_capture_kit_vendor"
+    type: string
+
+  target_capture_kit_version:
+    term:
+      $ref: "_terms.yaml#/target_capture_kit_version"
+    type: string
+
   to_trim_adapter_sequence:
     term:
       $ref: "_terms.yaml#/to_trim_adapter_sequence"
