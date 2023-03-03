@@ -4,7 +4,7 @@ id: "demographic"
 title: Demographic
 type: object
 nodeTerms: null
-namespace: https://elwazi-demo.planx-pla.net/
+namespace: https://nci-crdc-demo.datacommons.io/
 category: clinical
 program: '*'
 project: '*'
@@ -42,14 +42,26 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  age:
+  age_range:
     description: Range of ages for the subject. The age range should not include ages
       over 89 years.
     type: string
 
-  bmi:
-    description:  Subject Body Mass Index (kg/m^2)
-    type: number
+  cause_of_death:
+    description: Text term to identify the cause of death for a patient.
+    type: string
+
+  days_to_birth:
+    description: Time interval from a person’s date of birth to the date of initial
+      pathologic diagnosis, represented as a calculated negative number of days.
+    type: integer
+    maximum: 0
+    minimum: -32872
+
+  days_to_death:
+    description: Time interval from a person’s date of death to the date of initial
+      pathologic diagnosis, represented as a calculated number of days.
+    type: integer
 
   ethnicity:
     term:
@@ -70,16 +82,6 @@ properties:
       - not reported
       - unknown
       - unspecified
-
-  marital_status:
-    description: current relationship status of subject
-    enum:
-      - No regular partner
-      - Separated
-      - Primary regular partner
-      - Widowed
-      - Married
-      - Unknown
 
   race:
     term:

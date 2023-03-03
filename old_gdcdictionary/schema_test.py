@@ -23,7 +23,7 @@ from gdcdictionary import gdcdictionary
 
 def load_yaml_schema(path):
     with open(path, 'r') as f:
-        return yaml.load(f, Loader=yaml.FullLoader)
+        return yaml.load(f)
 CUR_DIR = os.path.dirname(os.path.realpath(__file__))
 DATA_DIR = os.path.join(CUR_DIR, 'examples')
 project1 = load_yaml_schema(os.path.join(CUR_DIR, 'schemas/projects/project1.yaml'))

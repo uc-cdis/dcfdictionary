@@ -1,0 +1,182 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "medical_history"
+title: Medical_history
+type: object
+nodeTerms: null
+namespace: https://elwazi-demo.planx-pla.net/
+category: clinical
+program: '*'
+project: '*'
+description: Data obtained from the patient about past conditions
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: subjects
+    backref: demographics
+    label: describes
+    target_type: subject
+    multiplicity: one_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - subjects
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  arv_treatment:
+    description:  subject currently taking antiretroviral arv_treatment
+    enum:
+      - Yes
+      - No
+      - unknown
+
+  additional_children:
+    description: Does subject want additional children
+    enum:
+      - Yes
+      - No
+      - Not sure
+      - unknown
+
+  breastfeeding:
+    description:  Is Subject current breastfeeding
+    enum:
+      - Yes
+      - No
+      - unknown
+
+  cd4_count:
+    description: CD4 Lymphocyte cd4_count
+    type: number
+
+  cough:
+    description:  patient reports cough for more than two weeks
+    enum:
+      - Yes
+      - No
+      - unknown
+
+  fever:
+    description:  patient reports fever for more than two weeks
+    enum:
+      - Yes
+      - No
+      - unknown
+
+  HIV_treatment_regimen:
+    description: ARV regiment or line of arv_treatment
+    enum:
+      - EFV based
+      - Lpv/r
+      - ATV/r
+      - RTV based
+      - other
+      - unknown
+
+  lost_weight:
+    description:  patient reports weight loss in past month
+    enum:
+      - Yes
+      - No
+      - unknown
+
+    night_sweats:
+      description:  patient reports experiencing night sweats
+      enum:
+        - Yes
+        - No
+        - unknown
+
+  number_children_choice:
+    description:  number of children subject would to have alive
+    type: integer
+
+  pregnancy_desire:
+    description: Does subject want to become pregnant ever
+    enum:
+      - Yes
+      - No
+      - unknown
+
+  tb_treament:
+    description: Received treatment for TB in last three months
+    enum:
+      - Yes
+      - No
+      - unknown
+
+  tell_partner_HIV_status:
+    description: Did subject inform partner of HIV hpv_status
+    enum:
+      - Yes
+      - No
+      - unknown
+
+  new_pregnancy:
+    description: New pregnancy at followup
+    type: string
+
+  new_pregnancy_outcome:
+    description: Outcome of new pregnancy
+    enum:
+      - Abortion/miscarriage < 20 weeks
+      - Congenital anomalies
+      - Live birth
+      - Low birth weight <2500g
+      - Preterm delivery <37 weeks
+      - Stillbirth/intrauterine fetal death >20 weeks
+      - unknown
+
+  number_additional_children:
+    description: How many more children would subject like to have
+    type: integer
+
+
+  test_partner_hiv_stat:
+    description: Does subject know if partner tested for hiv_positive
+    enum:
+      - Yes
+      - No
+      - unknown
+
+
+  total_pregnancies:
+    description:  Total number of pregnancies reported by subjects
+    type:  integer
+
+  viral_load:
+    description: HIV viral load from blood specimen
+    enum:
+      - <200 cp/ml
+      - >1000 cp/ml
+      - 200-399 cp/ml
+      - 400-1000 cp/ml
+      - Undetectable
+      - unknown
+
+  who_clinical_classification:
+    description:  WHO clinical classification of HIV status 1 - Asymptomatic, 2 - symptomatic 3 -
+    enum:
+      - 1
+      - 2
+      - 3
+      - 4
+      - unknown

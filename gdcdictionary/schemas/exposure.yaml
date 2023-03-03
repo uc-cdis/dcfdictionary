@@ -1,0 +1,93 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "exposure"
+title: Envorinmental Exposure
+type: object
+nodeTerms: null
+namespace: https://elwazi-demo.planx-pla.net/
+category: clinical
+program: '*'
+project: '*'
+description:  Environmental factors that the patient has been exposed to that contribute to current diagnosis
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: subjects
+    backref: exposures
+    label: describes
+    target_type: subject
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - subjects
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  contraceptive:
+    description:  type of contraception used
+    enum:
+      - Condoms
+      - Hysterectomy
+      - Implant
+      - Injectable
+      - IUCD
+      - Oral
+      - Tubal ligation
+      - unknown
+      E
+  electricity:
+    description: Electricity at residence
+    type: string
+
+  sexual_intercourse:
+    decsription:  Sexual intercourse in the past three months
+    type: string
+
+  tap_water:
+    description:  Tap Water at residence
+    type: string
+
+  travel_time:
+    desription:  travel time from residence to clinic
+    enum:
+      - Less than 30 minutes
+      - 30-60 minutes
+      - 1-2 hours
+      - Greater than 2 hours
+      - unknown
+
+  use_condom:
+    description:  Frequency of condom use
+    enum:
+      - Always
+      - Sometimes
+      - Never
+      - unknown
+
+  use_familyplanning
+    description: Use family planning methods
+    enum:
+      - Yes
+      - No
+      - unknown
+
+  subjects:
+    $ref: "_definitions.yaml#/to_one"
