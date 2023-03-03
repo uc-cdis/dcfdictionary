@@ -1,0 +1,83 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "drug_attribute"
+title: Drug Attribute
+type: object
+nodeTerms: null
+namespace: https://nci-crdc-demo.datacommons.io/
+category: clinical
+program: '*'
+project: '*'
+description: Information of the drugs used for drug response investigation
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: summary_drug_responses
+    backref: drug_attributes
+    label: records_for
+    target_type: summary_drug_response
+    multiplicity: one_to_many
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - summary_drug_responses
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  brand_name:
+    $ref: _definitions.yaml#/ubiquitous_properties
+    description: brand name under which the drug is sold
+    terms: null
+    type: string
+
+  drug_class:
+    $ref: _definitions.yaml#/ubiquitous_properties
+    description: Drug classification
+    terms: null
+    type: string
+
+  drug_mechanism:
+    $ref: _definitions.yaml#/ubiquitous_properties
+    description: The mechanism of how the drug take effect
+    terms: null
+    type: string
+
+  highest_phase:
+    $ref: _definitions.yaml#/ubiquitous_properties
+    description: The highest phase of clinical research for the drug
+    terms: null
+    type: string
+
+  organization:
+    $ref: _definitions.yaml#/ubiquitous_properties
+    description: The organization produces the drug
+    terms: null
+    type: string
+
+  target_molecule:
+    $ref: _definitions.yaml#/ubiquitous_properties
+    description: the native protein in the body whose activity is modified by a drug
+      resulting in a specific effect, which may be a desirable therapeutic effect
+      or an unwanted adverse effect.
+    terms: null
+    type: string
+
+  summary_drug_responses:
+    $ref: "_definitions.yaml#/to_many"
