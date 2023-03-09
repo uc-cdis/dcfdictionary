@@ -15,5 +15,5 @@ pip install -r dev-requirements.txt
 pip uninstall -y dictionaryutils
 python setup.py install --force
 nosetests -s -v
-python bin/dump_schema.py
+python dictionaryutils/dump_schema.py
 set +e

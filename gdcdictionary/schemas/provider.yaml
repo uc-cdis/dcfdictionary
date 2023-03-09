@@ -1,0 +1,49 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "provider"
+title: Provider
+type: object
+nodeTerms: null
+namespace: https://impowrgen3.wakehealth.edu/
+category: clinical
+program: '*'
+project: '*'
+description: Data describing provider
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: participants
+    backref: providers
+    label: derived_from
+    target_type: participant
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - studies
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  test_property:
+    description: Placeholder property.
+    type: string
+
+  participants:
+    $ref: "_definitions.yaml#/to_many"

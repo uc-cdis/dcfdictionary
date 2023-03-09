@@ -18,6 +18,12 @@ setup(
     name="dictionaryutils",
     version=get_version(),
     packages=find_packages(),
-    install_requires=["PyYAML==4.2b1", "jsonschema==2.5.1"],
-    package_data={"dictionaryutils": ["schemas/*.yaml"]},
+    install_requires=[
+        "PyYAML==4.2b1",
+        "jsonschema==2.5.1",
+        "pandas>=0.25.3",
+        # "re>=2.2.1",
+        "ruamel.yaml>=0.16.5",
+    ],
+    package_data={"utils": ["schemas/*.yaml"]},
 )
