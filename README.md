@@ -55,6 +55,48 @@ Our dictionary is maintained via the XLSX file format.  We selected this format 
     - Each `enum` property will list its available options in this sheet
     - In this sheet, a given row will specify the node, property, and value for an `enum` option
 
+### Github Desktop
+
+It is likely that our **dictionary maintainer** will be using [**Github Desktop**](https://desktop.github.com/) to interact with our repository and propose dictionary changes.  There will be a general order of operations that is conducive to this process:
+
+1. **If this is your first time opening Github Desktop,** then you will need to clone (download) this repository to your local machine.
+    - You should see an option **`+ Clone a repository from the Internet...`**
+    - Click this option to prompt the **`Clone a repository`** modal
+    - Select the **`URL`** tab in the modal
+    - Enter `krumIO/dcfdictionary`
+    - Click **`Clone`**
+        - ![Clone](assets/clone_repo_from_url.png)
+    - Select `For my own purposes` and click `Continue`
+        - ![Target](assets/target_krumio_repo.png)
+
+2. Create a new branch for proposing dictionary changes
+    - Open the branch dropdown and click **`New Branch`**
+        - ![Create new branch](assets/create_new_branch.png)
+    - Provide a relatively descriptive but concise branch name
+        - ![Name new branch](assets/name_new_branch.png)
+    - Click **`Create branch`**
+
+3. Open the XLSX dictionary file in **Excel**
+    - Either click **`Show in Explorer`** or use the keybind **`Ctrl/Command + Shift + F`** to open your file explorer
+        - ![Open file explorer](assets/show_in_explorer.png)
+    - Navigate the folder structure to **`/gdcdictionary/xlsx/nodes_schema_impowr.xlsx`**
+    - Open the XLSX file in Excel
+
+4. Perform your dictionary modifications, save the XLSX file, and close Excel
+
+5. Commit your changes and create a pull request
+    - After saving the XLSX file, **Github Desktop** will automatically detect and display your active changes on the branch.
+    - Document your changes with a commit message and description
+        - ![Commit Message](assets/provide_commit_message.png)
+    - Publish your branch to our remote repository by clicking **`Publish branch`**
+        - ![Publish Branch](assets/publish_branch.png)
+    - Create a pull request for review
+        - Click **`Preview Pull Request`**
+            - ![Preview Pull Request](assets/preview_pull_request.png)
+        - Click **`Create pull request`**
+            - ![Create Pull Request](assets/create_pull_request.png)
+            - This will open Github in your web browser where you will be provided an additional opportunity to describe your changes and finally **`Create pull request`**
+
 ## Scripts
 
 1. Install dependencies
