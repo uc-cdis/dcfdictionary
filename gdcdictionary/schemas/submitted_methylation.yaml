@@ -57,8 +57,7 @@ uniqueKeys:
 
 properties:
 
-  $ref:
-    - "_definitions.yaml#/data_file_properties"
+  $ref: "_definitions.yaml#/data_file_properties"
 
   assay_instrument:
     description: >-
@@ -80,20 +79,17 @@ properties:
       - Methylation Array
 
   data_category:
-    $ref:
-      - "_terms.yaml#/data_category/common"
+    $ref: "_terms.yaml#/data_category/common"
     enum:
       - Methylation Data
 
   data_format:
-    $ref:
-      - "_terms.yaml#/data_format/common"
+    $ref: "_terms.yaml#/data_format/common"
     enum:
       - IDAT
 
   data_type:
-    $ref:
-      - "_terms.yaml#/data_type/common"
+    $ref: "_terms.yaml#/data_type/common"
     enum:
       - Methylation Intensity Values
 

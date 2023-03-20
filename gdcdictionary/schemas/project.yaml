@@ -44,8 +44,7 @@ properties:
     type: string
 
   id:
-    $ref:
-      - "_definitions.yaml#/uuid"
+    $ref: "_definitions.yaml#/uuid"
     description: >-
       UUID for the project.
     systemAlias: node_id

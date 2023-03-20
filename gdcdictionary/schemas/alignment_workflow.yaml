@@ -48,8 +48,7 @@ uniqueKeys:
 
 properties:
 
-  $ref:
-    - "_definitions.yaml#/workflow_properties"
+  $ref: "_definitions.yaml#/workflow_properties"
 
   workflow_type:
     enum:

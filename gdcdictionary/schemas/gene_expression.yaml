@@ -67,18 +67,15 @@ uniqueKeys:
 
 properties:
 
-  $ref:
-    - "_definitions.yaml#/data_file_properties"
+  $ref: "_definitions.yaml#/data_file_properties"
 
   data_category:
-    $ref:
-      - "_terms.yaml#/data_category/common"
+    $ref: "_terms.yaml#/data_category/common"
     enum:
       - Transcriptome Profiling
 
   data_format:
-    $ref:
-      - "_terms.yaml#/data_format/common"
+    $ref: "_terms.yaml#/data_format/common"
     enum:
       - CSV
       - GCT
@@ -89,15 +86,13 @@ properties:
       - TXT
 
   data_type:
-    $ref:
-      - "_terms.yaml#/data_type/common"
+    $ref: "_terms.yaml#/data_type/common"
     enum:
       - Gene Expression Normalization
       - Gene Expression Quantification
 
   experimental_strategy:
-    $ref:
-      - "_terms.yaml#/experimental_strategy/common"
+    $ref: "_terms.yaml#/experimental_strategy/common"
     enum:
       - Microarray
       - RNA-Seq

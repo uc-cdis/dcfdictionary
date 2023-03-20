@@ -31,8 +31,7 @@ properties:
     type: string
 
   id:
-    $ref:
-      - "_definitions.yaml#/uuid"
+    $ref: "_definitions.yaml#/uuid"
     systemAlias: node_id
 
   name:

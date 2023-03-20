@@ -40,8 +40,7 @@ uniqueKeys:
 
 properties:
 
-  $ref:
-    - "_definitions.yaml#/ubiquitous_properties"
+  $ref: "_definitions.yaml#/ubiquitous_properties"
 
   analytical_fraction:
     description: >-

@@ -69,58 +69,45 @@ uniqueKeys:
 
 properties:
 
-  $ref:
-    - "_definitions.yaml#/workflow_properties"
+  $ref: "_definitions.yaml#/workflow_properties"
 
   adapter_content:
-    $ref:
-      - "_definitions.yaml#/qc_metrics_state"
+    $ref: "_definitions.yaml#/qc_metrics_state"
 
   basic_statistics:
-    $ref:
-      - "_definitions.yaml#/qc_metrics_state"
+    $ref: "_definitions.yaml#/qc_metrics_state"
 
   encoding:
-    $ref:
-      - "_terms.yaml#/encoding/common"
+    $ref: "_terms.yaml#/encoding/common"
     type: string
 
   fastq_name:
-    $ref:
-      - "_terms.yaml#/file_name/common"
+    $ref: "_terms.yaml#/file_name/common"
     type: string
 
   kmer_content:
-    $ref:
-      - "_definitions.yaml#/qc_metrics_state"
+    $ref: "_definitions.yaml#/qc_metrics_state"
 
   overrepresented_sequences:
-    $ref:
-      - "_definitions.yaml#/qc_metrics_state"
+    $ref: "_definitions.yaml#/qc_metrics_state"
 
   per_base_n_content:
-    $ref:
-      - "_definitions.yaml#/qc_metrics_state"
+    $ref: "_definitions.yaml#/qc_metrics_state"
 
   per_base_sequence_content:
-    $ref:
-      - "_definitions.yaml#/qc_metrics_state"
+    $ref: "_definitions.yaml#/qc_metrics_state"
 
   per_base_sequence_quality:
-    $ref:
-      - "_definitions.yaml#/qc_metrics_state"
+    $ref: "_definitions.yaml#/qc_metrics_state"
 
   per_sequence_gc_content:
-    $ref:
-      - "_definitions.yaml#/qc_metrics_state"
+    $ref: "_definitions.yaml#/qc_metrics_state"
 
   per_sequence_quality_score:
-    $ref:
-      - "_definitions.yaml#/qc_metrics_state"
+    $ref: "_definitions.yaml#/qc_metrics_state"
 
   per_tile_sequence_quality:
-    $ref:
-      - "_definitions.yaml#/qc_metrics_state"
+    $ref: "_definitions.yaml#/qc_metrics_state"
 
   percent_aligned:
     description: >-
@@ -130,19 +117,16 @@ properties:
     minimum: 0
 
   percent_gc_content:
-    $ref:
-      - "_terms.yaml#/percent_gc_content/common"
+    $ref: "_terms.yaml#/percent_gc_content/common"
     type: integer
     maximum: 100
     minimum: 0
 
   sequence_duplication_levels:
-    $ref:
-      - "_definitions.yaml#/qc_metrics_state"
+    $ref: "_definitions.yaml#/qc_metrics_state"
 
   sequence_length_distribution:
-    $ref:
-      - "_definitions.yaml#/qc_metrics_state"
+    $ref: "_definitions.yaml#/qc_metrics_state"
 
   total_aligned_reads:
     description: >-
@@ -150,13 +134,11 @@ properties:
     type: integer
 
   total_sequences:
-    $ref:
-      - "_terms.yaml#/total_sequences/common"
+    $ref: "_terms.yaml#/total_sequences/common"
     type: integer
 
   workflow_type:
-    $ref:
-      - "_terms.yaml#/workflow_type/common"
+    $ref: "_terms.yaml#/workflow_type/common"
     enum:
       - Read Group Quality Control
 

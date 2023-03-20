@@ -39,37 +39,30 @@ uniqueKeys:
 
 properties:
 
-  $ref:
-    - "_definitions.yaml#/ubiquitous_properties"
+  $ref: "_definitions.yaml#/ubiquitous_properties"
 
   a260_a280_ratio:
-    $ref:
-      - "_terms.yaml#/a260_a280_ratio/common"
+    $ref: "_terms.yaml#/a260_a280_ratio/common"
     type: number
 
   aliquot_quantity:
-    $ref:
-      - "_terms.yaml#/aliquot_quantity/common"
+    $ref: "_terms.yaml#/aliquot_quantity/common"
     type: number
 
   aliquot_volume:
-    $ref:
-      - "_terms.yaml#/aliquot_volume/common"
+    $ref: "_terms.yaml#/aliquot_volume/common"
     type: number
 
   amount:
-    $ref:
-      - "_terms.yaml#/amount/common"
+    $ref: "_terms.yaml#/amount/common"
     type: number
 
   analyte_type:
-    $ref:
-      - "_terms.yaml#/analyte_type/common"
+    $ref: "_terms.yaml#/analyte_type/common"
     type: string
 
   analyte_type_id:
-    $ref:
-      - "_terms.yaml#/analyte_type_id/common"
+    $ref: "_terms.yaml#/analyte_type_id/common"
     enum:
       - D
       - E
@@ -83,17 +76,14 @@ properties:
       - Y
 
   concentration:
-    $ref:
-      - "_terms.yaml#/concentration/common"
+    $ref: "_terms.yaml#/concentration/common"
     type: number
 
   project_id:
-    $ref:
-      - "_definitions.yaml#/project_id"
+    $ref: "_definitions.yaml#/project_id"
 
   source_center:
-    $ref:
-      - "_terms.yaml#/source_center/common"
+    $ref: "_terms.yaml#/source_center/common"
     type: string
 
   samples:

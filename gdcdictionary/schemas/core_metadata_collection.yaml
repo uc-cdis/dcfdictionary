@@ -38,8 +38,7 @@ uniqueKeys:
 
 properties:
 
-  $ref:
-    - "_definitions.yaml#/ubiquitous_properties"
+  $ref: "_definitions.yaml#/ubiquitous_properties"
 
   contributor:
     description: >-
@@ -76,8 +75,7 @@ properties:
     type: string
 
   date:
-    $ref:
-      - "_definitions.yaml#/datetime"
+    $ref: "_definitions.yaml#/datetime"
 
   description:
     description: >-

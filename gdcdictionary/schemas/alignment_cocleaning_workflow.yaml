@@ -49,12 +49,10 @@ uniqueKeys:
 
 properties:
 
-  $ref:
-    - "_definitions.yaml#/workflow_properties"
+  $ref: "_definitions.yaml#/workflow_properties"
 
   workflow_type:
-    $ref:
-      - "_terms.yaml#/workflow_type/common"
+    $ref: "_terms.yaml#/workflow_type/common"
     enum:
       - BWA with Mark Duplicates and Cocleaning
 

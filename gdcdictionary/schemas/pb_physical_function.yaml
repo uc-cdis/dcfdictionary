@@ -38,8 +38,7 @@ uniqueKeys:
 
 properties:
 
-  $ref:
-    - "_definitions.yaml#/ubiquitous_properties"
+  $ref: "_definitions.yaml#/ubiquitous_properties"
 
   patients_baseline_physical_function:
     $ref: "_definitions.yaml#/to_one"

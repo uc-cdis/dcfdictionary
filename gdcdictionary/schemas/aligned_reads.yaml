@@ -74,33 +74,28 @@ uniqueKeys:
 
 properties:
 
-  $ref:
-    - "_definitions.yaml#/data_file_properties"
+  $ref: "_definitions.yaml#/data_file_properties"
 
   data_category:
-    $ref:
-      - "_terms.yaml#/data_category/common"
+    $ref: "_terms.yaml#/data_category/common"
     enum:
       - Raw Sequencing Data
       - Sequencing Data
       - Sequencing Reads
 
   data_format:
-    $ref:
-      - "_terms.yaml#/data_format/common"
+    $ref: "_terms.yaml#/data_format/common"
     enum:
       - BAM
       - CRAM
 
   data_type:
-    $ref:
-      - "_terms.yaml#/data_type/common"
+    $ref: "_terms.yaml#/data_type/common"
     enum:
       - Aligned Reads
 
   experimental_strategy:
-    $ref:
-      - "_terms.yaml#/experimental_strategy/common"
+    $ref: "_terms.yaml#/experimental_strategy/common"
     enum:
       - Low Pass WGS
       - RNA-Seq
@@ -111,8 +106,7 @@ properties:
       - miRNA-Seq
 
   platform:
-    $ref:
-      - "_terms.yaml#/platform/common"
+    $ref: "_terms.yaml#/platform/common"
     enum:
       - Complete Genomics
       - Illumina

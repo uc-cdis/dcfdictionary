@@ -39,8 +39,7 @@ uniqueKeys:
 
 properties:
 
-  $ref:
-    - "_definitions.yaml#/ubiquitous_properties"
+  $ref: "_definitions.yaml#/ubiquitous_properties"
 
   age_range:
     description: >-
@@ -68,8 +67,7 @@ properties:
     type: integer
 
   ethnicity:
-    $ref:
-      - "_terms.yaml#/ethnicity/common"
+    $ref: "_terms.yaml#/ethnicity/common"
     enum:
       - Unknown
       - hispanic or latino
@@ -78,8 +76,7 @@ properties:
       - not reported
 
   gender:
-    $ref:
-      - "_terms.yaml#/gender/common"
+    $ref: "_terms.yaml#/gender/common"
     enum:
       - female
       - male
@@ -88,8 +85,7 @@ properties:
       - unspecified
 
   race:
-    $ref:
-      - "_terms.yaml#/race/common"
+    $ref: "_terms.yaml#/race/common"
     enum:
       - Unknown
       - american indian or alaska native
@@ -107,13 +103,11 @@ properties:
     type: string
 
   year_of_birth:
-    $ref:
-      - "_terms.yaml#/year_of_birth/common"
+    $ref: "_terms.yaml#/year_of_birth/common"
     type: number
 
   year_of_death:
-    $ref:
-      - "_terms.yaml#/year_of_death/common"
+    $ref: "_terms.yaml#/year_of_death/common"
     type: number
 
   demographic:

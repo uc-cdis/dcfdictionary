@@ -43,12 +43,10 @@ uniqueKeys:
 
 properties:
 
-  $ref:
-    - "_definitions.yaml#/ubiquitous_properties"
+  $ref: "_definitions.yaml#/ubiquitous_properties"
 
   biospecimen_anatomic_site:
-    $ref:
-      - "_terms.yaml#/biospecimen_anatomic_site/common"
+    $ref: "_terms.yaml#/biospecimen_anatomic_site/common"
     enum:
       - Abdomen
       - Abdominal Wall
@@ -343,8 +341,7 @@ properties:
     type: string
 
   composition:
-    $ref:
-      - "_terms.yaml#/composition/common"
+    $ref: "_terms.yaml#/composition/common"
     enum:
       - Bone Marrow Components
       - Bone Marrow Components NOS

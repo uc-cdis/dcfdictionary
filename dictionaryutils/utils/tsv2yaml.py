@@ -350,6 +350,9 @@ def build_properties(variables_df, enum_df):
                         elif v:
                             temp_var['$ref'].append(dbl_quote(v))
 
+                        if len(temp_var['$ref']) == 1:
+                            temp_var['$ref'] = temp_var['$ref'][0]
+
 
                         '''
                         # Do not delete - for old format
@@ -662,6 +665,8 @@ def build_nodes(nodes_df, var_dict): #, terms_flag):
 
         if property_ref and property_ref != '':
             properties['$ref'] = [dbl_quote(p) for p in property_ref]
+            if len(properties['$ref']) == 1:
+                properties['$ref'] = properties['$ref'][0]
 
         if out_dict2['id'] in var_dict:
             for key, val in var_dict[out_dict2['id']].items():

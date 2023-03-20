@@ -57,18 +57,15 @@ uniqueKeys:
 
 properties:
 
-  $ref:
-    - "_definitions.yaml#/data_file_properties"
+  $ref: "_definitions.yaml#/data_file_properties"
 
   data_category:
-    $ref:
-      - "_terms.yaml#/data_category/common"
+    $ref: "_terms.yaml#/data_category/common"
     enum:
       - Genotyping Array Data
 
   data_format:
-    $ref:
-      - "_terms.yaml#/data_format/common"
+    $ref: "_terms.yaml#/data_format/common"
     enum:
       - CEL
       - GCT
@@ -76,14 +73,12 @@ properties:
       - IDAT
 
   data_type:
-    $ref:
-      - "_terms.yaml#/data_type/common"
+    $ref: "_terms.yaml#/data_type/common"
     enum:
       - Genotyping Raw Intensity
 
   experimental_strategy:
-    $ref:
-      - "_terms.yaml#/experimental_strategy/common"
+    $ref: "_terms.yaml#/experimental_strategy/common"
     enum:
       - Genotyping Array
 
@@ -98,8 +93,7 @@ properties:
     type: integer
 
   platform:
-    $ref:
-      - "_terms.yaml#/platform/common"
+    $ref: "_terms.yaml#/platform/common"
     enum:
       - Affymetrix Genome-Wide Human SNP Array 6.0
       - Illumina Infinium HumanExome BeadChip
