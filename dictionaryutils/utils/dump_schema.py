@@ -6,7 +6,7 @@ to one json schema to ./artifacts folder.
 import json
 import os
 
-from utils import dump_schemas_from_dir
+from . import dump_schemas_from_dir
 
 dictionary_dir = os.path.join(os.path.dirname(__file__), '../../gdcdictionary')
 artifact_dir = dictionary_dir + "/artifacts"

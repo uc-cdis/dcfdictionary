@@ -1,0 +1,44 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "pb_impowr_demographics"
+title: Patient Baseline Impowr Demographics
+type: object
+namespace: https://impowrgen3.wakehealth.edu/
+category: clinical
+program: '*'
+project: '*'
+description: >-
+  Data describing patient baseline Impowr demographics
+additionalProperties: false
+submittable: true
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: patients_baseline_impowr_demographics
+    backref: pb_impowr_demographics
+    label: derived_from
+    target_type: pb_demographics
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - studies
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  patients_baseline_impowr_demographics:
+    $ref: "_definitions.yaml#/to_one"

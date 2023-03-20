@@ -3,15 +3,14 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "submitted_unaligned_reads"
 title: Submitted Unaligned Reads
 type: object
-nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: data_file
 program: '*'
 project: '*'
-description: Data file containing unaligned reads that have not been GDC Harmonized.
+description: >-
+  Data file containing unaligned reads that have not been GDC Harmonized.
 additionalProperties: false
 submittable: true
-validators: null
 
 systemProperties:
   - id
@@ -59,30 +58,26 @@ properties:
   $ref: "_definitions.yaml#/data_file_properties"
 
   data_category:
-    term:
-      $ref: "_terms.yaml#/data_category"
+    $ref: "_terms.yaml#/data_category/common"
     enum:
       - Raw Sequencing Data
       - Sequencing Data
       - Sequencing Reads
 
   data_format:
-    term:
-      $ref: "_terms.yaml#/data_format"
+    $ref: "_terms.yaml#/data_format/common"
     enum:
       - BAM
       - FASTA
       - FASTQ
 
   data_type:
-    term:
-      $ref: "_terms.yaml#/data_type"
+    $ref: "_terms.yaml#/data_type/common"
     enum:
       - Unaligned Reads
 
   experimental_strategy:
-    term:
-      $ref: "_terms.yaml#/experimental_strategy"
+    $ref: "_terms.yaml#/experimental_strategy/common"
     enum:
       - ATAC-Seq
       - Bisulfite-Seq
@@ -95,8 +90,7 @@ properties:
       - miRNA-Seq
 
   read_pair_number:
-    term:
-      $ref: "_terms.yaml#/read_pair_number"
+    $ref: "_terms.yaml#/read_pair_number/common"
     enum:
       - R1
       - R2

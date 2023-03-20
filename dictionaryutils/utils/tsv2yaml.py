@@ -350,6 +350,10 @@ def build_properties(variables_df, enum_df):
                         elif v:
                             temp_var['$ref'].append(dbl_quote(v))
 
+                        if len(temp_var['$ref']) == 1:
+                            # flatten single item $ref arrays
+                            temp_var['$ref'] = temp_var['$ref'][0]
+
 
                         '''
                         # Do not delete - for old format
@@ -510,6 +514,10 @@ def validate_links(link_dict, node_name):
     ref_link = len_links['name']
     link_len = len(ref_link)
 
+    # replace hyphens in link names
+    if link_dict['name'] and link_dict['name'][0] and link_dict['name'][0][0] != '':
+        link_dict['name'][0][0] = link_dict['name'][0][0].replace('-', '_')
+
     for key, val in len_links.items():
         if len(val)!= link_len:
             flag = False
@@ -662,6 +670,9 @@ def build_nodes(nodes_df, var_dict): #, terms_flag):
 
         if property_ref and property_ref != '':
             properties['$ref'] = [dbl_quote(p) for p in property_ref]
+            # flatten single item $ref arrays
+            if len(properties['$ref']) == 1:
+                properties['$ref'] = properties['$ref'][0]
 
         if out_dict2['id'] in var_dict:
             for key, val in var_dict[out_dict2['id']].items():

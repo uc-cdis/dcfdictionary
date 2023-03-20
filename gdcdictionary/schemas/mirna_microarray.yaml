@@ -3,15 +3,14 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "mirna_microarray"
 title: miRNA Microarray
 type: object
-nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: data_file
 program: '*'
 project: '*'
-description: Data file containing raw miRNA microarray intensity.
+description: >-
+  Data file containing raw miRNA microarray intensity.
 additionalProperties: false
 submittable: true
-validators: null
 
 systemProperties:
   - id
@@ -59,28 +58,24 @@ properties:
   $ref: "_definitions.yaml#/data_file_properties"
 
   data_category:
-    term:
-      $ref: "_terms.yaml#/data_category"
+    $ref: "_terms.yaml#/data_category/common"
     enum:
       - Transcriptome Profiling
 
   data_format:
-    term:
-      $ref: "_terms.yaml#/data_format"
+    $ref: "_terms.yaml#/data_format/common"
     enum:
       - CSV
       - TSV
       - TXT
 
   data_type:
-    term:
-      $ref: "_terms.yaml#/data_type"
+    $ref: "_terms.yaml#/data_type/common"
     enum:
       - miRNA Expression Quantification
 
   experimental_strategy:
-    term:
-      $ref: "_terms.yaml#/experimental_strategy"
+    $ref: "_terms.yaml#/experimental_strategy/common"
     enum:
       - RNA-microarray
 

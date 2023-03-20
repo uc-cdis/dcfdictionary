@@ -3,15 +3,14 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "publication"
 title: Publication
 type: object
-nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: administrative
 program: '*'
 project: '*'
-description: Publication for a project.
+description: >-
+  Publication for a project.
 additionalProperties: false
 submittable: true
-validators: null
 
 systemProperties:
   - id

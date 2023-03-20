@@ -3,15 +3,14 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "study_run_metadata"
 title: Study Run Metadata
 type: object
-nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: notation
 program: '*'
 project: '*'
-description: General experimental metadata describing study design.
+description: >-
+  General experimental metadata describing study design.
 additionalProperties: false
 submittable: true
-validators: null
 
 systemProperties:
   - id
@@ -49,40 +48,49 @@ properties:
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
   analyte:
-    description: Type of peptide or protein enrichment.
+    description: >-
+      Type of peptide or protein enrichment.
     type: string
 
   condition:
-    description: Biological condition (ex- disease state) of the cases (patients)
-      from which the aliquots derived.
+    description: >-
+      Biological condition (ex- disease state) of the cases (patients) from which
+      the aliquots derived.
     type: string
 
   date:
-    description: Date of the data acquired from the mass spectrometry.
+    description: >-
+      Date of the data acquired from the mass spectrometry.
     type: string
 
   experiment_number:
-    description: Number associated with a specific run of the experiment.
+    description: >-
+      Number associated with a specific run of the experiment.
     type: integer
 
   experiment_type:
-    description: General strategy use for differential analysis.
+    description: >-
+      General strategy use for differential analysis.
     type: string
 
   fraction:
-    description: Number of fractions in the experimental run.
+    description: >-
+      Number of fractions in the experimental run.
     type: string
 
   instrument:
-    description: Make and model of the mass spectrometry instrument.
+    description: >-
+      Make and model of the mass spectrometry instrument.
     type: string
 
   operator:
-    description: Mass spectrometry instrument operator.
+    description: >-
+      Mass spectrometry instrument operator.
     type: string
 
   replicate_number:
-    description: Replicate number, if applicable.
+    description: >-
+      Replicate number, if applicable.
     type: string
 
   protocols:

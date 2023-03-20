@@ -3,20 +3,18 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "sample"
 title: Sample
 type: object
-nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: biospecimen
 program: '*'
 project: '*'
-description: Any material sample taken from a biological entity for testing, diagnostic,
-  propagation, treatment or research purposes, including a sample obtained from a
-  living organism or taken from the biological object after halting of all its life
-  functions. Biospecimen can contain one or more components including but not limited
-  to cellular molecules, cells, tissues, organs, body fluids, embryos, and body excretory
-  products.
+description: >-
+  Any material sample taken from a biological entity for testing, diagnostic, propagation,
+  treatment or research purposes, including a sample obtained from a living organism
+  or taken from the biological object after halting of all its life functions. Biospecimen
+  can contain one or more components including but not limited to cellular molecules,
+  cells, tissues, organs, body fluids, embryos, and body excretory products.
 additionalProperties: false
 submittable: true
-validators: null
 
 systemProperties:
   - id
@@ -48,8 +46,7 @@ properties:
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
   biospecimen_anatomic_site:
-    term:
-      $ref: "_terms.yaml#/biospecimen_anatomic_site"
+    $ref: "_terms.yaml#/biospecimen_anatomic_site/common"
     enum:
       - Abdomen
       - Abdominal Wall
@@ -334,16 +331,17 @@ properties:
       - Wrist
 
   cell_line_aliases:
-    description: Cell line alias name commonly used.
+    description: >-
+      Cell line alias name commonly used.
     type: string
 
   cell_primary_name:
-    description: Cell line primary name kept in repository resource.
+    description: >-
+      Cell line primary name kept in repository resource.
     type: string
 
   composition:
-    term:
-      $ref: "_terms.yaml#/composition"
+    $ref: "_terms.yaml#/composition/common"
     enum:
       - Bone Marrow Components
       - Bone Marrow Components NOS
@@ -374,82 +372,97 @@ properties:
       - Whole Bone Marrow
 
   current_weight:
-    description: Numeric value that represents the current weight of the sample, measured
-      in milligrams.
+    description: >-
+      Numeric value that represents the current weight of the sample, measured in
+      milligrams.
     type: number
 
   days_to_collection:
-    description: Time interval from the date of biospecimen collection to the date
-      of initial pathologic diagnosis, represented as a calculated number of days.
+    description: >-
+      Time interval from the date of biospecimen collection to the date of initial
+      pathologic diagnosis, represented as a calculated number of days.
     type: integer
 
   days_to_sample_procurement:
-    description: The number of days from the date the patient was diagnosed to the
-      date of the procedure that produced the sample.
+    description: >-
+      The number of days from the date the patient was diagnosed to the date of the
+      procedure that produced the sample.
     type: integer
 
   diagnosis_pathologically_confirmed:
-    description: The histologic description of tissue or cells confirmed by a pathology
-      review of frozen or formalin fixed slide(s) completed after the diagnostic pathology
+    description: >-
+      The histologic description of tissue or cells confirmed by a pathology review
+      of frozen or formalin fixed slide(s) completed after the diagnostic pathology
       review of the tumor sample used to extract analyte(s).
     type: string
 
   freezing_method:
-    description: Text term that represents the method used for freezing the sample.
+    description: >-
+      Text term that represents the method used for freezing the sample.
     type: string
 
   gdc_project_id:
-    description: Project identifier associated with the sample at the genomic data
-      commons.
+    description: >-
+      Project identifier associated with the sample at the genomic data commons.
     type: string
 
   gdc_sample_id:
-    description: Sample identifier associated with the sample at the genomic data
-      commons.
+    description: >-
+      Sample identifier associated with the sample at the genomic data commons.
     type: string
 
   initial_weight:
-    description: Numeric value that represents the initial weight of the sample, measured
-      in milligrams.
+    description: >-
+      Numeric value that represents the initial weight of the sample, measured in
+      milligrams.
     type: number
 
   intermediate_dimension:
-    description: Intermediate dimension of the sample, in millimeters.
+    description: >-
+      Intermediate dimension of the sample, in millimeters.
     type: string
 
   is_ffpe:
-    description: Indicator to signify whether or not the tissue sample was fixed in
-      formalin and embedded in paraffin (FFPE).
+    description: >-
+      Indicator to signify whether or not the tissue sample was fixed in formalin
+      and embedded in paraffin (FFPE).
     type: integer
 
   longest_dimension:
-    description: Numeric value that represents the longest dimension of the sample,
-      measured in millimeters.
+    description: >-
+      Numeric value that represents the longest dimension of the sample, measured
+      in millimeters.
     type: string
 
   method_of_sample_procurement:
-    description: The method used to procure the sample used to extract analyte(s).
+    description: >-
+      The method used to procure the sample used to extract analyte(s).
     type: string
 
   notes:
-    description: Records of relationship to other cell line.
+    description: >-
+      Records of relationship to other cell line.
     type: string
 
   oct_embedded:
-    description: Indicator of whether or not the sample was embedded in Optimal Cutting
-      Temperature (OCT) compound.
+    description: >-
+      Indicator of whether or not the sample was embedded in Optimal Cutting Temperature
+      (OCT) compound.
     type: string
 
   pathology_report_uuid:
-    description: UUID of the related pathology report.
+    description: >-
+      UUID of the related pathology report.
     type: string
 
   preservation_method:
-    description: Text term that represents the method used to preserve the sample.
+    description: >-
+      Text term that represents the method used to preserve the sample.
     type: string
 
   sample_type:
-    description: Characterization of the sample as either clinical or contrived.
+    description: >-
+      Characterization of the sample as either clinical or contrived.
     enum:
       - Additional - New Primary
       - Additional Metastatic
@@ -497,44 +510,53 @@ properties:
       - ctDNA
 
   sample_type_id:
-    description: Code associated with the sample type.
+    description: >-
+      Code associated with the sample type.
     type: string
 
   shortest_dimension:
-    description: Numeric value that represents the shortest dimension of the sample,
-      measured in millimeters.
+    description: >-
+      Numeric value that represents the shortest dimension of the sample, measured
+      in millimeters.
     type: string
 
   source:
-    description: The name of primary source that the cell line is taken from.
+    description: >-
+      The name of primary source that the cell line is taken from.
     type: string
 
   time_between_clamping_and_freezing:
-    description: Numeric representation of the elapsed time between the surgical clamping
-      of blood supply and freezing of the sample, measured in minutes.
+    description: >-
+      Numeric representation of the elapsed time between the surgical clamping of
+      blood supply and freezing of the sample, measured in minutes.
     type: string
 
   time_between_excision_and_freezing:
-    description: Numeric representation of the elapsed time between the excision and
-      freezing of the sample, measured in minutes.
+    description: >-
+      Numeric representation of the elapsed time between the excision and freezing
+      of the sample, measured in minutes.
     type: string
 
   tissue_type:
-    description: Text term that represents a description of the kind of tissue collected
-      with respect to disease status or proximity to tumor tissue.
+    description: >-
+      Text term that represents a description of the kind of tissue collected with
+      respect to disease status or proximity to tumor tissue.
     type: string
 
   tumor_code:
-    description: Diagnostic tumor code of the tissue sample source.
+    description: >-
+      Diagnostic tumor code of the tissue sample source.
     type: string
 
   tumor_code_id:
-    description: BCR-defined id code for the tumor sample.
+    description: >-
+      BCR-defined id code for the tumor sample.
     type: string
 
   tumor_descriptor:
-    description: Text that describes the kind of disease present in the tumor specimen
-      as related to a specific timepoint.
+    description: >-
+      Text that describes the kind of disease present in the tumor specimen as related
+      to a specific timepoint.
     type: string
 
   subjects:

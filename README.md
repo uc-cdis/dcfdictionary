@@ -35,11 +35,14 @@ flexibility of the DCF dictionary makes the process of creating a new dictionary
 Our dictionary is maintained via the XLSX file format.  We selected this format because it is the friendliest for non-developers that are more focused on research and analysis.  You will find that there are **3 sheets**:
 - **nodes_impowr**
     - Nodes in the data model are strongly typed and individually defined for a specific data type
+    - Nodes may not have hyphens in their name, use underscores instead
+        - Subsequently, link names should follow the same requirement
     - Nodes are grouped up into categories that represent broad roles for the node such as `analysis` or `biospecimen`
     - Nodes have a series of **`systemProperties`**; these properties are those that will be automatically filled by the system unless otherwise defined by the user
     - Nodes may be the parent or child of another node
         - These node relationships are expressed as a **link** which points a child to its parent
             - **`link_name`**:  name of the relationship
+                - no hyphens, only underscores as a delimiter
             - **`link_label`**:  description of the relationship
             - **`link_backref`**:  child type
             - **`link_target`**:  parent type
@@ -114,7 +117,7 @@ python3 dictionaryutils/utils/tsv2yaml.py -i gdcdictionary/xlsx/ -o gdcdictionar
 python3 dictionaryutils/utils/yaml2tsv.py -i gdcdictionary/schemas/ -o gdcdictionary/xlsx/ -e xlsx -d impowr
 ```
 
-4. Dump YAML schma to JSON
+4. Dump YAML schema to JSON
 ```bash
-python3 dictionaryutils/utils/dump_schema.py
+python3 -m dictionaryutils.utils.dump_schema
 ```

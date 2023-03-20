@@ -3,16 +3,15 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "drug_response"
 title: Drug Response
 type: object
-nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: clinical
 program: '*'
 project: '*'
-description: Data from the investigation, analysis and recognition of the relationship
-  between drug dosage and drug activity; the concise results of such an investigation.
+description: >-
+  Data from the investigation, analysis and recognition of the relationship between
+  drug dosage and drug activity; the concise results of such an investigation.
 additionalProperties: false
 submittable: true
-validators: null
 
 systemProperties:
   - id
@@ -43,19 +42,23 @@ properties:
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
   activity_sd:
-    description: Standard diviation of drug activity
+    description: >-
+      Standard diviation of drug activity
     type: number
 
   compound:
-    description: Ingredients of a medication
+    description: >-
+      Ingredients of a medication
     type: string
 
   dose:
-    description: Drug dosage administrated in uM
+    description: >-
+      Drug dosage administrated in uM
     type: number
 
   median_activity:
-    description: Median value of drug activity
+    description: >-
+      Median value of drug activity
     type: number
 
   summary_drug_responses:

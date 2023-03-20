@@ -1,0 +1,44 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "pb_aim_iam_fim"
+title: Patient Baseline AIM IAM FIM
+type: object
+namespace: https://impowrgen3.wakehealth.edu/
+category: clinical
+program: '*'
+project: '*'
+description: >-
+  Data describing patient baseline  AIM IAM FIM characteristics
+additionalProperties: false
+submittable: true
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: patients_baseline_AIM_IAM_FIM
+    backref: pb_aim_iam_fim
+    label: derived_from
+    target_type: pb_implementation_science
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - studies
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  patients_baseline_AIM_IAM_FIM:
+    $ref: "_definitions.yaml#/to_one"
