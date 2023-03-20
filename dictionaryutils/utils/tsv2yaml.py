@@ -513,6 +513,9 @@ def validate_links(link_dict, node_name):
     ref_link = len_links['name']
     link_len = len(ref_link)
 
+    if link_dict['name'] and link_dict['name'][0] and link_dict['name'][0][0] != '':
+        link_dict['name'][0][0] = link_dict['name'][0][0].replace('-', '_')
+
     for key, val in len_links.items():
         if len(val)!= link_len:
             flag = False

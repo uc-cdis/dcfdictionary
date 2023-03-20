@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_PTSD_supplemental_PCL-5
+  - name: patients_baseline_PTSD_supplemental_PCL_5
     backref: pb_ptsd_supplemental_pcl_five
     label: derived_from
     target_type: pb_ptsd
@@ -40,5 +40,5 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_PTSD_supplemental_PCL-5:
+  patients_baseline_PTSD_supplemental_PCL_5:
     $ref: "_definitions.yaml#/to_one"

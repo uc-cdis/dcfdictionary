@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_PHQ-3
+  - name: patients_baseline_PHQ_3
     backref: pb_phq_three
     label: derived_from
     target_type: pb_depression
@@ -40,5 +40,5 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_PHQ-3:
+  patients_baseline_PHQ_3:
     $ref: "_definitions.yaml#/to_one"

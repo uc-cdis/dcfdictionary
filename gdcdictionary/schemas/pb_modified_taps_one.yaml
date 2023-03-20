@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_modified_TAPS-1
+  - name: patients_baseline_modified_TAPS_1
     backref: pb_modified_taps_one
     label: derived_from
     target_type: pb_substance_use
@@ -40,5 +40,5 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_modified_TAPS-1:
+  patients_baseline_modified_TAPS_1:
     $ref: "_definitions.yaml#/to_one"

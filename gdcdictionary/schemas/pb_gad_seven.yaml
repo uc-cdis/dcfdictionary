@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_GAD-7
+  - name: patients_baseline_GAD_7
     backref: pb_gad_seven
     label: derived_from
     target_type: pb_anxiety
@@ -40,5 +40,5 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_GAD-7:
+  patients_baseline_GAD_7:
     $ref: "_definitions.yaml#/to_one"
