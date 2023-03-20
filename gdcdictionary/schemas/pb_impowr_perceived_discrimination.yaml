@@ -1,0 +1,45 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "pb_impowr_perceived_discrimination"
+title: Patient Baseline IMPOWR Perceived Discrimination
+type: object
+namespace: https://impowrgen3.wakehealth.edu/
+category: clinical
+program: '*'
+project: '*'
+description: >-
+  Data describing patient baseline IMPOWR perceived discrimination characteristics
+additionalProperties: false
+submittable: true
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: patients_baseline_IMPOWR_perceived_discrimination
+    backref: pb_impowr_perceived_discrimination
+    label: derived_from
+    target_type: pb_stigma_discrimination
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - studies
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref:
+    - "_definitions.yaml#/ubiquitous_properties"
+
+  patients_baseline_IMPOWR_perceived_discrimination:
+    $ref: "_definitions.yaml#/to_one"

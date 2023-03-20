@@ -1,0 +1,45 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "pb_promis_sleep"
+title: Patient Baseline PROMIS Sleep
+type: object
+namespace: https://impowrgen3.wakehealth.edu/
+category: clinical
+program: '*'
+project: '*'
+description: >-
+  Data describing patient baseline PROMIS sleep characteristics
+additionalProperties: false
+submittable: true
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: patients_baseline_PROMIS_sleep
+    backref: pb_promis_sleep
+    label: derived_from
+    target_type: pb_sleep_fatigue
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - studies
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref:
+    - "_definitions.yaml#/ubiquitous_properties"
+
+  patients_baseline_PROMIS_sleep:
+    $ref: "_definitions.yaml#/to_one"

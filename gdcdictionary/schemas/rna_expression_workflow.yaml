@@ -3,16 +3,15 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "rna_expression_workflow"
 title: RNA Expression Workflow
 type: object
-nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: analysis
 program: '*'
 project: '*'
-description: Metadata for the RNA expression pipeline used to quantify RNA gene and
-  exon expression from unharmonized or GDC harmonized data.
+description: >-
+  Metadata for the RNA expression pipeline used to quantify RNA gene and exon expression
+  from unharmonized or GDC harmonized data.
 additionalProperties: false
 submittable: true
-validators: null
 
 systemProperties:
   - id
@@ -62,11 +61,12 @@ uniqueKeys:
 
 properties:
 
-  $ref: "_definitions.yaml#/workflow_properties"
+  $ref:
+    - "_definitions.yaml#/workflow_properties"
 
   workflow_type:
-    term:
-      $ref: "_terms.yaml#/workflow_type"
+    $ref:
+      - "_terms.yaml#/workflow_type/common"
     enum:
       - ASE
       - Cufflinks

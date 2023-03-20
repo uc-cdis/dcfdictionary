@@ -114,7 +114,7 @@ python3 dictionaryutils/utils/tsv2yaml.py -i gdcdictionary/xlsx/ -o gdcdictionar
 python3 dictionaryutils/utils/yaml2tsv.py -i gdcdictionary/schemas/ -o gdcdictionary/xlsx/ -e xlsx -d impowr
 ```
 
-4. Dump YAML schma to JSON
+4. Dump YAML schema to JSON
 ```bash
-python3 dictionaryutils/utils/dump_schema.py
+python3 -m dictionaryutils.utils.dump_schema
 ```

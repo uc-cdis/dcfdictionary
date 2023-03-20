@@ -3,16 +3,15 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "alignment_cocleaning_workflow"
 title: Alignment Cocleaning Workflow
 type: object
-nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: analysis
 program: '*'
 project: '*'
-description: Metadata for the alignment and cocleaning pipeline used to align reads
-  in the GDC harmonization pipelines.
+description: >-
+  Metadata for the alignment and cocleaning pipeline used to align reads in the GDC
+  harmonization pipelines.
 additionalProperties: false
 submittable: true
-validators: null
 
 systemProperties:
   - id
@@ -50,11 +49,12 @@ uniqueKeys:
 
 properties:
 
-  $ref: "_definitions.yaml#/workflow_properties"
+  $ref:
+    - "_definitions.yaml#/workflow_properties"
 
   workflow_type:
-    term:
-      $ref: "_terms.yaml#/workflow_type"
+    $ref:
+      - "_terms.yaml#/workflow_type/common"
     enum:
       - BWA with Mark Duplicates and Cocleaning
 

@@ -1,0 +1,45 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "pb_overall_function"
+title: Patient Baseline Overall Function
+type: object
+namespace: https://impowrgen3.wakehealth.edu/
+category: clinical
+program: '*'
+project: '*'
+description: >-
+  Data describing patient baseline overall function characteristics
+additionalProperties: false
+submittable: true
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: patients_baseline_overall_function
+    backref: pb_overall_function
+    label: derived_from
+    target_type: patient_baseline
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - studies
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref:
+    - "_definitions.yaml#/ubiquitous_properties"
+
+  patients_baseline_overall_function:
+    $ref: "_definitions.yaml#/to_one"

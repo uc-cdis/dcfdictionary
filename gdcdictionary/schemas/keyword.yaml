@@ -3,15 +3,14 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "keyword"
 title: Keyword
 type: object
-nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: administrative
 program: '*'
 project: '*'
-description: A keyword for a project.
+description: >-
+  A keyword for a project.
 additionalProperties: false
 submittable: true
-validators: null
 
 systemProperties:
   - id
@@ -39,10 +38,12 @@ uniqueKeys:
 
 properties:
 
-  $ref: "_definitions.yaml#/ubiquitous_properties"
+  $ref:
+    - "_definitions.yaml#/ubiquitous_properties"
 
   keyword_name:
-    description: The name of the keyword.
+    description: >-
+      The name of the keyword.
     type: string
 
   projects:

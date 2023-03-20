@@ -1,0 +1,47 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "protocol_impowr"
+title: Protocol_Impowr
+type: object
+namespace: https://nci-crdc-demo.datacommons.io/
+category: administrative
+program: '*'
+project: '*'
+description: >-
+  The formal plan of an experiment or research activity, including the objective,
+  rationale, design, materials and methods for the conduct of the study; intervention
+  description, and method of data analysis. (NCIt - C70817)
+additionalProperties: false
+submittable: true
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: studies
+    backref: protocols_impowr
+    label: derived_from
+    target_type: project
+    multiplicity: many_to_many
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - studies
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref:
+    - "_definitions.yaml#/ubiquitous_properties"
+
+  studies:
+    $ref: "_definitions.yaml#/to_many"

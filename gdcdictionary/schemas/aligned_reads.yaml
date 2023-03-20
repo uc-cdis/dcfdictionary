@@ -3,15 +3,14 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "aligned_reads"
 title: Aligned Reads
 type: object
-nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: data_file
 program: '*'
 project: '*'
-description: Data file containing aligned reads that are generated internally.
+description: >-
+  Data file containing aligned reads that are generated internally.
 additionalProperties: false
 submittable: true
-validators: null
 
 systemProperties:
   - id
@@ -75,32 +74,33 @@ uniqueKeys:
 
 properties:
 
-  $ref: "_definitions.yaml#/data_file_properties"
+  $ref:
+    - "_definitions.yaml#/data_file_properties"
 
   data_category:
-    term:
-      $ref: "_terms.yaml#/data_category"
+    $ref:
+      - "_terms.yaml#/data_category/common"
     enum:
       - Raw Sequencing Data
       - Sequencing Data
       - Sequencing Reads
 
   data_format:
-    term:
-      $ref: "_terms.yaml#/data_format"
+    $ref:
+      - "_terms.yaml#/data_format/common"
     enum:
       - BAM
       - CRAM
 
   data_type:
-    term:
-      $ref: "_terms.yaml#/data_type"
+    $ref:
+      - "_terms.yaml#/data_type/common"
     enum:
       - Aligned Reads
 
   experimental_strategy:
-    term:
-      $ref: "_terms.yaml#/experimental_strategy"
+    $ref:
+      - "_terms.yaml#/experimental_strategy/common"
     enum:
       - Low Pass WGS
       - RNA-Seq
@@ -111,8 +111,8 @@ properties:
       - miRNA-Seq
 
   platform:
-    term:
-      $ref: "_terms.yaml#/platform"
+    $ref:
+      - "_terms.yaml#/platform/common"
     enum:
       - Complete Genomics
       - Illumina

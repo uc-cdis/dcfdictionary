@@ -3,15 +3,14 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "provider"
 title: Provider
 type: object
-nodeTerms: null
 namespace: https://impowrgen3.wakehealth.edu/
 category: clinical
 program: '*'
 project: '*'
-description: Data describing provider
+description: >-
+  Data describing provider
 additionalProperties: false
 submittable: true
-validators: null
 
 systemProperties:
   - id
@@ -39,11 +38,13 @@ uniqueKeys:
 
 properties:
 
-  $ref: "_definitions.yaml#/ubiquitous_properties"
+  $ref:
+    - "_definitions.yaml#/ubiquitous_properties"
 
   test_property:
-    description: Placeholder property.
+    description: >-
+      Placeholder property.
     type: string
 
   participants:
-    $ref: "_definitions.yaml#/to_many"
+    $ref: "_definitions.yaml#/to_one"

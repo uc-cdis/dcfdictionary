@@ -3,15 +3,14 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "participant"
 title: Participant
 type: object
-nodeTerms: null
 namespace: https://impowrgen3.wakehealth.edu/
 category: administrative
 program: '*'
 project: '*'
-description: Data describing the study participants
+description: >-
+  Data describing the study participants
 additionalProperties: false
 submittable: true
-validators: null
 
 systemProperties:
   - id
@@ -24,7 +23,7 @@ links:
   - name: studies
     backref: participants
     label: derived_from
-    target_type: study
+    target_type: protocol_impowr
     multiplicity: many_to_one
     required: true
 
@@ -39,11 +38,13 @@ uniqueKeys:
 
 properties:
 
-  $ref: "_definitions.yaml#/ubiquitous_properties"
+  $ref:
+    - "_definitions.yaml#/ubiquitous_properties"
 
   test_property:
-    description: Placeholder property.
+    description: >-
+      Placeholder property.
     type: string
 
   studies:
-    $ref: "_definitions.yaml#/to_many"
+    $ref: "_definitions.yaml#/to_one"

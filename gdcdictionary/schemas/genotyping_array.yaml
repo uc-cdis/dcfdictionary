@@ -3,16 +3,15 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "genotyping_array"
 title: Genotyping Array
 type: object
-nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: data_file
 program: '*'
 project: '*'
-description: DNA array data files contain information on genome-wide SNP and genetic
-  variant for genetic studies.
+description: >-
+  DNA array data files contain information on genome-wide SNP and genetic variant
+  for genetic studies.
 additionalProperties: false
 submittable: true
-validators: null
 
 systemProperties:
   - id
@@ -58,17 +57,18 @@ uniqueKeys:
 
 properties:
 
-  $ref: "_definitions.yaml#/data_file_properties"
+  $ref:
+    - "_definitions.yaml#/data_file_properties"
 
   data_category:
-    term:
-      $ref: "_terms.yaml#/data_category"
+    $ref:
+      - "_terms.yaml#/data_category/common"
     enum:
       - Genotyping Array Data
 
   data_format:
-    term:
-      $ref: "_terms.yaml#/data_format"
+    $ref:
+      - "_terms.yaml#/data_format/common"
     enum:
       - CEL
       - GCT
@@ -76,28 +76,30 @@ properties:
       - IDAT
 
   data_type:
-    term:
-      $ref: "_terms.yaml#/data_type"
+    $ref:
+      - "_terms.yaml#/data_type/common"
     enum:
       - Genotyping Raw Intensity
 
   experimental_strategy:
-    term:
-      $ref: "_terms.yaml#/experimental_strategy"
+    $ref:
+      - "_terms.yaml#/experimental_strategy/common"
     enum:
       - Genotyping Array
 
   plat:
-    description: Plat number for which plate the genotyping is performed
+    description: >-
+      Plat number for which plate the genotyping is performed
     type: integer
 
   plate:
-    description: Plate number for the genotyping array.
+    description: >-
+      Plate number for the genotyping array.
     type: integer
 
   platform:
-    term:
-      $ref: "_terms.yaml#/platform"
+    $ref:
+      - "_terms.yaml#/platform/common"
     enum:
       - Affymetrix Genome-Wide Human SNP Array 6.0
       - Illumina Infinium HumanExome BeadChip

@@ -3,16 +3,15 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "alignment_workflow"
 title: Alignment Workflow
 type: object
-nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: analysis
 program: '*'
 project: '*'
-description: Metadata for the alignment pipeline used to align reads in the GDC harmonization
+description: >-
+  Metadata for the alignment pipeline used to align reads in the GDC harmonization
   pipelines.
 additionalProperties: false
 submittable: true
-validators: null
 
 systemProperties:
   - id
@@ -49,7 +48,8 @@ uniqueKeys:
 
 properties:
 
-  $ref: "_definitions.yaml#/workflow_properties"
+  $ref:
+    - "_definitions.yaml#/workflow_properties"
 
   workflow_type:
     enum:

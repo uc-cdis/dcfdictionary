@@ -3,16 +3,15 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "aliquot"
 title: Aliquot
 type: object
-nodeTerms: null
 namespace: https://nci-crdc-demo.datacommons.io/
 category: biospecimen
 program: '*'
 project: '*'
-description: Pertaining to a portion of the whole; any one of two or more samples
-  of something, of the same volume or weight.
+description: >-
+  Pertaining to a portion of the whole; any one of two or more samples of something,
+  of the same volume or weight.
 additionalProperties: false
 submittable: true
-validators: null
 
 systemProperties:
   - id
@@ -40,36 +39,37 @@ uniqueKeys:
 
 properties:
 
-  $ref: "_definitions.yaml#/ubiquitous_properties"
+  $ref:
+    - "_definitions.yaml#/ubiquitous_properties"
 
   a260_a280_ratio:
-    term:
-      $ref: "_terms.yaml#/a260_a280_ratio"
+    $ref:
+      - "_terms.yaml#/a260_a280_ratio/common"
     type: number
 
   aliquot_quantity:
-    term:
-      $ref: "_terms.yaml#/aliquot_quantity"
+    $ref:
+      - "_terms.yaml#/aliquot_quantity/common"
     type: number
 
   aliquot_volume:
-    term:
-      $ref: "_terms.yaml#/aliquot_volume"
+    $ref:
+      - "_terms.yaml#/aliquot_volume/common"
     type: number
 
   amount:
-    term:
-      $ref: "_terms.yaml#/amount"
+    $ref:
+      - "_terms.yaml#/amount/common"
     type: number
 
   analyte_type:
-    term:
-      $ref: "_terms.yaml#/analyte_type"
+    $ref:
+      - "_terms.yaml#/analyte_type/common"
     type: string
 
   analyte_type_id:
-    term:
-      $ref: "_terms.yaml#/analyte_type_id"
+    $ref:
+      - "_terms.yaml#/analyte_type_id/common"
     enum:
       - D
       - E
@@ -83,16 +83,17 @@ properties:
       - Y
 
   concentration:
-    term:
-      $ref: "_terms.yaml#/concentration"
+    $ref:
+      - "_terms.yaml#/concentration/common"
     type: number
 
   project_id:
-    $ref: "_definitions.yaml#/project_id"
+    $ref:
+      - "_definitions.yaml#/project_id"
 
   source_center:
-    term:
-      $ref: "_terms.yaml#/source_center"
+    $ref:
+      - "_terms.yaml#/source_center/common"
     type: string
 
   samples:
