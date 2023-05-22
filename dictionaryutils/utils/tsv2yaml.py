@@ -173,7 +173,7 @@ def string2list(key, val):
                 j_ = stripper(j)
 
                 if key in ['required', 'group_required', 'group_exclusive']:
-                    if j_ is not None and j_ != '':
+                    if j_ is not None and j_ != '' and j_ != 'nan':
                         tmp_lst.append(eval(j_.title()))
                     else:
                         tmp_lst.append('')
@@ -217,19 +217,17 @@ def build_enums(enum_df):
 
     enum_list = enum_df.to_dict('records')
     enum_dict = {}
-    # print(enum_list )
     for enum in enum_list:
+        print("==============/////////ENUM//////////////===========")
         print(enum)
         node     = ''
         field    = ''
         enum_val = ''
         enum_def = ''
         dep_enum = ''
-        print(enum)
         for key, val in enum.items():
             if val:
                 key = key[1:-1]
-
                 if key == 'node':
                     node = validate_name(val, 'node', val)
 
@@ -248,7 +246,6 @@ def build_enums(enum_df):
         if node != '':
             if node not in enum_dict:
                 enum_dict[node] = {}
-
             if field != '':
                 if field not in enum_dict[node]:
                     enum_dict[node][field] = {}
@@ -270,12 +267,9 @@ def build_enums(enum_df):
                 elif enum_def == 'specific':
                     enum_dict[node][field]['enumDef'][enum_val] = {'$ref': [dbl_quote('_terms.yaml#/'+re.sub('[\W]+', '', enum_val.lower().strip().replace(' ', '_'))+'/'+node+'/'+field)]}
 
-                elif enum_def:
-                    print(node)
+                elif enum_val:
                     # print(field)
                     # print(enum_dict[node][field])
-                    print(enum_val)
-                    print(enum_dict[node][field]['enumDef'])
                     enum_dict[node][field]['enum'].append(enum_val)
                     # enum_dict[node][field]['enumDef'][enum_val] = {'$ref': [dbl_quote(stripper(x)) for x in enum_def.split(',')]}
 
@@ -335,7 +329,7 @@ def build_properties(variables_df, enum_df):
                     field = validate_name(val, 'property', node)
 
                 elif key == 'terms':
-                    val_ = reqs2list(val.lower())
+                    val_ = reqs2list(val)
 
                     for v in val_:
                         if '$ref' not in temp_var:
@@ -378,10 +372,7 @@ def build_properties(variables_df, enum_df):
                     temp_var[key] = val
 
                 elif key == 'pattern':
-                    print(key)
-                    print(val)
                     temp_var[key] = dbl_quote(val)
-                    print(temp_var[key])
 
                 elif key == 'default':
                     if isinstance(val,str) and val.title() in ['True', 'False']:
@@ -411,6 +402,9 @@ def build_properties(variables_df, enum_df):
                             temp_type.append({'type' : v})
 
                         temp_var['oneOf'] = temp_type
+                elif key == 'type' and val == 'enum':
+                    temp_var['enum'] = [];
+                    print(key, val, temp_var);
 
                 elif key == 'items':
                     # if val in ['string', 'number', 'integer', 'null', 'boolean']:
@@ -449,7 +443,6 @@ def build_properties(variables_df, enum_df):
 
                 elif key != 'type':
                     temp_var[key] = val
-        print(temp_var)
 
         if 'oneOf' in temp_var:
             var_keys = ['maximum', 'minimum', 'pattern']
@@ -472,10 +465,13 @@ def build_properties(variables_df, enum_df):
         if 'minimum' in temp_var and  str(temp_var['minimum']) != 'nan':
             temp_var['minimum'] = int(temp_var.pop('minimum'))
 
+        print(temp_var);
         # When type is enum it is not populated in the temp_var as temp_var is constructed
         # to populate the actual values supposed to be populated in yaml
         if ('type' not in temp_var or temp_var['type'] == 'array') and node in enum_dict and field in enum_dict[node]:
             for k,v in enum_dict[node][field].items():
+                print("CHECK IT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                print(node, field, k, v);
                 if k == 'enum' and 'type' in temp_var and temp_var['type'] == 'array':
                     try:
                         temp_var['items'][k] = v
@@ -612,6 +608,7 @@ def build_nodes(nodes_df, var_dict): #, terms_flag):
 
         for key, val in node.items():
             key = key[1:-1]
+            print(key, val);
 
             if key == '$schema':
                 out_dict1[key] = dbl_quote(val)
@@ -732,7 +729,9 @@ def build_yamls(nodes_in_file, var_in_file, enum_in_file, in_dir, out_dir, exten
     nodes_df     = nodes_df.where(nodes_df.notnull(), None)
     variables_df = variables_df.where(variables_df.notnull(), None)
 
+    print("===lets see====");
     if enum_df is not None:
+        print(enum_df);
         enum_df  = enum_df.where(enum_df.notnull(), None)
 
     var_dict     = build_properties(variables_df, enum_df)
