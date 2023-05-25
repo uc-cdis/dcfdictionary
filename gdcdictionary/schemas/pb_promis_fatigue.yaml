@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_PROMIS_fatigue
+  - name: pb_sleep_fatigues
     backref: pb_promis_fatigue
     label: derived_from
     target_type: pb_sleep_fatigue
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,50 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_PROMIS_fatigue:
+  promisfatgfeelpst7dyscl:
+    description: >-
+      During the past 7 days… I feel fatigued
+    enum:
+      - Very much
+      - Quite a bit
+      - Somewhat
+      - A little bit
+      - Not at all
+
+  promistrsttskftgpst7dyscl:
+    description: >-
+      During the past 7 days… I have trouble starting things because I am tired
+    enum:
+      - Very much
+      - Quite a bit
+      - Somewhat
+      - A little bit
+      - Not at all
+
+  promisfatgpst7dyavgscl:
+    description: >-
+      During the past 7 days… How fatigued were you on average?
+    enum:
+      - Very much
+      - Quite a bit
+      - Somewhat
+      - A little bit
+      - Not at all
+
+  promisrndwnflpst7dyavgscl:
+    description: >-
+      During the past 7 days… How run-down did you feel on average?
+    enum:
+      - Very much
+      - Quite a bit
+      - Somewhat
+      - A little bit
+      - Not at all
+
+  promisfat4atotalscore:
+    description: >-
+      Calculated raw total score for the PROMIS Fatigue 4a items
+    type: number
+
+  pb_sleep_fatigues:
     $ref: "_definitions.yaml#/to_one"

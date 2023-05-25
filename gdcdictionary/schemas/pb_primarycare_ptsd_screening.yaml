@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_primarycare_PTSD_screening
+  - name: pb_ptsd
     backref: pb_primarycare_ptsd_screening
     label: derived_from
     target_type: pb_ptsd
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,57 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_primarycare_PTSD_screening:
+  pcptsdtraumayn:
+    description: >-
+      Sometimes things happen to people that are unusually or especially frightening,
+      horrible, or traumatic...Have you ever experienced this kind of event?
+    enum:
+      - "No"
+      - "Yes"
+
+  pcptsdthoughtyn:
+    description: >-
+      In the last month, have you had nightmares about the event(s) or thought about
+      the event(s) when you did not want to?
+    enum:
+      - "No"
+      - "Yes"
+
+  pcptavoidanceyn:
+    description: >-
+      In the last month, have you tried hard not to think about the event(s) or went
+      out of your way to avoid situations that reminded you of the event(s)?
+    enum:
+      - "No"
+      - "Yes"
+
+  pcptsdhypervigyn:
+    description: >-
+      In the last month, have you been constantly on guard, watchful, or easily startled?
+    enum:
+      - "No"
+      - "Yes"
+
+  pcptsddetachyn:
+    description: >-
+      In the last month, have you felt numb or detached from people, activities, or
+      your surroundings?
+    enum:
+      - "No"
+      - "Yes"
+
+  pcptsdguiltyn:
+    description: >-
+      In the last month, have you felt guilty or unable to stop blaming yourself or
+      others for the events(s) or any problems the event(s) may have caused?
+    enum:
+      - "No"
+      - "Yes"
+
+  pcptsd5score:
+    description: >-
+      Overall score
+    type: number
+
+  pb_ptsd:
     $ref: "_definitions.yaml#/to_one"

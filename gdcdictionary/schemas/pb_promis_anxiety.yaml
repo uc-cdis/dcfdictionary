@@ -20,8 +20,8 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_PROMIS_anxiety
-    backref: pb_promis_anxiety
+  - name: pb_anxieties
+    backref: pb_promis_anxieties
     label: derived_from
     target_type: pb_anxiety
     multiplicity: many_to_one
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,50 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_PROMIS_anxiety:
+  promisfeelfearflpst7dyscl:
+    description: >-
+      In the past 7 days...  I felt fearful
+    enum:
+      - Never
+      - Rarely
+      - Sometimes
+      - Often
+      - Always
+
+  promisdifffcsanxpst7dyscl:
+    description: >-
+      In the past 7 days… I found it hard to focus on anything other than my anxiety
+    enum:
+      - Never
+      - Rarely
+      - Sometimes
+      - Often
+      - Always
+
+  promisovrwhlmwrypst7dyscl:
+    description: >-
+      In the past 7 days… My worries overwhelmed me
+    enum:
+      - Never
+      - Rarely
+      - Sometimes
+      - Often
+      - Always
+
+  promisuneasyfeelpst7dyscl:
+    description: >-
+      In the past 7 days… In the past 7 days I felt uneasy
+    enum:
+      - Never
+      - Rarely
+      - Sometimes
+      - Often
+      - Always
+
+  promisanx4atotalscore:
+    description: >-
+      Calculated raw total score for the PROMIS Anxiety SF 4a items
+    type: number
+
+  pb_anxieties:
     $ref: "_definitions.yaml#/to_one"

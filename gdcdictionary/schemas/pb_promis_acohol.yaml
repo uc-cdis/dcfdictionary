@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "pb_promis_acohol"
-title: Patient Baseline PROMIS Acohol
+title: Patient Baseline PROMIS Acohol (suppromis_alcohol_use_short_form_7a)
 type: object
 namespace: https://impowrgen3.wakehealth.edu/
 category: clinical
@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_PROMIS_acohol
+  - name: pb_substance_uses
     backref: pb_promis_acohol
     label: derived_from
     target_type: pb_substance_use
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,85 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_PROMIS_acohol:
+  psfalc7aanydrinking:
+    description: >-
+      In the past 30 days, did you drink any type of alcoholic beverage?
+    type: string
+
+  psfalc7atoomuchtime:
+    description: >-
+      I spent too much time drinking
+    enum:
+      - Never
+      - Rarely
+      - Sometimes
+      - Often
+      - Almost Always
+
+  psfalc7adrankheavily:
+    description: >-
+      I drank heavily at a single sitting
+    enum:
+      - Never
+      - Rarely
+      - Sometimes
+      - Often
+      - Almost Always
+
+  psfalc7adranktoomuch:
+    description: >-
+      I drank too much
+    enum:
+      - Never
+      - Rarely
+      - Sometimes
+      - Often
+      - Almost Always
+
+  psfalc7adrankmorethnplan:
+    description: >-
+      I drank more than planned
+    enum:
+      - Never
+      - Rarely
+      - Sometimes
+      - Often
+      - Almost Always
+
+  psfalc7atroublecontrol:
+    description: >-
+      I had trouble controlling my drinking
+    enum:
+      - Never
+      - Rarely
+      - Sometimes
+      - Often
+      - Almost Always
+
+  psfalc7adifficulttostop:
+    description: >-
+      It was difficult for me to stop drinking after one or two drinks
+    enum:
+      - Never
+      - Rarely
+      - Sometimes
+      - Often
+      - Almost Always
+
+  psfalc7adifficulttocontrol:
+    description: >-
+      It was difficult to get the thought of drinking out of my mind
+    enum:
+      - Never
+      - Rarely
+      - Sometimes
+      - Often
+      - Almost Always
+
+  psfalc7atotalscore:
+    description: >-
+      Total score
+    type: number
+
+  pb_substance_uses:
     $ref: "_definitions.yaml#/to_one"

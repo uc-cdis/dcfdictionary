@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_PROMIS_social_functioning
+  - name: pb_socials
     backref: pb_promis_social_functioning
     label: derived_from
     target_type: pb_social
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,51 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_PROMIS_social_functioning:
+  promistrblleisactothscl:
+    description: >-
+      I have trouble doing all of my regular leisure activities with others
+    enum:
+      - Always
+      - Usually
+      - Sometimes
+      - Rarely
+      - Never
+
+  promistrblfmlyactscl:
+    description: >-
+      I have trouble doing all of the family activities that I want to do
+    enum:
+      - Always
+      - Usually
+      - Sometimes
+      - Rarely
+      - Never
+
+  promistrblusualwrkscl:
+    description: >-
+      I have trouble doing all of my usual work (include work at home)
+    enum:
+      - Always
+      - Usually
+      - Sometimes
+      - Rarely
+      - Never
+
+  promistrblfriendactvscl:
+    description: >-
+      I have trouble doing all of the activities with friends that I want to do
+    enum:
+      - Always
+      - Usually
+      - Sometimes
+      - Rarely
+      - Never
+
+  promispsra4atotalscore:
+    description: >-
+      Calculated raw total score for the PROMIS Ability to participate in social roles
+      and activities 4a items
+    type: number
+
+  pb_socials:
     $ref: "_definitions.yaml#/to_one"

@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "pb_opioid_misuse_screening"
-title: Patient Baseline Opioid Misuse Screening
+title: Patient Baseline Opioid Misuse Screening (oud_misuse_screening_questions)
 type: object
 namespace: https://impowrgen3.wakehealth.edu/
 category: clinical
@@ -20,8 +20,8 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_opioid_misuse_screening
-    backref: pb_opioid_misuse_screening
+  - name: pb_substance_uses
+    backref: pb_opioid_misuse_screenings
     label: derived_from
     target_type: pb_substance_use
     multiplicity: many_to_one
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,45 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_opioid_misuse_screening:
+  omsobtainedothr:
+    description: >-
+      I got prescription pain medication from someone other than my healthcare provider.
+    enum:
+      - Never
+      - Rarely
+      - Sometimes
+      - Often
+      - Almost Always
+
+  omsranout:
+    description: >-
+      I ran out of prescription pain medication early
+    enum:
+      - Never
+      - Rarely
+      - Sometimes
+      - Often
+      - Almost Always
+
+  omsneedmore:
+    description: >-
+      I needed more prescription pain medication to relieve my pain.
+    enum:
+      - Never
+      - Rarely
+      - Sometimes
+      - Often
+      - Almost Always
+
+  omstakemoreopioid:
+    description: >-
+      I have taken more opioid pain medication than prescribed.
+    enum:
+      - Never
+      - Rarely
+      - Sometimes
+      - Often
+      - Almost Always
+
+  pb_substance_uses:
     $ref: "_definitions.yaml#/to_one"

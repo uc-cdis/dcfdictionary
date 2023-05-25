@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_substance_use_stigma_mechanism_scale_SUSMS
+  - name: pb_stigma_discrimination
     backref: pb_susms
     label: derived_from
     target_type: pb_stigma_discrimination
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,223 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_substance_use_stigma_mechanism_scale_SUSMS:
+  susms01paindiscrim:
+    description: >-
+      Have you been discriminated against, prevented from doing something, hassled
+      or made to feel inferior because of your chronic pain?
+    type: string
+
+  susms02alcoholdiscrim:
+    description: >-
+      Have you been discriminated against, prevented from doing something, hassled
+      or made to feel inferior because of your opioid, alcohol, or other drug use?
+    type: string
+
+  susms_enfamtrust:
+    description: >-
+      How often have people treated you this way in the past because of your chronic
+      pain or alcohol/drug use history (including prescription pain medication)? Family
+      members have thought that I cannot be trusted
+    enum:
+      - Never
+      - Not often
+      - Somewhat often
+      - Often
+      - Very often
+
+  susms_enlookdown:
+    description: >-
+      Family members have looked down on me
+    enum:
+      - Never
+      - Not often
+      - Somewhat often
+      - Often
+      - Very often
+
+  susms_entreatdifferent:
+    description: >-
+      Family members have treated me differently
+    enum:
+      - Never
+      - Not often
+      - Somewhat often
+      - Often
+      - Very often
+
+  susms_ennotlisten:
+    description: >-
+      Healthcare workers have not listened to my concerns
+    enum:
+      - Never
+      - Not often
+      - Somewhat often
+      - Often
+      - Very often
+
+  susms_enpillshop:
+    description: >-
+      Healthcare workers have thought that I'm pill shopping, or trying to con them
+      into giving me prescription medications to get high or sell
+    enum:
+      - Never
+      - Not often
+      - Somewhat often
+      - Often
+      - Very often
+
+  susms_enpoorcare:
+    description: >-
+      Healthcare workers have given me poor care
+    enum:
+      - Never
+      - Not often
+      - Somewhat often
+      - Often
+      - Very often
+
+  susms_antfamtrust:
+    description: >-
+      How likely is it that people will treat you in the following ways in the future
+      because of your chronic pain and/or alcohol/drug use history (including prescription
+      pain medication)? Family members will think that I cannot be trusted.
+    enum:
+      - Very unlikely
+      - Unlikely
+      - Neither unlikely nor likely
+      - Likely
+      - Very likely
+
+  susms_antlookdown:
+    description: >-
+      Family members will look down on me.
+    enum:
+      - Very unlikely
+      - Unlikely
+      - Neither unlikely nor likely
+      - Likely
+      - Very likely
+
+  susms_anttreatdifferent:
+    description: >-
+      Family members will treat me differently.
+    enum:
+      - Very unlikely
+      - Unlikely
+      - Neither unlikely nor likely
+      - Likely
+      - Very likely
+
+  susms_antnotlisten:
+    description: >-
+      Healthcare workers will not listen to my concerns.
+    enum:
+      - Very unlikely
+      - Unlikely
+      - Neither unlikely nor likely
+      - Likely
+      - Very likely
+
+  susms_antpillshop:
+    description: >-
+      Healthcare workers will think that I'm pill shopping, or trying to con them
+      into giving me prescription medications to get high or sell.
+    enum:
+      - Very unlikely
+      - Unlikely
+      - Neither unlikely nor likely
+      - Likely
+      - Very likely
+
+  susms_antpoorcare:
+    description: >-
+      Healthcare workers will give me poor care.
+    enum:
+      - Very unlikely
+      - Unlikely
+      - Neither unlikely nor likely
+      - Likely
+      - Very likely
+
+  susms_badperson:
+    description: >-
+      How do you feel about your chronic pain and/or alcohol/drug use history (including
+      prescription pain medication)?.. Experiences of chronic pain or having used
+      alcohol/drugs makes me feel like I'm a bad person.
+    enum:
+      - Strongly disagree
+      - Disagree
+      - Neither disagree nor agree
+      - Agree
+      - Strongly agree
+
+  susms_notasgood:
+    description: >-
+      I feel I'm not as good as others.
+    enum:
+      - Strongly disagree
+      - Disagree
+      - Neither disagree nor agree
+      - Agree
+      - Strongly agree
+
+  susms_ashamed:
+    description: >-
+      I feel ashamed.
+    enum:
+      - Strongly disagree
+      - Disagree
+      - Neither disagree nor agree
+      - Agree
+      - Strongly agree
+
+  susms_thinkless:
+    description: >-
+      I think less of myself.
+    enum:
+      - Strongly disagree
+      - Disagree
+      - Neither disagree nor agree
+      - Agree
+      - Strongly agree
+
+  susms_duepain:
+    description: >-
+      For the experiences above please indicate how much your experiences are due
+      to history of chronic pain.
+    enum:
+      - Not at all
+      - About half due to chronic pain
+      - Very much due to chronic pain
+
+  susms_duealcohol:
+    description: >-
+      For the experiences above please indicate how much your experiences are due
+      to alcohol/drug use history.
+    enum:
+      - Not at all
+      - About half due to alcohol/drugs
+      - Very much due to alcohol/drugs
+
+  susms_total:
+    description: >-
+      Total Score
+    type: number
+
+  susms_enacted:
+    description: >-
+      Subscale Enacted Stigma
+    type: number
+
+  susms_anticipated:
+    description: >-
+      Subscale Anticipated Stigma
+    type: number
+
+  susms_internalized:
+    description: >-
+      Subscale Internalized Stigma
+    type: number
+
+  pb_stigma_discrimination:
     $ref: "_definitions.yaml#/to_one"

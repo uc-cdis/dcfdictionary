@@ -1,14 +1,14 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "patient_followup"
-title: Patient Followup
+id: "ruca"
+title: Patient Baseline RUCA
 type: object
 namespace: https://impowrgen3.wakehealth.edu/
 category: clinical
 program: '*'
 project: '*'
 description: >-
-  Data describing patient followup characteristics
+  Data describing patient baseline RUCA
 additionalProperties: false
 submittable: true
 
@@ -20,17 +20,16 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_followup
-    backref: patients_followup
+  - name: patient_baselines
+    backref: rucas
     label: derived_from
-    target_type: patient
+    target_type: patient_baseline
     multiplicity: many_to_one
     required: true
 
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,30 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_followup:
+  demruca1:
+    description: >-
+      Primary RUCA code
+    enum:
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - "8"
+      - "9"
+      - "10"
+      - "99"
+
+  demruca2:
+    description: >-
+      Secondary RUCA code
+    enum:
+      - None
+      - "1"
+      - "2"
+      - "3"
+
+  patient_baselines:
     $ref: "_definitions.yaml#/to_one"

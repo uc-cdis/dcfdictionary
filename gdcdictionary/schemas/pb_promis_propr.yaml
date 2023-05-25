@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_PROMIS_PROPr
+  - name: pb_health_economics
     backref: pb_promis_propr
     label: derived_from
     target_type: pb_health_economics
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,15 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_PROMIS_PROPr:
+  promis29totalscore:
+    description: >-
+      Calculated raw total score for the PROMIS 29 subscale items
+    type: number
+
+  proprscore:
+    description: >-
+      Overall PROPr score (calculated)
+    type: number
+
+  pb_health_economics:
     $ref: "_definitions.yaml#/to_one"

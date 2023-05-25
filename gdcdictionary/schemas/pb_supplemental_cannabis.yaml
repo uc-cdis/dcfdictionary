@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "pb_supplemental_cannabis"
-title: Patient Baseline Supplemental Cannabis
+title: Patient Baseline Supplemental Cannabis ( sup_substance_use_cannabis )
 type: object
 namespace: https://impowrgen3.wakehealth.edu/
 category: clinical
@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_supplemental_cannabis
+  - name: pb_substance_uses
     backref: pb_supplemental_cannabis
     label: derived_from
     target_type: pb_substance_use
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,141 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_supplemental_cannabis:
+  medical_marijuana:
+    description: >-
+      Which of the following symptoms/conditions do you treat with medical cannabis?
+    enum:
+      - Pain
+      - Inflammation
+      - Muscle Spasm
+      - Nausea
+      - Lack of appetite
+      - Seizure
+      - Problems Sleeping
+      - Depression
+      - Anxiety
+      - PTSD
+      - ADHD
+      - Bipolar
+      - Schizophrenia
+      - Opioid Use Disorder
+      - Substance use Disorder
+      - Other
+
+  su_canna_pain:
+    description: >-
+      Pain
+    type: number
+
+  su_canna_inflammation:
+    description: >-
+      Inflammation
+    type: number
+
+  su_canna_muscle_spasm:
+    description: >-
+      Muscle Spasm
+    type: number
+
+  su_canna_nausea:
+    description: >-
+      Nausea
+    type: number
+
+  su_canna_lack_appetite:
+    description: >-
+      Lack of appetite
+    type: number
+
+  su_canna:
+    description: >-
+      Seizure
+    type: number
+
+  su_canna_sleep:
+    description: >-
+      Problems Sleeping
+    type: number
+
+  su_canna_depression:
+    description: >-
+      Depression
+    type: number
+
+  su_canna_anxiety:
+    description: >-
+      Anxiety
+    type: number
+
+  su_canna_ptsd:
+    description: >-
+      PTSD
+    type: number
+
+  su_canna_adhd:
+    description: >-
+      ADHD
+    type: number
+
+  su_canna_bipolar:
+    description: >-
+      Bipolar
+    type: number
+
+  su_canna_schizo:
+    description: >-
+      Schizophrenia
+    type: number
+
+  su_canna_oud:
+    description: >-
+      Opioid Use Disorder
+    type: number
+
+  su_canna_sud:
+    description: >-
+      Substance Use Disorder
+    type: number
+
+  su_canna_treat_othertx:
+    description: >-
+      Other
+    type: number
+
+  canna_treat_othertxspecif:
+    description: >-
+      Other treatment use Specify
+    type: string
+
+  canna_percent_plant:
+    description: >-
+      Plant (i.e., bud, flower)
+    type: number
+
+  canna_percent_edible:
+    description: >-
+      Edibles (i.e., THC-infused chocolate)
+    type: number
+
+  canna_percent_concentrates:
+    description: >-
+      Concentrates (i.e., hash, dabs)
+    type: number
+
+  canna_percent_others:
+    description: >-
+      Other
+    type: number
+
+  canna_validation:
+    description: >-
+      Must total to 100%:
+    type: number
+
+  canna_percent_other_specify:
+    description: >-
+      Other cannabis Specify
+    type: string
+
+  pb_substance_uses:
     $ref: "_definitions.yaml#/to_one"

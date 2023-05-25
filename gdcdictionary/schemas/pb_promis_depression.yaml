@@ -20,8 +20,8 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_PROMIS_depression
-    backref: pb_promis_depression
+  - name: pb_depressions
+    backref: pb_promis_depressions
     label: derived_from
     target_type: pb_depression
     multiplicity: many_to_one
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,50 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_PROMIS_depression:
+  promiswrthlsfeelpst7dyscl:
+    description: >-
+      In the past 7 days…..I felt worthless
+    enum:
+      - Never
+      - Rarely
+      - Sometimes
+      - Often
+      - Always
+
+  promishelplsfeelpst7dyscl:
+    description: >-
+      In the past 7 days….. I felt helpless
+    enum:
+      - Never
+      - Rarely
+      - Sometimes
+      - Often
+      - Always
+
+  promisdprssdfeelpst7dyscl:
+    description: >-
+      In the past 7 days….. I felt depressed
+    enum:
+      - Never
+      - Rarely
+      - Sometimes
+      - Often
+      - Always
+
+  promishoplssfeelpst7dyscl:
+    description: >-
+      In the past 7 days….. I felt hopeless
+    enum:
+      - Never
+      - Rarely
+      - Sometimes
+      - Often
+      - Always
+
+  promisdep4atotalscore:
+    description: >-
+      Calculated raw total score for the PROMIS Depression 4a items
+    type: number
+
+  pb_depressions:
     $ref: "_definitions.yaml#/to_one"

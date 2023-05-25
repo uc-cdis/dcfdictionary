@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_GAD_2
+  - name: pb_anxieties
     backref: pb_gad_two
     label: derived_from
     target_type: pb_anxiety
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,30 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_GAD_2:
+  gad2feelnervscale:
+    description: >-
+      Over the last 2 weeks, how often have you been bothered by the following problems?..
+      Feeling nervous, anxious, or on edge
+    enum:
+      - Not at all
+      - Several days
+      - More than half the days
+      - Nearly every day
+
+  gad2notstopwryscale:
+    description: >-
+      Over the last 2 weeks, how often have you been bothered by the following problems?..
+      Not being able to stop or control worrying
+    enum:
+      - Not at all
+      - Several days
+      - More than half the days
+      - Nearly every day
+
+  gad2totalscore:
+    description: >-
+      Total Score
+    type: number
+
+  pb_anxieties:
     $ref: "_definitions.yaml#/to_one"

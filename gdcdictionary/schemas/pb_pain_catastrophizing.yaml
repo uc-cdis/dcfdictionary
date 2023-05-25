@@ -20,8 +20,8 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_pain_catastrophizing
-    backref: pb_pain_catastrophizing
+  - name: pb_pains
+    backref: pb_pain_catastrophizings
     label: derived_from
     target_type: pb_pain
     multiplicity: many_to_one
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,60 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_pain_catastrophizing:
+  pcqfeelcantwithstandscl:
+    description: >-
+      I feel I can't stand it anymore
+    enum:
+      - not at all
+      - to a slight degree
+      - to a moderate degree
+      - to a great degree
+      - all the time
+
+  pcqafraidpainworsescl:
+    description: >-
+      I become afraid that the pain will get worse
+    enum:
+      - not at all
+      - to a slight degree
+      - to a moderate degree
+      - to a great degree
+      - all the time
+
+  pcqhurtscl:
+    description: >-
+      I keep thinking about how much it hurts
+    enum:
+      - not at all
+      - to a slight degree
+      - to a moderate degree
+      - to a great degree
+      - all the time
+
+  pcqpainstopscl:
+    description: >-
+      I keep thinking about how badly I want the pain to stop
+    enum:
+      - not at all
+      - to a slight degree
+      - to a moderate degree
+      - to a great degree
+      - all the time
+
+  pcqseriousscl:
+    description: >-
+      I wonder whether something serious may happen
+    enum:
+      - not at all
+      - to a slight degree
+      - to a moderate degree
+      - to a great degree
+      - all the time
+
+  pcqtotalscoreval:
+    description: >-
+      Pain Catastrophizing Questionnaire - total score value
+    type: number
+
+  pb_pains:
     $ref: "_definitions.yaml#/to_one"

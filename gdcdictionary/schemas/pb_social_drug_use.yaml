@@ -20,8 +20,8 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_social_drug_use
-    backref: pb_social_drug_use
+  - name: pb_substance_uses
+    backref: pb_social_drug_uses
     label: derived_from
     target_type: pb_substance_use
     multiplicity: many_to_one
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,20 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_social_drug_use:
+  socialdetd11a:
+    description: >-
+      Been to mutual-help group meetings (such as AA, NA, CA, or SMART Recovery) for
+      your alcohol or other drug use?
+    enum:
+      - "No"
+      - "Yes"
+
+  socialdetd11b:
+    description: >-
+      Been in other structured activities where no one was using alcohol or drugs?
+    enum:
+      - "No"
+      - "Yes"
+
+  pb_substance_uses:
     $ref: "_definitions.yaml#/to_one"

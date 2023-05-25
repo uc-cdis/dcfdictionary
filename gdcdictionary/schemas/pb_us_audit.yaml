@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_US_AUDIT
+  - name: pb_substance_uses
     backref: pb_us_audit
     label: derived_from
     target_type: pb_substance_use
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,120 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_US_AUDIT:
+  usaudit_alcfreq:
+    description: >-
+      How often do you have a drink containing alcohol?
+    enum:
+      - Never
+      - Less than monthly
+      - Monthly
+      - Weekly
+      - 2-3 times/week
+      - 4-6 times/week
+      - Daily
+
+  usaudit_alcquant:
+    description: >-
+      How many drinks containing alcohol do you have on a typical day when you are
+      drinking?
+    enum:
+      - 1 drink
+      - 2 drinks
+      - 3 drinks
+      - 4 drinks
+      - 5-6 drinks
+      - 7-9 drinks
+      - 10 or more drinks
+
+  usaudit_alcexcess:
+    description: >-
+      How often do you have X (5 for men; 4 for women & men over age 65) or more drinks
+      on one occasion?
+    enum:
+      - Never
+      - Less than monthly
+      - Monthly
+      - Weekly
+      - 2-3 times/week
+      - 4-6 times/week
+      - Daily
+
+  usaudit_notstopdrnk:
+    description: >-
+      How often during the last year have you found that you were not able to stop
+      drinking once you had started?
+    enum:
+      - Never
+      - Less than monthly
+      - Monthly
+      - Weekly
+      - Daily or almost daily
+
+  usaudit_faildoexpected:
+    description: >-
+      How often during the last year have you failed to do what was normally expected
+      of you because of drinking?
+    enum:
+      - Never
+      - Less than monthly
+      - Monthly
+      - Weekly
+      - Daily or almost daily
+
+  usaudit_needamdrink:
+    description: >-
+      How often during the last year have you needed a first drink in the morning
+      to get yourself going after a heavy drinking session?
+    enum:
+      - Never
+      - Less than monthly
+      - Monthly
+      - Weekly
+      - Daily or almost daily
+
+  usaudit_guilt:
+    description: >-
+      How often during the last year have you had a feeling of guilt or remorse after
+      drinking?
+    enum:
+      - Never
+      - Less than monthly
+      - Monthly
+      - Weekly
+      - Daily or almost daily
+
+  usaudit_noremember:
+    description: >-
+      How often during the last year have you been unable to remember what happened
+      the night before because you had been drinking?
+    enum:
+      - Never
+      - Less than monthly
+      - Monthly
+      - Weekly
+      - Daily or almost daily
+
+  usaudit_injure:
+    description: >-
+      Have you or someone else been injured as a result of your drinking?
+    enum:
+      - "No"
+      - Yes, but not in the last year
+      - Yes, during the last year
+
+  usaudit_concerncutdown:
+    description: >-
+      Has a relative or friend, doctor or other health worker been concerned about
+      your drinking or suggested you cut down?
+    enum:
+      - "No"
+      - Yes, but not in the last year
+      - Yes, during the last year
+
+  usaudit_total:
+    description: >-
+      Total score
+    type: number
+
+  pb_substance_uses:
     $ref: "_definitions.yaml#/to_one"

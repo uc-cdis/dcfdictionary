@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_healthcare_utilization
+  - name: pb_health_economics
     backref: pb_healthcare_utilization
     label: derived_from
     target_type: pb_health_economics
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,288 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_healthcare_utilization:
+  hsheovernight:
+    description: >-
+      During the past 6 months, did you stay overnight in a hospital or other treatment
+      facility?
+    type: string
+
+  hshenumdetox:
+    description: >-
+      ...nights were you in a hospital detoxification program for your alcohol and
+      other drug use? (across all episodes)
+    type: string
+
+  hshenummntlhlth:
+    description: >-
+      ...nights were you in a hospital for a mental health or substance use reason
+      (not detox)?
+    type: string
+
+  hshenumphyshlth:
+    description: >-
+      ...nights were you in a hospital for your physical health (not detox)?
+    type: string
+
+  hshenonhospdetox:
+    description: >-
+      ...nights were you in a non-hospital or social detoxification program from alcohol
+      or other drugs?
+    type: string
+
+  hsheresprogram:
+    description: >-
+      ... nights were you in a residential program for mental health and/or substance
+      use?
+    type: string
+
+  hsheresnsgrhb:
+    description: >-
+      ...nights were you in a residential, nursing home or other rehabilitation facility
+      for your physical health?
+    type: string
+
+  hshenumer:
+    description: >-
+      ...times have you had to go to an emergency room without being admitted to the
+      hospital?
+    type: string
+
+  hshenumothphys:
+    description: >-
+      ...times have you seen another kind of health professional for your physical
+      health (specialty doctor, physical therapist, acupuncture, massage providers,
+      etc.)?
+    type: string
+
+  hshenumpcp:
+    description: >-
+      ...times have you seen a primary care provider (physician, nurse, nurse practitioner,
+      or physician's assistant)?
+    type: string
+
+  hshenumdentist:
+    description: >-
+      ...times have you visited a dentist?
+    type: string
+
+  hsheoutpthmsu:
+    description: >-
+      During the past 6 months, how many days did you participate in any outpatient
+      treatment program for mental health and/or substance use?
+    type: string
+
+  hsheothrmhsuclinician:
+    description: >-
+      During the past 6 months, how many times have you seen any mental health or
+      substance use counselor or social worker?
+    type: string
+
+  hsheincome:
+    description: >-
+      During the past 6 months, what was your total income from employment, including
+      under-the-table work (do not include income from illegal activities)?
+    type: string
+
+  hshehcexpenditures:
+    description: >-
+      During the past 6 months, how much of your own money have you spent on healthcare
+      (e.g., copayments, prescriptions, paying for something entirely with cash)?
+    type: string
+
+  hshedaysuninsured:
+    description: >-
+      During the past 6 months, how many days were you uninsured?
+    type: string
+
+  hshehourshc:
+    description: >-
+      During the past 6 months, how many hours have you spent on your healthcare (including
+      time with providers, travelling to appointments, picking up prescriptions, practicing
+      behavioral treatments on your own, etc.)?
+    type: string
+
+  hshedaysmissed:
+    description: >-
+      During the past 6 months, about how many days of work/school did you miss because
+      you had an illness, injury, or disability?
+    type: string
+
+  hsheunlawful_daysx:
+    description: >-
+      ...days were you ever involved in any activities that might get you into trouble
+      or be against the law besides drug use?
+    type: string
+
+  hshedwi_timesx:
+    description: >-
+      ...times have you driven a vehicle while impaired (e.g., alcohol, marijuana,
+      opioids, or other illicit substances?
+    type: string
+
+  hshedeal_timesx:
+    description: >-
+      ...times have you sold, distributed or helped to make illegal drugs (dealing,
+      distribution or sale of drugs)?
+    type: string
+
+  hshevandalism_timesx:
+    description: >-
+      ...times have you purposely damaged or destroyed property that did not belong
+      to you (vandalism or property destruction)?
+    type: string
+
+  hshestolengoods_timesx:
+    description: >-
+      ...times have you bought, received, possessed, or sold any stolen goods (receiving,
+      possessing or selling stolen goods)?
+    type: string
+
+  hshefraud_timesx:
+    description: >-
+      ...times have you passed bad checks, committed forgery, or took money illegally
+      from an employer (fraud, forgery or embezzlement)?
+    type: string
+
+  hsheburglary_timesx:
+    description: >-
+      ...times have you broken into a house or building to steal something or just
+      to look around (burglary or breaking and entering)?
+    type: string
+
+  hshetheft_timesx:
+    description: >-
+      ...times have you taken money or property that didn't belong to you without
+      "breaking and entering" and without using force against a person (larceny or
+      theft)?
+    type: string
+
+  hsherobbery_timesx:
+    description: >-
+      ...times have you used a weapon, force, or strong-arm methods to get money or
+      things from a person (robbery)?
+    type: string
+
+  hsheassault_timesx:
+    description: >-
+      ...times have you hit someone or gotten into a physical fight (simple assault
+      or battery)?
+    type: string
+
+  hsheaggrav_timesx:
+    description: >-
+      ...times have you hurt someone badly enough they needed bandages or a doctor
+      (aggravated assault or battery)?
+    type: string
+
+  hshemvtheft_timesx:
+    description: >-
+      ...times have you taken a car that didn't belong to you (motor vehicle theft)?
+    type: string
+
+  hsherape_timesx:
+    description: >-
+      ...times have you made someone have sex with you by force when they did not
+      want to have sex (forcible rape)?
+    type: string
+
+  hshearson_timesx:
+    description: >-
+      ...times have you intentionally set a building, car or other property on fire
+      (arson)?
+    type: string
+
+  hshesex_timesx:
+    description: >-
+      ...times have you traded sex for food, drugs or money (prostitution, pimping
+      or commercialized sex)?
+    type: string
+
+  hsheothercriminalactyn:
+    description: >-
+      During the past 6 months, have you done something else that would have gotten
+      you into trouble with the police if they had known about it?
+    type: string
+
+  hshecarryingweapontimes:
+    description: >-
+      Carrying a weapon - number of times?
+    type: string
+
+  hsheganginvolvetimes:
+    description: >-
+      Gang involvement - number of times?
+    type: string
+
+  hshedomesticviolencetimes:
+    description: >-
+      Domestic violence - number of times?
+    type: string
+
+  hshemurdertimes_2:
+    description: >-
+      Murder - number of times?
+    type: string
+
+  hshetrespasstimes:
+    description: >-
+      Trespass - number of times?
+    type: string
+
+  hshegamblingtimes:
+    description: >-
+      Gambling - number of times?
+    type: string
+
+  hshedisturpeacetimes:
+    description: >-
+      Disturbing the peace - number of times?
+    type: string
+
+  hshedisorderlytimes:
+    description: >-
+      Disorderly conduct - number of times?
+    type: string
+
+  hsheparaphanaliatimes:
+    description: >-
+      Paraphernalia - number of times?
+    type: string
+
+  hsherunawaytimes:
+    description: >-
+      Runaway - number of times?
+    type: string
+
+  hshecurfewtimes:
+    description: >-
+      Curfew - number of times?
+    type: string
+
+  hshetruancytimes:
+    description: >-
+      Truancy - number of times?
+    type: string
+
+  hsheincidentdescribe:
+    description: >-
+      Other (specify)
+    type: string
+
+  hsheincidenttimes:
+    description: >-
+      Other - number of times
+    type: string
+
+  hsheparoledays:
+    description: >-
+      During the past 6 months, how many days have you been on parole?
+    type: string
+
+  hsheprobationdays:
+    description: >-
+      During the past 6 months, how many days have you been on probation?
+    type: string
+
+  pb_health_economics:
     $ref: "_definitions.yaml#/to_one"

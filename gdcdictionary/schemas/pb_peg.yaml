@@ -20,8 +20,8 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_PEG
-    backref: pb_peg
+  - name: pb_pains
+    backref: pb_pegs
     label: derived_from
     target_type: pb_pain
     multiplicity: many_to_one
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,57 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_PEG:
+  pegavgpainpastweekscl:
+    description: >-
+      What number best describes your pain on average in the past week?
+    enum:
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - "8"
+      - "9"
+      - "10"
+
+  pegpainpastwkenjoylifescl:
+    description: >-
+      What number best describes how, during the past week, pain has interfered with
+      your enjoyment of life?
+    enum:
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - "8"
+      - "9"
+      - "10"
+
+  pegpainpastwkgenrlactscl:
+    description: >-
+      What number best describes how, during the past week, pain has interfered with
+      your general activity?
+    enum:
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - "8"
+      - "9"
+      - "10"
+
+  pegoverallscore:
+    description: >-
+      PEG - overall score
+    type: number
+
+  pb_pains:
     $ref: "_definitions.yaml#/to_one"

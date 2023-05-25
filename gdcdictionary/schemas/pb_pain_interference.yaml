@@ -20,8 +20,8 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_pain_interference
-    backref: pb_pain_interference
+  - name: pb_pains
+    backref: pb_pain_interferences
     label: derived_from
     target_type: pb_pain
     multiplicity: many_to_one
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,50 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_pain_interference:
+  promispnintdlyactpst7dscl:
+    description: >-
+      How much did pain interfere with your day to day activities?
+    enum:
+      - Not at all
+      - A little bit
+      - Somewhat
+      - Quite a bit
+      - Very much
+
+  promispainintwkhmpst7dscl:
+    description: >-
+      How much did pain interfere with work around the home?
+    enum:
+      - Not at all
+      - A little bit
+      - Somewhat
+      - Quite a bit
+      - Very much
+
+  promispnintprscacpst7dscl:
+    description: >-
+      How much did pain interfere with your ability to participate in social activities?
+    enum:
+      - Not at all
+      - A little bit
+      - Somewhat
+      - Quite a bit
+      - Very much
+
+  promispninthschrpst7dscl:
+    description: >-
+      How much did pain interfere with your household chores?
+    enum:
+      - Not at all
+      - A little bit
+      - Somewhat
+      - Quite a bit
+      - Very much
+
+  promispainintf4atotalscore:
+    description: >-
+      Calculated raw total score for the PROMIS Pain Interference 4a items
+    type: number
+
+  pb_pains:
     $ref: "_definitions.yaml#/to_one"

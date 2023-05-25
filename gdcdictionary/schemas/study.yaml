@@ -31,7 +31,6 @@ links:
 required:
   - submitter_id
   - type
-  - study_description
   - projects
 
 uniqueKeys:
@@ -42,79 +41,537 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  analytical_fraction:
+  imp_me_studyname:
     description: >-
-      Type of peptide or protein enrichment
-    type: string
+      Which study is the patient participating in?
+    enum: []
 
-  data_description:
+  imp_bstrong_pop:
     description: >-
-      Brief description of the data being provided for this study. Free text
-    type: string
+      Population: Opioid use disorder and low back pain
+    type: number
 
-  experiment_type:
+  imp_bstrong_inter:
     description: >-
-      General strategy used for differential analysis
-    type: string
+      Intervention: Yoga vs Physical Therapy vs Treatment as usual (TAU)
+    type: number
 
-  is_clinical_trial:
+  imp_bstrong_sd:
     description: >-
-      Flag that indicates whether this is a clinical trial study
-    type: boolean
+      Study Design: 3 Arm RCT; Type I
+    type: number
 
-  study_completeness:
+  imp_bstrong_if:
     description: >-
-      Description of data status. 0=Descriptive data and results as originally received
-      from the data provider. 1=Includes updates to the original data submission short
-      of completeness. 2=Complete set of descriptive data and results, as ascertained
-      by curator.
-    enum:
-      - "0"
-      - "1"
-      - "2"
+      Implementation Framework: RE-AIM & CFIR
+    type: number
 
-  study_description:
+  imp_bstrong_econ:
     description: >-
-      A brief description of the study being performed. Free text
-    type: string
+      Economic analysis: Yes
+    type: number
 
-  study_design:
+  imp_bstrong_moud:
     description: >-
-      Summary of the goals the study is designed to discover. General description
-      of the study's place in relation to a clinical application.
-    type: string
+      MOUD: Methadone
+    type: number
 
-  study_doi:
+  imp_bstrong_setting:
     description: >-
-      Digital object identifier (DOI) is a type of persistent identifier used to uniquely
-      identify objects
-    type: string
+      Health Setting: Methadone Clinic
+    type: number
 
-  study_objective:
+  imp_bstrong_sample:
     description: >-
-      The general objective of the study. What the study hopes to discover or determine
-      through testing.
-    type: string
+      Sample size: 345
+    type: number
 
-  study_organization:
+  imp_bstrong_followup:
     description: >-
-      Name of the primary organization that oversees implementation of the study
-    type: string
+      Follow-up: 1, 2, 3, 6, 9 months
+    type: number
 
-  study_release_date:
+  impowr_ime2_pop:
     description: >-
-      Latest date when the study was shared
-    type: string
+      Population: OUD and nonspecific pain
+    type: number
 
-  study_release_version:
+  impowr_ime2_inter:
     description: >-
-      Latest version of study shared
-    type: string
+      Intervention: ACT vs care management vs ACT + care management vs Treatment as
+      usual (TAU)
+    type: number
 
-  study_setup:
+  impowr_ime2_sd:
     description: >-
-      Category
-    type: string
+      Study Design: 2x2 Factorial Design; Type I
+    type: number
+
+  impowr_ime2_if:
+    description: >-
+      Implementation Framework: RE-AIM & CFIR
+    type: number
+
+  impowr_ime2_econ:
+    description: >-
+      Economic analysis: yes
+    type: number
+
+  impowr_ime2_moud:
+    description: >-
+      MOUD: Buprenorphine
+    type: number
+
+  impowr_ime2_setting:
+    description: >-
+      Health Setting: Primary Care (FQHCs)
+    type: number
+
+  impowr_ime2_sample:
+    description: >-
+      Sample size: 980
+    type: number
+
+  impowr_ime2_followup:
+    description: >-
+      Follow ups: 0, 1.5, 3, 6, 9 months
+    type: number
+
+  imp_bup_pop:
+    description: >-
+      Population: OUD and nonspecific chronic pain
+    type: number
+
+  imp_bup_inter:
+    description: >-
+      Intervention: Buprenorphine standard induction vs microdosing
+    type: number
+
+  imp_bup_sd:
+    description: >-
+      Study Design: 2 Arm RCT; Type I
+    type: number
+
+  imp_bup_if:
+    description: >-
+      Implementation framework: RE-AIM & CFIR
+    type: number
+
+  imp_bup_econ:
+    description: >-
+      Economic Analysis: yes
+    type: number
+
+  imp_bup_moud:
+    description: >-
+      MOUD: Buprenorphine
+    type: number
+
+  imp_bup_setting:
+    description: >-
+      Health Setting: Hospitals
+    type: number
+
+  imp_bup_sample:
+    description: >-
+      Sample size: 270
+    type: number
+
+  imp_bup_followup:
+    description: >-
+      Follow-up: 0, 0.25, 1, 3, 6 months
+    type: number
+
+  imp_you_studyname:
+    description: >-
+      Which study is the patient participating in?
+    enum: []
+
+  imp_champ_pop:
+    description: >-
+      Population: OUD/misuse; nonspecific CP
+    type: number
+
+  imp_champ_inter:
+    description: >-
+      Intervention: Pharmacist + physician tele-consulting (TCM) vs TCM + CBT (COPES)
+    type: number
+
+  imp_champ_sd:
+    description: >-
+      Study design: 2 Arm RCT; Type II
+    type: number
+
+  imp_champ_if:
+    description: >-
+      Implementation Framework: i-PARIHS
+    type: number
+
+  imp_champ_econ:
+    description: >-
+      Economic analysis: Yes
+    type: number
+
+  imp_champ_moud:
+    description: >-
+      MOUD: Buprenorphine
+    type: number
+
+  imp_champ_setting:
+    description: >-
+      Setting: Primary Care
+    type: number
+
+  imp_champ_sample:
+    description: >-
+      Sample size: 1600
+    type: number
+
+  imp_champ_followup:
+    description: >-
+      Follow-up: 12 months
+    type: number
+
+  imp_scpowr_pop:
+    description: >-
+      Population: OUD; nonspecific CP
+    type: number
+
+  imp_scpowr_inter:
+    description: >-
+      Intervention: Multimodal stepped care interdisciplinary (CBT 🡪 exercise 🡪 stress
+      mgmt) vs TAU
+    type: number
+
+  imp_scpowr_sd:
+    description: >-
+      Study design: Stage II Stepped Care
+    type: number
+
+  imp_scpowr_if:
+    description: >-
+      Implementation framework: N/A
+    type: number
+
+  imp_scpowr_econ:
+    description: >-
+      Economic analysisL Yes, as exploratory aim
+    type: number
+
+  imp_scpowr_moud:
+    description: >-
+      MOUD: Methadone & Buprenorphine
+    type: number
+
+  imp_scpowr_setting:
+    description: >-
+      Health Setting: OTP
+    type: number
+
+  imp_scpowr_sample:
+    description: >-
+      Study size: 328
+    type: number
+
+  imp_scpowr_follow:
+    description: >-
+      Follow-up: 6, 9, 12 months
+    type: number
+
+  imp_tree_studyname:
+    description: >-
+      Which study is the patient participating in?
+    enum: []
+
+  imp_eng_pop:
+    description: >-
+      Population: OUD; nonspecific CP
+    type: number
+
+  imp_eng_inter:
+    description: >-
+      Intervention: PSM + MOUD vs Enhanced Treatment as usual
+    type: number
+
+  imp_eng_sd:
+    description: >-
+      Study design: 2 Arm RCT; Hybrid Type I
+    type: number
+
+  imp_eng_moud:
+    description: >-
+      MOUD: Buprenorphine/naloxone
+    type: number
+
+  imp_eng_if:
+    description: >-
+      Implementation framework: Health Equity Implementation Framework
+    type: number
+
+  imp_eng_econ:
+    description: >-
+      Economic analysis: yes
+    type: number
+
+  imp_eng_setting:
+    description: >-
+      Health setting: primary care
+    type: number
+
+  imp_eng_sample:
+    description: >-
+      Sample size: 378
+    type: number
+
+  imp_eng_followup:
+    description: >-
+      Follow-up: 0, 1, 2, 3, 6, 12 months
+    type: number
+
+  imp_ret_pop:
+    description: >-
+      Population: OUD; nonspecific CP
+    type: number
+
+  imp_ret_inter:
+    description: >-
+      Intervention: PSM vs Flexible bup vs PSM + Flexible bup vs TAU
+    type: number
+
+  imp_ret_sd:
+    description: >-
+      Study design: 2x2 Factorial Design; Hybrid Type I
+    type: number
+
+  imp_ret_moud:
+    description: >-
+      MOUD: Buprenorphine/naloxone
+    type: number
+
+  imp_ret_if:
+    description: >-
+      Implementation framework: Health Equity Implementation Framework
+    type: number
+
+  imp_ret_econ:
+    description: >-
+      Economic analysis: yes
+    type: number
+
+  imp_ret_setting:
+    description: >-
+      Setting: office-based opioid treatment programs (OBOTs)
+    type: number
+
+  imp_ret_sample:
+    description: >-
+      Sample size: 458
+    type: number
+
+  imp_ret_followup:
+    description: >-
+      Follow-up: 0, 1, 2, 3, 6, 9, 12 months
+    type: number
+
+  imp_nm_studyname:
+    description: >-
+      Which study is the patient participating in?
+    enum: []
+
+  imp_hope_pop:
+    description: >-
+      Population: Opioid use disorder and nonspecific chronic pain
+    type: number
+
+  imp_hope_inter:
+    description: >-
+      Intervention: Yoga vs Physical Therapy vs Treatment as usual (TAU)
+    type: number
+
+  imp_hope_sd:
+    description: >-
+      Study Design: Type I
+    type: number
+
+  imp_hope_if:
+    description: >-
+      Implementation Framework:CFIR
+    type: number
+
+  imp_hope_econ:
+    description: >-
+      Economic analysis: Yes
+    type: number
+
+  imp_hope_moud:
+    description: >-
+      MOUD: Buprenorphine
+    type: number
+
+  imp_hope_setting:
+    description: >-
+      Health Setting: OTP
+    type: number
+
+  imp_hope_sample:
+    description: >-
+      Sample size: 45 providers/160 clients
+    type: number
+
+  imp_hope_followup:
+    description: >-
+      Follow-up: End of treatment, 6- and 12-months post-treatment
+    type: number
+
+  impowr_optic_pop:
+    description: >-
+      Population: OUD/misuse; nonspecific CP
+    type: number
+
+  impowr_optic_inter:
+    description: >-
+      Intervention: AI/AN culturally-adapted MI to increase screening/treatment initiation
+      via academic detailing implementation strategy
+    type: number
+
+  impowr_optic_sd:
+    description: >-
+      Study Design: Step Wedge Clustered RCT; Type III
+    type: number
+
+  impowr_optic_if:
+    description: >-
+      Implementation Framework: RE-AIM & CFIR
+    type: number
+
+  impowr_optic_econ:
+    description: >-
+      Economic analysis: yes
+    type: number
+
+  impowr_optic_moud:
+    description: >-
+      MOUD: Dependent on access
+    type: number
+
+  impowr_optic_setting:
+    description: >-
+      Health Setting: Primary Care
+    type: number
+
+  impowr_optic_sample:
+    description: >-
+      Sample size: 45 providers/225 clients
+    type: number
+
+  impowr_optic_followup:
+    description: >-
+      Follow ups: 4-, 8- and 12-months post-baseline
+    type: number
+
+  imp_jh_studysite:
+    description: >-
+      The patient is enrolled in  "Randomized Clinical Trial Intervention to Treat
+      Chronic Pain Among Persons Maintained on Methadone for Opioid Use Disorder
+    enum: []
+
+  imp_jh_pop:
+    description: >-
+      Population: OUD; nonspecific CP
+    type: number
+
+  imp_jh_inter:
+    description: >-
+      Intervention: Standard vs split (2x/day) methadone dosing
+    type: number
+
+  imp_jh_sd:
+    description: >-
+      Study design: 2 Arm RCT
+    type: number
+
+  imp_jh_if:
+    description: >-
+      Implementation framework: none
+    type: number
+
+  imp_jh_econ:
+    description: >-
+      Economic analysis: none
+    type: number
+
+  imp_jh_moud:
+    description: >-
+      MOUD: Methadone
+    type: number
+
+  imp_jh_setting:
+    description: >-
+      Setting: OTP
+    type: number
+
+  imp_jh_sample:
+    description: >-
+      Sample size: 150
+    type: number
+
+  imp_jh_followup:
+    description: >-
+      Follow-up: 6 months
+    type: number
+
+  imp_rutgers_studysite:
+    description: >-
+      The patient is enrolled in  "Implementation and Effectiveness of Mindfulness
+      Oriented Recovery Enhancement as an Adjunct to Methadone Treatment for Opioid
+      Use Disorder
+    enum: []
+
+  imp_rutgers_pop:
+    description: >-
+      Population: OUD; nonspecific CP
+    type: number
+
+  imp_rutgers_inter:
+    description: >-
+      Intervention: Mindfulness-Oriented Recovery Enhancement (MORE) vs scripted mindfulness
+      practice vs TAU; implementation strategy is train the trainer vs LCSW
+    type: number
+
+  imp_rutgers_sd:
+    description: >-
+      Stage 2 3arm RCT
+    type: number
+
+  imp_rutgers_if:
+    description: >-
+      Implementation framework: RE-AIM (Hybrid Type II trial)
+    type: number
+
+  imp_rutgers_econ:
+    description: >-
+      Economic analysis: none
+    type: number
+
+  imp_rutgers_moud:
+    description: >-
+      MOUD: Methadone
+    type: number
+
+  imp_rutgers_setting:
+    description: >-
+      Setting: OTP
+    type: number
+
+  imp_rutgers_sample:
+    description: >-
+      Sample size: 420
+    type: number
+
+  imp_rutgers_followup:
+    description: >-
+      Follow-up: 8, 16, 24, and 52 weeks
+    type: number
 
   projects:
     $ref: "_definitions.yaml#/to_one_project"

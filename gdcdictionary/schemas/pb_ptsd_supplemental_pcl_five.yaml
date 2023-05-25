@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_PTSD_supplemental_PCL_5
+  - name: pb_ptsd
     backref: pb_ptsd_supplemental_pcl_five
     label: derived_from
     target_type: pb_ptsd
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,238 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_PTSD_supplemental_PCL_5:
+  pcl5rptdisturbmemoryscl:
+    description: >-
+      In the past month, how much were you bothered by: Repeated, disturbing, and
+      unwanted memories of the stressful experience?
+    enum:
+      - Not at all
+      - A little bit
+      - Moderately
+      - Quite a bit
+      - Extremely
+
+  pcl5rptdisturbdreamsscl:
+    description: >-
+      Repeated, disturbing dreams of the stressful experience?
+    enum:
+      - Not at all
+      - A little bit
+      - Moderately
+      - Quite a bit
+      - Extremely
+
+  pcl5suddenhappenagainscl:
+    description: >-
+      Suddenly feeling or acting as if the stressful experience were actually happening
+      again (as if you were actually back there reliving it)?
+    enum:
+      - Not at all
+      - A little bit
+      - Moderately
+      - Quite a bit
+      - Extremely
+
+  pcl5upsetremindscl:
+    description: >-
+      Feeling very upset when something reminded you of the stressful experience?
+    enum:
+      - Not at all
+      - A little bit
+      - Moderately
+      - Quite a bit
+      - Extremely
+
+  pcl5strngphysreactscl:
+    description: >-
+      Having strong physical reactions when something reminded you of the stressful
+      experience (for example, heart pounding, trouble breathing, sweating)?
+    enum:
+      - Not at all
+      - A little bit
+      - Moderately
+      - Quite a bit
+      - Extremely
+
+  pcl5avoidmemoryscl:
+    description: >-
+      Avoiding memories, thoughts, or feelings related to the stressful experience?
+    enum:
+      - Not at all
+      - A little bit
+      - Moderately
+      - Quite a bit
+      - Extremely
+
+  pcl5avoidexternalrmndscl:
+    description: >-
+      Avoiding external reminders of the stressful experience (for example, people,
+      places, conversations, activities, objects, or situations)?
+    enum:
+      - Not at all
+      - A little bit
+      - Moderately
+      - Quite a bit
+      - Extremely
+
+  pcl5trblremembimptscl:
+    description: >-
+      Trouble remembering important parts of the stressful experience?
+    enum:
+      - Not at all
+      - A little bit
+      - Moderately
+      - Quite a bit
+      - Extremely
+
+  pcl5strngnegbeliefscl:
+    description: >-
+      Having strong negative beliefs about yourself, other people, or the world (for
+      example, having thoughts such as: I am bad, there is something seriously wrong
+      with me, no one can be trusted, the world is completely dangerous)?
+    enum:
+      - Not at all
+      - A little bit
+      - Moderately
+      - Quite a bit
+      - Extremely
+
+  pcl5blamingscl:
+    description: >-
+      Blaming yourself or someone else for the stressful experience or what happened
+      after it?
+    enum:
+      - Not at all
+      - A little bit
+      - Moderately
+      - Quite a bit
+      - Extremely
+
+  pcl5strongnegfeelscl:
+    description: >-
+      Having strong negative feelings such as fear, horror, anger, guilt, or shame?
+    enum:
+      - Not at all
+      - A little bit
+      - Moderately
+      - Quite a bit
+      - Extremely
+
+  pcl5lossintrstactivscl:
+    description: >-
+      Loss of interest in activities that you used to enjoy?
+    enum:
+      - Not at all
+      - A little bit
+      - Moderately
+      - Quite a bit
+      - Extremely
+
+  pcl5feeldistantscl:
+    description: >-
+      Feeling distant or cut off from other people?
+    enum:
+      - Not at all
+      - A little bit
+      - Moderately
+      - Quite a bit
+      - Extremely
+
+  pcl5trblexperposscl:
+    description: >-
+      Trouble experiencing positive feelings (for example, being unable to feel happiness
+      or have loving feelings for people close to you)?
+    enum:
+      - Not at all
+      - A little bit
+      - Moderately
+      - Quite a bit
+      - Extremely
+
+  pcl5irritbehavscl:
+    description: >-
+      Irritable behavior, angry outbursts, or acting aggressively?
+    enum:
+      - Not at all
+      - A little bit
+      - Moderately
+      - Quite a bit
+      - Extremely
+
+  pcl5takingriskscl:
+    description: >-
+      Taking too many risks or doing things that could cause you harm?
+    enum:
+      - Not at all
+      - A little bit
+      - Moderately
+      - Quite a bit
+      - Extremely
+
+  pcl5superalertscl:
+    description: >-
+      Being "superalert" or watchful or on guard?
+    enum:
+      - Not at all
+      - A little bit
+      - Moderately
+      - Quite a bit
+      - Extremely
+
+  pcl5feelingjumpyscl:
+    description: >-
+      Feeling jumpy or easily startled?
+    enum:
+      - Not at all
+      - A little bit
+      - Moderately
+      - Quite a bit
+      - Extremely
+
+  pcl5diffconcenscl:
+    description: >-
+      Having difficulty concentrating?
+    enum:
+      - Not at all
+      - A little bit
+      - Moderately
+      - Quite a bit
+      - Extremely
+
+  pcl5sleepdifcltyscl:
+    description: >-
+      Trouble falling or staying asleep?
+    enum:
+      - Not at all
+      - A little bit
+      - Moderately
+      - Quite a bit
+      - Extremely
+
+  pcl5totalscore:
+    description: >-
+      Total symptom severity score
+    type: number
+
+  pcl5clusterbscore:
+    description: >-
+      Symptom Cluster B Score
+    type: number
+
+  pcl5clustercscoresymptom_cluster_c_score:
+    description: >-
+      Symptom Cluster C Score
+    type: number
+
+  pcl5clusterdscore:
+    description: >-
+      Symptom Cluster D Score
+    type: number
+
+  pcl5clusterescore:
+    description: >-
+      Symptom Cluster E Score
+    type: number
+
+  pb_ptsd:
     $ref: "_definitions.yaml#/to_one"

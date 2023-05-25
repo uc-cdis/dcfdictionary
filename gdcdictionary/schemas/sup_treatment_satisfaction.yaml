@@ -1,0 +1,104 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "sup_treatment_satisfaction"
+title: SUP Treatment Satisfaction
+type: object
+namespace: https://impowrgen3.wakehealth.edu/
+category: clinical
+program: '*'
+project: '*'
+description: >-
+  Data describing supplimental Treatment satisfaction
+additionalProperties: false
+submittable: true
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: pb_stigma_discrimination
+    backref: sup_treatment_satisfaction
+    label: derived_from
+    target_type: pb_stigma_discrimination
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  suptxrecdyn:
+    description: >-
+      Have you received any substance use treatment in the past 90 days (since last
+      assessment)?
+    type: string
+
+  suptxorganized:
+    description: >-
+      The provider is organized and well-run
+    enum:
+      - Strongly agree
+      - Moderately agree
+      - Agree somewhat
+      - Agree a little
+      - Do not agree at all
+
+  suptxsatisfied:
+    description: >-
+      You are satisfied with this provider
+    enum:
+      - Strongly agree
+      - Moderately agree
+      - Agree somewhat
+      - Agree a little
+      - Do not agree at all
+
+  suptxefficient:
+    description: >-
+      The staff are efficient at doing their job
+    enum:
+      - Strongly agree
+      - Moderately agree
+      - Agree somewhat
+      - Agree a little
+      - Do not agree at all
+
+  suptxperscounsel:
+    description: >-
+      You can get plenty of personal counseling at this provider
+    enum:
+      - Strongly agree
+      - Moderately agree
+      - Agree somewhat
+      - Agree a little
+      - Do not agree at all
+
+  suptxmedoud:
+    description: >-
+      You can get plenty of medication assistance for opioid use at this provider
+    enum:
+      - Strongly agree
+      - Moderately agree
+      - Agree somewhat
+      - Agree a little
+      - Do not agree at all
+
+  suptxoverall:
+    description: >-
+      Overall score
+    type: number
+
+  pb_stigma_discrimination:
+    $ref: "_definitions.yaml#/to_one"

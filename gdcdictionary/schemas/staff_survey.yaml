@@ -1,0 +1,224 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "staff_survey"
+title: Staff_Survey
+type: object
+namespace: https://impowrgen3.wakehealth.edu/
+category: clinical
+program: '*'
+project: '*'
+description: >-
+  Data for the characterization of the provider by means of segementing the population
+  (e.g.,characterization by age, sex, or race)
+additionalProperties: false
+submittable: true
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: provider_baselines
+    backref: staff_surveys
+    label: describes
+    target_type: provider_baseline
+    multiplicity: one_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  imp_staff_enroll_date:
+    description: >-
+      Date of enrollment
+    type: string
+
+  impd_staff_ethnic:
+    description: >-
+      Are you of Hispanic, Latino, or Spanish origin?
+    enum: []
+
+  impd_staff_race:
+    description: >-
+      What is your race?
+    enum: []
+
+  impdrace_staff_white:
+    description: >-
+      White
+    type: number
+
+  impdrace_staff_bl_aa:
+    description: >-
+      Black/African American
+    type: number
+
+  impdrace_staff_ai_an:
+    description: >-
+      American Indian or Alaska Native
+    type: number
+
+  impdrace_staff_asian:
+    description: >-
+      Asian
+    type: number
+
+  impdrace_staff_nh_pi:
+    description: >-
+      Native Hawaiian or Other Pacific Islander
+    type: number
+
+  impdrace_staff_other:
+    description: >-
+      Some other race
+    type: number
+
+  impdrace_staff_unkn:
+    description: >-
+      Unknown
+    type: number
+
+  impdrace_staff_not_rep:
+    description: >-
+      Prefer not to answer
+    type: number
+
+  impdrace_staff_othertxt:
+    description: >-
+      Some other race (SPECIFY)
+    type: string
+
+  impdgenid_staff:
+    description: >-
+      Gender Identity - Do you think of yourself as . . .
+    enum: []
+
+  impdgenid_staff_male:
+    description: >-
+      Male
+    type: number
+
+  impdgenid_staff_female:
+    description: >-
+      Female
+    type: number
+
+  impdgenid_staff_transman:
+    description: >-
+      Transgender man/trans man/female-to-male (FTM)
+    type: number
+
+  impdgenid_staff_transwoman:
+    description: >-
+      Transgender woman/trans woman/male-to-female (MTF)
+    type: number
+
+  impdgenid_staff_genqueer:
+    description: >-
+      Genderqueer
+    type: number
+
+  impdgenid_staff_nonbinary:
+    description: >-
+      Nonbinary
+    type: number
+
+  impdgenid_staff_agender:
+    description: >-
+      Agender
+    type: number
+
+  impdgenid_staff_genfluid:
+    description: >-
+      Gender Fluid
+    type: number
+
+  impdgenid_staff_other:
+    description: >-
+      Some other gender
+    type: number
+
+  impdgenid_staff_not_rep:
+    description: >-
+      Prefer not to answer
+    type: number
+
+  impdgenid_staff_othertxt:
+    description: >-
+      Please specify for gender category
+    type: string
+
+  imp_staff_job:
+    description: >-
+      Which of the following best describes your job?
+    enum: []
+
+  imp_staff_othertxt:
+    description: >-
+      Please describe:
+    type: string
+
+  imp_staff_physspec:
+    description: >-
+      What is your physician specialty?
+    enum: []
+
+  imp_staff_physspec_other:
+    description: >-
+      Please describe:
+    type: string
+
+  imp_staff_cert_addx:
+    description: >-
+      What is your current certification status in the addiction treatment?
+    enum: []
+
+  imp_staff_cert_pain:
+    description: >-
+      What is your current certification status in the pain treatment?
+    enum: []
+
+  imp_staff_addx_exp:
+    description: >-
+      How much experience do you have treating addiction?
+    enum: []
+
+  imp_staff_pain_exp:
+    description: >-
+      How much experience do you have treating pain?
+    enum: []
+
+  imp_staff_emplength:
+    description: >-
+      How long have you been in your current employment position?
+    enum: []
+
+  imp_staff_clientload:
+    description: >-
+      If you see clients, how many clients are on your treatment caseload?
+    enum: []
+
+  imp_staff_panel_addx:
+    description: >-
+      If you have a patient panel, what percentage of your patients have addiction?
+    type: string
+
+  imp_staff_panel_pain:
+    description: >-
+      if you have a patient panel, what percentage of your patients have chronic pain?
+    type: string
+
+  provider_baselines:
+    $ref: "_definitions.yaml#/to_one"

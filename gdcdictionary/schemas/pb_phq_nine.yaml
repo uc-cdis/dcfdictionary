@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_PHQ_9
+  - name: pb_depressions
     backref: pb_phq_nine
     label: derived_from
     target_type: pb_depression
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,73 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_PHQ_9:
+  phqsleepimpairscore:
+    description: >-
+      Over the last 2 weeks, how often have you been bothered by the following problems?..
+      Trouble falling or staying asleep, or sleeping too much
+    enum:
+      - Not at all
+      - Several days
+      - More than half the days
+      - Nearly every day
+
+  phqtirdlittleenrgyscore:
+    description: >-
+      Over the last 2 weeks, how often have you been bothered by the following problems?..
+      Feeling tired or having little energy
+    enum:
+      - Not at all
+      - Several days
+      - More than half the days
+      - Nearly every day
+
+  phqabnrmldietscore:
+    description: >-
+      Over the last 2 weeks, how often have you been bothered by the following problems?..
+      Poor appetite or overeating
+    enum:
+      - Not at all
+      - Several days
+      - More than half the days
+      - Nearly every day
+
+  phqflngfailrscore:
+    description: >-
+      Over the last 2 weeks, how often have you been bothered by the following problems?..
+      Feeling bad about yourself - or that you are a failure or have let yourself
+      or your family down
+    enum:
+      - Not at all
+      - Several days
+      - More than half the days
+      - Nearly every day
+
+  phqconcntrtnimprmntscore:
+    description: >-
+      Over the last 2 weeks, how often have you been bothered by the following problems?..
+      Trouble concentrating on things, such as reading the newspaper or watching television
+    enum:
+      - Not at all
+      - Several days
+      - More than half the days
+      - Nearly every day
+
+  phqmovmntspchimprmntscore:
+    description: >-
+      Over the last 2 weeks, how often have you been bothered by the following problems?..
+      Moving or speaking so slowly that other people could have noticed?  Or the opposite
+      - being so fidgety or restless that you have been moving around a lot more than
+      usual
+    enum:
+      - Not at all
+      - Several days
+      - More than half the days
+      - Nearly every day
+
+  phqtotalscore:
+    description: >-
+      Total Score
+    type: number
+
+  pb_depressions:
     $ref: "_definitions.yaml#/to_one"

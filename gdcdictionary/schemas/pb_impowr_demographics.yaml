@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_impowr_demographics
+  - name: pb_demographics
     backref: pb_impowr_demographics
     label: derived_from
     target_type: pb_demographics
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,342 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_impowr_demographics:
+  impd_brthdtc:
+    description: >-
+      What is your birth date?
+    type: string
+
+  imp_age:
+    description: >-
+      Age (yrs)
+    type: string
+
+  impd_ethnic:
+    description: >-
+      Are you of Hispanic, Latino, or Spanish origin?
+    enum:
+      - Not Hispanic or Latino
+      - Yes Hispanic or Latino
+      - Unknown
+      - Decline to answer
+
+  impd_race:
+    description: >-
+      What is your race?
+    enum:
+      - White
+      - Black/African American
+      - American Indian or Alaska Native
+      - Asian
+      - Native Hawaiian or Other Pacific Islander
+      - Some other race
+      - Unknown
+      - Prefer not to answer
+
+  impdrace_white:
+    description: >-
+      White
+    type: string
+
+  impdrace_bl_aa:
+    description: >-
+      Black/African American
+    type: string
+
+  impdrace_ai_an:
+    description: >-
+      American Indian or Alaska Native
+    type: string
+
+  impdrace_asian:
+    description: >-
+      Asian
+    type: string
+
+  impdrace_nh_pi:
+    description: >-
+      Native Hawaiian or Other Pacific Islander
+    type: string
+
+  impdrace_other:
+    description: >-
+      Some other race
+    type: string
+
+  impdrace_unkn:
+    description: >-
+      Unknown
+    type: string
+
+  impdrace_not_rep:
+    description: >-
+      Prefer not to answer
+    type: string
+
+  impdrace_othertxt:
+    description: >-
+      Some other race (SPECIFY)
+    type: string
+
+  impdgenid:
+    description: >-
+      Gender Identity - Do you think of yourself as . . .
+    enum:
+      - Male
+      - Female
+      - Transgender man/trans man/female-to-male (FTM)
+      - Transgender woman/trans woman/male-to-female (MTF)
+      - Genderqueer
+      - Nonbinary
+      - Agender
+      - Gender Fluid
+      - Some other gender
+      - Prefer not to answer
+
+  impdgenid01_male:
+    description: >-
+      Male
+    type: string
+
+  impdgenid02_female:
+    description: >-
+      Female
+    type: string
+
+  impdgenid03_transman:
+    description: >-
+      Transgender man/trans man/female-to-male (FTM)
+    type: string
+
+  impdgenid04_transwoman:
+    description: >-
+      Transgender woman/trans woman/male-to-female (MTF)
+    type: string
+
+  impdgenid05_genderqueer:
+    description: >-
+      Genderqueer
+    type: string
+
+  impdgenid06_nonbinary:
+    description: >-
+      Nonbinary
+    type: string
+
+  impdgenid07_agender:
+    description: >-
+      Agender
+    type: string
+
+  impdgenid08_genfluid:
+    description: >-
+      Gender Fluid
+    type: string
+
+  impdgenid09_other:
+    description: >-
+      Some other gender
+    type: string
+
+  impdgenid10_not_rep:
+    description: >-
+      Prefer not to answer
+    type: string
+
+  impdgenid09_othertxt:
+    description: >-
+      Please specify for gender category
+    type: string
+
+  impdsex:
+    description: >-
+      What was your sex assigned at birth?
+    enum:
+      - Male
+      - Female
+      - Intersex
+      - Unknown
+      - Other
+      - Prefer not to answer
+
+  impdsextxt:
+    description: >-
+      What was your sex assigned at birth? Other (specify)
+    type: string
+
+  imp_sexual:
+    description: >-
+      Sexual Orientation- Do you think of yourself as...
+    enum:
+      - Straight or heterosexual
+      - Lesbian or gay
+      - Bisexual
+      - Queer
+      - Pansexual
+      - Questioning
+      - Asexual
+      - Something else
+      - Prefer not to answer
+
+  impd_straight:
+    description: >-
+      Straight or heterosexual
+    type: string
+
+  impd_lesbiangay:
+    description: >-
+      Lesbian or gay
+    type: string
+
+  impd_bisexual:
+    description: >-
+      Bisexual
+    type: string
+
+  impd_queer:
+    description: >-
+      Queer
+    type: string
+
+  impd_pansexual:
+    description: >-
+      Pansexual
+    type: string
+
+  impd_questioning:
+    description: >-
+      Questioning
+    type: string
+
+  impd_asexual:
+    description: >-
+      Asexual
+    type: string
+
+  impd_orientationother:
+    description: >-
+      Something else
+    type: string
+
+  impd_orientation_not_rep:
+    description: >-
+      Prefer not to answer
+    type: string
+
+  impd_orientationothertxt:
+    description: >-
+      Something else (specify)
+    type: string
+
+  impd_pregnant:
+    description: >-
+      Are you currently pregnant?
+    type: string
+
+  imp_relat:
+    description: >-
+      What category best describes your current relationship status?
+    enum:
+      - Divorced
+      - Married
+      - Never married
+      - Separated
+      - Widowed
+      - Domestic partner
+      - Prefer not to answer
+
+  impd_divorced:
+    description: >-
+      Divorced
+    type: string
+
+  impd_married:
+    description: >-
+      Married
+    type: string
+
+  impd_nevermarried:
+    description: >-
+      Never married
+    type: string
+
+  impd_separated:
+    description: >-
+      Separated
+    type: string
+
+  impd_widow:
+    description: >-
+      Widowed
+    type: string
+
+  impd_domestic:
+    description: >-
+      Domestic partner
+    type: string
+
+  impd_relat_not_rep:
+    description: >-
+      Prefer not to answer
+    type: string
+
+  impd_edulevel:
+    description: >-
+      What is the highest grade or level of training/school you have completed or
+      the highest degree you have received?
+    enum:
+      - Did not complete high school
+      - GED or equivalent
+      - High school diploma
+      - Some college credit, but less than 1 year of college credit
+      - 1 or more years of college credit, but no degree
+      - Associate's Degree or Vocational Training Program (e.g., AA or AS)
+      - Bachelor's Degree (e.g., BA or BS)
+      - Graduate degree (MSW, MA, MS, JD, MD, DSW, EdD, Ph.D, etc.)
+      - Other
+
+  impd_incmlvl:
+    description: >-
+      What is your annual income from all sources?
+    enum:
+      - Less than $10,000
+      - $10,000 --- $24,999
+      - $25,000--- $34,999
+      - $35,000--- $49,999
+      - $50,000--- $74,999
+      - $75,000---$99,999
+      - $100,000--- $149,999
+      - $150,000--- $199,999
+      - $200,000 or more
+      - Prefer not to answer
+
+  impd_empstat:
+    description: >-
+      What is your current employment status?
+    enum:
+      - Full-time employment
+      - Not employed
+      - Part-time employment
+
+  disabinsind:
+    description: >-
+      Have you ever applied for, or received, disability insurance for your pain condition?
+    type: string
+
+  impd_school:
+    description: >-
+      Are you currently attending school (including vocational or trade school)?
+    type: string
+
+  impd_schoolft:
+    description: >-
+      Are you attending full time?
+    type: string
+
+  impd_address:
+    description: >-
+      What is your address and zip code?
+    type: string
+
+  pb_demographics:
     $ref: "_definitions.yaml#/to_one"

@@ -44,7 +44,7 @@ properties:
     type: string
 
   id:
-    $ref: "_definitions.yaml#/uuid"
+    $ref: "_definitions.yaml#/UUID"
     description: >-
       UUID for the project.
     systemAlias: node_id
@@ -100,7 +100,6 @@ properties:
     description: >-
       The possible states a project can be in.  All but `open` are equivalent to some
       type of locked state.
-    default: open
     enum:
       - open
       - review
@@ -108,6 +107,7 @@ properties:
       - processing
       - closed
       - legacy
+    default: open
 
   released:
     description: >-

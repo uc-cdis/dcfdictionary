@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_IMPOWR_perceived_discrimination
+  - name: pb_stigma_discrimination
     backref: pb_impowr_perceived_discrimination
     label: derived_from
     target_type: pb_stigma_discrimination
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,48 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_IMPOWR_perceived_discrimination:
+  pds1:
+    description: >-
+      How often have you been discriminated against, prevented from doing something,
+      or hassled or made to feel inferior because of … your race, ethnicity, or skin
+      color?
+    enum:
+      - Very often
+      - Somewhat often
+      - Not very often
+      - Never
+      - Not Sure
+
+  pds2:
+    description: >-
+      your sexual orientation (for example, gay, lesbian, bisexual) or gender identity
+      (for example, feeling that you are a different gender than your gender at birth)?
+    enum:
+      - Very often
+      - Somewhat often
+      - Not very often
+      - Never
+      - Not Sure
+
+  pds3:
+    description: >-
+      your chronic pain?
+    enum:
+      - Very often
+      - Somewhat often
+      - Not very often
+      - Never
+      - Not Sure
+
+  pds4:
+    description: >-
+      your opioid use disorder or opioid use?
+    enum:
+      - Very often
+      - Somewhat often
+      - Not very often
+      - Never
+      - Not Sure
+
+  pb_stigma_discrimination:
     $ref: "_definitions.yaml#/to_one"

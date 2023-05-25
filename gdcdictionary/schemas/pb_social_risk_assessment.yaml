@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_social_risk_assessment
+  - name: pb_health_economics
     backref: pb_social_risk_assessment
     label: derived_from
     target_type: pb_health_economics
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,93 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_social_risk_assessment:
+  sdhfinancestrainscl:
+    description: >-
+      How hard is it for you to pay for the very basics like food, housing, medical
+      care, and heating?
+    enum:
+      - Not hard at all
+      - Not very hard
+      - Somewhat hard
+      - Hard
+      - Very Hard
+
+  sdhfoodinsecurity1scl:
+    description: >-
+      Within the past 12 months, you worried whether your food would run out before
+      you got money to buy more.
+    enum:
+      - Never true
+      - Sometimes true
+      - Often True
+
+  sdhfoodinsecurity2scl:
+    description: >-
+      Within the past 12 months, the food you bought just didn't last and you didn't
+      have money to get more.
+    enum:
+      - Never true
+      - Sometimes true
+      - Often True
+
+  sdhtransportationneed1yn:
+    description: >-
+      Has the lack of transportation kept you from medical appointments or from getting
+      medications?
+    type: string
+
+  sdhtransportationneed2yn:
+    description: >-
+      Has a lack of transportation kept you from meetings, work, or from getting things
+      needed for daily living?
+    type: string
+
+  sdhhousinginstability1txt:
+    description: >-
+      In the past 12 months, how many places have you lived?
+    type: string
+
+  sdhhousinginstability2yn:
+    description: >-
+      In the past 12 months, was there a time when you were not able to pay the mortgage
+      or rent on time?
+    type: string
+
+  sdhhousinginstability3yn:
+    description: >-
+      In the past 12 months, was there a time when you did not have a steady place
+      to sleep or slept in a shelter (including now)?
+    type: string
+
+  bpsclinicprompt:
+    description: >-
+      Prompt Service
+    enum:
+      - Never
+      - Seldom
+      - Sometimes
+      - Frequently
+      - Always
+
+  bpsclinicconvenient:
+    description: >-
+      Convenient appointments
+    enum:
+      - Never
+      - Seldom
+      - Sometimes
+      - Frequently
+      - Always
+
+  bpscliniccourteous:
+    description: >-
+      Courteous staff
+    enum:
+      - Never
+      - Seldom
+      - Sometimes
+      - Frequently
+      - Always
+
+  pb_health_economics:
     $ref: "_definitions.yaml#/to_one"

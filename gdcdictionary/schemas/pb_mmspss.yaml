@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_MMSPSS
+  - name: pb_socials
     backref: pb_mmspss
     label: derived_from
     target_type: pb_social
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,94 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_MMSPSS:
+  mspssspecpersonneed:
+    description: >-
+      We are interested in how you feel about the following statements. Read each
+      statement carefully. Indicate how you feel about each statement… There is a
+      special person who is around when I am in need.
+    enum:
+      - Very Strongly Disagree
+      - Strongly Disagree
+      - Mildly Disagree
+      - Neutral
+      - Mildly Agree
+      - Strongly Agree
+      - Very Strongly Agree
+
+  mspssfamemosup:
+    description: >-
+      We are interested in how you feel about the following statements. Read each
+      statement carefully. Indicate how you feel about each statement… I get the emotional
+      help and support I need from my family.
+    enum:
+      - Very Strongly Disagree
+      - Strongly Disagree
+      - Mildly Disagree
+      - Neutral
+      - Mildly Agree
+      - Strongly Agree
+      - Very Strongly Agree
+
+  mspssspeccomfort:
+    description: >-
+      We are interested in how you feel about the following statements. Read each
+      statement carefully. Indicate how you feel about each statement… I have a special
+      person who is a real source of comfort to me.
+    enum:
+      - Very Strongly Disagree
+      - Strongly Disagree
+      - Mildly Disagree
+      - Neutral
+      - Mildly Agree
+      - Strongly Agree
+      - Very Strongly Agree
+
+  mspssfriendjoysor:
+    description: >-
+      We are interested in how you feel about the following statements. Read each
+      statement carefully. Indicate how you feel about each statement… I have friends
+      with whom I can share my joys and sorrows.
+    enum:
+      - Very Strongly Disagree
+      - Strongly Disagree
+      - Mildly Disagree
+      - Neutral
+      - Mildly Agree
+      - Strongly Agree
+      - Very Strongly Agree
+
+  mspssfamdecision:
+    description: >-
+      We are interested in how you feel about the following statements. Read each
+      statement carefully. Indicate how you feel about each statement… My family is
+      willing to help me make decisions.
+    enum:
+      - Very Strongly Disagree
+      - Strongly Disagree
+      - Mildly Disagree
+      - Neutral
+      - Mildly Agree
+      - Strongly Agree
+      - Very Strongly Agree
+
+  mspssfriendtalkprob:
+    description: >-
+      We are interested in how you feel about the following statements. Read each
+      statement carefully. Indicate how you feel about each statement… I can talk
+      about my problems with my friends.
+    enum:
+      - Very Strongly Disagree
+      - Strongly Disagree
+      - Mildly Disagree
+      - Neutral
+      - Mildly Agree
+      - Strongly Agree
+      - Very Strongly Agree
+
+  mspssscoreshort:
+    description: >-
+      Total score for short form
+    type: number
+
+  pb_socials:
     $ref: "_definitions.yaml#/to_one"

@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_IMPOWR_MOUD
+  - name: pb_substance_uses
     backref: pb_impowr_moud
     label: derived_from
     target_type: pb_substance_use
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,125 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_IMPOWR_MOUD:
+  moudeveryn:
+    description: >-
+      Have you ever been prescribed and taken medication to treat opioid use disorder?
+      [illicit use should be excluded]
+    type: string
+
+  moud_type:
+    description: >-
+      Which MOUD have you received?
+    enum:
+      - Buprenorphine
+      - Methadone
+      - Naltrexone
+
+  moudbup:
+    description: >-
+      Buprenorphine
+    type: number
+
+  moudmethdn:
+    description: >-
+      Methadone
+    type: number
+
+  moudnaltrex:
+    description: >-
+      Naltrexone
+    type: number
+
+  moudbup_lifemo:
+    description: >-
+      How many months in your lifetime have you taken Buprenorphine-naloxone or buprenorphine
+      daily sublingual (e.g., Suboxone© film or tablet, generic films or tablets,
+      or Subutex tablets?
+    type: string
+
+  moudbup_6modays:
+    description: >-
+      How many days in the past 6 months/since your last assessment have you used
+      Buprenorphine-naloxone or buprenorphine daily sublingual (e.g., Suboxone© film
+      or tablet, generic films or tablets, or Subutex tablets)?
+    type: string
+
+  moudbup_6modose:
+    description: >-
+      In the past 6 months/since your last assessment, what has been your total dose
+      per day of Buprenorphine-naloxone or buprenorphine daily sublingual (e.g., Suboxone©
+      film or tablet, generic films or tablets, or Subutex tablets) ?
+    type: string
+
+  moudbupinj_lifemo:
+    description: >-
+      How many months in your lifetime have you taken Buprenorphine injection (Brixadi
+      or Sublocade)?
+    type: string
+
+  moudbupinj_6modays:
+    description: >-
+      How many days in the past 6 months/since your last assessment have you used
+      Buprenorphine injection (Brixadi or Sublocade)?
+    type: string
+
+  moudbupinj_6modose:
+    description: >-
+      In the past 6 months/since your last assessment, what has been your total dose
+      per day of Buprenorphine injection (Brixadi or Sublocade)?
+    type: string
+
+  moudmethdn_lifemo:
+    description: >-
+      How many months in your lifetime have you taken Methadone daily?
+    type: string
+
+  moudmethdn_6modays:
+    description: >-
+      How many days in the past 6 months/since your last assessment have you used
+      Methadone?
+    type: string
+
+  moudmethdn_6modose:
+    description: >-
+      In the past 6 months/since your last assessment, what has been your total dose
+      per day of Methadone?
+    type: string
+
+  moudnaltrex_lifemo:
+    description: >-
+      How many months in your lifetime have you taken Naltrexone daily (oral)?
+    type: string
+
+  moudnaltrex_6modays:
+    description: >-
+      How many days in the past 6 months/since your last assessment have you used
+      Naltrexone daily (oral)?
+    type: string
+
+  moudnaltrex_6modose:
+    description: >-
+      In the past 6 months/since your last assessment, what has been your total dose
+      per day of Naltrexone daily (oral)?
+    type: string
+
+  moudnaltrexinj_lifemo:
+    description: >-
+      How many months in your lifetime have you taken Naltrexone monthly injection
+      (Vivitrol)?
+    type: string
+
+  moudnaltrexinj_6modays:
+    description: >-
+      How many days in the past 6 months/since your last assessment have you used
+      Naltrexone monthly injection (Vivitrol)?
+    type: string
+
+  moudnaltrexinj_6modose:
+    description: >-
+      In the past 6 months/since your last assessment, what has been your total dose
+      per day of Naltrexone monthly injection (Vivitrol)?
+    type: string
+
+  pb_substance_uses:
     $ref: "_definitions.yaml#/to_one"

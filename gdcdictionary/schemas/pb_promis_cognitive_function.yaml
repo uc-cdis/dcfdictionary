@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_PROMIS_cognitive_function
+  - name: pb_overall_functions
     backref: pb_promis_cognitive_function
     label: derived_from
     target_type: pb_overall_function
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,31 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_PROMIS_cognitive_function:
+  promiscogfxnconcscl:
+    description: >-
+      In the past 7 days,  I have been able to concentrate
+    enum:
+      - Not at all
+      - A little bit
+      - Somewhat
+      - Quite a bit
+      - Very much
+
+  promiscogfxnrememberscl:
+    description: >-
+      In the past 7 days,  I have been able to remember to do things, like take medicine
+      or buy something I needed
+    enum:
+      - Not at all
+      - A little bit
+      - Somewhat
+      - Quite a bit
+      - Very much
+
+  promiscognfxntotalscore:
+    description: >-
+      Calculated raw total score for the PROMIS 29 cognitive function items
+    type: number
+
+  pb_overall_functions:
     $ref: "_definitions.yaml#/to_one"

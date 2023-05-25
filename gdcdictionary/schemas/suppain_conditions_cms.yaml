@@ -1,0 +1,283 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "suppain_conditions_cms"
+title: Patient Baseline IMPOWR Pain Diagnosis
+type: object
+namespace: https://impowrgen3.wakehealth.edu/
+category: clinical
+program: '*'
+project: '*'
+description: >-
+  Data describing patient baseline IMPOWR pain diagnosis characteristics
+additionalProperties: false
+submittable: true
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: pb_pains
+    backref: pb_impowr_pain_diagnoses
+    label: derived_from
+    target_type: pb_pain
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  imp_paindx:
+    description: >-
+      We are interested in finding out about pain conditions you have been diagnosed
+      with/personally experienced. Please select all you have ever been diagnosed
+      with or experienced:
+    enum:
+      - Low back pain (chronic pain)
+      - Chronic neck pain
+      - Migraine
+      - Osteoarthritis
+      - Fibromyalgia
+      - Sickle cell disease
+      - Complex regional pain syndrome
+      - Cancer pain
+      - Shingles (Herpes Zoster)
+      - IBS (Irritable Bowel Syndrome)
+      - Trigeminal Neuralgia
+      - HIV/AIDS pain
+      - Viral hepatitis pain
+      - Vulvodynia
+      - Post-surgical pain
+      - Interstitial Cystitis (Urological Chronic Pelvic Pain Syndrome)
+      - Chronic fatigue syndrome
+      - Pregnancy related back pain
+      - TMJ (Temporomandibular joint disorder)
+      - Endometriosis
+      - Chronic pelvic pain
+      - Diabetic peripheral neuropathy
+      - Rheumatoid arthritis
+      - Lupus arthritis
+      - Other inflammatory arthritides
+      - Phantom limb pain
+      - Other neuropathy
+      - Myofascial pain
+      - Chronic pain syndrome
+      - Chronic widespread pain
+      - Orofacial (dental), dental abscess, or chronic tooth pain
+      - Tension headache
+
+  copcs_clbp_diagnosis:
+    description: >-
+      Chronic low back pain
+    type: number
+
+  paindx_neck:
+    description: >-
+      Chronic neck pain
+    type: number
+
+  copcs_mitth_migraineflag:
+    description: >-
+      Migraine
+    type: number
+
+  paindx_osteoarthritis:
+    description: >-
+      Osteoarthritis
+    type: number
+
+  copcs_fm_diagnosis:
+    description: >-
+      Fibromyalgia
+    type: number
+
+  paindx_cell:
+    description: >-
+      Sickle cell disease
+    type: number
+
+  paindx_regional:
+    description: >-
+      CRPS
+    type: number
+
+  paindx_cancer:
+    description: >-
+      Cancer pain
+    type: number
+
+  paindx_shingles:
+    description: >-
+      Shingles (Herpes Zoster)
+    type: number
+
+  copcs_ibs_diagnosis:
+    description: >-
+      IBS (Irritable Bowel Syndrome)
+    type: number
+
+  paindx_trigeminal:
+    description: >-
+      Trigeminal Neuralgia
+    type: number
+
+  paindx_hiv:
+    description: >-
+      HIV/AIDS pain
+    type: number
+
+  paindx_hepatitis:
+    description: >-
+      Viral hepatitis pain
+    type: number
+
+  copcs_vvd_currentdiagnosis:
+    description: >-
+      Vulvodynia
+    type: number
+
+  paindx_postsurgical:
+    description: >-
+      Post-surgical pain
+    type: number
+
+  copcs_ucpps_diagnosis:
+    description: >-
+      Interstitial Cystitis (Urological Chronic Pelvic Pain Syndrome)
+    type: number
+
+  copcs_mecfs_diagnosis:
+    description: >-
+      Chronic fatigue syndrome
+    type: number
+
+  paindx_pregnancy:
+    description: >-
+      Pregnancy related back pain
+    type: number
+
+  copcs_tmd_diagnosis:
+    description: >-
+      TMJ (Temporomandibular joint disorder)
+    type: number
+
+  copcs_endo_diagnosis:
+    description: >-
+      Endometriosis
+    type: number
+
+  paindx_pelvic:
+    description: >-
+      Chronic pelvic pain
+    type: number
+
+  paindx_dmneuropathy:
+    description: >-
+      Diabetic peripheral neuropathy
+    type: number
+
+  paindx_ra:
+    description: >-
+      Rheumatoid arthritis
+    type: number
+
+  paindx_lupus:
+    description: >-
+      Lupus arthritis
+    type: number
+
+  paindx_otherarth:
+    description: >-
+      Other inflammatory arthritides
+    type: number
+
+  paindx_limb:
+    description: >-
+      Phantom limb pain
+    type: number
+
+  paindx_otherneurop:
+    description: >-
+      Other neuropathy
+    type: number
+
+  paindx_myofascial:
+    description: >-
+      Myofascial pain
+    type: number
+
+  paindx_chrpainsynd:
+    description: >-
+      Chronic pain syndrome
+    type: number
+
+  paindx_widespread:
+    description: >-
+      Chronic widespread pain
+    type: number
+
+  paindx_dental:
+    description: >-
+      Orofacial (dental) pain, dental abscess, or chronic tooth pain
+    type: number
+
+  copcs_mitth_tensionheadach:
+    description: >-
+      Tension headache
+    type: number
+
+  oa_joint:
+    description: >-
+      Where is your osteoarthritis pain located?
+    enum:
+      - shoulder
+      - knee
+      - hip
+      - ankle/foot
+      - elbow
+      - wrist
+
+  paindx_osteo_shoulder:
+    description: >-
+      shoulder
+    type: number
+
+  paindx_osteo_knee:
+    description: >-
+      knee
+    type: number
+
+  paindx_osteo_hip:
+    description: >-
+      hip
+    type: number
+
+  paindx_osteo_ankle:
+    description: >-
+      ankle/foot
+    type: number
+
+  paindx_osteo_elbow:
+    description: >-
+      elbow
+    type: number
+
+  paindx_osteo_wrist:
+    description: >-
+      wrist
+    type: number
+
+  pb_pains:
+    $ref: "_definitions.yaml#/to_one"

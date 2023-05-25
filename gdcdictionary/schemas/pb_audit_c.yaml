@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_AUDIT_C
+  - name: pb_substance_uses
     backref: pb_audit_c
     label: derived_from
     target_type: pb_substance_use
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,47 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_AUDIT_C:
+  audit_usc1:
+    description: >-
+      How often do you have a drink containing alcohol?
+    enum:
+      - Never
+      - Less than monthly
+      - Monthly
+      - Weekly
+      - 2-3 times/week
+      - 4-6 times/week
+      - Daily
+
+  audit_usc2:
+    description: >-
+      How many drinks containing alcohol do you have on a typical day when you are
+      drinking?
+    enum:
+      - 1 drink
+      - 2 drinks
+      - 3 drinks
+      - 4 drinks
+      - 5-6 drinks
+      - 7-9 drinks
+      - 10 or more drinks
+
+  audit_usc3:
+    description: >-
+      How often do you have five or more drinks on one occasion?
+    enum:
+      - Never
+      - Less than monthly
+      - Monthly
+      - Weekly
+      - 2-3 times/week
+      - 4-6 times/week
+      - Daily
+
+  audit_usc_total:
+    description: >-
+      Total Score
+    type: number
+
+  pb_substance_uses:
     $ref: "_definitions.yaml#/to_one"

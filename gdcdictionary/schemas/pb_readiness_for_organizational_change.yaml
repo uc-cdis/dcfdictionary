@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_readiness_for_organizational_change
+  - name: pb_implementation_science
     backref: pb_readiness_for_organizational_change
     label: derived_from
     target_type: pb_implementation_science
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,293 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_readiness_for_organizational_change:
+  roc_orgbenefit:
+    description: >-
+      How strongly do you agree or disagree with each of the following statements?
+      Please respond to the statements in the context of providing a treatment for
+      opioid use disorder and chronic pain... I think that the organization will benefit
+      from this change.
+    enum:
+      - Strongly Disagree
+      - Disagree
+      - Somewhat Disagree
+      - Uncertain
+      - Somewhat Agree
+      - Agree
+      - Strongly Agree
+
+  roc_notsense:
+    description: >-
+      It doesn't make much sense for us to initiate this change.
+    enum: []
+
+  roc_legitimate:
+    description: >-
+      There are legitimate reasons for us to make this change.
+    enum: []
+
+  roc_efficiency:
+    description: >-
+      This change will improve our organization's overall efficiency.
+    enum: []
+
+  roc_rational:
+    description: >-
+      There are a number of rational reasons for this change to be made.
+    enum: []
+
+  roc_worthwhile:
+    description: >-
+      In the long run, I feel it will be worthwhile for me if the organization adopts
+      this change.
+    enum: []
+
+  roc_easier:
+    description: >-
+      This change makes my job easier.
+    enum: []
+
+  roc_notgain:
+    description: >-
+      When this change is implemented, I don't believe there is anything for me to
+      gain.
+    enum: []
+
+  roc_timeelse:
+    description: >-
+      The time we are spending on this change should be spent on something else.
+    enum:
+      - Strongly Disagree
+      - Disagree
+      - Somewhat Disagree
+      - Uncertain
+      - Somewhat Agree
+      - Agree
+      - Strongly Agree
+
+  roc_orgpriorities:
+    description: >-
+      This change matches the priorities of our organization.
+    enum:
+      - Strongly Disagree
+      - Disagree
+      - Somewhat Disagree
+      - Uncertain
+      - Somewhat Agree
+      - Agree
+      - Strongly Agree
+
+  roc_leaderencourage:
+    description: >-
+      Our senior leaders have encouraged all of us to embrace this change
+    enum:
+      - Strongly Disagree
+      - Disagree
+      - Somewhat Disagree
+      - Uncertain
+      - Somewhat Agree
+      - Agree
+      - Strongly Agree
+
+  roc_dmsupport:
+    description: >-
+      Our organization's top decision makers have put all their support behind this
+      change effort.
+    enum:
+      - Strongly Disagree
+      - Disagree
+      - Somewhat Disagree
+      - Uncertain
+      - Somewhat Agree
+      - Agree
+      - Strongly Agree
+
+  roc_srmgrsupport:
+    description: >-
+      Every senior manager has stressed the importance of this change.
+    enum:
+      - Strongly Disagree
+      - Disagree
+      - Somewhat Disagree
+      - Uncertain
+      - Somewhat Agree
+      - Agree
+      - Strongly Agree
+
+  roc_srcommitted:
+    description: >-
+      This organization's most senior leader is committed to this change.
+    enum:
+      - Strongly Disagree
+      - Disagree
+      - Somewhat Disagree
+      - Uncertain
+      - Somewhat Agree
+      - Agree
+      - Strongly Agree
+
+  roc_mgrdonotwant:
+    description: >-
+      I think we are spending a lot of time on this change when the senior managers
+      don't even want it implemented.
+    enum:
+      - Strongly Disagree
+      - Disagree
+      - Somewhat Disagree
+      - Uncertain
+      - Somewhat Agree
+      - Agree
+      - Strongly Agree
+
+  roc_signal:
+    description: >-
+      Management has sent a clear signal this organization is going to change.
+    enum:
+      - Strongly Disagree
+      - Disagree
+      - Somewhat Disagree
+      - Uncertain
+      - Somewhat Agree
+      - Agree
+      - Strongly Agree
+
+  roc_noproblem:
+    description: >-
+      I do not anticipate any problems adjusting to the work I will have when this
+      change is adopted.
+    enum:
+      - Strongly Disagree
+      - Disagree
+      - Somewhat Disagree
+      - Uncertain
+      - Somewhat Agree
+      - Agree
+      - Strongly Agree
+
+  roc_tasks:
+    description: >-
+      There are some tasks that will be required when we change that I don't think
+      I can do well.
+    enum:
+      - Strongly Disagree
+      - Disagree
+      - Somewhat Disagree
+      - Uncertain
+      - Somewhat Agree
+      - Agree
+      - Strongly Agree
+
+  roc_handle:
+    description: >-
+      When we implement this change, I feel I can handle it with ease.
+    enum:
+      - Strongly Disagree
+      - Disagree
+      - Somewhat Disagree
+      - Uncertain
+      - Somewhat Agree
+      - Agree
+      - Strongly Agree
+
+  roc_skills:
+    description: >-
+      I have the skills that are needed to make this change work.
+    enum:
+      - Strongly Disagree
+      - Disagree
+      - Somewhat Disagree
+      - Uncertain
+      - Somewhat Agree
+      - Agree
+      - Strongly Agree
+
+  roc_learn:
+    description: >-
+      When I set my mind to it, I can learn everything that will be required when
+      this change is adopted.
+    enum:
+      - Strongly Disagree
+      - Disagree
+      - Somewhat Disagree
+      - Uncertain
+      - Somewhat Agree
+      - Agree
+      - Strongly Agree
+
+  roc_confident:
+    description: >-
+      My past experiences make me confident that I will be able to perform successfully
+      after this change is made.
+    enum:
+      - Strongly Disagree
+      - Disagree
+      - Somewhat Disagree
+      - Uncertain
+      - Somewhat Agree
+      - Agree
+      - Strongly Agree
+
+  roc_status:
+    description: >-
+      I am worried I will lose some of my status in the organization when this change
+      is implemented.
+    enum:
+      - Strongly Disagree
+      - Disagree
+      - Somewhat Disagree
+      - Uncertain
+      - Somewhat Agree
+      - Agree
+      - Strongly Agree
+
+  roc_personal:
+    description: >-
+      This change will disrupt many of the personal relationships I have developed
+    enum:
+      - Strongly Disagree
+      - Disagree
+      - Somewhat Disagree
+      - Uncertain
+      - Somewhat Agree
+      - Agree
+      - Strongly Agree
+
+  roc_future:
+    description: >-
+      My future in this job will be limited because of this change.
+    enum:
+      - Strongly Disagree
+      - Disagree
+      - Somewhat Disagree
+      - Uncertain
+      - Somewhat Agree
+      - Agree
+      - Strongly Agree
+
+  roc_appropriateness:
+    description: >-
+      Appropriateness Score
+    type: number
+
+  roc_managementsuppt:
+    description: >-
+      Management Support
+    type: number
+
+  roc_changeefficacy:
+    description: >-
+      Change Efficacy
+    type: number
+
+  roc_personalbenefit:
+    description: >-
+      Personally Beneficial
+    type: number
+
+  roc_overall:
+    description: >-
+      Overall score
+    type: number
+
+  pb_implementation_science:
     $ref: "_definitions.yaml#/to_one"

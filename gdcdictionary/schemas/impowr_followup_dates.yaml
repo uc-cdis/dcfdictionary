@@ -1,14 +1,14 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "pb_impowr_pain_diagnosis"
-title: Patient Baseline IMPOWR Pain Diagnosis
+id: "impowr_followup_dates"
+title: IMPOWR Patient Followup Dates
 type: object
 namespace: https://impowrgen3.wakehealth.edu/
 category: clinical
 program: '*'
 project: '*'
 description: >-
-  Data describing patient baseline IMPOWR pain diagnosis characteristics
+  Data describing patient followup characteristics
 additionalProperties: false
 submittable: true
 
@@ -20,17 +20,16 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_IMPOWR_pain_diagnosis
-    backref: pb_impowr_pain_diagnosis
+  - name: patients
+    backref: patient_followups
     label: derived_from
-    target_type: pb_pain
+    target_type: patient
     multiplicity: many_to_one
     required: true
 
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,20 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_IMPOWR_pain_diagnosis:
+  imp_followup_date:
+    description: >-
+      Date of Follow-up
+    type: string
+
+  imp_followup_age:
+    description: >-
+      Age at follow-up in years
+    type: number
+
+  imp_followup_relativedate:
+    description: >-
+      Relative date of follow-up
+    type: number
+
+  patients:
     $ref: "_definitions.yaml#/to_one"

@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_supplemental_smoking
+  - name: pb_substance_uses
     backref: pb_supplemental_smoking
     label: derived_from
     target_type: pb_substance_use
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,92 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_supplemental_smoking:
+  su_smoke100:
+    description: >-
+      Have you smoked at least 100 cigarettes in your entire life?
+    enum:
+      - "Yes"
+      - "No"
+      - Refused
+      - Don't know
+
+  su_cigflavor:
+    description: >-
+      Is your regular brand you smoke flavored to taste like menthol or mint?
+    enum:
+      - "Yes"
+      - "No"
+      - Refused
+      - Don't know
+
+  su_cigar:
+    description: >-
+      In the past 30 days, have you smoked a cigarillo or filtered cigar, even one
+      or two puffs?
+    enum:
+      - "Yes"
+      - "No"
+      - Refused
+      - Don't know
+
+  su_blunt:
+    description: >-
+      In the past 12 months, have you smoked part or all of a traditional cigar, cigarillo,
+      or filtered cigar with marijuana in it? (Remember all information you give to
+      the study will be kept private.)
+    enum:
+      - "Yes"
+      - "No"
+      - Refused
+      - Don't know
+
+  su_electronic:
+    description: >-
+      How many times have you used an electronic nicotine product in your entire life?
+    enum:
+      - One time, even just a few puffs
+      - 2 to 10 times
+      - 11 to 20 times
+      - 21 to 50 times
+      - 51 to 99 times
+      - 100 or more times
+      - Don't know
+      - Refused
+
+  su_vapemonday:
+    description: >-
+      Monday
+    type: string
+
+  su_vapetuesday:
+    description: >-
+      Tuesday
+    type: string
+
+  su_vapewednesday:
+    description: >-
+      Wednesday
+    type: string
+
+  su_vapethursday:
+    description: >-
+      Thursday
+    type: string
+
+  su_vapefriday:
+    description: >-
+      Friday
+    type: string
+
+  su_vapesaturday:
+    description: >-
+      Saturday
+    type: string
+
+  su_vapesunday:
+    description: >-
+      Sunday
+    type: string
+
+  pb_substance_uses:
     $ref: "_definitions.yaml#/to_one"

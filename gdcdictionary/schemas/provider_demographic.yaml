@@ -31,7 +31,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -67,7 +66,7 @@ properties:
     type: integer
 
   ethnicity:
-    $ref: "_terms.yaml#/ethnicity/common"
+    $ref: "_terms.yaml#/ethnicity"
     enum:
       - Unknown
       - hispanic or latino
@@ -76,7 +75,7 @@ properties:
       - not reported
 
   gender:
-    $ref: "_terms.yaml#/gender/common"
+    $ref: "_terms.yaml#/gender"
     enum:
       - female
       - male
@@ -85,7 +84,7 @@ properties:
       - unspecified
 
   race:
-    $ref: "_terms.yaml#/race/common"
+    $ref: "_terms.yaml#/race"
     enum:
       - Unknown
       - american indian or alaska native
@@ -103,11 +102,11 @@ properties:
     type: string
 
   year_of_birth:
-    $ref: "_terms.yaml#/year_of_birth/common"
+    $ref: "_terms.yaml#/year_of_birth"
     type: number
 
   year_of_death:
-    $ref: "_terms.yaml#/year_of_death/common"
+    $ref: "_terms.yaml#/year_of_death"
     type: number
 
   provider_baselines:

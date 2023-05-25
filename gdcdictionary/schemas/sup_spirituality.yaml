@@ -1,0 +1,155 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "sup_spirituality"
+title: Patient Baseline supplimental spirituality
+type: object
+namespace: https://impowrgen3.wakehealth.edu/
+category: clinical
+program: '*'
+project: '*'
+description: >-
+  Data describing patient spirituality, each  of the variables / items below may be
+  something you have or have not experienced. Think about how often you have had each
+  experience rather than whether you should or should not have had these experiences.
+additionalProperties: false
+submittable: true
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: patient_baselines
+    backref: sup_spiritualities
+    label: derived_from
+    target_type: patient_baseline
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  bsssacred:
+    description: >-
+      I believe life is sacred
+    enum:
+      - Many times a Day
+      - Every Day
+      - Most Days
+      - Some Days
+      - Once in a While
+      - Never or Almost Never
+
+  bssvalue:
+    description: >-
+      I value my life and everyone's around me
+    enum:
+      - Many times a Day
+      - Every Day
+      - Most Days
+      - Some Days
+      - Once in a While
+      - Never or Almost Never
+
+  bssrelated:
+    description: >-
+      All things are related to one another
+    enum:
+      - Many times a Day
+      - Every Day
+      - Most Days
+      - Some Days
+      - Once in a While
+      - Never or Almost Never
+
+  bsspray:
+    description: >-
+      I pray to Creator/ancestors/higher power
+    enum:
+      - Many times a Day
+      - Every Day
+      - Most Days
+      - Some Days
+      - Once in a While
+      - Never or Almost Never
+
+  bssthanks:
+    description: >-
+      In the evening, I express thanks
+    enum:
+      - Many times a Day
+      - Every Day
+      - Most Days
+      - Some Days
+      - Once in a While
+      - Never or Almost Never
+
+  bssstrength:
+    description: >-
+      I find strength in my faith and spirituality
+    enum:
+      - Many times a Day
+      - Every Day
+      - Most Days
+      - Some Days
+      - Once in a While
+      - Never or Almost Never
+
+  bssparticipate:
+    description: >-
+      I participate in cultural/faith related activities
+    enum:
+      - Many times a Day
+      - Every Day
+      - Most Days
+      - Some Days
+      - Once in a While
+      - Never or Almost Never
+
+  bsstouched:
+    description: >-
+      I am spiritually touched by participating in my faith
+    enum:
+      - Many times a Day
+      - Every Day
+      - Most Days
+      - Some Days
+      - Once in a While
+      - Never or Almost Never
+
+  bssalive:
+    description: >-
+      I believe everything is alive with a spirit
+    enum:
+      - Many times a Day
+      - Every Day
+      - Most Days
+      - Some Days
+      - Once in a While
+      - Never or Almost Never
+
+  bssunderstanding:
+    description: >-
+      I feel thankful for my understanding of my faith and beliefs
+    enum:
+      - Many times a Day
+      - Every Day
+      - Most Days
+      - Some Days
+      - Once in a While
+      - Never or Almost Never
+
+  patient_baselines:
+    $ref: "_definitions.yaml#/to_one"

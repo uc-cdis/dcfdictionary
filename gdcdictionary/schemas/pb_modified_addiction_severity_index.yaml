@@ -20,8 +20,8 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_modified_addiction_severity_index
-    backref: pb_modified_addiction_severity_index
+  - name: pb_substance_uses
+    backref: pb_modified_addiction_severity_indices
     label: derived_from
     target_type: pb_substance_use
     multiplicity: many_to_one
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,266 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_modified_addiction_severity_index:
+  masicannabisdays:
+    description: >-
+      How many days within the PAST 30 did you use cannabis (marijuana flower or bud,
+      concentrated oil/distillate, dabs, edibles/tinctures) except topicals (e.g.,
+      cream or balm) and products that only contain CBD (cannabidiol)?
+    type: string
+
+  masicocainedays:
+    description: >-
+      How many days within the PAST 30 did you use cocaine or crack?
+    type: string
+
+  masiheroindays:
+    description: >-
+      How many days within the PAST 30 did you use heroin?
+    type: string
+
+  masifentanyldays:
+    description: >-
+      How many days within the PAST 30 did you use Fentanyl?
+    type: string
+
+  masimethdndays:
+    description: >-
+      How many days within the PAST 30 did you use Methadone?
+    type: string
+
+  masibupedays:
+    description: >-
+      How many days within the PAST 30 did you use Buprenorphine (suboxone/Subutex)?
+    type: string
+
+  masiopiatedays:
+    description: >-
+      How many days within the PAST 30 did you use other opiates/analgesics (Percocet/
+      Oxycontin/Vicodin /Morphine/Codeine)?
+    type: string
+
+  masibenzodays:
+    description: >-
+      How many days within the PAST 30 did you use Benzodiazepines (Xanax/Valium)?
+    type: string
+
+  masiamphetdays:
+    description: >-
+      How many days within PAST 30 did you use pharmaceutical amphetamines (e.g.,
+      Adderall, Ritalin, focalin, concerta, dexedrin)?
+    type: string
+
+  masistreetamphdays:
+    description: >-
+      How many days within the PAST 30 did you use Amphetamines (Methamphetamine/Ecstasy
+      /Speed /Crank)?
+    type: string
+
+  masiotherdays:
+    description: >-
+      How many days within the PAST 30 did you use other (write in)
+    type: string
+
+  masicannabisroute_1:
+    description: >-
+      Smoke bud or flower (e.g. joints, blunts, bong, hand pipe, hookah)
+    enum:
+      - "No"
+      - "Yes"
+
+  masicannabisroute_2:
+    description: >-
+      Vaporize (e.g., vape pen, e-cigarette, or other device)
+    enum:
+      - "No"
+      - "Yes"
+
+  masicannabisroute_3:
+    description: >-
+      Edibles (eg, gummies, capsules, THC-infused chocolate)
+    enum:
+      - "No"
+      - "Yes"
+
+  masicannabisroute_4:
+    description: >-
+      Dab (wax, shatter, amber, honeycomb, or budder)
+    enum:
+      - "No"
+      - "Yes"
+
+  masicannabisroute_5:
+    description: >-
+      Other
+    enum:
+      - "No"
+      - "Yes"
+
+  masicannabisrouteothr:
+    description: >-
+      Other, specify:
+    type: string
+
+  masicocaineroute:
+    description: >-
+      What is your usual route of administration for cocaine?
+    enum:
+      - Oral
+      - Nasal
+      - Smoking/Vape
+      - Injection
+      - not applicable
+
+  masiheroinroute:
+    description: >-
+      What is your usual route of administration for heroin?
+    enum:
+      - Oral
+      - Nasal
+      - Smoking/Vape
+      - Injection
+      - not applicable
+
+  masifentanylrx:
+    description: >-
+      Was this fentanyl prescribed to you?
+    enum:
+      - "No"
+      - "Yes"
+      - Don't know
+
+  masifentanylroute:
+    description: >-
+      What is your usual route of administration for fentanyl?
+    enum:
+      - Oral
+      - Nasal
+      - Smoking/Vape
+      - Injection
+      - Not applicable
+
+  masimethdnrx:
+    description: >-
+      Was this methadone prescribed to you?
+    enum:
+      - "No"
+      - "Yes"
+      - Don't know
+
+  masimethdnroute:
+    description: >-
+      What is your usual route of administration for methadone?
+    enum:
+      - Oral
+      - Nasal
+      - Smoking/Vape
+      - Injection
+      - Not applicable
+
+  masibuperx:
+    description: >-
+      Was this buprenorphine prescribed to you?
+    enum:
+      - "No"
+      - "Yes"
+      - Don't know
+
+  masibuperoute:
+    description: >-
+      What is your usual route of administration for buprenorphine?
+    enum:
+      - Oral
+      - Nasal
+      - Smoking/Vape
+      - Injection
+      - Not applicable
+
+  masiopiaterx:
+    description: >-
+      Was this opioid prescribed to you?
+    enum:
+      - "No"
+      - "Yes"
+      - Don't know
+
+  masiopiateroute:
+    description: >-
+      What is your usual route of administration for opioids?
+    enum:
+      - Oral
+      - Nasal
+      - Smoking/Vape
+      - Injection
+      - Not applicable
+
+  masibenzorx:
+    description: >-
+      Was this benzodiazepine prescribed to you?
+    enum:
+      - "No"
+      - "Yes"
+      - Don't know
+
+  masibenzoroute:
+    description: >-
+      What is your usual route of administration for benzodiazepines?
+    enum:
+      - Oral
+      - Nasal
+      - Smoking/Vape
+      - Injection
+      - Not applicable
+
+  masiamphetrx:
+    description: >-
+      Was this amphetamine prescribed to you?
+    enum:
+      - "No"
+      - "Yes"
+      - Don't know
+
+  masiamphetroute:
+    description: >-
+      What is your usual route of administration for amphetamines?
+    enum:
+      - Oral
+      - Nasal
+      - Smoking/Vape
+      - Injection
+      - Not applicable
+
+  masistreetamphroute:
+    description: >-
+      What is your usual route of administration for amphetamines?
+    enum:
+      - Oral
+      - Nasal
+      - Smoking/Vape
+      - Injection
+      - Not applicable
+
+  masiotherdrugname:
+    description: >-
+      Other, specify:
+    type: string
+
+  masiotherrx:
+    description: >-
+      Was this other drug prescribed to you?
+    enum:
+      - "No"
+      - "Yes"
+      - Don't know
+
+  masiotherroute:
+    description: >-
+      What is your usual route of administration?
+    enum:
+      - Oral
+      - Nasal
+      - Smoking/Vape
+      - Injection
+      - Not applicable
+
+  pb_substance_uses:
     $ref: "_definitions.yaml#/to_one"

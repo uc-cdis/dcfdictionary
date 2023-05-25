@@ -1,14 +1,14 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "pb_modified_taps_one"
-title: Patient Baseline Modified TAPS-1
+id: "pb_cigarette_and_e_cigarette_use"
+title: Cigarette and E-cigarette Use
 type: object
 namespace: https://impowrgen3.wakehealth.edu/
 category: clinical
 program: '*'
 project: '*'
 description: >-
-  Data describing patient baseline modified TAPS-1 characteristics
+  Data describing patient baseline modified Cigarette and E-cigarette Use
 additionalProperties: false
 submittable: true
 
@@ -21,7 +21,7 @@ systemProperties:
 
 links:
   - name: pb_substance_uses
-    backref: pb_modified_taps_one
+    backref: pb_cigarette_and_e_cigarette_uses
     label: derived_from
     target_type: pb_substance_use
     multiplicity: many_to_one
@@ -38,31 +38,6 @@ uniqueKeys:
 properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
-
-  tapstobaccoproductscl:
-    description: >-
-      tobacco product (for example, cigarettes, e-cigarettes, cigars, pipes, or smokeless
-      tobacco)?
-    enum:
-      - Daily or Almost Daily
-      - Weekly
-      - Monthly
-      - Less Than Monthly
-      - Never
-
-  tapsprescriptionmedusescl:
-    description: >-
-      prescription medications just for the feeling, more than prescribed or that
-      were not prescribed for you? Prescription medications that may be used this
-      way include: Opiate pain relievers (for example, OxyContin, Vicodin, Percocet,
-      Methadone) Medications for anxiety or sleeping (for example, Xanax, Ativan,
-      Klonopin) Medications for ADHD (for example, Adderall or Ritalin)?
-    enum:
-      - Daily or Almost Daily
-      - Weekly
-      - Monthly
-      - Less Than Monthly
-      - Never
 
   cigperdayscl:
     description: >-

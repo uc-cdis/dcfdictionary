@@ -20,8 +20,8 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_BPI
-    backref: pb_bpi
+  - name: pb_pains
+    backref: pb_bpis
     label: derived_from
     target_type: pb_pain
     multiplicity: many_to_one
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,214 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_BPI:
+  bpipainothrevrdykdindcode:
+    description: >-
+      Throughout our lives most of us have had pain from time to time (such as minor
+      headaches, sprains, toothaches). Have you had pain other than these everyday
+      kinds of pain in the last week?
+    type: string
+
+  bpiwrstpnlast24hrtngscl:
+    description: >-
+      Please rate your pain by choosing the number that best describes your pain at
+      its worse in the last 24 hours.
+    enum:
+      - 0 = no pain
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - "8"
+      - "9"
+      - 10 = Pain as bad as you can imagine
+
+  bpileastpnlst24hrtngscl:
+    description: >-
+      Please rate your pain by choosing the number that best describes your pain at
+      its least in the last 24 hours.
+    enum:
+      - 0 = no pain
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - "8"
+      - "9"
+      - 10 = Pain as bad as you can imagine
+
+  bpiavgpainrtngscl:
+    description: >-
+      Please rate your pain by choosing the number that best describes your pain on
+      the average.
+    enum:
+      - 0 = no pain
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - "8"
+      - "9"
+      - 10 = Pain as bad as you can imagine
+
+  bpicurrentpainrtngscl:
+    description: >-
+      Please rate your pain by choosing the number that tells how much pain you have
+      right now.
+    enum:
+      - 0 = no pain
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - "8"
+      - "9"
+      - 10 = Pain as bad as you can imagine
+
+  bpipaintreatmntrecvtxt:
+    description: >-
+      What treatments or medications are you receiving for pain?
+    type: string
+
+  bpipaintreatmntrelfscl:
+    description: >-
+      In the last 24 hours how much relief have pain treatments or medications provided?
+      Please choose the percentage that most shows how much relief you have received.
+    enum:
+      - 0 % = No relief
+      - 10 %
+      - 20 %
+      - 30 %
+      - 40 %
+      - 50 %
+      - 60 %
+      - 70 %
+      - 80 %
+      - 90 %
+      - 100 % = Complete relief
+
+  bpipainintfrgnrlactvtyscl:
+    description: >-
+      General activity
+    enum:
+      - 0 = does not interfere
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - "8"
+      - "9"
+      - 10 = completely interferes
+
+  bpipainintfrmoodscl:
+    description: >-
+      Mood
+    enum:
+      - 0 = does not interfere
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - "8"
+      - "9"
+      - 10 = completely interferes
+
+  bpipainintfrwlkablscl:
+    description: >-
+      Walking Ability
+    enum:
+      - 0 = does not interfere
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - "8"
+      - "9"
+      - 10 = completely interferes
+
+  bpipainnrmlwrkintrfrscl:
+    description: >-
+      Normal work
+    enum:
+      - 0 = does not interfere
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - "8"
+      - "9"
+      - 10 = completely interferes
+
+  bpipainrelationsintrfrscl:
+    description: >-
+      Relations with other people
+    enum:
+      - 0 = does not interfere
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - "8"
+      - "9"
+      - 10 = completely interferes
+
+  bpipainsleepintrfrscl:
+    description: >-
+      Sleep
+    enum:
+      - 0 = does not interfere
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - "8"
+      - "9"
+      - 10 = completely interferes
+
+  bpipainenjoymntintrfrscl:
+    description: >-
+      Enjoyment of life
+    enum:
+      - 0 = does not interfere
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - "8"
+      - "9"
+      - 10 = completely interferes
+
+  pb_pains:
     $ref: "_definitions.yaml#/to_one"

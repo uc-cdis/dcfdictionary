@@ -20,8 +20,8 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_pain_intensity
-    backref: pb_pain_intensity
+  - name: pb_pains
+    backref: pb_pain_intensities
     label: derived_from
     target_type: pb_pain
     multiplicity: many_to_one
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,21 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_pain_intensity:
+  promisavgpainrtngpst7dscl:
+    description: >-
+      In the past 7 days, how would you rate your pain on average?
+    enum:
+      - 0 = no pain
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - "8"
+      - "9"
+      - 10 = Worst possible pain
+
+  pb_pains:
     $ref: "_definitions.yaml#/to_one"

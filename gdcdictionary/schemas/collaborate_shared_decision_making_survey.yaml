@@ -1,0 +1,80 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "collaborate_shared_decision_making_survey"
+title: Collaborate shared decision making survey
+type: object
+namespace: https://impowrgen3.wakehealth.edu/
+category: clinical
+program: '*'
+project: '*'
+description: >-
+  Data describing Collaborate shared decision making survey
+additionalProperties: false
+submittable: true
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: pb_aim_iam_fims
+    backref: collaborate_shared_decision_making_surveys
+    label: derived_from
+    target_type: pb_aim_iam_fim
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  sdmunderstand:
+    description: >-
+      How much effort was made to help you understand your health issues?
+    enum:
+      - No effort was made
+      - A little effort was made
+      - Some effort was made
+      - A lot effort was made
+      - Every effort was made
+
+  sdmlisten:
+    description: >-
+      How much effort was made to listen to the things that matter most to you about
+      your health issues?
+    enum:
+      - No effort was made
+      - A little effort was made
+      - Some effort was made
+      - A lot effort was made
+      - Every effort was made
+
+  sdminclude:
+    description: >-
+      How much effort was made to include what matters most to you in choosing what
+      to do next?
+    enum:
+      - No effort was made
+      - A little effort was made
+      - Some effort was made
+      - A lot effort was made
+      - Every effort was made
+
+  sdmscore:
+    description: >-
+      Overall score for the IMPOWR Shared Decision Making assessment
+    type: number
+
+  pb_aim_iam_fims:
+    $ref: "_definitions.yaml#/to_one"

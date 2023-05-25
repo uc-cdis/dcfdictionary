@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_supplemental_demographics
+  - name: pb_demographics
     backref: pb_supplemental_demographics
     label: derived_from
     target_type: pb_demographics
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,189 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_supplemental_demographics:
+  impowroptdemdayswork:
+    description: >-
+      During the last 90 days (since your last assessment), on how many days have
+      you worked?
+    type: string
+
+  impowroptdemdaysperwk:
+    description: >-
+      How many days per week do you typically work?
+    enum:
+      - I don't typically work at all
+      - 1 day a week
+      - 2 day a week
+      - 3 day a week
+      - 4 day a week
+      - 5 day a week
+      - 6 day a week
+      - I typically work every day of the week
+      - I don't typically work at all
+      - 1 day a week
+      - 2 days a week
+      - 3 days a week
+      - 4 days a week
+      - 5 days a week
+      - 6 days a week
+      - I typically work every  day of the week
+
+  impowroptdemusualhrperwk:
+    description: >-
+      How many hours per week do you usually work?
+    type: string
+
+  impowroptdemhrlywage:
+    description: >-
+      Approximately how much do you make per hour?
+    type: string
+
+  dem_benefits:
+    description: >-
+      Do any of the places that you work offer you the following benefits? (MARK ALL
+      THAT APPLY)
+    enum:
+      - Health Insurance
+      - Paid time off
+      - Defined benefit plan or pension
+      - An arrangement such as a 401(k) or 403(b) plan, under which your employer
+        contributes money towards your retirement every pay period
+      - None of the above
+      - Health Insurance
+      - Paid time off
+      - Defined benefit plan or pension
+      - An arrangement such as a 401(k) or 403(b) plan, under which your employer
+        contributes money towards your retirement every pay period
+      - None of the above
+
+  impowroptdemhlthinsur:
+    description: >-
+      Health Insurance
+    type: string
+
+  impowroptdempdtimeoff:
+    description: >-
+      Paid Time Off
+    type: string
+
+  impowroptdempension:
+    description: >-
+      Defined benefit plan or pension
+    type: string
+
+  impowroptdem401k:
+    description: >-
+      401(k) or 403(b) Plan
+    type: string
+
+  impowroptdemnone:
+    description: >-
+      No Benefits
+    type: string
+
+  impowroptdemoccup:
+    description: >-
+      What is your occupation?
+    type: string
+
+  impowroptdemhlthinsurance:
+    description: >-
+      Are you currently covered by health insurance or some other kind of health care
+      plan?
+    type: string
+
+  insurance_type:
+    description: >-
+      What kind of health insurance or health care coverage (did/do) you have? Include
+      those that pay for only one type of service (such as nursing home care, accidents,
+      or dental care). Exclude private plans that only provide extra cash while hospitalized.
+      If you have more than one kind of health insurance, tell me all plans that you
+      have.
+    enum:
+      - Private health insurance
+      - Medicare
+      - Medigap
+      - Medicaid/Medicaid managed care plans
+      - SCHIP (CHIP/Children's Health Insurance Program)
+      - Military Health Care (Tricare/VA/CHAMP-VA)
+      - Indian Health Service
+      - State-Sponsored Health Plan/Affordable Care Act
+      - Other government program
+      - Single service plan (e.g., dental, vision, prescriptions)
+      - Other
+      - Don't Know
+      - Private health insurance
+      - Medicare
+      - Medigap
+      - Medicaid/Medicaid managed care plans
+      - SCHIP (CHIP/Children's Health Insurance Program)
+      - Military Health Care (Tricare/VA/CHAMP-VA)
+      - Indian Health Service
+      - State-Sponsored Health Plan/Affordable Care Act
+      - Other government program
+      - Single service plan (e.g., dental, vision, prescriptions)
+      - Other
+      - I don't know
+
+  impowroptdeminstype_1:
+    description: >-
+      Private health insurance
+    type: string
+
+  impowroptdeminstype_2:
+    description: >-
+      Medicare
+    type: string
+
+  impowroptdeminstype_3:
+    description: >-
+      Medigap
+    type: string
+
+  impowroptdeminstype_4:
+    description: >-
+      Medicaid/Medicaid managed care plans
+    type: string
+
+  impowroptdeminstype_5:
+    description: >-
+      SCHIP (CHIP/Children's Health Insurance Program)
+    type: string
+
+  impowroptdeminstype_6:
+    description: >-
+      Military Health Care (Tricare/VA/CHAMP-VA)
+    type: string
+
+  impowroptdeminstype_7:
+    description: >-
+      Indian Health Service
+    type: string
+
+  impowroptdeminstype_8:
+    description: >-
+      State-Sponsored Health Plan/Affordable Care Act
+    type: string
+
+  impowroptdeminstype_9:
+    description: >-
+      Other government program
+    type: string
+
+  impowroptdeminstype_10:
+    description: >-
+      Single service plan (e.g., dental, vision, prescriptions)
+    type: string
+
+  impowroptdeminstype_11:
+    description: >-
+      Other
+    type: string
+
+  impowroptdeminstype_12:
+    description: >-
+      Don't Know
+    type: string
+
+  pb_demographics:
     $ref: "_definitions.yaml#/to_one"

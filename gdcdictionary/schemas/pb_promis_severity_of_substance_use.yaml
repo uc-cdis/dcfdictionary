@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_PROMIS_severity_of_substance_use
+  - name: pb_substance_uses
     backref: pb_promis_severity_of_substance_use
     label: derived_from
     target_type: pb_substance_use
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,85 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_PROMIS_severity_of_substance_use:
+  ssu7auseddrugs:
+    description: >-
+      Have you used drugs other than alcohol or your prescribed medications?
+    type: string
+
+  ssu7aoutofcontrol:
+    description: >-
+      I felt that my drug use was out of control.
+    enum:
+      - Not at all
+      - A little bit
+      - Somewhat
+      - Quite a bit
+      - Very much
+
+  ssu7aoverpowering:
+    description: >-
+      My desire to use drugs seemed overpowering.
+    enum:
+      - Never
+      - Rarely
+      - Sometimes
+      - Often
+      - Almost always
+
+  ssu7adrugthought:
+    description: >-
+      Drugs were the only thing I could think about.
+    enum:
+      - Never
+      - Rarely
+      - Sometimes
+      - Often
+      - Almost always
+
+  ssu7acauseproblem:
+    description: >-
+      My drug use caused problems with people close to me.
+    enum:
+      - Never
+      - Rarely
+      - Sometimes
+      - Often
+      - Almost always
+
+  ssu7adrugproblem:
+    description: >-
+      I have a drug problem.
+    enum:
+      - Not at all
+      - A little bit
+      - Somewhat
+      - Quite a bit
+      - Very much
+
+  ssu7acrave:
+    description: >-
+      I craved drugs.
+    enum:
+      - Never
+      - Rarely
+      - Sometimes
+      - Often
+      - Almost always
+
+  ssu7atimeusing:
+    description: >-
+      I spent a lot of time using drugs.
+    enum:
+      - Never
+      - Rarely
+      - Sometimes
+      - Often
+      - Almost always
+
+  ssu7atotalscore:
+    description: >-
+      Total score
+    type: number
+
+  pb_substance_uses:
     $ref: "_definitions.yaml#/to_one"

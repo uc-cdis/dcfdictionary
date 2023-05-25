@@ -20,8 +20,8 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_pain
-    backref: pb_pain
+  - name: patient_baselines
+    backref: pb_pains
     label: derived_from
     target_type: patient_baseline
     multiplicity: many_to_one
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,5 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_pain:
+  patient_baselines:
     $ref: "_definitions.yaml#/to_one"

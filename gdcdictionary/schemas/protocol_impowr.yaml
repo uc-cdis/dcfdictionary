@@ -25,7 +25,7 @@ links:
   - name: studies
     backref: protocols_impowr
     label: derived_from
-    target_type: project
+    target_type: study
     multiplicity: many_to_many
     required: true
 

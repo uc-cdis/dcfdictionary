@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_PROMIS_sleep
+  - name: pb_sleep_fatigues
     backref: pb_promis_sleep
     label: derived_from
     target_type: pb_sleep_fatigue
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,70 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_PROMIS_sleep:
+  promissleepwasrefreshscl:
+    description: >-
+      In the past 7 days, My sleep was refreshing.
+    enum:
+      - Very much
+      - Quite a bit
+      - Somewhat
+      - A little bit
+      - Not at all
+
+  promissleepqualityscl:
+    description: >-
+      In the past 7 days, My sleep quality was...
+    enum:
+      - Very good
+      - Good
+      - Fair
+      - Poor
+      - Very poor
+
+  promisproblemwithslpscl:
+    description: >-
+      In the past 7 days, I had a problem with my sleep.
+    enum:
+      - Very much
+      - Quite a bit
+      - Somewhat
+      - A little bit
+      - Not at all
+
+  promisdifficltfallaslpscl:
+    description: >-
+      In the past 7 days, I had difficulty falling asleep.
+    enum:
+      - Very much
+      - Quite a bit
+      - Somewhat
+      - A little bit
+      - Not at all
+
+  promisslpwasrestlessscl:
+    description: >-
+      In the past 7 days, My sleep was restless.
+    enum:
+      - Very much
+      - Quite a bit
+      - Somewhat
+      - A little bit
+      - Not at all
+
+  promistryhardgettoslpscl:
+    description: >-
+      In the past 7 days, I tried hard to get to sleep.
+    enum:
+      - Very much
+      - Quite a bit
+      - Somewhat
+      - A little bit
+      - Not at all
+
+  promisslpdist6totalscore:
+    description: >-
+      Total Score
+    type: number
+
+  pb_sleep_fatigues:
     $ref: "_definitions.yaml#/to_one"

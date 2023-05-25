@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_PHQ_3
+  - name: pb_depressions
     backref: pb_phq_three
     label: derived_from
     target_type: pb_depression
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,35 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_PHQ_3:
+  phqlitintrstscore:
+    description: >-
+      Over the last 2 weeks, how often have you been bothered by the following problems?..
+      Little interest or pleasure in doing things
+    enum:
+      - Not at all
+      - Several days
+      - More than half the days
+      - Nearly every day
+
+  phqdeprssnscore:
+    description: >-
+      Over the last 2 weeks, how often have you been bothered by the following problems?..
+      Feeling down depressed or hopeless
+    enum:
+      - Not at all
+      - Several days
+      - More than half the days
+      - Nearly every day
+
+  phqbttrddthghtscore:
+    description: >-
+      Over the last 2 weeks, how often have you been bothered by the following problems?..
+      Thoughts that you would be better off dead, or of hurting yourself.
+    enum:
+      - Not at all
+      - Several days
+      - More than half the days
+      - Nearly every day
+
+  pb_depressions:
     $ref: "_definitions.yaml#/to_one"

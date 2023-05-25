@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_supplemental_IMPOWR_stigma_discrimination
+  - name: pb_stigma_discrimination
     backref: pb_supplemental_impowr_stigma_discrimination
     label: derived_from
     target_type: pb_stigma_discrimination
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,151 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_supplemental_IMPOWR_stigma_discrimination:
+  stigpoorcharacter:
+    description: >-
+      As you see it now, please rate how often you have the thoughts or experiences
+      listed below. Use the scale below to make your choice… I have the thought that
+      a major reason for my problems with substances is my own poor character.
+    enum:
+      - Never or almost never
+      - Rarely
+      - Sometimes
+      - Often
+      - Very often
+
+  stigshouldashamed:
+    description: >-
+      I have the thought that I should be ashamed of myself.
+    enum:
+      - Never or almost never
+      - Rarely
+      - Sometimes
+      - Often
+      - Very often
+
+  stigdeserve:
+    description: >-
+      I have the thought that I deserve the bad things that have happened to me.
+    enum:
+      - Never or almost never
+      - Rarely
+      - Sometimes
+      - Often
+      - Very often
+
+  stiguntrustworthy:
+    description: >-
+      I have the thought that I can't be trusted.
+    enum:
+      - Never or almost never
+      - Rarely
+      - Sometimes
+      - Often
+      - Very often
+
+  stiginferior:
+    description: >-
+      I feel inferior to people who have never had a problem with substances.
+    enum:
+      - Never or almost never
+      - Rarely
+      - Sometimes
+      - Often
+      - Very often
+
+  stigoutofplace:
+    description: >-
+      I feel out of place in the world because of my problems with substances.
+    enum:
+      - Never or almost never
+      - Rarely
+      - Sometimes
+      - Often
+      - Very often
+
+  stigscreweduplife:
+    description: >-
+      I have the thought that I've permanently screwed up my life by using drugs.
+    enum:
+      - Never or almost never
+      - Rarely
+      - Sometimes
+      - Often
+      - Very often
+
+  stigfeelashamed:
+    description: >-
+      I feel ashamed of myself.
+    enum:
+      - Never or almost never
+      - Rarely
+      - Sometimes
+      - Often
+      - Very often
+
+  suptxrecdyn:
+    description: >-
+      Have you received any substance use treatment in the past 90 days (since last
+      assessment)?
+    type: string
+
+  suptxorganized:
+    description: >-
+      Considering the substance use treatment from your most recent substance treatment
+      provider in the past 90 days (since your last assessment), please indicate how
+      much you agree with each of the following statements… The provider is organized
+      and well-run
+    enum:
+      - Strongly agree
+      - Moderately agree
+      - Agree somewhat
+      - Agree a little
+      - Do not agree at all
+
+  suptxsatisfied:
+    description: >-
+      You are satisfied with this provider
+    enum:
+      - Strongly agree
+      - Moderately agree
+      - Agree somewhat
+      - Agree a little
+      - Do not agree at all
+
+  suptxefficient:
+    description: >-
+      The staff are efficient at doing their job
+    enum:
+      - Strongly agree
+      - Moderately agree
+      - Agree somewhat
+      - Agree a little
+      - Do not agree at all
+
+  suptxperscounsel:
+    description: >-
+      You can get plenty of personal counseling at this provider
+    enum:
+      - Strongly agree
+      - Moderately agree
+      - Agree somewhat
+      - Agree a little
+      - Do not agree at all
+
+  suptxmedoud:
+    description: >-
+      You can get plenty of medication assistance for opioid use at this provider
+    enum:
+      - Strongly agree
+      - Moderately agree
+      - Agree somewhat
+      - Agree a little
+      - Do not agree at all
+
+  suptxoverall:
+    description: >-
+      Overall score
+    type: number
+
+  pb_stigma_discrimination:
     $ref: "_definitions.yaml#/to_one"

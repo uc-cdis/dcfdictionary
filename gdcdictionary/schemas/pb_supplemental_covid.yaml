@@ -20,8 +20,8 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_Supplemental_COVID
-    backref: pb_Supplemental_covid
+  - name: pb_covid
+    backref: pb_supplemental_covid
     label: derived_from
     target_type: pb_covid
     multiplicity: many_to_one
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,53 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_Supplemental_COVID:
+  covid19hlthaccessscl:
+    description: >-
+      Over the last 3 months, how has the coronavirus pandemic affected your… Ability
+      to get healthcare (including pain treatment, prescription and over-the-counter
+      medications, medical and mental health visits, other treatments)
+    enum:
+      - Reduce my ability to get healthcare A LOT
+      - Reduced my ability to get healthcare A LITTLE
+      - NOT AFFECTED my ability to get healthcare
+      - IMPROVED my ability to get healthcare
+
+  covid19socsupptscl:
+    description: >-
+      Social support, or the support you get from others in your community
+    enum:
+      - A LOT less social support
+      - A LITTLE LESS social support
+      - Social support was NOT AFFECTED
+      - IMPROVED my social support
+
+  covid19financescl:
+    description: >-
+      Finances (including income, savings, ability to pay bills)
+    enum:
+      - Made finances A LOT WORSE
+      - Made finances A LITTLE  WORSE
+      - NOT AFFECTED my finances
+      - IMPROVED my finances
+
+  covid19meetbasicneedscl:
+    description: >-
+      Ability to meet your basic needs (including housing, food, essential supplies,
+      transportation, childcare)
+    enum:
+      - Reduced my ability to meet my basic needs A LOT
+      - Reduced my ability to meet my basic needs A LITTLE
+      - NOT AFFECTED my ability to meet my basic needs
+      - IMPROVED my ability to meet my basic needs
+
+  covid19mentalhlthscl:
+    description: >-
+      Mental and emotional health (including worry, stress, anxiety, depression, mood)
+    enum:
+      - My mental and emotional health is A LOT WORSE
+      - My mental and emotional health is A LITTLE WORSE
+      - NOT AFFECTED my mental and emotional health
+      - IMPROVED my mental and emotional health
+
+  pb_covid:
     $ref: "_definitions.yaml#/to_one"

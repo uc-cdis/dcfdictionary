@@ -20,8 +20,8 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_michigan_body_map
-    backref: pb_michigan_body_map
+  - name: pb_pains
+    backref: pb_michigan_body_maps
     label: derived_from
     target_type: pb_pain
     multiplicity: many_to_one
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,266 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_michigan_body_map:
+  mbodycp:
+    description: >-
+      @IMAGEMAP=MBODY
+    enum:
+      - MFace
+      - MRJaw
+      - MLJaw
+      - MRChest
+      - MLChest
+      - MRUpArm
+      - MLUpArM
+      - MRElbw
+      - MLElbw
+      - MRLowArm
+      - MLLowArm
+      - MRHand
+      - MLHand
+      - MAbdomen
+      - MPelvis
+      - MRGroin
+      - MLGroin
+      - MRUpLeg
+      - MLUpLeg
+      - MRKnee
+      - MLKnee
+      - MRLowLeg
+      - MLLowLeg
+      - MRFoot
+      - MLFoot
+      - MHead
+      - MNeck
+      - MLShldr
+      - MRShldr
+      - MUpBack
+      - MLowBack
+      - MLHip
+      - MRHip
+      - MLBttck
+      - MRBttck
+      - Mnone
+
+  mface:
+    description: >-
+      Face
+    type: number
+
+  mrjaw:
+    description: >-
+      Right Jaw
+    type: number
+
+  mljaw:
+    description: >-
+      Left Jaw
+    type: number
+
+  mrchest:
+    description: >-
+      Right Chest
+    type: number
+
+  mlchest:
+    description: >-
+      Left Chest
+    type: number
+
+  mruparm:
+    description: >-
+      Right Upper Arm
+    type: number
+
+  mluparm:
+    description: >-
+      Left Upper Arm
+    type: number
+
+  mrelbw:
+    description: >-
+      Right Elbow
+    type: number
+
+  mlelbw:
+    description: >-
+      Left Elbow
+    type: number
+
+  mrlowarm:
+    description: >-
+      Right Lower Arm
+    type: number
+
+  mllowarm:
+    description: >-
+      Left Lower Arm
+    type: number
+
+  mrhand:
+    description: >-
+      Right Hand
+    type: number
+
+  mlhand:
+    description: >-
+      Left Hand
+    type: number
+
+  mabdomen:
+    description: >-
+      Abdomen
+    type: number
+
+  mpelvis:
+    description: >-
+      Pelvis
+    type: number
+
+  mrgroin:
+    description: >-
+      Right Groin
+    type: number
+
+  mlgroin:
+    description: >-
+      Left Groin
+    type: number
+
+  mrupleg:
+    description: >-
+      Right Upper Leg
+    type: number
+
+  mlupleg:
+    description: >-
+      Left Upper Leg
+    type: number
+
+  mrknee:
+    description: >-
+      Right Knee
+    type: number
+
+  mlknee:
+    description: >-
+      Left Knee
+    type: number
+
+  mrlowleg:
+    description: >-
+      Right Lower Leg
+    type: number
+
+  mllowleg:
+    description: >-
+      Left Lower Leg
+    type: number
+
+  mrfoot:
+    description: >-
+      Right Foot
+    type: number
+
+  mlfoot:
+    description: >-
+      Left Foot
+    type: number
+
+  mhead:
+    description: >-
+      Head
+    type: number
+
+  mneck:
+    description: >-
+      Neck
+    type: number
+
+  mlshldr:
+    description: >-
+      Left Shoulder
+    type: number
+
+  mrshldr:
+    description: >-
+      Right Shoulder
+    type: number
+
+  mupback:
+    description: >-
+      Upper Back
+    type: number
+
+  mlowback:
+    description: >-
+      Lower Back
+    type: number
+
+  mlhip:
+    description: >-
+      Left Hip
+    type: number
+
+  mrhip:
+    description: >-
+      Right Hip
+    type: number
+
+  mlbttck:
+    description: >-
+      Left Buttock
+    type: number
+
+  mrbttck:
+    description: >-
+      Right Buttock
+    type: number
+
+  mnone:
+    description: >-
+      No Pain
+    type: number
+
+  mbm_total:
+    description: >-
+      Total Michigan Body Map Score
+    type: number
+
+  copcs_fm_regiona:
+    description: >-
+      Widespread pain region 1 (Left upper region)
+    type: number
+
+  copcs_fm_regionb:
+    description: >-
+      Widespread pain region 2 (Right upper region)
+    type: number
+
+  copcs_fm_regionc:
+    description: >-
+      Widespread pain region 3 (Left lower region)
+    type: number
+
+  copcs_fm_regiond:
+    description: >-
+      Widespread pain region 4 (Right lower region)
+    type: number
+
+  copcs_fm_regione:
+    description: >-
+      Widespread pain region 5 (Axial region)
+    type: number
+
+  copcs_paintender_7d_number:
+    description: >-
+      Widespread Pain Region Score
+    type: number
+
+  copcs_paintender_7d_wpisco:
+    description: >-
+      Widespread Pain Index Score
+    type: number
+
+  pb_pains:
     $ref: "_definitions.yaml#/to_one"

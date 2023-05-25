@@ -20,8 +20,8 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_PGIC
-    backref: pb_pgic
+  - name: pb_pains
+    backref: pb_pgics
     label: derived_from
     target_type: pb_pain
     multiplicity: many_to_one
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,27 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_PGIC:
+  pgicsymptomchangestatval:
+    description: >-
+      Since the start of the study (treatment), my overall pain is
+    enum:
+      - Very much improved
+      - Much improved
+      - Minimally improved
+      - No change
+      - Minimally worse
+      - Much worse
+      - Very much worse
+
+  pcqpainawfulovrwhlmscl:
+    description: >-
+      It's awful and I feel that it overwhelms me
+    enum:
+      - not at all
+      - to a slight degree
+      - to a moderate degree
+      - to a great degree
+      - all the time
+
+  pb_pains:
     $ref: "_definitions.yaml#/to_one"

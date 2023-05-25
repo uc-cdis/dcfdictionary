@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_IMPOWR_COVID_impact
+  - name: pb_covid
     backref: pb_impowr_covid_impact
     label: derived_from
     target_type: pb_covid
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,72 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_IMPOWR_COVID_impact:
+  covhad:
+    description: >-
+      Which of the following statements best describes your personal experience with
+      the coronavirus/COVID-19?
+    enum:
+      - I think I had the coronavirus
+      - I don't think I had the coronavirus
+      - Unsure
+
+  covsx:
+    description: >-
+      If you think you had the coronavirus/COVID-19, which answers describe your personal
+      experience?
+    enum:
+      - Positive test and had symptoms
+      - Positive test and had NO symptoms
+      - Experienced symptoms but was not tested
+      - Prefer not to answer
+      - Unsure
+
+  covidcp:
+    description: >-
+      If the coronavirus/COVID-19 pandemic has affected your OUD or chronic pain,
+      please described the impact of the pandemic has had on your symptoms/experience/treatment/management:
+      Chronic pain
+    enum:
+      - Made chronic pain A LOT WORSE
+      - Made chronic pain A LITTLE WORSE
+      - DID NOT AFFECT my chronic pain
+      - IMPROVED my chronic pain A LITTLE
+      - IMPROVED my chronic pain A LOT
+      - Prefer not to answer
+
+  covoud:
+    description: >-
+      Opioid use/Opioid Use Disorder (OUD)
+    enum:
+      - Made OUD A LOT WORSE
+      - Made OUD A LITTLE WORSE
+      - DID NOT AFFECT my OUD
+      - IMPROVED my OUD
+      - IMPROVED my OUD A LOT
+      - Prefer not to answer
+
+  covcpaccess:
+    description: >-
+      If the coronavirus/COVID-19 pandemic has affected your access to care, how has
+      it impacted your access to care for: Chronic pain treatment
+    enum:
+      - Made chronic pain access A LOT WORSE
+      - Made chronic pain access A LITTLE WORSE
+      - DID NOT AFFECT my chronic pain acces
+      - IMPROVED my chronic pain access A LITTLE
+      - IMPROVED my chronic pain access A LOT
+      - Prefer not to answer
+
+  covoudaccess:
+    description: >-
+      Opioid use/Opioid Use Disorder (OUD) treatment
+    enum:
+      - Made OUD access A LOT WORSE
+      - Made OUD access A LITTLE WORSE
+      - DID NOT AFFECT my OUD access
+      - IMPROVED my OUD access
+      - IMPROVED my OUD access A LOT
+      - Prefer not to answer
+
+  pb_covid:
     $ref: "_definitions.yaml#/to_one"

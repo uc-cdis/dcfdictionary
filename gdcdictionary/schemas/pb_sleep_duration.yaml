@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_sleep_duration
+  - name: pb_sleep_fatigues
     backref: pb_sleep_duration
     label: derived_from
     target_type: pb_sleep_fatigue
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,24 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_sleep_duration:
+  sleep_duration_hours:
+    description: >-
+      During the past month, how many hours and minutes of actual sleep did you get
+      at night? (This may be different than the number of hours and minutes you spent
+      in bed).  Hours per night
+    type: string
+
+  sleep_duration_minutes:
+    description: >-
+      During the past month, how many hours and minutes of actual sleep did you get
+      at night? (This may be different than the number of hours and minutes you spent
+      in bed).  minutes per night
+    type: string
+
+  sleepnighthourmindur:
+    description: >-
+      Total sleep time in minutes
+    type: number
+
+  pb_sleep_fatigues:
     $ref: "_definitions.yaml#/to_one"

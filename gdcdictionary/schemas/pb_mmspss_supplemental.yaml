@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_MMSPSS_supplemental
+  - name: pb_socials
     backref: pb_mmspss_supplemental
     label: derived_from
     target_type: pb_social
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,199 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_MMSPSS_supplemental:
+  mspssspecpersonscl:
+    description: >-
+      We are interested in how you feel about the following statements. Read each
+      statement carefully. Indicate how you feel about each statement...There is a
+      special person who is around when I am in need.
+    enum:
+      - Very Strongly Disagree
+      - Strongly Disagree
+      - Mildly Disagree
+      - Neutral
+      - Mildly Agree
+      - Strongly Agree
+      - Very Strongly Agree
+
+  mspssspecjoysorrowscl:
+    description: >-
+      We are interested in how you feel about the following statements. Read each
+      statement carefully. Indicate how you feel about each statement...There is a
+      special person with whom I can share joys and sorrows.
+    enum:
+      - Very Strongly Disagree
+      - Strongly Disagree
+      - Mildly Disagree
+      - Neutral
+      - Mildly Agree
+      - Strongly Agree
+      - Very Strongly Agree
+
+  mspssfamilyhelpsscl:
+    description: >-
+      We are interested in how you feel about the following statements. Read each
+      statement carefully. Indicate how you feel about each statement...My family
+      really tries to help me.
+    enum:
+      - Very Strongly Disagree
+      - Strongly Disagree
+      - Mildly Disagree
+      - Neutral
+      - Mildly Agree
+      - Strongly Agree
+      - Very Strongly Agree
+
+  mspssfamemotsuptscl:
+    description: >-
+      We are interested in how you feel about the following statements. Read each
+      statement carefully. Indicate how you feel about each statement...I get the
+      emotional help  and support I need from my family.
+    enum:
+      - Very Strongly Disagree
+      - Strongly Disagree
+      - Mildly Disagree
+      - Neutral
+      - Mildly Agree
+      - Strongly Agree
+      - Very Strongly Agree
+
+  mspssspeccomfortscl:
+    description: >-
+      We are interested in how you feel about the following statements. Read each
+      statement carefully. Indicate how you feel about each statement...I have a special
+      person who is a real source of comfort to me.
+    enum:
+      - Very Strongly Disagree
+      - Strongly Disagree
+      - Mildly Disagree
+      - Neutral
+      - Mildly Agree
+      - Strongly Agree
+      - Very Strongly Agree
+
+  mspssfriendhelpscl:
+    description: >-
+      We are interested in how you feel about the following statements. Read each
+      statement carefully. Indicate how you feel about each statement...My friends
+      really try to help me.
+    enum:
+      - Very Strongly Disagree
+      - Strongly Disagree
+      - Mildly Disagree
+      - Neutral
+      - Mildly Agree
+      - Strongly Agree
+      - Very Strongly Agree
+
+  mspssfriendcountscl:
+    description: >-
+      We are interested in how you feel about the following statements. Read each
+      statement carefully. Indicate how you feel about each statement...I can count
+      on my friends when things go wrong.
+    enum:
+      - Very Strongly Disagree
+      - Strongly Disagree
+      - Mildly Disagree
+      - Neutral
+      - Mildly Agree
+      - Strongly Agree
+      - Very Strongly Agree
+
+  mspssfamtalkprobscl:
+    description: >-
+      We are interested in how you feel about the following statements. Read each
+      statement carefully. Indicate how you feel about each statement...I can talk
+      about my problems with my family.
+    enum:
+      - Very Strongly Disagree
+      - Strongly Disagree
+      - Mildly Disagree
+      - Neutral
+      - Mildly Agree
+      - Strongly Agree
+      - Very Strongly Agree
+
+  mspssfriendjoysorscl:
+    description: >-
+      We are interested in how you feel about the following statements. Read each
+      statement carefully. Indicate how you feel about each statement...I have friends
+      with whom I can share my joys and sorrows.
+    enum:
+      - Very Strongly Disagree
+      - Strongly Disagree
+      - Mildly Disagree
+      - Neutral
+      - Mildly Agree
+      - Strongly Agree
+      - Very Strongly Agree
+
+  mspssspeccarefeelscl:
+    description: >-
+      We are interested in how you feel about the following statements. Read each
+      statement carefully. Indicate how you feel about each statement...There is a
+      special person in my life who cares about my feelings.
+    enum:
+      - Very Strongly Disagree
+      - Strongly Disagree
+      - Mildly Disagree
+      - Neutral
+      - Mildly Agree
+      - Strongly Agree
+      - Very Strongly Agree
+
+  mspssfamdecisionscl:
+    description: >-
+      We are interested in how you feel about the following statements. Read each
+      statement carefully. Indicate how you feel about each statement...My family
+      is willing to help me make decisions.
+    enum:
+      - Very Strongly Disagree
+      - Strongly Disagree
+      - Mildly Disagree
+      - Neutral
+      - Mildly Agree
+      - Strongly Agree
+      - Very Strongly Agree
+
+  mspssfriendtalkprobscl:
+    description: >-
+      We are interested in how you feel about the following statements. Read each
+      statement carefully. Indicate how you feel about each statement...I can talk
+      about my problems with my friends.
+    enum:
+      - Very Strongly Disagree
+      - Strongly Disagree
+      - Mildly Disagree
+      - Neutral
+      - Mildly Agree
+      - Strongly Agree
+      - Very Strongly Agree
+
+  mspsssigothsubscl:
+    description: >-
+      We are interested in how you feel about the following statements. Read each
+      statement carefully. Indicate how you feel about each statement...Significant
+      Other Subscale Score
+    type: number
+
+  mspssfamilysubscl:
+    description: >-
+      We are interested in how you feel about the following statements. Read each
+      statement carefully. Indicate how you feel about each statement...Family Subscale
+      Score
+    type: number
+
+  mspssfriendssubscl:
+    description: >-
+      We are interested in how you feel about the following statements. Read each
+      statement carefully. Indicate how you feel about each statement...Friends Subscale
+      Score
+    type: number
+
+  mspsstotalscore:
+    description: >-
+      Total MSPSS score
+    type: number
+
+  pb_socials:
     $ref: "_definitions.yaml#/to_one"

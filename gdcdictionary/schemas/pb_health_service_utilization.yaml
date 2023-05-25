@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_health_service_utilization
+  - name: pb_health_economics
     backref: pb_health_service_utilization
     label: derived_from
     target_type: pb_health_economics
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,331 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_health_service_utilization:
+  utilpcpvisit:
+    description: >-
+      ...times have you seen a primary care provider (physician, nurse, nurse practitioner,
+      or physician's assistant)?
+    type: string
+
+  utilphysspecvisit:
+    description: >-
+      ...times have you seen another kind of health professional for your physical
+      health (specialty doctor, physical therapist, acupuncture, massage providers,
+      etc.)?
+    type: string
+
+  utilphysspecpain:
+    description: >-
+      ...times have you seen pain specialty doctor?
+    type: string
+
+  utilphysspecmassage:
+    description: >-
+      ...times have you seen massage therapist or acupuncturist?
+    type: string
+
+  utilphysspecpt:
+    description: >-
+      ...times have you seen physical therapist?
+    type: string
+
+  utilphysspecother:
+    description: >-
+      ...times have you seen another type of healthcare professional to manage your
+      pain?
+    type: string
+
+  utilpcptelehlth:
+    description: >-
+      How many of the times that you saw a primary care provider (physician, nurse,
+      nurse practitioner, or physician's assistant) did you participate via telehealth
+      (phone, computer or tablet)?
+    type: string
+
+  utilphysspectelehlth:
+    description: >-
+      How many of the  times you saw another kind of health professional for your
+      physical health (specialty doctor, physical therapist, acupuncture, massage
+      providers, etc.) did you participate via telehealth (phone, computer or tablet)?
+    type: string
+
+  utilopmhsudays:
+    description: >-
+      ...days did you participate in any outpatient treatment program for mental health
+      and/or substance use?
+    type: string
+
+  utilopmhsuindiv:
+    description: >-
+      ...did you participate in individual therapy (not IOP)?
+    type: string
+
+  utilopmhsugroup:
+    description: >-
+      ...did you participate in group therapy (not IOP)?
+    type: string
+
+  utilopmhsuiop:
+    description: >-
+      ...did you participate in an intensive outpatient program (IOP)?
+    type: string
+
+  utilopmhsumed:
+    description: >-
+      ...were for medication management only (e.g., medication adjustment or refills)?
+    type: string
+
+  utilmutual:
+    description: >-
+      ...times have you attended a mutual-help group meeting (e.g., AA, CA, NA, or
+      Smart Recovery)?
+    type: string
+
+  utilquitline:
+    description: >-
+      ...times have you called a quitline or a referral service to look for help with
+      a substance use or mental health issue?
+    type: string
+
+  utiljobreadiness:
+    description: >-
+      ...times have you received job readiness services (e.g., Jobs Readiness Programs
+      (Paths to Empowerment (P2E) Program via MASSHIRE, or specialized occupational
+      training (e.g. Introduction to IT (Computers), Food Service/Culinary Arts, Commercial
+      Cleaning, Office Skills, Construction Services, Customer Service, Personal Fitness
+      Instructor Training, Commercial Truck Driving, HVAC and Refrigeration, Carpentry
+      Services)?
+    type: string
+
+  utileducsuppt:
+    description: >-
+      ...have you received educational support services (e.g. Springfield Adult Learning
+      Center (SALC), free education to earn a High School Equivalency Certificate
+      (HSE) which includes preparing for a GED or a HiSET exam)?
+    type: string
+
+  utilfood:
+    description: >-
+      ...times have you received food from a food bank (e.g., Worcester County Food
+      Bank, Open Pantry Community Services, Inc., Greater Westfield Emergency Food
+      Pantry, Inc., The Food Bank of Western Massachusetts - the Mobile Food Bank,
+      or others)?
+    type: string
+
+  utilshelter:
+    description: >-
+      ...nights have you spent in a homeless shelter?
+    type: string
+
+  utildomestic:
+    description: >-
+      ...nights have you spent in a domestic violence or women's shelter?
+    type: string
+
+  utilmedmh:
+    description: >-
+      During the past 6 months, have you been prescribed and taken medication to treat
+      a mental health disorder? [Illicit use should be excluded]
+    type: string
+
+  mh_meds:
+    description: >-
+      Medication
+    enum:
+      - SSRIs? (e.g., sertraline, citalopram, fluoxetine, paroxetine)
+      - SNRIs? (e.g., venlafaxine, duloxetine)
+      - Mood Stabilizers? (e.g., depakote, lamotrigine, lithium)
+      - Antipsychotics? (e.g., quetiapine, risperidone, aripiprazole, olanzapine)
+      - Benzodiazepines? (e.g., clonazepam, diazepam, lorazepam)
+      - Other
+
+  utilmedssri:
+    description: >-
+      SSRIs
+    type: number
+
+  utilmedsnri:
+    description: >-
+      SNRIs
+    type: number
+
+  utilmedmood:
+    description: >-
+      Mood Stabilizers
+    type: number
+
+  utilmedantipsych:
+    description: >-
+      Antipsychotics
+    type: number
+
+  utilmedbenzo:
+    description: >-
+      Benzodiazepines
+    type: number
+
+  utilmedother:
+    description: >-
+      Other
+    type: number
+
+  utilmedssridose:
+    description: >-
+      SSRIs? (e.g., sertraline, citalopram, fluoxetine, paroxetine) dose/day: the
+      dose taken most often ('usual dose')
+    type: string
+
+  utilmedsnridose:
+    description: >-
+      SNRIs? (e.g., venlafaxine, duloxetine) dose/day: the dose taken most often ('usual
+      dose')
+    type: string
+
+  utilmedmooddose:
+    description: >-
+      Mood Stabilizers? (e.g., depakote, lamotrigine, lithium) dose/day: the dose
+      taken most often ('usual dose')
+    type: string
+
+  utilmedantipsychdose:
+    description: >-
+      Antipsychotics? (e.g., quetiapine, risperidone, aripiprazole, olanzapine) dose/day:
+      the dose taken most often ('usual dose')
+    type: string
+
+  utilmedbenzodose:
+    description: >-
+      Benzodiazepines? (e.g., clonazepam, diazepam, lorazepam)  dose/day: the dose
+      taken most often ('usual dose')
+    type: string
+
+  utilmedotherspecify:
+    description: >-
+      Other medicine (specify)
+    type: string
+
+  utilmedotherdose:
+    description: >-
+      Other medicine dose/day : the dose taken most often ('usual dose')
+    type: string
+
+  utilpublicassistyn:
+    description: >-
+      During the past 6 months, did you receive any public assistance like unemployment,
+      food stamps / TANF, subsidized housing, or supplemental security income?
+    type: string
+
+  utilnonemplincomeyn:
+    description: >-
+      During the past 6 months, did you receive any other non-employment income sources
+      like retirement, pension, alimony, child support, or interest?
+    type: string
+
+  utilincomeunlawful:
+    description: >-
+      During the past 6 months, outside of employment described above, did you receive
+      any other income from activities that might get you into trouble or be against
+      the law, like dealing, gambling, theft or fencing?
+    enum:
+      - "No"
+      - "Yes"
+      - Prefer not to answer
+
+  utilpublicassistamt:
+    description: >-
+      During the past 6 months, approximately how much money have you  received from
+      public assistance sources like unemployment, food stamps (TANF), subsidized
+      housing, supplemental security income?
+    type: string
+
+  utilnonemplincomeamt:
+    description: >-
+      During the past 6 months, approximately how much money have you  received from
+      other non-employment sources like retirement, pension, alimony, child support,
+      interest?
+    type: string
+
+  utilincomeunlawfulamt:
+    description: >-
+      During the past 6 months, outside of employment described above, how much money
+      did you earn from activities that might get you into trouble or be against the
+      law, like dealing, gambling, theft or fencing?
+    type: string
+
+  utilmiles:
+    description: >-
+      During the past 6 months, how many miles do you usually travel for a health
+      care visit  (one-way)?
+    type: string
+
+  utiltransport:
+    description: >-
+      What mode of transportation do you usually use?
+    enum:
+      - I drive myself
+      - Someone else drives me
+      - Taxi/Uber/Rideshare/Lyft
+      - Clinic van
+      - Bus
+      - Subway
+      - Walk
+      - Other
+
+  utiltransportother:
+    description: >-
+      Other type of transportation (specify):
+    type: string
+
+  utilcaregiverhrs:
+    description: >-
+      In a typical week during the past 6 months, how many hours have you required
+      the use of a caregiver for your healthcare needs (e.g., babysitter or someone
+      to travel with you to appointments)?
+    type: string
+
+  utilmoneysubstanceuse:
+    description: >-
+      In a typical week during the past 6 months, approximately how much money did
+      you spend on alcohol, tobacco, marijuana, and illegal drugs?
+    type: string
+
+  utildayselecmonitor:
+    description: >-
+      During the past 6 months, how many days have you been on electronic monitoring?
+    type: string
+
+  utildayshousearrest:
+    description: >-
+      During the past 6 months, how many days have you been on house arrest?
+    type: string
+
+  utildaysjail:
+    description: >-
+      During the past 6 months, how many days have you been in jail?
+    type: string
+
+  utildaysprison:
+    description: >-
+      During the past 6 months, how many days have you been in prison?
+    type: string
+
+  utilcommsup:
+    description: >-
+      During the past 6 months, how many days have you been on any other kind of community
+      supervision?
+    type: string
+
+  utilparolemet:
+    description: >-
+      During the past 6 months, how many days have you met with your probation or
+      parole officer?
+    type: string
+
+  utilparoletrouble:
+    description: >-
+      During the past 6 months, how many days have you been in trouble with your probation
+      or parole officer?
+    type: string
+
+  pb_health_economics:
     $ref: "_definitions.yaml#/to_one"

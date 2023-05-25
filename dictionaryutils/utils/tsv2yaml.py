@@ -46,7 +46,8 @@ def validate_enum(temp_enum):
     Strips spaces & converts values that could be interpreted in yaml as
     nonstring, to double quotation string
     """
-
+    temp_enum = str(temp_enum)
+    print(temp_enum)
     enum = stripper(temp_enum)
     # enum = enum.replace(':', '-')
 

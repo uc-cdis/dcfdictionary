@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_AIM_IAM_FIM
+  - name: pb_implementation_science
     backref: pb_aim_iam_fim
     label: derived_from
     target_type: pb_implementation_science
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,181 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_AIM_IAM_FIM:
+  aimapproval:
+    description: >-
+      Acceptability of Intervention Measure (AIM).. (INSERT INTERVENTION) meets my
+      approval.
+    enum:
+      - Completely Disagree
+      - Disagree
+      - Neither agree nor disagree
+      - Agree
+      - Completely Agree
+
+  aimappealing:
+    description: >-
+      (INSERT INTERVENTION) is appealing to me.
+    enum:
+      - Completely Disagree
+      - Disagree
+      - Neither agree nor disagree
+      - Agree
+      - Completely Agree
+
+  aimlike:
+    description: >-
+      I like (INSERT INTERVENTION).
+    enum:
+      - Completely Disagree
+      - Disagree
+      - Neither agree nor disagree
+      - Agree
+      - Completely Agree
+
+  aimwelcome:
+    description: >-
+      I welcome (INSERT INTERVENTION).
+    enum:
+      - Completely Disagree
+      - Disagree
+      - Neither agree nor disagree
+      - Agree
+      - Completely Agree
+
+  iamfitting:
+    description: >-
+      Intervention Appropriateness Measure (IAM).. 1. (INSERT INTERVENTION) seems
+      fitting.
+    enum:
+      - Completely Disagree
+      - Disagree
+      - Neither agree nor disagree
+      - Agree
+      - Completely Agree
+
+  iamsuitable:
+    description: >-
+      2. (INSERT INTERVENTION) seems suitable.
+    enum:
+      - Completely Disagree
+      - Disagree
+      - Neither agree nor disagree
+      - Agree
+      - Completely Agree
+
+  iamapplicable:
+    description: >-
+      3. (INSERT INTERVENTION) seems applicable.
+    enum:
+      - Completely Disagree
+      - Disagree
+      - Neither agree nor disagree
+      - Agree
+      - Completely Agree
+
+  iammatch:
+    description: >-
+      4. (INSERT INTERVENTION) seems like a good match.
+    enum:
+      - Completely Disagree
+      - Disagree
+      - Neither agree nor disagree
+      - Agree
+      - Completely Agree
+
+  fimimplementable:
+    description: >-
+      Feasibility of Intervention Measure (FIM).. (INSERT INTERVENTION) seems implementable.
+    enum:
+      - Completely Disagree
+      - Disagree
+      - Neither agree nor disagree
+      - Agree
+      - Completely Agree
+
+  fimplausible:
+    description: >-
+      (INSERT INTERVENTION) seems possible.
+    enum:
+      - Completely Disagree
+      - Disagree
+      - Neither agree nor disagree
+      - Agree
+      - Completely Agree
+
+  fimdoable:
+    description: >-
+      (INSERT INTERVENTION) seems doable.
+    enum:
+      - Completely Disagree
+      - Disagree
+      - Neither agree nor disagree
+      - Agree
+      - Completely Agree
+
+  fimeasy:
+    description: >-
+      (INSERT INTERVENTION) seems easy to use.
+    enum:
+      - Completely Disagree
+      - Disagree
+      - Neither agree nor disagree
+      - Agree
+      - Completely Agree
+
+  aimscore:
+    description: >-
+      Acceptability of Intervention score
+    type: number
+
+  iamscore:
+    description: >-
+      Intervention Appropriateness score
+    type: number
+
+  fimscore:
+    description: >-
+      Feasibility of Intervention score
+    type: number
+
+  sdmunderstand:
+    description: >-
+      Please reflect on your health care encounters regarding treatment for chronic
+      pain and OUD and complete the following items: How much effort was made to help
+      you understand your health issues?
+    enum:
+      - No effort was made
+      - A little effort was made
+      - Some effort was made
+      - A lot effort was made
+      - Every effort was made
+
+  sdmlisten:
+    description: >-
+      How much effort was made to listen to the things that matter most to you about
+      your health issues?
+    enum:
+      - No effort was made
+      - A little effort was made
+      - Some effort was made
+      - A lot effort was made
+      - Every effort was made
+
+  sdminclude:
+    description: >-
+      How much effort was made to include what matters most to you in choosing what
+      to do next?
+    enum:
+      - No effort was made
+      - A little effort was made
+      - Some effort was made
+      - A lot effort was made
+      - Every effort was made
+
+  sdmscore:
+    description: >-
+      Overall score for the IMPOWR Shared Decision Making assessment
+    type: number
+
+  pb_implementation_science:
     $ref: "_definitions.yaml#/to_one"

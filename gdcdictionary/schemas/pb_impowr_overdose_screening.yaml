@@ -20,8 +20,8 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_IMPOWR_overdose_screening
-    backref: pb_impowr_overdose_screening
+  - name: pb_substance_uses
+    backref: pb_impowr_overdose_screenings
     label: derived_from
     target_type: pb_substance_use
     multiplicity: many_to_one
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,18 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_IMPOWR_overdose_screening:
+  opioidodnumtimes:
+    description: >-
+      During the past 90 days, how many times did you overdose on heroin, fentanyl,
+      or other opioids? (Overdose means that you took enough drug that it caused a
+      life-threatening reaction)?
+    type: string
+
+  opioidodnarcan:
+    description: >-
+      During the past 90 days, how many times did you receive naloxone (Narcan) to
+      reverse your overdose?
+    type: string
+
+  pb_substance_uses:
     $ref: "_definitions.yaml#/to_one"

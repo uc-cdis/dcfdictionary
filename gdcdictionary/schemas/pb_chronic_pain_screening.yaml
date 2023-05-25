@@ -20,8 +20,8 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_chronic_pain_screening
-    backref: pb_chronic_pain_screening
+  - name: pb_pains
+    backref: pb_chronic_pain_screenings
     label: derived_from
     target_type: pb_pain
     multiplicity: many_to_one
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,38 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_chronic_pain_screening:
+  cp_screen_1:
+    description: >-
+      In the past 3 months : how often did you have pain?
+    enum:
+      - Never
+      - Some days
+      - Most days
+      - Everyday
+
+  cp_screen_2:
+    description: >-
+      how often did pain limit your life or work activities?
+    enum:
+      - Never
+      - Some days
+      - Most days
+      - Everyday
+
+  painyears:
+    description: >-
+      How long have you had pain?: Number of years?
+    type: string
+
+  painmonths:
+    description: >-
+      Number of months?
+    type: string
+
+  paindur:
+    description: >-
+      Total pain duration in months
+    type: number
+
+  pb_pains:
     $ref: "_definitions.yaml#/to_one"

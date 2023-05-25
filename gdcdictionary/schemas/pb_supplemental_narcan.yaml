@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "pb_supplemental_narcan"
-title: Patient Baseline Supplemental Narcan
+title: Patient Baseline Supplemental Narcan ( supnarcan )
 type: object
 namespace: https://impowrgen3.wakehealth.edu/
 category: clinical
@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_supplemental_narcan
+  - name: pb_substance_uses
     backref: pb_supplemental_narcan
     label: derived_from
     target_type: pb_substance_use
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,193 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_supplemental_narcan:
+  narcankit:
+    description: >-
+      Have you been provided a Naloxone rescue kit ("Narcan kit")?
+    type: string
+
+  narcanusedother:
+    description: >-
+      Have you had to use a naloxone kit on someone else?
+    type: string
+
+  narcanrefill:
+    description: >-
+      Have you obtained a refill/replacement kit?
+    type: string
+
+  narcandrug_1:
+    description: >-
+      Drugs -  Heroin
+    enum:
+      - 0 = No
+      - 1 = Yes
+
+  narcandrug_2:
+    description: >-
+      Drugs -  Fentanyl
+    enum:
+      - 0 = No
+      - 1 = Yes
+
+  narcandrug_3:
+    description: >-
+      Drugs -  Other opioids
+    enum:
+      - 0 = No
+      - 1 = Yes
+
+  narcandrug_4:
+    description: >-
+      Drugs -  Cocaine
+    enum:
+      - 0 = No
+      - 1 = Yes
+
+  narcandrug_5:
+    description: >-
+      Drugs - Amphetamines
+    enum:
+      - 0 = No
+      - 1 = Yes
+
+  narcandrug_6:
+    description: >-
+      Drugs -  Benzodiazepines
+    enum:
+      - 0 = No
+      - 1 = Yes
+
+  narcandrug_7:
+    description: >-
+      Drugs -  Cannabis
+    enum:
+      - 0 = No
+      - 1 = Yes
+
+  narcandrug_8:
+    description: >-
+      Drugs -  Alcohol
+    enum:
+      - 0 = No
+      - 1 = Yes
+
+  narcandrug_99:
+    description: >-
+      Drugs -  Other
+    enum:
+      - 0 = No
+      - 1 = Yes
+
+  narcandrug_other:
+    description: >-
+      Drugs - Other description
+    type: string
+
+  narcanadm_1:
+    description: >-
+      Paramedic/Ambulance
+    enum:
+      - "No"
+      - "Yes"
+
+  narcanadm_2:
+    description: >-
+      Firefighter
+    enum:
+      - "No"
+      - "Yes"
+
+  narcanadm_3:
+    description: >-
+      Police
+    enum:
+      - "No"
+      - "Yes"
+
+  narcanadm_4:
+    description: >-
+      Emergency room doctor
+    enum:
+      - "No"
+      - "Yes"
+
+  narcanadm_5:
+    description: >-
+      Spouse/significant other
+    enum:
+      - "No"
+      - "Yes"
+
+  narcanadm_6:
+    description: >-
+      Running partner
+    enum:
+      - "No"
+      - "Yes"
+
+  narcanadm_7:
+    description: >-
+      Parent
+    enum:
+      - "No"
+      - "Yes"
+
+  narcanadm_8:
+    description: >-
+      Friend
+    enum:
+      - "No"
+      - "Yes"
+
+  narcanadm_9:
+    description: >-
+      Stranger
+    enum:
+      - "No"
+      - "Yes"
+
+  narcanadm_10:
+    description: >-
+      Self
+    enum:
+      - "No"
+      - "Yes"
+
+  narcanadm_99:
+    description: >-
+      Other
+    enum:
+      - "No"
+      - "Yes"
+
+  narcanadm_other:
+    description: >-
+      Other specify
+    type: string
+
+  narcannumems:
+    description: >-
+      How many of these times did you receive emergency medical service following
+      an overdose?
+    type: string
+
+  narcannumed:
+    description: >-
+      How many of these times did you go to the emergency department following an
+      overdose?
+    type: string
+
+  narcannumhosp:
+    description: >-
+      How many of these times did you get admitted to the hospital following an overdose?
+    type: string
+
+  narcannumref:
+    description: >-
+      How many of these times did you receive a referral to substance use treatment
+      from the police, EMS, ED or hospital staff?
+    type: string
+
+  pb_substance_uses:
     $ref: "_definitions.yaml#/to_one"

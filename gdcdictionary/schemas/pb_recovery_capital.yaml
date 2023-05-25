@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_recovery_capital
+  - name: pb_overall_functions
     backref: pb_recovery_capital
     label: derived_from
     target_type: pb_overall_function
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,255 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_recovery_capital:
+  barc10_1:
+    description: >-
+      There are more important things to me in life than using substances.
+    enum:
+      - Strongly Disagree
+      - Disagree
+      - Somewhat Disagree
+      - Somewhat Agree
+      - Agree
+      - Strongly Agree
+
+  barc10_2:
+    description: >-
+      Please indicate your level of agreement with the following statements… In general
+      I am happy with my life.
+    enum:
+      - Strongly Disagree
+      - Disagree
+      - Somewhat Disagree
+      - Somewhat Agree
+      - Agree
+      - Strongly Agree
+
+  barc10_3:
+    description: >-
+      Please indicate your level of agreement with the following statements…  I have
+      enough energy to complete the tasks I set myself.
+    enum:
+      - Strongly Disagree
+      - Disagree
+      - Somewhat Disagree
+      - Somewhat Agree
+      - Agree
+      - Strongly Agree
+
+  barc10_4:
+    description: >-
+      Please indicate your level of agreement with the following statements… I am
+      proud of the community I live in and feel part of it.
+    enum:
+      - Strongly Disagree
+      - Disagree
+      - Somewhat Disagree
+      - Somewhat Agree
+      - Agree
+      - Strongly Agree
+
+  barc10_5:
+    description: >-
+      Please indicate your level of agreement with the following statements… I get
+      lots of support from friends.
+    enum:
+      - Strongly Disagree
+      - Disagree
+      - Somewhat Disagree
+      - Somewhat Agree
+      - Agree
+      - Strongly Agree
+
+  barc10_6:
+    description: >-
+      Please indicate your level of agreement with the following statements… I regard
+      my life as challenging and fulfilling without the need for using drugs or alcohol.
+    enum:
+      - Strongly Disagree
+      - Disagree
+      - Somewhat Disagree
+      - Somewhat Agree
+      - Agree
+      - Strongly Agree
+
+  barc10_7:
+    description: >-
+      Please indicate your level of agreement with the following statements… My living
+      space has helped to drive my recovery journey.
+    enum:
+      - Strongly Disagree
+      - Disagree
+      - Somewhat Disagree
+      - Somewhat Agree
+      - Agree
+      - Strongly Agree
+
+  barc10_8:
+    description: >-
+      Please indicate your level of agreement with the following statements… I take
+      full responsibility for my actions.
+    enum:
+      - Strongly Disagree
+      - Disagree
+      - Somewhat Disagree
+      - Somewhat Agree
+      - Agree
+      - Strongly Agree
+
+  barc10_9:
+    description: >-
+      Please indicate your level of agreement with the following statements… I am
+      happy dealing with a range of professional people.
+    enum:
+      - Strongly Disagree
+      - Disagree
+      - Somewhat Disagree
+      - Somewhat Agree
+      - Agree
+      - Strongly Agree
+
+  barc10_10:
+    description: >-
+      Please indicate your level of agreement with the following statements… I am
+      making good progress on my recovery journey.
+    enum:
+      - Strongly Disagree
+      - Disagree
+      - Somewhat Disagree
+      - Somewhat Agree
+      - Agree
+      - Strongly Agree
+
+  barc10_total:
+    description: >-
+      Total score
+    type: number
+
+  bsssacred:
+    description: >-
+      Think about how often you have had each experience rather than whether you should
+      or should not have had these experiences... I believe life is sacred
+    enum:
+      - Never or Almost Never
+      - Once in a While
+      - Some Days
+      - Most Days
+      - Every Day
+      - Many times a Day
+
+  bssvalue:
+    description: >-
+      Think about how often you have had each experience rather than whether you should
+      or should not have had these experiences...I value my life and everyone's around
+      me
+    enum:
+      - Never or Almost Never
+      - Once in a While
+      - Some Days
+      - Most Days
+      - Every Day
+      - Many times a Day
+
+  bssrelated:
+    description: >-
+      Think about how often you have had each experience rather than whether you should
+      or should not have had these experiences...All things are related to one another
+    enum:
+      - Never or Almost Never
+      - Once in a While
+      - Some Days
+      - Most Days
+      - Every Day
+      - Many times a Day
+
+  bsspray:
+    description: >-
+      Think about how often you have had each experience rather than whether you should
+      or should not have had these experiences...I pray to Creator/ancestors/higher
+      power
+    enum:
+      - Never or Almost Never
+      - Once in a While
+      - Some Days
+      - Most Days
+      - Every Day
+      - Many times a Day
+
+  bssthanks:
+    description: >-
+      Think about how often you have had each experience rather than whether you should
+      or should not have had these experiences...In the evening, I express thanks
+    enum:
+      - Never or Almost Never
+      - Once in a While
+      - Some Days
+      - Most Days
+      - Every Day
+      - Many times a Day
+
+  bssstrength:
+    description: >-
+      Think about how often you have had each experience rather than whether you should
+      or should not have had these experiences...I find strength in my faith and spirituality
+    enum:
+      - Never or Almost Never
+      - Once in a While
+      - Some Days
+      - Most Days
+      - Every Day
+      - Many times a Day
+
+  bssparticipate:
+    description: >-
+      Think about how often you have had each experience rather than whether you should
+      or should not have had these experiences...I participate in cultural/faith related
+      activities
+    enum:
+      - Never or Almost Never
+      - Once in a While
+      - Some Days
+      - Most Days
+      - Every Day
+      - Many times a Day
+
+  bsstouched:
+    description: >-
+      Think about how often you have had each experience rather than whether you should
+      or should not have had these experiences...I am spiritually touched by participating
+      in my faith
+    enum:
+      - Never or Almost Never
+      - Once in a While
+      - Some Days
+      - Most Days
+      - Every Day
+      - Many times a Day
+
+  bssalive:
+    description: >-
+      Think about how often you have had each experience rather than whether you should
+      or should not have had these experiences...I believe everything is alive with
+      a spirit
+    enum:
+      - Never or Almost Never
+      - Once in a While
+      - Some Days
+      - Most Days
+      - Every Day
+      - Many times a Day
+
+  bssunderstanding:
+    description: >-
+      Think about how often you have had each experience rather than whether you should
+      or should not have had these experiences...I feel thankful for my understanding
+      of my faith and beliefs
+    enum:
+      - Never or Almost Never
+      - Once in a While
+      - Some Days
+      - Most Days
+      - Every Day
+      - Many times a Day
+
+  pb_overall_functions:
     $ref: "_definitions.yaml#/to_one"

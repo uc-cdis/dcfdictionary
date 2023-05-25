@@ -20,7 +20,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: patients_baseline_GAD_7
+  - name: pb_anxieties
     backref: pb_gad_seven
     label: derived_from
     target_type: pb_anxiety
@@ -30,7 +30,6 @@ links:
 required:
   - submitter_id
   - type
-  - studies
 
 uniqueKeys:
   - [id]
@@ -40,5 +39,60 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  patients_baseline_GAD_7:
+  gad7wrytoomchscl:
+    description: >-
+      Over the last 2 weeks, how often have you been bothered by the following problems?..  Worrying
+      too much about different things
+    enum:
+      - Not at all sure
+      - Several days
+      - Over half the days
+      - Nearly every day
+
+  gad7troubrelxscl:
+    description: >-
+      Over the last 2 weeks, how often have you been bothered by the following problems?
+      .. Trouble relaxing
+    enum:
+      - Not at all sure
+      - Several days
+      - Over half the days
+      - Nearly every day
+
+  gad7rstlessscl:
+    description: >-
+      Over the last 2 weeks, how often have you been bothered by the following problems?
+      .. Being so restless that it's hard to sit still
+    enum:
+      - Not at all sure
+      - Several days
+      - Over half the days
+      - Nearly every day
+
+  gad7easyannoyedscl:
+    description: >-
+      Over the last 2 weeks, how often have you been bothered by the following problems?
+      .. Becoming easily annoyed or irritable
+    enum:
+      - Not at all sure
+      - Several days
+      - Over half the days
+      - Nearly every day
+
+  gad7feelafrdscl:
+    description: >-
+      Over the last 2 weeks, how often have you been bothered by the following problems?
+      .. Feeling afraid as if something awful might happen
+    enum:
+      - Not at all sure
+      - Several days
+      - Over half the days
+      - Nearly every day
+
+  gad7totscore:
+    description: >-
+      Total Score
+    type: number
+
+  pb_anxieties:
     $ref: "_definitions.yaml#/to_one"
